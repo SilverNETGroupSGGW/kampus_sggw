@@ -33,7 +33,7 @@ class _InteractiveMapState extends State<InteractiveMap> {
       child: Stack(
         children: [
           Image(
-            image: AssetImage("assets/sggw_map.png"),
+            image: AssetImage("assets/images/map/sggw_map.png"),
           ),
           Positioned.fill(
             child: Stack(
