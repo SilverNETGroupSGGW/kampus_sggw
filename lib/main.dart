@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/widgets/map_screen/map_screen.dart';
+import 'screens/map_screen/map_screen.dart';
 
 void main() {
   runApp(MyApp());
