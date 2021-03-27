@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/models/building.dart';
+import 'package:kampus_sggw/global_widgets/side_drawer.dart';
 import 'info_card.dart';
 import 'interactive_map.dart';
+import 'map_floating_buttons.dart';
 
 class MapScreen extends StatefulWidget {
   final List<Building> buildings = [
@@ -67,6 +69,8 @@ class _MapScreenState extends State<MapScreen> {
           showInfoCard,
         ),
       ]),
+      floatingActionButton: MapFloatingButtons(),
+      drawer: SideDrawer(),
     );
   }
 }
