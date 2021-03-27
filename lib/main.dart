@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/interactive_map.dart';
-import 'package:kampus_sggw/info_card.dart';
-import 'package:kampus_sggw/building.dart';
+import 'widgets/interactive_map.dart';
+import 'widgets/info_card.dart';
+import 'models/building.dart';
 
 void main() {
   runApp(MyApp());

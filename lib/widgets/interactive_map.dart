@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/location_pin.dart';
-import 'package:kampus_sggw/building.dart';
+import 'location_pin.dart';
+import '../models/building.dart';
 
 class InteractiveMap extends StatefulWidget {
   TransformationController transController = TransformationController();

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/building.dart';
+import '../models/building.dart';
 
 class LocationPin extends StatelessWidget {
   // Lat/lon positions of the map

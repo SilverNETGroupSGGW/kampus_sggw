@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/building.dart';
+import '../models/building.dart';
 
 class InfoCardDialog extends StatelessWidget {
   String header;
