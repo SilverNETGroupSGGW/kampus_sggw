@@ -1,9 +1,9 @@
-class Building {
-  double lat;
-  double lon;
+import 'map_item.dart';
+import 'service.dart';
 
-  String name;
-  List<String> departments;
-
-  Building({this.lat, this.lon, this.name, this.departments});
+class Building extends MapItem {
+  List<Service> services;
+  Building({
+    this.services,
+  });
 }
