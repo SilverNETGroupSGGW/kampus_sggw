@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../models/building.dart';
+import 'package:kampus_sggw/models/building.dart';
 
 class InfoCardDialog extends StatelessWidget {
   String header;
@@ -15,7 +15,6 @@ class InfoCardDialog extends StatelessWidget {
       this.description += category.name;
       this.description += "\n";
     }
-    //this.description = building.categories..join("\n");
   }
 
   @override
