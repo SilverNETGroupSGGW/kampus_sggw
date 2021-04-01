@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'category.dart';
 import 'map_item.dart';
 import 'service.dart';
@@ -13,6 +11,7 @@ class Building extends MapItem {
       name,
       description,
       url,
+      type,
       photoPath,
       minScale,
       lastModified,
@@ -25,6 +24,7 @@ class Building extends MapItem {
             name: name,
             description: description,
             url: url,
+            type: type,
             photoPath: photoPath,
             minScale: minScale,
             lastModified: lastModified,

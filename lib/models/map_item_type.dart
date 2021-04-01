@@ -1,13 +1,13 @@
-enum MapItemType{
+enum MapItemType {
   facultyBuilding,
-  administrationBuilding, 
+  administrationBuilding,
   sportsFacility,
   store,
   food,
   library,
   parking,
   transport,
-  finance,  
+  finance,
   dormitories,
   kindergarten,
   monument,

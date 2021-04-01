@@ -1,11 +1,11 @@
 import 'location.dart';
 import 'point.dart';
 
-class Map{
+class Map {
   Location bottomLeftCorner;
   Location topRightCorner;
   Map({this.bottomLeftCorner, this.topRightCorner});
-  Point geoLocationToMapPoint(Location geoLocation){
+  Point geoLocationToMapPoint(Location geoLocation) {
     //TODO
   }
 }

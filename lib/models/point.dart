@@ -1,7 +1,5 @@
-import 'dart:ffi';
-
-class Point{
-  Float x;
-  Float y;
+class Point {
+  double x;
+  double y;
   Point({this.x, this.y});
 }

@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'location.dart';
 import 'map_item_type.dart';
 
@@ -11,7 +9,7 @@ class MapItem {
   String url;
   MapItemType type;
   String photoPath;
-  Float minScale;
+  double minScale;
   DateTime lastModified;
   List<String> gallery;
   MapItem(
@@ -20,6 +18,7 @@ class MapItem {
       this.name,
       this.description,
       this.url,
+      this.type,
       this.photoPath,
       this.minScale,
       this.lastModified,
