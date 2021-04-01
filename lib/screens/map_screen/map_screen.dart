@@ -1,36 +1,45 @@
+import 'package:kampus_sggw/models/category.dart';
+import 'package:kampus_sggw/models/location.dart';
+
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/models/building.dart';
+import 'package:kampus_sggw/screens/map_screen/location_pin.dart';
 import 'info_card.dart';
 import 'interactive_map.dart';
 
 class MapScreen extends StatefulWidget {
   final List<Building> buildings = [
     Building(
-      lat: 52.16010,
-      lon: 21.04476,
+      geoLocation: Location(lat: 52.16010, lon: 21.04476),
       name: "Budynek 32",
-      departments: [
-        'Wydział Nauk o Żywności',
-        'Wydział Nauk o Żywieniu Człowieka i Konsumpcji',
+      categories: [
+        Category(name: 'Faculties', subCategories: [
+          Category(name: 'Wydział Nauk o Żywności'),
+          Category(name: 'Wydział Nauk o Żywieniu Człowieka i Konsumpcji')
+        ])
       ],
     ),
     Building(
-      lat: 52.16203,
-      lon: 21.04632,
+      geoLocation: Location(lat: 52.16203, lon: 21.04632),
       name: "Budynek 34",
-      departments: [
-        'Wydział Leśny',
-        'Wydział Technologii Drewna',
-        'Wydział Zastosowań Matematyki i Informatyki',
+      categories: [
+        Category(name: 'Faculties', subCategories: [
+          Category(name: 'Wydział Leśny'),
+          Category(name: 'Wydział Technologii Drewna'),
+          Category(name: 'Wydział Zastosowań Matematyki i Informatyki'),
+        ])
       ],
     ),
     Building(
-      lat: 52.16191,
-      lon: 21.04293,
+      geoLocation: Location(lat: 52.16191, lon: 21.04293),
       name: "Budynek 37",
-      departments: [
-        'Wydział Ogrodnictwa, Biotechnologii i Architektury Krajobrazu',
-        'Wydział Rolnictwa i Biologii'
+      categories: [
+        Category(name: 'Faculties', subCategories: [
+          Category(
+              name:
+                  'Wydział Ogrodnictwa, Biotechnologii i Architektury Krajobrazu'),
+          Category(name: 'Wydział Rolnictwa i Biologii')
+        ])
       ],
     ),
   ];
