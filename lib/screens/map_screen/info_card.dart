@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../models/building.dart';
+import 'package:kampus_sggw/models/building.dart';
 
 class InfoCardDialog extends StatelessWidget {
   String header;
@@ -10,7 +10,11 @@ class InfoCardDialog extends StatelessWidget {
   InfoCardDialog({this.header, this.description});
   InfoCardDialog.fromBuilding(Building building) {
     this.header = building.name;
-    this.description = building.departments.join("\n");
+    this.description = '';
+    for (var category in building.categories[0].subCategories) {
+      this.description += category.name;
+      this.description += "\n";
+    }
   }
 
   @override
