@@ -17,11 +17,15 @@ var building34 = new Building(
   gallery: null,
   services: [
     new Service(
-        name: 'xero', type: ServiceType.xero, description: 'Xero na 1 piętrze'),
+      name: 'xero',
+      type: ServiceType.xero,
+      description: 'Xero na 1 piętrze',
+    ),
     new Service(
-        name: 'Kartka',
-        type: ServiceType.canteen,
-        description: 'Bufet w piwnicy'),
+      name: 'Kartka',
+      type: ServiceType.canteen,
+      description: 'Bufet w piwnicy',
+    ),
   ],
   categories: [
     new Category(
@@ -33,20 +37,39 @@ var building34 = new Building(
           description:
               '2 piętro, Kierunki: Informatyka, Informatyka i Ekonometria',
           services: [
-            new Service(name: 'Dziekanat WZIM', type: ServiceType.deanery),
             new Service(
-                name: 'Automat z kawą', type: ServiceType.vendingMachine),
-            new Service(name: 'Aula III', type: ServiceType.lectureHall),
-            new Service(name: 'Aula IV', type: ServiceType.lectureHall),
+              name: 'Dziekanat WZIM',
+              type: ServiceType.deanery,
+            ),
+            new Service(
+              name: 'Automat z kawą',
+              type: ServiceType.vendingMachine,
+            ),
+            new Service(
+              name: 'Aula III',
+              type: ServiceType.lectureHall,
+            ),
+            new Service(
+              name: 'Aula IV',
+              type: ServiceType.lectureHall,
+            ),
           ],
           subCategories: [
             new Category(
               name: 'Departments',
               subCategories: [
-                new Category(name: 'Katedra Zastosowań Informatyki'),
-                new Category(name: 'Katedra Informatyki'),
-                new Category(name: 'Katedra Ekonometrii i Statystyki'),
-                new Category(name: 'Katedra Zastosowań Matematyki'),
+                new Category(
+                  name: 'Katedra Zastosowań Informatyki',
+                ),
+                new Category(
+                  name: 'Katedra Informatyki',
+                ),
+                new Category(
+                  name: 'Katedra Ekonometrii i Statystyki',
+                ),
+                new Category(
+                  name: 'Katedra Zastosowań Matematyki',
+                ),
               ],
             ),
           ],
@@ -56,13 +79,18 @@ var building34 = new Building(
           url: 'http://wl.sggw.pl/news',
           description: '1 piętro, Kierunki: Leśnictwo',
           services: [
-            new Service(name: 'Dziekanat WL', type: ServiceType.deanery),
+            new Service(
+              name: 'Dziekanat WL',
+              type: ServiceType.deanery,
+            ),
           ],
           subCategories: [
             new Category(
               name: 'Departments',
               subCategories: [
-                new Category(name: 'Instytut Nauk Leśnych'),
+                new Category(
+                  name: 'Instytut Nauk Leśnych',
+                ),
               ],
             ),
           ],
@@ -70,7 +98,10 @@ var building34 = new Building(
         new Category(
           name: 'Wydział technologii drewna',
           services: [
-            new Service(name: 'Dziekanat WTD', type: ServiceType.deanery),
+            new Service(
+              name: 'Dziekanat WTD',
+              type: ServiceType.deanery,
+            ),
           ],
         ),
       ],
