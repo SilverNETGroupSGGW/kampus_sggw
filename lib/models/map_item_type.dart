@@ -11,5 +11,5 @@ enum MapItemType {
   dormitories,
   kindergarten,
   monument,
-  medicine
+  medicine,
 }

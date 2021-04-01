@@ -12,15 +12,16 @@ class MapItem {
   double minScale;
   DateTime lastModified;
   List<String> gallery;
-  MapItem(
-      {this.id,
-      this.geoLocation,
-      this.name,
-      this.description,
-      this.url,
-      this.type,
-      this.photoPath,
-      this.minScale,
-      this.lastModified,
-      this.gallery});
+  MapItem({
+    this.id,
+    this.geoLocation,
+    this.name,
+    this.description,
+    this.url,
+    this.type,
+    this.photoPath,
+    this.minScale,
+    this.lastModified,
+    this.gallery,
+  });
 }
