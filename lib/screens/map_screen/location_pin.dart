@@ -18,8 +18,8 @@ class LocationPin extends StatelessWidget {
 
   // Constructors
   LocationPin.fromBuilding(this.building, this.onPress) {
-    this.x = _lonToPos(building.lon);
-    this.y = _latToPos(building.lat);
+    this.x = _lonToPos(building.geoLocation.lon);
+    this.y = _latToPos(building.geoLocation.lat);
     this.scale = 1.0;
   }
   LocationPin.withNewScale(LocationPin pin, double newScale) {
