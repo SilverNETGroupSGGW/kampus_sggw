@@ -8,7 +8,7 @@ var building34 = new Building(
     id: 34,
     name: 'Building 34',
     geoLocation: new Location(lat: 52.174, lon: 54.96),
-    description: 'WZIM, WL, ... building',
+    description: 'Budynek WZIM, WL i WTD',
     url: 'http://www.sggw.pl/',
     type: MapItemType.facultyBuilding,
     photoPath: 'assets/buildings/34',
@@ -19,29 +19,48 @@ var building34 = new Building(
       new Service(
           name: 'xero',
           type: ServiceType.xero,
-          description: 'xero on second floor'),
+          description: 'Xero na 1 piętrze'),
       new Service(
           name: 'Kartka',
           type: ServiceType.canteen,
-          description: 'Canteen in the basement')
+          description: 'Bufet w piwnicy')
     ],
     categories: [
       new Category(name: 'Faculties', subCategories: [
         new Category(
-            name: 'WZIM',
+            name: 'Wydział Zastosowań Informatyki i Matematyki',
             url: 'http://www.wzim.sggw.pl/',
-            description: 'Faculties: IT, IT and Economentrics, floor 2',
+            description:
+                '2 piętro, Kierunki: Informatyka, Informatyka i Ekonometria',
             services: [
-              new Service(name: 'WZIM deanery', type: ServiceType.deanery),
+              new Service(name: 'Dziekanat WZIM', type: ServiceType.deanery),
+              new Service(
+                  name: 'Automat z kawą', type: ServiceType.vendingMachine),
+              new Service(name: 'Aula III', type: ServiceType.lectureHall),
+              new Service(name: 'Aula IV', type: ServiceType.lectureHall),
             ],
             subCategories: [
               new Category(name: 'Departments', subCategories: [
-                new Category(name: 'Department of AI'),
-                new Category(name: 'Usage of Mathematics'),
+                new Category(name: 'Katedra Zastosowań Informatyki'),
+                new Category(name: 'Katedra Informatyki'),
+                new Category(name: 'Katedra Ekonometrii i Statystyki'),
+                new Category(name: 'Katedra Zastosowań Matematyki'),
               ]),
             ]),
-        new Category(name: 'WL', services: [
-          new Service(name: 'WL deanery', type: ServiceType.deanery),
+        new Category(
+            name: 'Wydział leśny',
+            url: 'http://wl.sggw.pl/news',
+            description: '1 piętro, Kierunki: Leśnictwo',
+            services: [
+              new Service(name: 'Dziekanat WL', type: ServiceType.deanery),
+            ],
+            subCategories: [
+              new Category(
+                  name: 'Departments',
+                  subCategories: [new Category(name: 'Instytut Nauk Leśnych')])
+            ]),
+        new Category(name: 'Wydział technologii drewna', services: [
+          new Service(name: 'Dziekanat WTD', type: ServiceType.deanery),
         ]),
       ]),
     ]);

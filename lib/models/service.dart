@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum ServiceType { xero, canteen, deanery}
+enum ServiceType { xero, canteen, deanery, vendingMachine, lectureHall}
 
 class Service {
   String name;
