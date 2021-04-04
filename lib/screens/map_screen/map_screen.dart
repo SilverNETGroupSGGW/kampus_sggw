@@ -4,6 +4,8 @@ import 'package:kampus_sggw/models/location.dart';
 import 'package:kampus_sggw/models/building.dart';
 import 'info_card.dart';
 import 'interactive_map.dart';
+import 'package:kampus_sggw/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class MapScreen extends StatefulWidget {
   final List<Building> buildings = [
@@ -88,7 +90,7 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Kampus SGGW"),
+        title: Text(LocaleKeys.map_screen_title.tr()),
       ),
       body: Stack(
         children: [
