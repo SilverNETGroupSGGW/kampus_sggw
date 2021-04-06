@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 class SearchBar extends StatefulWidget {
@@ -41,7 +42,7 @@ class _SearchBar extends State<SearchBar> {
         transition: CircularFloatingSearchBarTransition(),
         physics: BouncingScrollPhysics(),
         title: Text(
-          selectedTerm ?? LocaleKeys.search_bar_title,
+          selectedTerm ?? LocaleKeys.search_bar_title.tr(),
           style: Theme.of(context).textTheme.headline6,
         ),
         onQueryChanged: (query) {},

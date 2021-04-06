@@ -2,5 +2,8 @@
     "map_screen_title": "SGGW Campus",
 
     "drawer_settings": "Settings",
-    "drawer_campus_rules": "Campus rules"
+    "drawer_campus_rules": "Campus rules",
+    "search_bar_title": "Search for a place or address",
+    "find_nearby": "Find Nearby",
+    "recent_searches": "Recent Searches"
 }
