@@ -120,72 +120,87 @@ class FilterFloatingButtons extends StatelessWidget {
             ),
           ),
           Divider(color: Colors.black),
-          Row(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(left: 5),
-              ),
-              Container(
-                height: 65.0,
-                width: 65.0,
-                child: FloatingActionButton(
-                  child: const Icon(
-                    Icons.restaurant,
-                    size: 35.0,
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Padding(
+              padding: EdgeInsets.only(top: 5, bottom: 10),
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    height: 60.0,
+                    width: 60.0,
+                    child: FloatingActionButton(
+                      child: const Icon(
+                        Icons.restaurant,
+                        size: 35.0,
+                      ),
+                      backgroundColor: Colors.yellow[700],
+                      onPressed: () {},
+                    ),
                   ),
-                  backgroundColor: Colors.yellow[700],
-                  onPressed: () {},
-                ),
+                  Padding(
+                    padding: EdgeInsets.only(left:10),
+                  ),
+                  Container(
+                    height: 60.0,
+                    width: 60.0,
+                    child: FloatingActionButton(
+                      child: const Icon(Icons.bus_alert, size: 35.0),
+                      backgroundColor: Colors.blue,
+                      onPressed: () {},
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left:10),
+                  ),
+                  Container(
+                    height: 60.0,
+                    width: 60.0,
+                    child: FloatingActionButton(
+                      child: const Icon(Icons.local_parking, size: 35.0),
+                      backgroundColor: Colors.orange,
+                      onPressed: () {},
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left:10),
+                  ),
+                  Container(
+                    height: 60.0,
+                    width: 60.0,
+                    child: FloatingActionButton(
+                      child: const Icon(Icons.park, size: 35.0),
+                      backgroundColor: Colors.green,
+                      onPressed: () {},
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left:10),
+                  ),
+                  Container(
+                    height: 60.0,
+                    width: 60.0,
+                    child: FloatingActionButton(
+                      child: const Icon(Icons.local_grocery_store, size: 35.0),
+                      backgroundColor: Colors.red[300],
+                      onPressed: () {},
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left:10),
+                  ),
+                  Container(
+                    height: 60.0,
+                    width: 60.0,
+                    child: FloatingActionButton(
+                      child: const Icon(Icons.print_rounded, size: 35.0),
+                      backgroundColor: Colors.indigo,
+                      onPressed: () {},
+                    ),
+                  ),
+                ],
               ),
-              Padding(
-                padding: EdgeInsets.all(5),
-              ),
-              Container(
-                height: 65.0,
-                width: 65.0,
-                child: FloatingActionButton(
-                  child: const Icon(Icons.bus_alert, size: 35.0),
-                  backgroundColor: Colors.blue,
-                  onPressed: () {},
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(5),
-              ),
-              Container(
-                height: 65.0,
-                width: 65.0,
-                child: FloatingActionButton(
-                  child: const Icon(Icons.local_parking, size: 35.0),
-                  backgroundColor: Colors.orange,
-                  onPressed: () {},
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(5),
-              ),
-              Container(
-                height: 65.0,
-                width: 65.0,
-                child: FloatingActionButton(
-                  child: const Icon(Icons.park, size: 35.0),
-                  backgroundColor: Colors.green,
-                  onPressed: () {},
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(5),
-              ),
-              Container(
-                height: 65.0,
-                width: 65.0,
-                child: FloatingActionButton(
-                  child: const Icon(Icons.local_grocery_store, size: 35.0),
-                  backgroundColor: Colors.red[300],
-                  onPressed: () {},
-                ),
-              ),
-            ],
+            ),
           ),
           Align(
             alignment: Alignment.centerLeft,
