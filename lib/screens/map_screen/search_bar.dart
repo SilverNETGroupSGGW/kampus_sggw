@@ -97,17 +97,28 @@ class FilterFloatingButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     final fsb = FloatingSearchBar.of(context);
     return Container(
-      padding: EdgeInsets.only(top: fsb.height + fsb.margins.vertical + 15.0),
+      padding: EdgeInsets.only(top: fsb.height + fsb.margins.vertical + 10.0),
       child: Column(
         children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: Text(
+                LocaleKeys.find_nearby.tr(),
+                style: Theme.of(context).textTheme.subtitle1,
+              ),
+            ),
+          ),
+          Divider(color: Colors.grey[900]),
           Row(
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.all(5),
+                padding: EdgeInsets.only(left: 5),
               ),
               Container(
-                height: 80.0,
-                width: 80.0,
+                height: 65.0,
+                width: 65.0,
                 child: FloatingActionButton(
                   child: const Icon(
                     Icons.restaurant,
@@ -121,8 +132,8 @@ class FilterFloatingButtons extends StatelessWidget {
                 padding: EdgeInsets.all(5),
               ),
               Container(
-                height: 80.0,
-                width: 80.0,
+                height: 65.0,
+                width: 65.0,
                 child: FloatingActionButton(
                   child: const Icon(Icons.bus_alert, size: 35.0),
                   backgroundColor: Colors.blue,
@@ -133,8 +144,8 @@ class FilterFloatingButtons extends StatelessWidget {
                 padding: EdgeInsets.all(5),
               ),
               Container(
-                height: 80.0,
-                width: 80.0,
+                height: 65.0,
+                width: 65.0,
                 child: FloatingActionButton(
                   child: const Icon(Icons.local_parking, size: 35.0),
                   backgroundColor: Colors.orange,
@@ -145,11 +156,23 @@ class FilterFloatingButtons extends StatelessWidget {
                 padding: EdgeInsets.all(5),
               ),
               Container(
-                height: 80.0,
-                width: 80.0,
+                height: 65.0,
+                width: 65.0,
                 child: FloatingActionButton(
                   child: const Icon(Icons.park, size: 35.0),
                   backgroundColor: Colors.green,
+                  onPressed: () {},
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(5),
+              ),
+              Container(
+                height: 65.0,
+                width: 65.0,
+                child: FloatingActionButton(
+                  child: const Icon(Icons.local_grocery_store, size: 35.0),
+                  backgroundColor: Colors.red[300],
                   onPressed: () {},
                 ),
               ),
