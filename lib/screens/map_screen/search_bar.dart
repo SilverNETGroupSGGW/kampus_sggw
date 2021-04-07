@@ -37,7 +37,9 @@ class _SearchBar extends State<SearchBar> {
       body: FloatingSearchBar(
         controller: controller,
         body: FloatingSearchBarScrollNotifier(
-          child: FilterFloatingButtons(),
+          child: FilterFloatingButtons(
+            searchHistory: _searchHistory,
+          ),
         ),
         transition: CircularFloatingSearchBarTransition(),
         physics: BouncingScrollPhysics(),
@@ -93,6 +95,13 @@ class _SearchBar extends State<SearchBar> {
 }
 
 class FilterFloatingButtons extends StatelessWidget {
+  final searchHistory;
+
+  const FilterFloatingButtons({
+    Key key,
+    @required this.searchHistory,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final fsb = FloatingSearchBar.of(context);
@@ -110,7 +119,7 @@ class FilterFloatingButtons extends StatelessWidget {
               ),
             ),
           ),
-          Divider(color: Colors.grey[900]),
+          Divider(color: Colors.black),
           Row(
             children: <Widget>[
               Padding(
@@ -178,6 +187,17 @@ class FilterFloatingButtons extends StatelessWidget {
               ),
             ],
           ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: EdgeInsets.only(left: 10, top: 15),
+              child: Text(
+                LocaleKeys.recent_searches.tr(),
+                style: Theme.of(context).textTheme.subtitle1,
+              ),
+            ),
+          ),
+          Divider(color: Colors.black),
         ],
       ),
     );

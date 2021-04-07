@@ -6,4 +6,5 @@ abstract class  LocaleKeys {
   static const drawer_campus_rules = 'drawer_campus_rules';
   static const search_bar_title = 'search_bar_title';
   static const find_nearby = 'find_nearby';
+  static const recent_searches = 'recent_searches';
 }

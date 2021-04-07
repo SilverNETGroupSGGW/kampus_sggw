@@ -19,14 +19,16 @@ class CodegenLoader extends AssetLoader{
   "drawer_settings": "Settings",
   "drawer_campus_rules": "Campus rules",
   "search_bar_title": "Search for a place or address",
-  "find_nearby": "Find Nearby"
+  "find_nearby": "Find Nearby",
+  "recent_searches": "Recent Searches"
 };
 static const Map<String,dynamic> pl = {
   "map_screen_title": "Kampus SGGW",
   "drawer_settings": "Ustawienia",
   "drawer_campus_rules": "Regulamin kampusu",
   "search_bar_title": "Szukaj miejsca lub adresu",
-  "find_nearby": "Szukaj w pobliżu"
+  "find_nearby": "Szukaj w pobliżu",
+  "recent_searches": "Ostatnio wyszukiwane"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "pl": pl};
 }
