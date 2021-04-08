@@ -6,7 +6,5 @@ class MapItems {
   MapItems({
     this.mapItems,
   });
-  List<MapItem> filter(List<MapItemType> types) {
-    //TODO
-  }
+  List<MapItem> filter(List<MapItemType> types) => mapItems.where((element) => types.contains(element.type));
 }

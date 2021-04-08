@@ -1,3 +1,9 @@
 {
-    "map_screen_title": "Kampus SGGW"
+    "map_screen_title": "Kampus SGGW",
+
+    "drawer_settings": "Ustawienia",
+    "drawer_campus_rules": "Regulamin kampusu",
+    "search_bar_title": "Szukaj miejsca lub adresu",
+    "find_nearby": "Szukaj w pobliżu",
+    "recent": "Ostatnio wyszukiwane"
 }
