@@ -17,7 +17,9 @@ class SearchHelpPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     final fsb = FloatingSearchBar.of(context);
     return Container(
-      padding: EdgeInsets.only(top: fsb.height + fsb.margins.vertical + 10),
+      padding: EdgeInsets.only(
+        top: fsb.height + fsb.margins.vertical + 10,
+      ),
       child: Column(
         children: [
           Headline(
@@ -26,7 +28,11 @@ class SearchHelpPanel extends StatelessWidget {
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Padding(
-              padding: EdgeInsets.only(bottom: 15, left: 5, top:1),
+              padding: EdgeInsets.only(
+                bottom: 15,
+                left: 5,
+                top: 1,
+              ),
               child: FilterButtonsRow(),
             ),
           ),
@@ -54,7 +60,9 @@ class Headline extends StatelessWidget {
         Align(
           alignment: Alignment.centerLeft,
           child: Padding(
-            padding: EdgeInsets.only(left: 10),
+            padding: EdgeInsets.only(
+              left: 10,
+            ),
             child: Text(
               text,
               style: Theme.of(context).textTheme.subtitle1,
