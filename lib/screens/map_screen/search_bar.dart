@@ -125,8 +125,10 @@ class FilterFloatingButtons extends StatelessWidget {
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Padding(
-              padding: EdgeInsets.only(top: 5, bottom: 10),
-              child: Row(
+              padding: EdgeInsets.only(top: 5, bottom: 8),
+              child: Padding(
+                padding: EdgeInsets.only(left:15),
+                child:Row(
                 children: <Widget>[
                   Container(
                     height: 60.0,
@@ -203,11 +205,11 @@ class FilterFloatingButtons extends StatelessWidget {
                 ],
               ),
             ),
-          ),
+          ),),
           Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: EdgeInsets.only(left: 10, top: 14),
+              padding: EdgeInsets.only(left: 10, top: 15),
               child: Text(
                 LocaleKeys.recent_searches.tr(),
                 style: Theme.of(context).textTheme.subtitle1,
@@ -216,7 +218,7 @@ class FilterFloatingButtons extends StatelessWidget {
           ),
           Divider(color: Colors.black),
           Padding(
-            padding: EdgeInsets.only(left: 20),
+            padding: EdgeInsets.only(left:15, top: 2),
             child: Column(
               children: <Widget>[
                 Align(
@@ -224,36 +226,46 @@ class FilterFloatingButtons extends StatelessWidget {
                   child: Text(
                     searchHistory[0],
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.headline5,
+                    style: Theme.of(context).textTheme.headline6,
                   ),
                 ),
-                Divider(),
+                Padding(
+            padding: EdgeInsets.only(bottom:4, top: 4),
+            child: Divider(color: Colors.grey,),),
+                
                 Align(
                   alignment: Alignment.topLeft,
                   child: Text(
                     searchHistory[1],
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.headline5,
+                    style: Theme.of(context).textTheme.headline6,
                   ),
                 ),
-                Divider(),
+                Padding(
+            padding: EdgeInsets.only(bottom:4, top: 4),
+            child: Divider(color: Colors.grey,),),
                 Align(
                   alignment: Alignment.topLeft,
                   child: Text(
                     searchHistory[2],
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.headline5,
+                    style: Theme.of(context).textTheme.headline6,
                   ),
                 ),
-                Divider(),
+                Padding(
+            padding: EdgeInsets.only(bottom:4, top: 4),
+            child: Divider(color: Colors.grey,),),
                 Align(
                   alignment: Alignment.topLeft,
                   child: Text(
                     searchHistory[3],
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.headline5,
+                    style: Theme.of(context).textTheme.headline6,
                   ),
                 ),
+                Padding(
+            padding: EdgeInsets.only(bottom:4, top: 4),
+            child: Divider(color: Colors.grey,),),
               ],
             ),
           ),
