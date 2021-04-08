@@ -35,7 +35,7 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
       builder: (context) {
         return Container(
           child: Padding(
-            padding: EdgeInsets.only(top: 12.0, left: 10.0, right: 10.0),
+            padding: EdgeInsets.only(top: 5.0, left: 10.0, right: 10.0,),
             child: SearchBar(),
           ),
         );
