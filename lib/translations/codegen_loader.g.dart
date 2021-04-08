@@ -20,7 +20,7 @@ class CodegenLoader extends AssetLoader{
   "drawer_campus_rules": "Campus rules",
   "search_bar_title": "Search for a place or address",
   "find_nearby": "Find Nearby",
-  "recent_searches": "Recent Searches"
+  "recent_searches": "Recent"
 };
 static const Map<String,dynamic> pl = {
   "map_screen_title": "Kampus SGGW",

@@ -10,9 +10,11 @@ class SearchBar extends StatefulWidget {
 
 class _SearchBar extends State<SearchBar> {
   List<String> _searchHistory = [
-    '1st',
-    '2nd',
-    '3rd',
+    'first option',
+    'random second option Nowoursynowska 11b, 03-200 Warszawa',
+    '3rd list tile Nowoursynowska 11b, 03-200 Warszawa',
+    '4th element',
+    '5th element',
   ];
 
   String selectedTerm;
@@ -139,7 +141,7 @@ class FilterFloatingButtons extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left:10),
+                    padding: EdgeInsets.only(left: 10),
                   ),
                   Container(
                     height: 60.0,
@@ -151,7 +153,7 @@ class FilterFloatingButtons extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left:10),
+                    padding: EdgeInsets.only(left: 10),
                   ),
                   Container(
                     height: 60.0,
@@ -163,7 +165,7 @@ class FilterFloatingButtons extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left:10),
+                    padding: EdgeInsets.only(left: 10),
                   ),
                   Container(
                     height: 60.0,
@@ -175,7 +177,7 @@ class FilterFloatingButtons extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left:10),
+                    padding: EdgeInsets.only(left: 10),
                   ),
                   Container(
                     height: 60.0,
@@ -187,7 +189,7 @@ class FilterFloatingButtons extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left:10),
+                    padding: EdgeInsets.only(left: 10),
                   ),
                   Container(
                     height: 60.0,
@@ -205,7 +207,7 @@ class FilterFloatingButtons extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: EdgeInsets.only(left: 10, top: 15),
+              padding: EdgeInsets.only(left: 10, top: 14),
               child: Text(
                 LocaleKeys.recent_searches.tr(),
                 style: Theme.of(context).textTheme.subtitle1,
@@ -213,6 +215,48 @@ class FilterFloatingButtons extends StatelessWidget {
             ),
           ),
           Divider(color: Colors.black),
+          Padding(
+            padding: EdgeInsets.only(left: 20),
+            child: Column(
+              children: <Widget>[
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    searchHistory[0],
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
+                ),
+                Divider(),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    searchHistory[1],
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
+                ),
+                Divider(),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    searchHistory[2],
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
+                ),
+                Divider(),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    searchHistory[3],
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
