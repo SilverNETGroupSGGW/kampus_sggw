@@ -41,13 +41,12 @@ class InfoCardDialog extends StatelessWidget {
         ..add(SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Padding(
-            padding: EdgeInsets.only(
-              bottom: 15,
-              left: 5,
-              top: 5,
-            ),
-            child: servicesRow
-          ),
+              padding: EdgeInsets.only(
+                bottom: 15,
+                left: 5,
+                top: 5,
+              ),
+              child: servicesRow),
         )),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
     );
@@ -59,8 +58,7 @@ class ServiceButtonsRow extends StatelessWidget {
 
   ServiceButtonsRow(this.services);
   ServiceButtonsRow.fromServices(List<Service> services) {
-    if (services!=null)
-      this.services = services;
+    if (services != null) this.services = services;
   }
 
   @override
@@ -68,15 +66,23 @@ class ServiceButtonsRow extends StatelessWidget {
     return Row(
         children: services
             .map((Service service) => FilterButton(
-                color: {
-                  if (service.type == ServiceType.canteen) Colors.yellow[700]
-                  else if (service.type == ServiceType.deanery) Colors.red[400]
-                  else if (service.type == ServiceType.lectureHall) Colors.lightBlue[600]
-                  else if (service.type == ServiceType.vendingMachine) Colors.pink[400]
-                  else if (service.type == ServiceType.xero) Colors.indigo
-                  else Colors.green
-                }.first,
+                color: _getIconColor(service.type),
                 icon: service.icon.icon))
             .toList());
+  }
+
+  Color _getIconColor(ServiceType type) {
+    switch (type) {
+      case ServiceType.canteen:
+        return Colors.yellow[700];
+      case ServiceType.xero:
+        return Colors.indigo;
+      case ServiceType.deanery:
+        return Colors.red[400];
+      case ServiceType.vendingMachine:
+        return Colors.pink[400];
+      case ServiceType.lectureHall:
+        return Colors.lightBlue[600];
+    }
   }
 }
