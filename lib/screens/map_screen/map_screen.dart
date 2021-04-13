@@ -15,6 +15,7 @@ class MapScreen extends StatefulWidget {
     Building(
       geoLocation: Location(lat: 52.16010, lon: 21.04476),
       name: "Budynek 32",
+      photoPath: "assets/images/map_objects/wzim.jpg",
       categories: [
         Category(
           name: 'Faculties',
@@ -32,6 +33,7 @@ class MapScreen extends StatefulWidget {
     Building(
       geoLocation: Location(lat: 52.16203, lon: 21.04632),
       name: "Budynek 34",
+      photoPath: "assets/images/map_objects/wzim.jpg",
       categories: [
         Category(
           name: 'Faculties',
@@ -52,6 +54,7 @@ class MapScreen extends StatefulWidget {
     Building(
       geoLocation: Location(lat: 52.16191, lon: 21.04293),
       name: "Budynek 37",
+      photoPath: "assets/images/map_objects/wzim.jpg",
       categories: [
         Category(
           name: 'Faculties',
