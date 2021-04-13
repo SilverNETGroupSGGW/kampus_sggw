@@ -4,6 +4,7 @@ import 'package:kampus_sggw/models/category.dart';
 import 'package:kampus_sggw/models/location.dart';
 import 'package:kampus_sggw/models/building.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
+import 'package:kampus_sggw/models/service.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'info_card.dart';
@@ -48,6 +49,20 @@ class MapScreen extends StatefulWidget {
               name: 'Wydział Zastosowań Matematyki i Informatyki',
             ),
           ],
+        ),
+      ],
+      services: [
+        new Service(
+          name: 'xero',
+          type: ServiceType.xero,
+          description: 'Xero na 1 piętrze',
+          icon: Icon(Icons.print_rounded),
+        ),
+        new Service(
+          name: 'Kartka',
+          type: ServiceType.canteen,
+          description: 'Bufet w piwnicy',
+          icon: Icon(Icons.restaurant),
         ),
       ],
     ),
