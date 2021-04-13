@@ -56,13 +56,11 @@ class MapScreen extends StatefulWidget {
           name: 'xero',
           type: ServiceType.xero,
           description: 'Xero na 1 piętrze',
-          icon: Icon(Icons.print_rounded),
         ),
         new Service(
           name: 'Kartka',
           type: ServiceType.canteen,
           description: 'Bufet w piwnicy',
-          icon: Icon(Icons.restaurant),
         ),
       ],
     ),
