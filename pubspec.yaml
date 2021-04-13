@@ -22,4 +22,5 @@ flutter:
   assets:
     - assets/images/map/sggw_map.png
     - assets/translations/
+    - assets/images/map_objects/wzim.jpg
 
