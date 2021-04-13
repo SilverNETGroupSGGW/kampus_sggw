@@ -7,20 +7,15 @@ import 'package:kampus_sggw/screens/map_screen/simple_dialog_item.dart';
 
 class InfoCardDialog extends StatelessWidget {
   String header;
-  List<SimpleDialogItem> description;
+  CategoriesStatefulList description;
   ServiceButtonsRow servicesRow;
 
-  final headerStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 26);
+  final headerStyle = TextStyle(fontWeight: FontWeight.w500, fontSize: 26);
 
   InfoCardDialog({this.header, this.description});
   InfoCardDialog.fromBuilding(Building building) {
     this.header = building.name;
-    this.description = building.categories
-        .map((Category category) => SimpleDialogItem(
-              text: category.name,
-              onPressed: () {},
-            ))
-        .toList();
+    this.description = CategoriesStatefulList(categories: building.categories);
     this.servicesRow = ServiceButtonsRow.fromServices(building.services);
   }
 
@@ -31,7 +26,7 @@ class InfoCardDialog extends StatelessWidget {
       children: [
         ClipRect(child: Image.asset("assets/images/map_objects/wzim.jpg"))
       ]
-        ..addAll(description)
+        ..add(description)
         ..add(Divider(
           color: Colors.grey[800],
           thickness: 1.5,
@@ -66,23 +61,82 @@ class ServiceButtonsRow extends StatelessWidget {
     return Row(
         children: services
             .map((Service service) => FilterButton(
-                color: _getIconColor(service.type),
-                icon: service.icon.icon))
+                color: service.icon.color, icon: service.icon.icon))
             .toList());
   }
+}
 
-  Color _getIconColor(ServiceType type) {
-    switch (type) {
-      case ServiceType.canteen:
-        return Colors.yellow[700];
-      case ServiceType.xero:
-        return Colors.indigo;
-      case ServiceType.deanery:
-        return Colors.red[400];
-      case ServiceType.vendingMachine:
-        return Colors.pink[400];
-      case ServiceType.lectureHall:
-        return Colors.lightBlue[600];
-    }
+class CategoriesStatefulList extends StatefulWidget {
+  final List<Category> categories;
+
+  const CategoriesStatefulList({Key key, this.categories}) : super(key: key);
+  @override
+  _CategoriesStatefulListState createState() => _CategoriesStatefulListState();
+}
+
+class _CategoriesStatefulListState extends State<CategoriesStatefulList> {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Container(
+        child: _buildPanel(),
+      ),
+      padding: EdgeInsets.all(20.0),
+    );
   }
+
+  Widget _buildPanel() {
+    List<CategoryStatefulListItem> _data = widget.categories
+        .map((Category category) => CategoryStatefulListItem(
+            headerValue: category.name, expandedValue: "COKOLWIEK"))
+        .toList();
+    return ExpansionPanelList(
+      expansionCallback: (int index, bool isExpanded) {
+        setState(() {
+          _data[index].isExpanded = !isExpanded;
+        });
+      },
+      children: _data.map<ExpansionPanel>((CategoryStatefulListItem item) {
+        return ExpansionPanel(
+          headerBuilder: (BuildContext context, bool isExpanded) {
+            return ListTile(
+              title: Text(item.headerValue),
+            );
+          },
+          body: ListTile(
+              title: Text(item.expandedValue),
+              subtitle:
+                  const Text('To delete this panel, tap the trash can icon'),
+              trailing: const Icon(Icons.delete),
+              onTap: () {
+                setState(() {
+                  _data.removeWhere((CategoryStatefulListItem currentItem) =>
+                      item == currentItem);
+                });
+              }),
+          isExpanded: item.isExpanded,
+        );
+      }).toList(),
+    );
+  }
+}
+
+class CategoryStatefulListItem {
+  CategoryStatefulListItem({
+    this.expandedValue,
+    this.headerValue,
+    this.isExpanded = false,
+  });
+
+  String expandedValue;
+  String headerValue;
+  bool isExpanded;
+}
+
+List<CategoryStatefulListItem> createCategoryListItems(
+    List<Category> categories) {
+  return categories
+      .map((Category category) => CategoryStatefulListItem(
+          headerValue: category.name, expandedValue: category.description))
+      .toList();
 }
