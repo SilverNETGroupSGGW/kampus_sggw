@@ -66,39 +66,9 @@ class ServiceButtonsRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
         children: services
-            .map((Service service) => Tooltip(
-                  child: FilterButton(
-                      color: service.icon.color, icon: service.icon.icon),
-                  message: service.name,
-                ))
+            .map((Service service) => FilterButton(
+                color: service.icon.color, icon: service.icon.icon))
             .toList());
-  }
-}
-
-class ServiceButtonTooltip extends StatelessWidget {
-  final Widget child;
-  final String message;
-
-  ServiceButtonTooltip({@required this.message, @required this.child});
-
-  @override
-  Widget build(BuildContext context) {
-    final key = GlobalKey<State<Tooltip>>();
-    return Tooltip(
-      key: key,
-      message: message,
-      preferBelow: false,
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: () => _onTap(key),
-        child: child,
-      ),
-    );
-  }
-
-  void _onTap(GlobalKey key) {
-    final dynamic tooltip = key.currentState;
-    tooltip?.ensureTooltipVisible();
   }
 }
 
