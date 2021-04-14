@@ -15,9 +15,10 @@ class InfoCardDialog extends StatelessWidget {
   InfoCardDialog({this.header, this.description});
   InfoCardDialog.fromBuilding(Building building) {
     this.header = building.name;
+    final data = building.categories;
     this.description = ListView.builder(
       itemCount: data.length,
-      itemBuilder: (BuildContext context, int index) => EntryItem(
+      itemBuilder: (BuildContext context, int index) => CategoryItem(
         data[index],
       ),
     );
@@ -71,59 +72,24 @@ class ServiceButtonsRow extends StatelessWidget {
   }
 }
 
-class Entry {
-  final String title;
-  final List<Entry> children;
-  Entry(this.title, [this.children = const <Entry>[]]);
-}
-
-final List<Entry> data = <Entry>[
-  Entry('Wydziały', <Entry>[
-    Entry('Section A0', <Entry>[
-      Entry('Item A0.1'),
-      Entry('Item A0.2'),
-      Entry('Item A0.3'),
-    ]),
-    Entry('Section A1'),
-    Entry('Section A2', <Entry>[
-      Entry('Item A2.1'),
-      Entry('Item A2.2'),
-      Entry('Item A2.3'),
-    ])
-  ]),
-  Entry('Inne atrakcje', <Entry>[
-    Entry('Section B0', <Entry>[
-      Entry('Item B0.1'),
-      Entry('Item B0.2'),
-      Entry('Item B0.3'),
-    ]),
-    Entry('Section B1'),
-    Entry('Section B2', <Entry>[
-      Entry('Item B2.1'),
-      Entry('Item B2.2'),
-      Entry('Item B2.3'),
-    ])
-  ])
-];
-
 //Widget for Category row
-class EntryItem extends StatelessWidget {
-  final Entry entry;
-  EntryItem(this.entry);
+class CategoryItem extends StatelessWidget {
+  final Category category;
+  CategoryItem(this.category);
 
   @override
   Widget build(BuildContext context) {
-    return _buildTiles(entry);
+    return _buildTiles(category);
   }
 
-  Widget _buildTiles(Entry root) {
-    if (root.children.isEmpty) {
-      return ListTile(title: Text(root.title));
+  Widget _buildTiles(Category root) {
+    if (root.subCategories == null || root.subCategories.isEmpty) {
+      return ListTile(title: Text(root.name));
     }
     return ExpansionTile(
-      key: PageStorageKey<Entry>(root),
-      title: Text(root.title),
-      children: root.children.map<Widget>(_buildTiles).toList(),
+      key: PageStorageKey<Category>(root),
+      title: Text(root.name),
+      children: root.subCategories.map<Widget>(_buildTiles).toList(),
     );
   }
 }
