@@ -7,7 +7,7 @@ import 'package:kampus_sggw/screens/map_screen/simple_dialog_item.dart';
 
 class InfoCardDialog extends StatelessWidget {
   String header;
-  CategoriesStatefulList description;
+  ListView description;
   ServiceButtonsRow servicesRow;
 
   final headerStyle = TextStyle(fontWeight: FontWeight.w500, fontSize: 26);
@@ -15,7 +15,12 @@ class InfoCardDialog extends StatelessWidget {
   InfoCardDialog({this.header, this.description});
   InfoCardDialog.fromBuilding(Building building) {
     this.header = building.name;
-    this.description = CategoriesStatefulList(categories: building.categories);
+    this.description = ListView.builder(
+      itemCount: data.length,
+      itemBuilder: (BuildContext context, int index) => EntryItem(
+        data[index],
+      ),
+    );
     this.servicesRow = ServiceButtonsRow.fromServices(building.services);
   }
 
@@ -24,9 +29,9 @@ class InfoCardDialog extends StatelessWidget {
     return SimpleDialog(
       title: Text(header, style: headerStyle),
       children: [
-        ClipRect(child: Image.asset("assets/images/map_objects/wzim.jpg"))
+        ClipRect(child: Image.asset("assets/images/map_objects/wzim.jpg")),
+        Container(child: description, height: 160.0, width: 200.0)
       ]
-        ..add(description)
         ..add(Divider(
           color: Colors.grey[800],
           thickness: 1.5,
@@ -66,77 +71,59 @@ class ServiceButtonsRow extends StatelessWidget {
   }
 }
 
-class CategoriesStatefulList extends StatefulWidget {
-  final List<Category> categories;
-
-  const CategoriesStatefulList({Key key, this.categories}) : super(key: key);
-  @override
-  _CategoriesStatefulListState createState() => _CategoriesStatefulListState();
+class Entry {
+  final String title;
+  final List<Entry> children;
+  Entry(this.title, [this.children = const <Entry>[]]);
 }
 
-class _CategoriesStatefulListState extends State<CategoriesStatefulList> {
+final List<Entry> data = <Entry>[
+  Entry('Wydziały', <Entry>[
+    Entry('Section A0', <Entry>[
+      Entry('Item A0.1'),
+      Entry('Item A0.2'),
+      Entry('Item A0.3'),
+    ]),
+    Entry('Section A1'),
+    Entry('Section A2', <Entry>[
+      Entry('Item A2.1'),
+      Entry('Item A2.2'),
+      Entry('Item A2.3'),
+    ])
+  ]),
+  Entry('Inne atrakcje', <Entry>[
+    Entry('Section B0', <Entry>[
+      Entry('Item B0.1'),
+      Entry('Item B0.2'),
+      Entry('Item B0.3'),
+    ]),
+    Entry('Section B1'),
+    Entry('Section B2', <Entry>[
+      Entry('Item B2.1'),
+      Entry('Item B2.2'),
+      Entry('Item B2.3'),
+    ])
+  ])
+];
+
+//Widget for Category row
+class EntryItem extends StatelessWidget {
+  final Entry entry;
+  EntryItem(this.entry);
+
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        child: _buildPanel(),
-      ),
-      padding: EdgeInsets.all(20.0),
-    );
+    return _buildTiles(entry);
   }
 
-  Widget _buildPanel() {
-    List<CategoryStatefulListItem> _data = widget.categories
-        .map((Category category) => CategoryStatefulListItem(
-            headerValue: category.name, expandedValue: "COKOLWIEK"))
-        .toList();
-    return ExpansionPanelList(
-      expansionCallback: (int index, bool isExpanded) {
-        setState(() {
-          _data[index].isExpanded = !isExpanded;
-        });
-      },
-      children: _data.map<ExpansionPanel>((CategoryStatefulListItem item) {
-        return ExpansionPanel(
-          headerBuilder: (BuildContext context, bool isExpanded) {
-            return ListTile(
-              title: Text(item.headerValue),
-            );
-          },
-          body: ListTile(
-              title: Text(item.expandedValue),
-              subtitle:
-                  const Text('To delete this panel, tap the trash can icon'),
-              trailing: const Icon(Icons.delete),
-              onTap: () {
-                setState(() {
-                  _data.removeWhere((CategoryStatefulListItem currentItem) =>
-                      item == currentItem);
-                });
-              }),
-          isExpanded: item.isExpanded,
-        );
-      }).toList(),
+  Widget _buildTiles(Entry root) {
+    if (root.children.isEmpty) {
+      return ListTile(title: Text(root.title));
+    }
+    return ExpansionTile(
+      key: PageStorageKey<Entry>(root),
+      title: Text(root.title),
+      children: root.children.map<Widget>(_buildTiles).toList(),
     );
   }
-}
-
-class CategoryStatefulListItem {
-  CategoryStatefulListItem({
-    this.expandedValue,
-    this.headerValue,
-    this.isExpanded = false,
-  });
-
-  String expandedValue;
-  String headerValue;
-  bool isExpanded;
-}
-
-List<CategoryStatefulListItem> createCategoryListItems(
-    List<Category> categories) {
-  return categories
-      .map((Category category) => CategoryStatefulListItem(
-          headerValue: category.name, expandedValue: category.description))
-      .toList();
 }
