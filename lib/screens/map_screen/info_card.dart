@@ -67,7 +67,7 @@ class ServiceButtonsRow extends StatelessWidget {
     return Row(
         children: services
             .map((Service service) => FilterButton(
-                color: service.icon.color, icon: service.icon.icon))
+                color: service.icon.color, icon: service.icon.icon, onTapFunction: () => {},))
             .toList());
   }
 }
