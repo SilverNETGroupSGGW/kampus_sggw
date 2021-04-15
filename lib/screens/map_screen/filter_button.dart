@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class FilterButton extends StatelessWidget {
   final color;
   final icon;
-  final onTabFunction;
+  final onTapFunction;
   final parameter;
 
   const FilterButton(
       {Key key,
       @required this.color,
       @required this.icon,
-      @required this.onTabFunction,
+      @required this.onTapFunction,
       this.parameter})
       : super(key: key);
 
@@ -32,11 +32,11 @@ class FilterButton extends StatelessWidget {
           onPressed: () => {
             if (parameter == null)
               {
-                onTabFunction(),
+                onTapFunction(),
               }
             else
               {
-                onTabFunction(parameter),
+                onTapFunction(parameter),
               },
           },
         ),
