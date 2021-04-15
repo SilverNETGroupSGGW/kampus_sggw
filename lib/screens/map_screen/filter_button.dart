@@ -3,12 +3,16 @@ import 'package:flutter/material.dart';
 class FilterButton extends StatelessWidget {
   final color;
   final icon;
+  final onTabFunction;
+  final parameter;
 
-  const FilterButton({
-    Key key,
-    @required this.color,
-    @required this.icon,
-  }) : super(key: key);
+  const FilterButton(
+      {Key key,
+      @required this.color,
+      @required this.icon,
+      @required this.onTabFunction,
+      this.parameter})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,16 @@ class FilterButton extends StatelessWidget {
             size: 35.0,
           ),
           backgroundColor: color,
-          onPressed: () {},
+          onPressed: () => {
+            if (parameter == null)
+              {
+                onTabFunction(),
+              }
+            else
+              {
+                onTabFunction(parameter),
+              },
+          },
         ),
       ),
     );
