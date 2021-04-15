@@ -3,7 +3,7 @@ import 'package:kampus_sggw/models/building.dart';
 import 'package:kampus_sggw/models/category.dart';
 import 'package:kampus_sggw/models/service.dart';
 import 'package:kampus_sggw/screens/map_screen/filter_button.dart';
-import 'package:kampus_sggw/screens/map_screen/simple_dialog_item.dart';
+import 'package:kampus_sggw/screens/map_screen/service_card.dart';
 
 class InfoCardDialog extends StatelessWidget {
   String header;
@@ -54,7 +54,7 @@ class InfoCardDialog extends StatelessWidget {
   }
 }
 
-class ServiceButtonsRow extends StatelessWidget {
+class ServiceButtonsRow extends StatefulWidget {
   List<Service> services = [];
 
   ServiceButtonsRow(this.services);
@@ -63,11 +63,34 @@ class ServiceButtonsRow extends StatelessWidget {
   }
 
   @override
+  _ServiceButtonsRowState createState() => _ServiceButtonsRowState();
+}
+
+class _ServiceButtonsRowState extends State<ServiceButtonsRow> {
+  static Service _selectedService;
+
+  showServiceCard(Service service) {
+    _selectedService = service;
+    Navigator.of(context).restorablePush(_dialogBuilder);
+  }
+
+  static Route<Object> _dialogBuilder(BuildContext context, Object arguments) {
+    return DialogRoute<void>(
+      context: context,
+      builder: (BuildContext context) =>
+          ServiceCard(service: _selectedService),
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Row(
-        children: services
+        children: widget.services
             .map((Service service) => FilterButton(
-                color: service.icon.color, icon: service.icon.icon, onTapFunction: () => {},))
+                  color: service.icon.color,
+                  icon: service.icon.icon,
+                  onTapFunction: () => showServiceCard(service),
+                ))
             .toList());
   }
 }
