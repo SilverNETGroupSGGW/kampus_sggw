@@ -13,10 +13,14 @@ class Service {
   Icon icon;
   ServiceType type;
   String description;
-  Service({name, type, description}) {
+  String url;
+  String photoPath;
+  Service({name, type, description, url, photoPath}) {
     this.name = name;
     this.type = type;
     this.description = description;
+    this.url = url;
+    this.photoPath = photoPath;
     this.icon = _createIconForType(type);
   }
 
