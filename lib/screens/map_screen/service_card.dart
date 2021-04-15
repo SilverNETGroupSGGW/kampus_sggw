@@ -7,6 +7,20 @@ class ServiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SimpleDialog(title: Text("HELLO from " + service.name),);
+    return SimpleDialog(
+      title: Text(service.name),
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(
+            bottom: 15,
+            left: 22,
+            right: 22,
+            top: 5,
+          ),
+          child: Text(service.description),
+        )
+      ],
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+    );
   }
 }

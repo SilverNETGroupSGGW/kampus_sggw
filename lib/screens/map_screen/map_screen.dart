@@ -60,7 +60,7 @@ class MapScreen extends StatefulWidget {
         new Service(
           name: 'Kartka',
           type: ServiceType.canteen,
-          description: 'Bufet w piwnicy',
+          description: 'Bufet w piwnicy. Można tam nawet dobrze zjeść. Wyśmienite pierogi mmm...',
         ),
       ],
     ),
