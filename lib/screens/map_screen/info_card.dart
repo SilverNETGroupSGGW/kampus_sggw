@@ -38,29 +38,24 @@ class InfoCardDialog extends StatelessWidget {
           height: 160.0,
           width: 200.0,
         ),
-      ]
-        ..add(
-          Divider(
-            color: Colors.grey[800],
-            thickness: 1.5,
-            indent: 12.0,
-            endIndent: 12.0,
-          ),
-        )
-        ..add(
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Padding(
-              padding: EdgeInsets.only(
-                bottom: 0,
-                left: 5,
-                top: 5,
-              ),
-              child: servicesRow,
+        Divider(
+          color: Colors.grey[800],
+          thickness: 1.5,
+          indent: 12.0,
+          endIndent: 12.0,
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Padding(
+            padding: EdgeInsets.only(
+              bottom: 0,
+              left: 5,
+              top: 5,
             ),
+            child: servicesRow,
           ),
-        )
-        ..add(Padding(
+        ),
+        Padding(
           padding: const EdgeInsets.only(
             right: 16.0,
             left: 16.0,
@@ -73,7 +68,8 @@ class InfoCardDialog extends StatelessWidget {
                 onPressed: () => Navigator.pop(context),
                 child: Text("Close"),
               )),
-        )),
+        ),
+      ],
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(18.0),
       ),
