@@ -107,9 +107,10 @@ class CategoryItem extends StatelessWidget {
 
   Widget _buildTiles(Category root) {
     if (root.subCategories == null || root.subCategories.isEmpty) {
-      return ListTile(title: Text(root.name));
+      return ListTile(title: Text(root.name), tileColor: Colors.grey[100],);
     }
     return ExpansionTile(
+      backgroundColor: Colors.white,
       key: PageStorageKey<Category>(root),
       title: Text(root.name),
       children: root.subCategories.map<Widget>(_buildTiles).toList(),
