@@ -43,11 +43,22 @@ class InfoCardDialog extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Padding(
               padding: EdgeInsets.only(
-                bottom: 15,
+                bottom: 0,
                 left: 5,
                 top: 5,
               ),
               child: servicesRow),
+        ))
+        ..add(Padding(
+          padding: const EdgeInsets.only(right: 16.0, left: 16.0),
+          child: Align(
+              alignment: Alignment.bottomRight,
+              child: TextButton(
+                style:
+                    ButtonStyle(animationDuration: Duration(milliseconds: 0)),
+                onPressed: () => Navigator.pop(context),
+                child: Text("Close"),
+              )),
         )),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
     );
@@ -77,8 +88,7 @@ class _ServiceButtonsRowState extends State<ServiceButtonsRow> {
   static Route<Object> _dialogBuilder(BuildContext context, Object arguments) {
     return DialogRoute<void>(
       context: context,
-      builder: (BuildContext context) =>
-          ServiceCard(service: _selectedService),
+      builder: (BuildContext context) => ServiceCard(service: _selectedService),
     );
   }
 
@@ -107,7 +117,10 @@ class CategoryItem extends StatelessWidget {
 
   Widget _buildTiles(Category root) {
     if (root.subCategories == null || root.subCategories.isEmpty) {
-      return ListTile(title: Text(root.name), tileColor: Colors.grey[100],);
+      return ListTile(
+        title: Text(root.name),
+        tileColor: Colors.grey[100],
+      );
     }
     return ExpansionTile(
       backgroundColor: Colors.white,

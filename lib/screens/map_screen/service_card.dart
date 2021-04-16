@@ -37,7 +37,8 @@ class ServiceCard extends StatelessWidget {
           ),
           if (service.url != null)
             Padding(
-                padding: const EdgeInsets.only(left: 22, right: 22, bottom: 8.0),
+                padding:
+                    const EdgeInsets.only(left: 22, right: 22, bottom: 8.0),
                 child: GestureDetector(
                     onTap: _goToServiceURL,
                     child: RichText(
@@ -60,8 +61,20 @@ class ServiceCard extends StatelessWidget {
                         ],
                       ),
                     ))),
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0, left: 16.0),
+            child: Align(
+                alignment: Alignment.bottomRight,
+                child: TextButton(
+                  style:
+                      ButtonStyle(animationDuration: Duration(milliseconds: 0)),
+                  onPressed: () => Navigator.pop(context),
+                  child: Text("Close"),
+                )),
+          )
         ],
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
       ),
     );
   }
