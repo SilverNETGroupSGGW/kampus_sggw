@@ -24,22 +24,22 @@ class FilterButton extends StatelessWidget {
         height: 60.0,
         width: 60.0,
         child: FloatingActionButton(
-          child: Icon(
-            icon,
-            size: 35.0,
-          ),
-          backgroundColor: color,
-          onPressed: _onPress(),
-        ),
+            child: Icon(
+              icon,
+              size: 35.0,
+            ),
+            backgroundColor: color,
+            onPressed: () => {
+                  if (parameter == null)
+                    {
+                      onTapFunction(),
+                    }
+                  else
+                    {
+                      onTapFunction(parameter),
+                    }
+                }),
       ),
     );
-  }
-
-  _onPress() {
-    if (parameter == null) {
-      onTapFunction();
-    } else {
-      onTapFunction(parameter);
-    }
   }
 }
