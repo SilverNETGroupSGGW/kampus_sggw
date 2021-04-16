@@ -30,27 +30,41 @@ class InfoCardDialog extends StatelessWidget {
     return SimpleDialog(
       title: Text(header, style: headerStyle),
       children: [
-        ClipRect(child: Image.asset("assets/images/map_objects/wzim.jpg")),
-        Container(child: description, height: 160.0, width: 200.0)
+        ClipRect(
+          child: Image.asset("assets/images/map_objects/wzim.jpg"),
+        ),
+        Container(
+          child: description,
+          height: 160.0,
+          width: 200.0,
+        ),
       ]
-        ..add(Divider(
-          color: Colors.grey[800],
-          thickness: 1.5,
-          indent: 12.0,
-          endIndent: 12.0,
-        ))
-        ..add(SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Padding(
+        ..add(
+          Divider(
+            color: Colors.grey[800],
+            thickness: 1.5,
+            indent: 12.0,
+            endIndent: 12.0,
+          ),
+        )
+        ..add(
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Padding(
               padding: EdgeInsets.only(
                 bottom: 0,
                 left: 5,
                 top: 5,
               ),
-              child: servicesRow),
-        ))
+              child: servicesRow,
+            ),
+          ),
+        )
         ..add(Padding(
-          padding: const EdgeInsets.only(right: 16.0, left: 16.0),
+          padding: const EdgeInsets.only(
+            right: 16.0,
+            left: 16.0,
+          ),
           child: Align(
               alignment: Alignment.bottomRight,
               child: TextButton(
@@ -60,7 +74,9 @@ class InfoCardDialog extends StatelessWidget {
                 child: Text("Close"),
               )),
         )),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18.0),
+      ),
     );
   }
 }
@@ -88,24 +104,29 @@ class _ServiceButtonsRowState extends State<ServiceButtonsRow> {
   static Route<Object> _dialogBuilder(BuildContext context, Object arguments) {
     return DialogRoute<void>(
       context: context,
-      builder: (BuildContext context) => ServiceCard(service: _selectedService),
+      builder: (BuildContext context) => ServiceCard(
+        service: _selectedService,
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Row(
-        children: widget.services
-            .map((Service service) => FilterButton(
-                  color: service.icon.color,
-                  icon: service.icon.icon,
-                  onTapFunction: () => showServiceCard(service),
-                ))
-            .toList());
+      children: widget.services
+          .map(
+            (Service service) => FilterButton(
+              color: service.icon.color,
+              icon: service.icon.icon,
+              onTapFunction: () => showServiceCard(service),
+            ),
+          )
+          .toList(),
+    );
   }
 }
 
-//Widget for Category row
+// Widget for Category row
 class CategoryItem extends StatelessWidget {
   final Category category;
   CategoryItem(this.category);

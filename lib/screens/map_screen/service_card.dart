@@ -24,7 +24,9 @@ class ServiceCard extends StatelessWidget {
           if (service.photoPath != null)
             Padding(
               padding: const EdgeInsets.only(bottom: 8.0),
-              child: ClipRect(child: Image.asset(service.photoPath)),
+              child: ClipRect(
+                child: Image.asset(service.photoPath),
+              ),
             ),
           Padding(
             padding: const EdgeInsets.only(
@@ -37,44 +39,52 @@ class ServiceCard extends StatelessWidget {
           ),
           if (service.url != null)
             Padding(
-                padding:
-                    const EdgeInsets.only(left: 22, right: 22, bottom: 8.0),
-                child: GestureDetector(
-                    onTap: _goToServiceURL,
-                    child: RichText(
-                      text: TextSpan(
-                        children: [
-                          WidgetSpan(
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 4.0),
-                              child: Icon(Icons.language,
-                                  size: 20, color: Colors.blue),
-                            ),
+              padding: const EdgeInsets.only(left: 22, right: 22, bottom: 8.0),
+              child: GestureDetector(
+                onTap: _goToServiceURL,
+                child: RichText(
+                  text: TextSpan(
+                    children: [
+                      WidgetSpan(
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 4.0),
+                          child: Icon(
+                            Icons.language,
+                            size: 20,
+                            color: Colors.blue,
                           ),
-                          TextSpan(
-                              text: 'Strona Internetowa',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.blue,
-                                decoration: TextDecoration.underline,
-                              )),
-                        ],
+                        ),
                       ),
-                    ))),
+                      TextSpan(
+                        text: 'Strona Internetowa',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.blue,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           Padding(
             padding: const EdgeInsets.only(right: 16.0, left: 16.0),
             child: Align(
-                alignment: Alignment.bottomRight,
-                child: TextButton(
-                  style:
-                      ButtonStyle(animationDuration: Duration(milliseconds: 0)),
-                  onPressed: () => Navigator.pop(context),
-                  child: Text("Close"),
-                )),
-          )
+              alignment: Alignment.bottomRight,
+              child: TextButton(
+                style: ButtonStyle(
+                  animationDuration: Duration(milliseconds: 0),
+                ),
+                onPressed: () => Navigator.pop(context),
+                child: Text("Close"),
+              ),
+            ),
+          ),
         ],
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18.0),
+        ),
       ),
     );
   }

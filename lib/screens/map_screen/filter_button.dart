@@ -29,18 +29,17 @@ class FilterButton extends StatelessWidget {
             size: 35.0,
           ),
           backgroundColor: color,
-          onPressed: () => {
-            if (parameter == null)
-              {
-                onTapFunction(),
-              }
-            else
-              {
-                onTapFunction(parameter),
-              },
-          },
+          onPressed: _onPress(),
         ),
       ),
     );
+  }
+
+  _onPress() {
+    if (parameter == null) {
+      onTapFunction();
+    } else {
+      onTapFunction(parameter);
+    }
   }
 }
