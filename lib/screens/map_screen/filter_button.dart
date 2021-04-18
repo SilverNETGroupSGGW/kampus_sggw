@@ -4,15 +4,13 @@ class FilterButton extends StatelessWidget {
   final color;
   final icon;
   final onTapFunction;
-  final parameter;
 
-  const FilterButton(
-      {Key key,
-      @required this.color,
-      @required this.icon,
-      @required this.onTapFunction,
-      this.parameter})
-      : super(key: key);
+  const FilterButton({
+    Key key,
+    @required this.color,
+    @required this.icon,
+    @required this.onTapFunction,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,21 +22,13 @@ class FilterButton extends StatelessWidget {
         height: 60.0,
         width: 60.0,
         child: FloatingActionButton(
-            child: Icon(
-              icon,
-              size: 35.0,
-            ),
-            backgroundColor: color,
-            onPressed: () => {
-                  if (parameter == null)
-                    {
-                      onTapFunction(),
-                    }
-                  else
-                    {
-                      onTapFunction(parameter),
-                    }
-                }),
+          child: Icon(
+            icon,
+            size: 35.0,
+          ),
+          backgroundColor: color,
+          onPressed: () => onTapFunction(),
+        ),
       ),
     );
   }

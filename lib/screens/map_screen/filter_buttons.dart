@@ -9,22 +9,22 @@ class FilterButtonsRow extends StatelessWidget {
         FilterButton(
           color: Colors.yellow[700],
           icon: Icons.restaurant,
-          onTapFunction: () => {}
+          onTapFunction: () => {},
         ),
         FilterButton(
           color: Colors.blue,
           icon: Icons.bus_alert,
-          onTapFunction: () => {}
+          onTapFunction: () => {},
         ),
         FilterButton(
           color: Colors.orange,
           icon: Icons.local_parking,
-          onTapFunction: () => {}
+          onTapFunction: () => {},
         ),
         FilterButton(
           color: Colors.green,
           icon: Icons.park,
-          onTapFunction: () => {}
+          onTapFunction: () => {},
         ),
         FilterButton(
           color: Colors.red[300],
@@ -38,7 +38,7 @@ class FilterButtonsRow extends StatelessWidget {
           child: FilterButton(
             color: Colors.indigo,
             icon: Icons.print_rounded,
-            onTapFunction: () => {}
+            onTapFunction: () => {},
           ),
         ),
       ],
