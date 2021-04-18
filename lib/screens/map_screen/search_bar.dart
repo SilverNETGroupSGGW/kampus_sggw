@@ -40,8 +40,15 @@ class _SearchBar extends State<SearchBar> {
       body: FloatingSearchBar(
         controller: controller,
         body: FloatingSearchBarScrollNotifier(
-          child: SearchHelpPanel(
-            searchHistory: _searchHistory,
+          child: Padding(
+            padding: EdgeInsets.only(
+              top: 10.0,
+              left: 15.0,
+              right: 15.0,
+            ),
+            child: SearchHelpPanel(
+              searchHistory: _searchHistory,
+            ),
           ),
         ),
         transition: CircularFloatingSearchBarTransition(),

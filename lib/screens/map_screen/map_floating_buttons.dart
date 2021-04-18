@@ -32,18 +32,12 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
   void _onSearchButtonPressed(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      builder: (context) {
-        return Container(
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: 5.0,
-              left: 10.0,
-              right: 10.0,
-            ),
-            child: SearchBar(),
-          ),
-        );
-      },
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => Container(
+        height: MediaQuery.of(context).size.height * 0.6,
+        child: SearchBar(),
+      ),
     );
   }
 }
