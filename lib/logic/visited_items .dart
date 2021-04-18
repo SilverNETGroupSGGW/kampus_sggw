@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 
 class VisitedItems {
-  int buffor;
+  int buffer;
   List<int> _visitedItemsIds;
   List<String> visitedItems;
   MapItems mapItems;
   VisitedItems({
-    @required this.buffor,
+    @required this.buffer,
     @required this.mapItems,
   });
 
@@ -19,7 +19,7 @@ class VisitedItems {
       deleteItem(id);
     }
     _visitedItemsIds.add(id);
-    if (_visitedItemsIds.length > buffor) {
+    if (_visitedItemsIds.length > buffer) {
       _visitedItemsIds.removeRange(0, 1);
     }
     updateVisitedItems();
