@@ -6,5 +6,10 @@ class MapItems {
   MapItems({
     this.mapItems,
   });
-  List<MapItem> filter(List<MapItemType> types) => mapItems.where((element) => types.contains(element.type));
+  List<MapItem> filter(List<MapItemType> types) =>
+      mapItems.where((element) => types.contains(element.type));
+  List<String> getItemsNames(List<int> itemsIds) => mapItems
+      .where((item) => itemsIds.contains(item.id))
+      .map((item) => item.name)
+      .toList();
 }
