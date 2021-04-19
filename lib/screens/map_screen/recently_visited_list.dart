@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
 class RecentlyVisitedList extends StatelessWidget {
-  final List<String> recentlyVisitedPlaces;
-
-  const RecentlyVisitedList({Key key, this.recentlyVisitedPlaces})
-      : super(key: key);
+  final List<String> recentlyVisitedPlaces = [
+    'first option',
+    'random second option Nowoursynowska 11b, 03-200 Warszawa',
+    '3rd list tile Nowoursynowska 11b, 03-200 Warszawa',
+    '4th element',
+    '5th element',
+    '6th elem',
+    '7th elem',
+  ];
 
   @override
   Widget build(BuildContext context) {

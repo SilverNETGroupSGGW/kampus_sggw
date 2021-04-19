@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:kampus_sggw/screens/map_screen/search_help_panel.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -10,59 +11,63 @@ class SearchBar extends StatefulWidget {
 }
 
 class _SearchBar extends State<SearchBar> {
-  List<String> _searchHistory = [
-    'first option',
-    'random second option Nowoursynowska 11b, 03-200 Warszawa',
-    '3rd list tile Nowoursynowska 11b, 03-200 Warszawa',
-    '4th element',
-    '5th element',
-  ];
-
-  String selectedTerm;
-
-  FloatingSearchBarController controller;
+  SearchHistory _searchHistory;
+  List<String> _filteredSearchHistory;
+  String _selectedTerm;
+  FloatingSearchBarController _controller;
 
   @override
   void initState() {
     super.initState();
-    controller = FloatingSearchBarController();
+    _searchHistory = new SearchHistory(buffer: 10);
+    _controller = FloatingSearchBarController();
+    _filteredSearchHistory = _searchHistory.filterSearchTerms(null);
   }
 
   @override
   void dispose() {
-    controller.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: FloatingSearchBar(
-        controller: controller,
+        controller: _controller,
         body: FloatingSearchBarScrollNotifier(
           child: Padding(
             padding: EdgeInsets.only(
               top: 10.0,
-              left: 15.0,
-              right: 15.0,
+              left: 12.0,
+              right: 12.0,
             ),
-            child: SearchHelpPanel(
-              searchHistory: _searchHistory,
-            ),
+            child: SearchHelpPanel(),
           ),
         ),
         transition: CircularFloatingSearchBarTransition(),
-        physics: BouncingScrollPhysics(),
+        physics: NeverScrollableScrollPhysics(),
+        hint: LocaleKeys.search_bar_title.tr(),
         title: Text(
-          selectedTerm ?? LocaleKeys.search_bar_title.tr(),
-          style: Theme.of(context).textTheme.headline6,
+          _selectedTerm ?? LocaleKeys.search_bar_title.tr(),
+          style: TextStyle(fontSize: 20),
         ),
-        onQueryChanged: (query) {},
+        actions: [
+          FloatingSearchBarAction.searchToClear(),
+        ],
+        onQueryChanged: (query) => setState(
+          () => updateFilteredSearchHistory(query),
+        ),
         onSubmitted: (query) {
-          setState(() {
-            selectedTerm = query;
-          });
-          controller.close();
+          setState(
+            () {
+              _selectedTerm = query;
+              _searchHistory.addSearchTerm(query);
+              updateFilteredSearchHistory(null);
+            },
+          );
+          _controller.close();
         },
         builder: (context, transition) {
           return ClipRRect(
@@ -72,38 +77,71 @@ class _SearchBar extends State<SearchBar> {
               elevation: 4,
               child: Builder(
                 builder: (context) {
-                  return Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: _searchHistory
-                        .map(
-                          (term) => ListTile(
-                            title: Text(
-                              term,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            leading: Icon(
-                              Icons.history,
-                            ),
-                            trailing: IconButton(
-                              icon: Icon(
-                                Icons.clear,
-                              ),
-                              onPressed: () {},
-                            ),
-                            onTap: () {
-                              controller.close();
-                            },
-                          ),
-                        )
-                        .toList(),
-                  );
+                  if (_filteredSearchHistory.isEmpty &&
+                      _controller.query.isNotEmpty) {
+                    return suggestedSearchHistoryListTile();
+                  } else {
+                    return searchHistoryColumn();
+                  }
                 },
               ),
             ),
           );
         },
       ),
+    );
+  }
+
+  void updateFilteredSearchHistory(filter) =>
+      _filteredSearchHistory = _searchHistory.filterSearchTerms(filter);
+
+  Column searchHistoryColumn() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: _filteredSearchHistory
+          .map(
+            (term) => ListTile(
+              title: Text(
+                term,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              leading: const Icon(Icons.history),
+              trailing: IconButton(
+                icon: const Icon(Icons.clear),
+                onPressed: () {
+                  setState(() {
+                    _searchHistory.deleteSearchTerm(term);
+                    updateFilteredSearchHistory(null);
+                  });
+                },
+              ),
+              onTap: () {
+                setState(() {
+                  _searchHistory.addSearchTerm(term);
+                  _selectedTerm = term;
+                  updateFilteredSearchHistory(null);
+                });
+                _controller.close();
+              },
+            ),
+          )
+          .toList(),
+    );
+  }
+
+  ListTile suggestedSearchHistoryListTile() {
+    return ListTile(
+      title: Text(_controller.query),
+      leading: const Icon(Icons.search),
+      onTap: () {
+        setState(() {
+          _searchHistory.addSearchTerm(_controller.query);
+          _selectedTerm = _controller.query;
+          updateFilteredSearchHistory(null);
+        });
+        _controller.close();
+      },
     );
   }
 }
