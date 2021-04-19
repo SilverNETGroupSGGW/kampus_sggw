@@ -1,11 +1,14 @@
-import 'package:flutter/cupertino.dart';
-
 class SearchHistory {
+  static final SearchHistory _instance = SearchHistory._internal();
+  SearchHistory._internal();
+
+  factory SearchHistory({int buffer}) {
+    _instance.buffer = buffer;
+    return _instance;
+  }
+
   int buffer;
   List<String> _searchHistory = [];
-  SearchHistory({
-    @required this.buffer,
-  });
 
   List<String> filterSearchTerms(String filter) {
     if (filter != null && filter.isNotEmpty) {
@@ -27,5 +30,13 @@ class SearchHistory {
     }
   }
 
-  void deleteSearchTerm(String term) =>_searchHistory.removeWhere((t) => t == term);
+  void deleteSearchTerm(String term) =>
+      _searchHistory.removeWhere((t) => t == term);
+
+  SearchHistory.fromJson(Map<String, dynamic> json)
+      : _searchHistory = json['searchHistoryList'];
+
+  Map<String, dynamic> toJson() => {
+        'searchHistoryList': _searchHistory,
+      };
 }
