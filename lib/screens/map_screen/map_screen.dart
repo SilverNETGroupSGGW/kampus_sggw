@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:kampus_sggw/models/category.dart';
 import 'package:kampus_sggw/models/location.dart';
 import 'package:kampus_sggw/models/building.dart';
@@ -60,7 +63,8 @@ class MapScreen extends StatefulWidget {
         new Service(
           name: 'Kartka',
           type: ServiceType.canteen,
-          description: 'Bufet w piwnicy. Można tam nawet dobrze zjeść. Wyśmienite pierogi mmm...',
+          description:
+              'Bufet w piwnicy. Można tam nawet dobrze zjeść. Wyśmienite pierogi mmm...',
         ),
       ],
     ),
@@ -91,6 +95,7 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   static Building _selectedBuilding;
+  static SearchHistory searchHistory;
 
   showInfoCard(Building building) {
     _selectedBuilding = building;
@@ -103,6 +108,19 @@ class _MapScreenState extends State<MapScreen> {
       builder: (BuildContext context) =>
           InfoCardDialog.fromBuilding(_selectedBuilding),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    searchHistory = SearchHistory(buffer: 7);
+    searchHistory.fromJson(json);
+  }
+
+  @override
+  void dispose() {
+    jsonEncode(searchHistory);
+    super.dispose();
   }
 
   @override
@@ -119,7 +137,9 @@ class _MapScreenState extends State<MapScreen> {
           ),
         ],
       ),
-      floatingActionButton: MapFloatingButtons(),
+      floatingActionButton: MapFloatingButtons(
+        searchHistory: searchHistory,
+      ),
       drawer: SideDrawer(),
     );
   }
