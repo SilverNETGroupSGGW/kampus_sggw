@@ -4,6 +4,7 @@ import 'package:kampus_sggw/models/category.dart';
 import 'package:kampus_sggw/models/location.dart';
 import 'package:kampus_sggw/models/building.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
+import 'package:kampus_sggw/models/service.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'info_card.dart';
@@ -15,6 +16,7 @@ class MapScreen extends StatefulWidget {
     Building(
       geoLocation: Location(lat: 52.16010, lon: 21.04476),
       name: "Budynek 32",
+      photoPath: "assets/images/map_objects/wzim.jpg",
       categories: [
         Category(
           name: 'Faculties',
@@ -32,6 +34,7 @@ class MapScreen extends StatefulWidget {
     Building(
       geoLocation: Location(lat: 52.16203, lon: 21.04632),
       name: "Budynek 34",
+      photoPath: "assets/images/map_objects/wzim.jpg",
       categories: [
         Category(
           name: 'Faculties',
@@ -48,10 +51,23 @@ class MapScreen extends StatefulWidget {
           ],
         ),
       ],
+      services: [
+        new Service(
+          name: 'xero',
+          type: ServiceType.xero,
+          description: 'Xero na 1 piętrze',
+        ),
+        new Service(
+          name: 'Kartka',
+          type: ServiceType.canteen,
+          description: 'Bufet w piwnicy. Można tam nawet dobrze zjeść. Wyśmienite pierogi mmm...',
+        ),
+      ],
     ),
     Building(
       geoLocation: Location(lat: 52.16191, lon: 21.04293),
       name: "Budynek 37",
+      photoPath: "assets/images/map_objects/wzim.jpg",
       categories: [
         Category(
           name: 'Faculties',
