@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'search_bar.dart';
 
-class MapFloatingButtons extends StatefulWidget {
-  @override
-  _MapFloatingButtons createState() => _MapFloatingButtons();
-}
-
-class _MapFloatingButtons extends State<MapFloatingButtons> {
+class MapFloatingButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
