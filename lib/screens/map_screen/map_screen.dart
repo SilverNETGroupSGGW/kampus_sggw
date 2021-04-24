@@ -29,7 +29,7 @@ class _MapScreenState extends State<MapScreen> {
     return DialogRoute<void>(
       context: context,
       builder: (BuildContext context) =>
-          InfoCardDialog.fromBuilding(_selectedMapItem),
+          InfoCardDialog.fromMapItem(_selectedMapItem),
     );
   }
 

@@ -13,18 +13,23 @@ class InfoCardDialog extends StatelessWidget {
   final headerStyle = TextStyle(fontWeight: FontWeight.w500, fontSize: 26);
 
   InfoCardDialog({this.header, this.description});
-  InfoCardDialog.fromBuilding(MapItem mapItem) {
+
+  InfoCardDialog.fromMapItem(MapItem mapItem) {
     this.header = mapItem.name;
 
-    // TODO: dodaj to
-    // final data = mapItem.categories;
-    // this.description = ListView.builder(
-    //   itemCount: data.length,
-    //   itemBuilder: (BuildContext context, int index) => CategoryItem(
-    //     data[index],
-    //   ),
-    // );
-    // this.servicesRow = ServiceButtonsRow.fromServices(mapItem.services);
+    if (mapItem.categories != null && mapItem.categories.isNotEmpty) {
+      final data = mapItem.categories;
+      this.description = ListView.builder(
+        itemCount: data.length,
+        itemBuilder: (BuildContext context, int index) => CategoryItem(
+          data[index],
+        ),
+      );
+    }
+
+    if (mapItem.services != null && mapItem.services.isNotEmpty) {
+      this.servicesRow = ServiceButtonsRow.fromServices(mapItem.services);
+    }
   }
 
   @override
