@@ -1,8 +1,8 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
+import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
@@ -12,8 +12,13 @@ import 'map_floating_buttons.dart';
 
 class MapScreen extends StatefulWidget {
   final MapItems mapItems;
+  final SearchHistory searchHistory;
 
-  MapScreen ({ Key key, this.mapItems }): super(key: key);
+  MapScreen({
+    Key key,
+    this.mapItems,
+    this.searchHistory,
+  }) : super(key: key);
 
   @override
   _MapScreenState createState() => _MapScreenState();
@@ -36,15 +41,8 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    searchHistory = SearchHistory(buffer: 7);
-    searchHistory.fromJson(json);
-  }
-
-  @override
   void dispose() {
-    jsonEncode(searchHistory);
+    //jsonEncode(searchHistory);
     super.dispose();
   }
 
@@ -63,7 +61,7 @@ class _MapScreenState extends State<MapScreen> {
         ],
       ),
       floatingActionButton: MapFloatingButtons(
-        searchHistory: searchHistory,
+        searchHistory: widget.searchHistory,
       ),
       drawer: SideDrawer(),
     );

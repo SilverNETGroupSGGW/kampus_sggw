@@ -28,4 +28,5 @@ flutter:
     - assets/translations/
     - assets/images/map_objects/wzim.jpg
     - assets/json/map_items.json
+    - assets/json/search_history.json
 

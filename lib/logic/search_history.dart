@@ -1,42 +1,43 @@
+import 'package:flutter/services.dart';
+import 'package:json_annotation/json_annotation.dart';
+part 'search_history.g.dart';
+
+@JsonSerializable()
 class SearchHistory {
-  static final SearchHistory _instance = SearchHistory._internal();
-  SearchHistory._internal();
+  @JsonKey(defaultValue: 6)
+  final int buffer;
+  @JsonKey(defaultValue: [])
+  List<String> searchHistory;
 
-  factory SearchHistory({int buffer}) {
-    _instance.buffer = buffer;
-    return _instance;
-  }
-
-  int buffer;
-  List<String> _searchHistory = [];
+  SearchHistory(this.buffer, this.searchHistory);
+  factory SearchHistory.fromJson(Map<String, dynamic> json) =>
+      _$SearchHistoryFromJson(json);
+  Map<String, dynamic> toJson() => _$SearchHistoryToJson(this);
 
   List<String> filterSearchTerms(String filter) {
     if (filter != null && filter.isNotEmpty) {
-      return _searchHistory.reversed
+      return searchHistory.reversed
           .where((term) => term.startsWith(filter))
           .toList();
     } else {
-      return _searchHistory.reversed.toList();
+      return searchHistory.reversed.toList();
     }
   }
 
   void addSearchTerm(String term) {
-    if (_searchHistory.contains(term)) {
+    if (searchHistory.contains(term)) {
       deleteSearchTerm(term);
     }
-    _searchHistory.add(term);
-    if (_searchHistory.length > buffer) {
-      _searchHistory.removeRange(0, 1);
+    searchHistory.add(term);
+    if (searchHistory.length > buffer) {
+      searchHistory.removeRange(0, 1);
     }
   }
 
   void deleteSearchTerm(String term) =>
-      _searchHistory.removeWhere((t) => t == term);
+      searchHistory.removeWhere((t) => t == term);
 
-  SearchHistory.fromJson(Map<String, dynamic> json)
-      : _searchHistory = json['searchHistoryList'];
-
-  Map<String, dynamic> toJson() => {
-        'searchHistoryList': _searchHistory,
-      };
+  static Future<String> getJsonSting() {
+    return rootBundle.loadString('assets/json/search_history.json');
+  }
 }
