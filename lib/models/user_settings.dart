@@ -1,4 +1,4 @@
-import 'map_item_type.dart';
+import 'map_item.dart';
 import 'role.dart';
 
 class UserSettings {

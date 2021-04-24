@@ -4,7 +4,7 @@ import 'package:kampus_sggw/models/category.dart';
 import 'package:kampus_sggw/models/location.dart';
 import 'package:kampus_sggw/models/building.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
-import 'package:kampus_sggw/models/map_item_type.dart';
+import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/service.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'info_card.dart';
@@ -21,7 +21,7 @@ class MapScreen extends StatefulWidget {
       null,
       MapItemType.facultyBuilding,
       "assets/images/map_objects/wzim.jpg",
-      1,
+      1.0,
       new DateTime(2020, 04, 01, 08, 38),
       null,
       null,
@@ -58,7 +58,7 @@ class MapScreen extends StatefulWidget {
       null,
       MapItemType.facultyBuilding,
       "assets/images/map_objects/wzim.jpg",
-      1,
+      1.0,
       new DateTime(2020, 04, 01, 08, 38),
       null,
       [

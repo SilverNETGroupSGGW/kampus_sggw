@@ -13,13 +13,13 @@ dependencies:
   material_floating_search_bar: ^0.2.6
   cupertino_icons: ^1.0.2
   url_launcher: ^5.7.10
-  json_annotation: ^4.0.1
+  json_annotation: ^3.1.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^2.0.1
-  json_serializable: ^4.1.1
+  build_runner: ^1.10.9
+  json_serializable: ^3.5.1
 
 flutter:
   uses-material-design: true

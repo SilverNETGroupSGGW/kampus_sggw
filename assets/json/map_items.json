@@ -1,4 +1,5 @@
-[
+{
+  "mapItems": [
     {
       "id": 34,
       "geoLocation": {
@@ -10,8 +11,8 @@
       "url": "",
       "type": "facultyBuilding",
       "photoPath": "http://www.wzim.sggw.pl/wp-content/themes/mgr_01/dist/img/header-bg-big.jpg",
-      "minScale": 1,
-      "lastModified": "01-04-2021",
+      "minScale": 1.0,
+      "lastModified": "2021-04-22",
       "gallery": [
         "http://www.wzim.sggw.pl/wp-content/uploads/2021/01/121172261_4171018082925464_8247404458468864618_o-620x500o-150x150.jpg",
         "http://www.wzim.sggw.pl/wp-content/uploads/2020/06/indeks-150x150.png"
@@ -66,7 +67,6 @@
             }
           ]
         },
-  ​
         {
           "name": "WL",
           "description": "Wydział Leśny",
@@ -99,3 +99,4 @@
       ]
     }
   ]
+}

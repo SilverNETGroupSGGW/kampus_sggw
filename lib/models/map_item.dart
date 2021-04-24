@@ -1,7 +1,22 @@
 import 'location.dart';
-import 'map_item_type.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'map_item.g.dart';
+
+enum MapItemType {
+  facultyBuilding,
+  administrationBuilding,
+  sportsFacility,
+  store,
+  food,
+  library,
+  parking,
+  transport,
+  finance,
+  dormitories,
+  kindergarten,
+  monument,
+  medicine,
+}
 
 @JsonSerializable()
 class MapItem {
@@ -28,4 +43,10 @@ class MapItem {
     this.gallery,
   );
   factory MapItem.fromJson(Map<String, dynamic> json) => _$MapItemFromJson(json);
+
+  // TODO - delete
+  @override
+  String toString() {
+    return name + ' ' + geoLocation.lat.toString() + ' ' + geoLocation.lon.toString();
+  }
 }
