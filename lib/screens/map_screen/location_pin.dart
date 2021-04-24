@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/models/map.dart';
 import 'package:kampus_sggw/models/map_item.dart';
-import 'map_props.dart' as map_props;
+import 'package:kampus_sggw/models/point.dart';
 
 class LocationPin extends StatelessWidget {
   // Pin position on the map, (-1, 1) range
   double x;
   double y;
   double scale;
+  Map map;
 
   MapItem mapItem;
   Function(MapItem mapItem) onPress;
 
   // Constructors
-  LocationPin.fromMapItem(this.mapItem, this.onPress) {
-    this.x = _lonToPos(mapItem.geoLocation.lon);
-    this.y = _latToPos(mapItem.geoLocation.lat);
+  LocationPin.fromMapItem(this.mapItem, this.onPress, this.map) {
+    Point point = map.geoLocationToMapPoint(mapItem.geoLocation);
+    this.x = point.x;
+    this.y = point.y;
     this.scale = 1.0;
   }
-  LocationPin.withNewScale(LocationPin pin, double newScale) {
+  LocationPin.withNewScale(LocationPin pin, double newScale, this.map) {
     this.x = pin.x;
     this.y = pin.y;
     this.mapItem = pin.mapItem;
     this.onPress = pin.onPress;
-
     this.scale = newScale;
   }
 
@@ -40,15 +42,5 @@ class LocationPin extends StatelessWidget {
 
   void _iconPressed() {
     onPress(mapItem);
-  }
-
-  double _latToPos(double lat) =>
-      _remapRange(lat, map_props.minLat, map_props.maxLat, 1, -1);
-  double _lonToPos(double lon) =>
-      _remapRange(lon, map_props.minLon, map_props.maxLon, -1, 1);
-
-  double _remapRange(
-      double v, double inA, double inB, double outA, double outB) {
-    return (v - inA) / (inB - inA) * (outB - outA) + outA;
   }
 }

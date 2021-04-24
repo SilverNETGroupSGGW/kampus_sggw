@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'location_pin.dart';
-import 'map_props.dart' as map_props;
+import 'package:kampus_sggw/models/location.dart';
+import 'package:kampus_sggw/models/map.dart';
 
 class InteractiveMap extends StatefulWidget {
   TransformationController transController = TransformationController();
   List<LocationPin> pins = [];
   Function _showCard;
+  Map map = Map(
+    topLeftCorner: Location(52.167685, 21.035505),
+    bottomRightCorner: Location(52.155245, 21.054732),
+    minScale: 0.1,
+    maxScale: 1.5,
+  );
 
   InteractiveMap(List<MapItem> mapItems, this._showCard) {
     mapItems.forEach((mapItem) {
-      pins.add(LocationPin.fromMapItem(mapItem, onPinPressed));
+      pins.add(LocationPin.fromMapItem(mapItem, onPinPressed, map));
     });
   }
 
@@ -29,8 +36,8 @@ class _InteractiveMapState extends State<InteractiveMap> {
   Widget build(BuildContext context) {
     return InteractiveViewer(
       constrained: false,
-      minScale: map_props.minScale,
-      maxScale: map_props.maxScale,
+      minScale: widget.map.minScale,
+      maxScale: widget.map.maxScale,
       child: Stack(
         children: [
           Image(
@@ -62,7 +69,8 @@ class _InteractiveMapState extends State<InteractiveMap> {
 
   void _updatePins() {
     for (int i = 0; i < widget.pins.length; i++) {
-      widget.pins[i] = LocationPin.withNewScale(widget.pins[i], _scale);
+      widget.pins[i] =
+          LocationPin.withNewScale(widget.pins[i], _scale, widget.map);
     }
   }
 }
