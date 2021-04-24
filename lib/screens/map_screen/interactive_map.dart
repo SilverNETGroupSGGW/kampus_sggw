@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/models/building.dart';
+import 'package:kampus_sggw/models/map_item.dart';
 import 'location_pin.dart';
 
 class InteractiveMap extends StatefulWidget {
@@ -7,14 +7,14 @@ class InteractiveMap extends StatefulWidget {
   List<LocationPin> pins = [];
   Function _showCard;
 
-  InteractiveMap(List<Building> buildings, this._showCard) {
-    buildings.forEach((building) {
-      pins.add(LocationPin.fromBuilding(building, onPinPressed));
+  InteractiveMap(List<MapItem> mapItems, this._showCard) {
+    mapItems.forEach((mapItem) {
+      pins.add(LocationPin.fromMapItem(mapItem, onPinPressed));
     });
   }
 
-  onPinPressed(Building building) {
-    _showCard(building);
+  onPinPressed(MapItem mapItem) {
+    _showCard(mapItem);
   }
 
   @override

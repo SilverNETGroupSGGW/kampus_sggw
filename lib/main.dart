@@ -20,11 +20,16 @@ Future<void> main() async {
         fallbackLocale: Locale('pl'),
         startLocale: Locale('pl'),
         assetLoader: CodegenLoader(),
-        child: MyApp()),
+        child: MyApp(mapItems: mapItems)),
   );
 }
 
 class MyApp extends StatelessWidget {
+
+  final MapItems mapItems;
+
+  MyApp ({ Key key, this.mapItems }): super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,7 +37,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: MapScreen(),
+      home: MapScreen(mapItems: mapItems),
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
       locale: context.locale,
