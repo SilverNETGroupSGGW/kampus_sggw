@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:json_annotation/json_annotation.dart';
+part 'service.g.dart';
 
 enum ServiceType {
   xero,
@@ -8,21 +10,21 @@ enum ServiceType {
   lectureHall,
 }
 
+@JsonSerializable()
 class Service {
   String name;
-  Icon icon;
   ServiceType type;
   String description;
   String url;
   String photoPath;
-  Service({name, type, description, url, photoPath}) {
-    this.name = name;
-    this.type = type;
-    this.description = description;
-    this.url = url;
-    this.photoPath = photoPath;
+  @JsonKey(ignore: true)
+  Icon icon;
+
+  Service(this.name, this.type, this.description, this.url, this.photoPath) {
     this.icon = _createIconForType(type);
   }
+  factory Service.fromJson(Map<String, dynamic> json) =>
+      _$ServiceFromJson(json);
 
   Icon _createIconForType(ServiceType type) {
     switch (type) {
