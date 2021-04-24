@@ -1,6 +1,5 @@
-import 'location.dart';
-import 'point.dart';
-
+import 'package:kampus_sggw/models/location.dart';
+import 'package:kampus_sggw/models/point.dart';
 class Map {
   Location bottomLeftCorner;
   Location topRightCorner;

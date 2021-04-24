@@ -1,0 +1,149 @@
+{
+  "mapItems": [
+    {
+      "id": 34,
+      "geoLocation": {
+        "lat": 52.16200969489112,
+        "lon": 21.046338709693675
+      },
+      "name": "Budynek 34",
+      "description": "Budynek WZIM, WL, WTD",
+      "url": "http://www.sggw.pl/",
+      "type": "facultyBuilding",
+      "photoPath": "http://www.wzim.sggw.pl/wp-content/themes/mgr_01/dist/img/header-bg-big.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-04-22",
+      "gallery": [
+        "http://www.wzim.sggw.pl/wp-content/uploads/2021/01/121172261_4171018082925464_8247404458468864618_o-620x500o-150x150.jpg",
+        "http://www.wzim.sggw.pl/wp-content/uploads/2020/06/indeks-150x150.png"
+      ],
+      "services": [
+        {
+          "name": "Ksero na parterze",
+          "type": "xero",
+          "description": "Super xero, nie to co w innych budynkach"
+        },
+        {
+          "name": "Stołówka",
+          "type": "canteen",
+          "description": "Super stołówka"
+        },
+        {
+          "name": "Automat z kawą",
+          "type": "vendingMachine"
+        }
+      ],
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WZIM",
+              "description": "Wydział Zastosowań Informatyki i Matematyki",
+              "url": "http://wzim.sggw.pl/",
+              "services": [
+                {
+                  "name": "Automat z jedzeniem",
+                  "type": "vendingMachine",
+                  "description": "Automat z jedzeniem"
+                },
+                {
+                  "name": "Dziekanat WZIM",
+                  "type": "deanery"
+                },
+                {
+                  "name": "Aula III",
+                  "type": "lectureHall"
+                },
+                {
+                  "name": "Aula IV",
+                  "type": "lectureHall"
+                }
+              ],
+              "subCategories": [
+                {
+                  "name": "departaments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Zastosowań Informatyki"
+                    },
+                    {
+                      "name": "Katedra Informatyki"
+                    },
+                    {
+                      "name": "Katedra Ekonometrii i Statystyki"
+                    },
+                    {
+                      "name": "Katedra Zastosowań Matematyki"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "WL",
+              "description": "Wydział Leśny",
+              "url": "http://wl.sggw.pl/",
+              "services": [
+                {
+                  "name": "Automat z jedzeniem",
+                  "type": "vendingMachine",
+                  "description": "Automat z jedzeniem"
+                },
+                {
+                  "name": "Dziekanat WL",
+                  "type": "deanery"
+                }
+              ],
+              "subCategories": [
+                {
+                  "name": "departaments",
+                  "subCategories": [
+                    {
+                      "name": "Instytut Nauk Leśnych"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "WTD",
+              "description": "Wydział technologii drewna",
+              "services": [
+                {
+                  "name": "Dziekanat WTD",
+                  "type": "deanery"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "geoLocation": {
+        "lat": 52.16010,
+        "lon": 21.04476
+      },
+      "name": "Budynek 32",
+      "type": "facultyBuilding",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-04-23",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "Wydział Nauk o Żywności"
+            },
+            {
+              "name": "Wydział Nauk o Żywieniu Człowieka i Konsumpcji"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
