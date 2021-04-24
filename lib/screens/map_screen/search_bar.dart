@@ -1,9 +1,7 @@
 import 'dart:convert';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
-
 import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:kampus_sggw/screens/map_screen/search_help_panel.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
@@ -32,7 +30,8 @@ class _SearchBar extends State<SearchBar> {
 
   @override
   void dispose() {
-    jsonEncode(widget.searchHistory);
+    String jsonString = jsonEncode(widget.searchHistory);
+    SearchHistory.saveJsonString(jsonString);
     _controller.dispose();
     super.dispose();
   }
