@@ -9,9 +9,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   Map<String, dynamic> mapItemsMap = jsonDecode(await MapItems.getJsonSting());
-  var mapItems = MapItems.fromJson(mapItemsMap);
-  print(mapItems.toString());
-  print(mapItemsMap);
+  final mapItems = MapItems.fromJson(mapItemsMap);
 
   runApp(
     EasyLocalization(

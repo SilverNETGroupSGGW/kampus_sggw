@@ -22,6 +22,14 @@ MapItem _$MapItemFromJson(Map<String, dynamic> json) {
         ? null
         : DateTime.parse(json['lastModified'] as String),
     (json['gallery'] as List)?.map((e) => e as String)?.toList(),
+    (json['services'] as List)
+        ?.map((e) =>
+            e == null ? null : Service.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
+    (json['categories'] as List)
+        ?.map((e) =>
+            e == null ? null : Category.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
@@ -36,6 +44,8 @@ Map<String, dynamic> _$MapItemToJson(MapItem instance) => <String, dynamic>{
       'minScale': instance.minScale,
       'lastModified': instance.lastModified?.toIso8601String(),
       'gallery': instance.gallery,
+      'services': instance.services,
+      'categories': instance.categories,
     };
 
 T _$enumDecode<T>(

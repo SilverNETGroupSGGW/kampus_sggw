@@ -1,6 +1,5 @@
+import 'package:kampus_sggw/models/map_item.dart';
 import 'package:flutter/services.dart';
-
-import 'map_item.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'map_items.g.dart';
 
@@ -17,11 +16,5 @@ class MapItems {
 
   static Future<String> getJsonSting() {
     return rootBundle.loadString('assets/json/map_items.json');
-  }
-
-  // TODO - delete
-  @override
-  String toString() {
-    return mapItems[0].toString();
   }
 }

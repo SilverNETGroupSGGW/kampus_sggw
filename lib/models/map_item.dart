@@ -1,4 +1,6 @@
-import 'location.dart';
+import 'package:kampus_sggw/models/category.dart';
+import 'package:kampus_sggw/models/location.dart';
+import 'package:kampus_sggw/models/service.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'map_item.g.dart';
 
@@ -30,6 +32,8 @@ class MapItem {
   double minScale;
   DateTime lastModified;
   List<String> gallery;
+  List<Service> services;
+  List<Category> categories;
   MapItem(
     this.id,
     this.geoLocation,
@@ -41,12 +45,9 @@ class MapItem {
     this.minScale,
     this.lastModified,
     this.gallery,
+    this.services,
+    this.categories,
   );
-  factory MapItem.fromJson(Map<String, dynamic> json) => _$MapItemFromJson(json);
-
-  // TODO - delete
-  @override
-  String toString() {
-    return name + ' ' + geoLocation.lat.toString() + ' ' + geoLocation.lon.toString();
-  }
+  factory MapItem.fromJson(Map<String, dynamic> json) =>
+      _$MapItemFromJson(json);
 }
