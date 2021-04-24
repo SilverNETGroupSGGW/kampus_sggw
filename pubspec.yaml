@@ -24,7 +24,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/map/sggw_map.png
+    - assets/images/map/map_z2.jpg
     - assets/translations/
     - assets/images/map_objects/wzim.jpg
     - assets/json/map_items.json
