@@ -1,4 +1,4 @@
-import 'service.dart';
+import 'package:kampus_sggw/models/service.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'category.g.dart';
 
