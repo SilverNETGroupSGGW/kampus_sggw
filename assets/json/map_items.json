@@ -1,0 +1,101 @@
+[
+    {
+      "id": 34,
+      "geoLocation": {
+        "lat": 52.16200969489112,
+        "lon": 21.046338709693675
+      },
+      "name": "Budynek 34",
+      "description": "WZIM, WL, WTD",
+      "url": "",
+      "type": "facultyBuilding",
+      "photoPath": "http://www.wzim.sggw.pl/wp-content/themes/mgr_01/dist/img/header-bg-big.jpg",
+      "minScale": 1,
+      "lastModified": "01-04-2021",
+      "gallery": [
+        "http://www.wzim.sggw.pl/wp-content/uploads/2021/01/121172261_4171018082925464_8247404458468864618_o-620x500o-150x150.jpg",
+        "http://www.wzim.sggw.pl/wp-content/uploads/2020/06/indeks-150x150.png"
+      ],
+      "services": [
+        {
+          "name": "Ksero na parterze",
+          "icon": "xero",
+          "type": "xero",
+          "description": "Super xero, nie to co w innych budynkach"
+        },
+        {
+          "name": "Stołówka",
+          "icon": "canteen",
+          "type": "canteen",
+          "description": "Super stołówka"
+        },
+        {
+          "name": "Automat z jedzeniem",
+          "icon": "vendingMachine",
+          "type": "vendingMachine",
+          "description": "Automat z jedzeniem"
+        }
+      ],
+      "categories": [
+        {
+          "name": "WZIM",
+          "description": "Wydział Zastosowań Informatyki i Matematyki",
+          "url": "http://wzim.sggw.pl/",
+          "services": [
+            {
+              "name": "Automat z jedzeniem",
+              "icon": "vendingMachine",
+              "type": "vendingMachine",
+              "description": "Automat z jedzeniem"
+            }
+          ],
+          "subCategories": [
+            {
+              "name": "Informatyka",
+              "description": "Najlepszy kierunek studiów na całym piętrze",
+              "url": "http://www.wzim.sggw.pl/rekrutacja/kierunki-studiow/",
+              "services": [],
+              "subCategories": []
+            },
+            {
+              "name": "Informatyka i ekonometria",
+              "description": "Drugi kierunek studiów na całym piętrze",
+              "url": "http://www.wzim.sggw.pl/rekrutacja/kierunki-studiow/",
+              "services": [],
+              "subCategories": []
+            }
+          ]
+        },
+  ​
+        {
+          "name": "WL",
+          "description": "Wydział Leśny",
+          "url": "http://wl.sggw.pl/",
+          "services": [
+            {
+              "name": "Automat z jedzeniem",
+              "icon": "vendingMachine",
+              "type": "vendingMachine",
+              "description": "Automat z jedzeniem"
+            }
+          ],
+          "subCategories": [
+            {
+              "name": "Leśnictwo",
+              "description": "Wielki zielony las a w nim ja",
+              "url": "http://wl.sggw.pl/studies",
+              "services": [],
+              "subCategories": []
+            },
+            {
+              "name": "Gospodarka przestrzenna",
+              "description": "Kierunek międzywydziałowy",
+              "url": "http://wl.sggw.pl/studies",
+              "services": [],
+              "subCategories": []
+            }
+          ]
+        }
+      ]
+    }
+  ]

@@ -4,9 +4,9 @@ import 'package:kampus_sggw/models/category.dart';
 import 'package:kampus_sggw/models/location.dart';
 import 'package:kampus_sggw/models/building.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
+import 'package:kampus_sggw/models/map_item_type.dart';
 import 'package:kampus_sggw/models/service.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'info_card.dart';
 import 'interactive_map.dart';
 import 'map_floating_buttons.dart';
@@ -14,75 +14,120 @@ import 'map_floating_buttons.dart';
 class MapScreen extends StatefulWidget {
   final List<Building> buildings = [
     Building(
-      geoLocation: Location(lat: 52.16010, lon: 21.04476),
-      name: "Budynek 32",
-      photoPath: "assets/images/map_objects/wzim.jpg",
-      categories: [
+      1,
+      Location(52.16010, 21.04476),
+      "Budynek 32",
+      null,
+      null,
+      MapItemType.facultyBuilding,
+      "assets/images/map_objects/wzim.jpg",
+      1,
+      new DateTime(2020, 04, 01, 08, 38),
+      null,
+      null,
+      [
         Category(
-          name: 'Faculties',
-          subCategories: [
+          'Faculties',
+          null,
+          null,
+          null,
+          [
             Category(
-              name: 'Wydział Nauk o Żywności',
+              'Wydział Nauk o Żywności',
+              null,
+              null,
+              null,
+              null,
             ),
             Category(
-              name: 'Wydział Nauk o Żywieniu Człowieka i Konsumpcji',
+              'Wydział Nauk o Żywieniu Człowieka i Konsumpcji',
+              null,
+              null,
+              null,
+              null,
             ),
           ],
         ),
       ],
     ),
     Building(
-      geoLocation: Location(lat: 52.16203, lon: 21.04632),
-      name: "Budynek 34",
-      photoPath: "assets/images/map_objects/wzim.jpg",
-      categories: [
+      2,
+      Location(52.16203, 21.04632),
+      "Budynek 34",
+      null,
+      null,
+      MapItemType.facultyBuilding,
+      "assets/images/map_objects/wzim.jpg",
+      1,
+      new DateTime(2020, 04, 01, 08, 38),
+      null,
+      [
+        new Service(
+          'xero',
+          ServiceType.xero,
+          'Xero na 1 piętrze',
+          null,
+          null,
+        ),
+        new Service(
+          'Kartka',
+          ServiceType.canteen,
+          'Bufet w piwnicy. Można tam nawet dobrze zjeść. Wyśmienite pierogi mmm...',
+          null,
+          null,
+        ),
+      ],
+      [
         Category(
-          name: 'Faculties',
-          subCategories: [
+          'Faculties',
+          null,
+          null,
+          null,
+          [
             Category(
-              name: 'Wydział Leśny',
+              'Wydział Leśny',
+              null,
+              null,
+              null,
+              null,
             ),
             Category(
-              name: 'Wydział Technologii Drewna',
+              'Wydział Technologii Drewna',
+              null,
+              null,
+              null,
+              null,
             ),
             Category(
-              name: 'Wydział Zastosowań Matematyki i Informatyki',
+              'Wydział Zastosowań Matematyki i Informatyki',
+              null,
+              null,
+              null,
+              null,
             ),
           ],
         ),
       ],
-      services: [
-        new Service(
-          name: 'xero',
-          type: ServiceType.xero,
-          description: 'Xero na 1 piętrze',
-        ),
-        new Service(
-          name: 'Kartka',
-          type: ServiceType.canteen,
-          description: 'Bufet w piwnicy. Można tam nawet dobrze zjeść. Wyśmienite pierogi mmm...',
-        ),
-      ],
     ),
-    Building(
-      geoLocation: Location(lat: 52.16191, lon: 21.04293),
-      name: "Budynek 37",
-      photoPath: "assets/images/map_objects/wzim.jpg",
-      categories: [
-        Category(
-          name: 'Faculties',
-          subCategories: [
-            Category(
-              name:
-                  'Wydział Ogrodnictwa, Biotechnologii i Architektury Krajobrazu',
-            ),
-            Category(
-              name: 'Wydział Rolnictwa i Biologii',
-            ),
-          ],
-        ),
-      ],
-    ),
+    // Building(
+    //   geoLocation: Location(lat: 52.16191, lon: 21.04293),
+    //   name: "Budynek 37",
+    //   photoPath: "assets/images/map_objects/wzim.jpg",
+    //   categories: [
+    //     Category(
+    //       name: 'Faculties',
+    //       subCategories: [
+    //         Category(
+    //           name:
+    //               'Wydział Ogrodnictwa, Biotechnologii i Architektury Krajobrazu',
+    //         ),
+    //         Category(
+    //           name: 'Wydział Rolnictwa i Biologii',
+    //         ),
+    //       ],
+    //     ),
+    //   ],
+    // ),
   ];
 
   @override

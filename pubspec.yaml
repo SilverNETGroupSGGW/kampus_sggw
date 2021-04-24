@@ -13,10 +13,13 @@ dependencies:
   material_floating_search_bar: ^0.2.6
   cupertino_icons: ^1.0.2
   url_launcher: ^5.7.10
+  json_annotation: ^4.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^2.0.1
+  json_serializable: ^4.1.1
 
 flutter:
   uses-material-design: true
@@ -24,4 +27,5 @@ flutter:
     - assets/images/map/sggw_map.png
     - assets/translations/
     - assets/images/map_objects/wzim.jpg
+    - assets/json/map_items.json
 
