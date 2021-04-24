@@ -12,7 +12,7 @@ class InteractiveMap extends StatefulWidget {
     topLeftCorner: Location(52.167685, 21.035505),
     bottomRightCorner: Location(52.155245, 21.054732),
     minScale: 0.1,
-    maxScale: 1.5,
+    maxScale: 0.5,
   );
 
   InteractiveMap(List<MapItem> mapItems, this._showCard) {
