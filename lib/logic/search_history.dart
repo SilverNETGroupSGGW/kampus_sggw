@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'search_history.g.dart';
@@ -39,5 +41,10 @@ class SearchHistory {
 
   static Future<String> getJsonSting() {
     return rootBundle.loadString('assets/json/search_history.json');
+  }
+
+  static void saveJsonString(String jsonString) async {
+    var file = File('assets/json/search_history.json');
+    file.writeAsStringSync(jsonString);
   }
 }
