@@ -20,15 +20,8 @@ class MapItems {
 
   List<MapItem> getItems(List<int> itemsIds) {
     List<MapItem> tmp = [];
-    int index = 0;
-    for (var item in mapItems) {
-      if (index == itemsIds.length) {
-        return tmp;
-      }
-      if (item.id == itemsIds[index]) {
-        index++;
-        tmp.add(item);
-      }
+    for (var id in itemsIds) {
+      tmp.add(mapItems.firstWhere((element) => element.id == id));
     }
     return tmp;
   }

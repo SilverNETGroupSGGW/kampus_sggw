@@ -59,6 +59,7 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
   void _onTapFunc(MapItem item) {
     setState(() {
       widget.visitedItems.addItem(item.id);
+      _updateRecentlyVisited();
     });
   }
 
