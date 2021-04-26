@@ -1,41 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/logic/visited_items.dart';
+import 'package:kampus_sggw/models/map_item.dart';
 
-class RecentlyVisitedList extends StatelessWidget {
-  final List<String> visitedItems;
-  const RecentlyVisitedList({Key key, @required this.visitedItems})
-      : super(key: key);
+class RecentlyVisitedList extends StatefulWidget {
+  final VisitedItems visitedItems;
+
+  const RecentlyVisitedList({
+    Key key,
+    @required this.visitedItems,
+  }) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _RecentlyVisitedList();
+}
+
+class _RecentlyVisitedList extends State<RecentlyVisitedList> {
+  List<MapItem> _visitedItems;
+
+  @override
+  void initState() {
+    super.initState();
+    _visitedItems = widget.visitedItems.filterVisitedItems();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView(
         physics: NeverScrollableScrollPhysics(),
-        children: List.generate(
-          visitedItems.length,
-          (index) => RecentlyVisitedCard(
-            text: visitedItems[index],
-          ),
-        ),
+        children: _visitedItems
+            .map((item) => Card(child: _recentlyVisitedItemCard(item)))
+            .toList(),
       ),
     );
   }
-}
 
-class RecentlyVisitedCard extends StatelessWidget {
-  final text;
-  const RecentlyVisitedCard({Key key, this.text}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        leading: Icon(Icons.park),
-        title: Text(
-          text,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(fontSize: 18),
-        ),
-        dense: true,
-        //trailing: Icon(Icons.more_vert),
+  ListTile _recentlyVisitedItemCard(MapItem item) {
+    return ListTile(
+      onTap: () => _onTapFunc(item),
+      leading: Icon(Icons.park),
+      title: Text(
+        item.name,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(fontSize: 18),
       ),
+      dense: true,
+      trailing: IconButton(
+          icon: const Icon(Icons.clear),
+          onPressed: () {
+            setState(() {
+              widget.visitedItems.deleteItem(item.id);
+              _updateRecentlyVisited();
+            });
+          }),
     );
   }
+
+  void _onTapFunc(MapItem item) {
+    setState(() {
+      widget.visitedItems.addItem(item.id);
+    });
+  }
+
+  void _updateRecentlyVisited() =>
+      _visitedItems = widget.visitedItems.filterVisitedItems();
 }

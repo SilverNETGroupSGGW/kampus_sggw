@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
-import 'package:kampus_sggw/models/map_items.dart';
 import 'search_bar.dart';
 
 class MapFloatingButtons extends StatelessWidget {
   final SearchHistory searchHistory;
   final VisitedItems visitedItems;
-  final MapItems mapItems;
 
   const MapFloatingButtons({
     Key key,
     this.searchHistory,
     this.visitedItems,
-    this.mapItems,
   }) : super(key: key);
 
   @override
@@ -48,7 +45,6 @@ class MapFloatingButtons extends StatelessWidget {
         child: SearchBar(
           searchHistory: searchHistory,
           visitedItems: visitedItems,
-          mapItems: mapItems,
         ),
       ),
     );

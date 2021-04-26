@@ -66,7 +66,6 @@ class _MapScreenState extends State<MapScreen> {
       floatingActionButton: MapFloatingButtons(
         searchHistory: widget.searchHistory,
         visitedItems: widget.visitedItems,
-        mapItems: widget.mapItems,
       ),
       drawer: SideDrawer(),
     );

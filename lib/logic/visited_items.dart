@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 part 'visited_items.g.dart';
@@ -10,13 +11,16 @@ class VisitedItems {
   int buffer;
   @JsonKey(defaultValue: <int>[])
   List<int> visitedItemsIds;
+  @JsonKey(ignore: true)
+  MapItems mapItems;
+
   VisitedItems(this.buffer, this.visitedItemsIds);
   factory VisitedItems.fromJson(Map<String, dynamic> json) =>
       _$VisitedItemsFromJson(json);
   Map<String, dynamic> toJson() => _$VisitedItemsToJson(this);
 
-  List<String> getVisitedItemsNames(MapItems mapItems) =>
-      mapItems.getItemsNames(visitedItemsIds).reversed.toList();
+  List<MapItem> filterVisitedItems() =>
+      mapItems.getItems(visitedItemsIds).reversed.toList();
 
   void addItem(int id) {
     if (visitedItemsIds.contains(id)) {

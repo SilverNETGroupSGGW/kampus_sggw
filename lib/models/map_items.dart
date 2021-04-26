@@ -17,8 +17,19 @@ class MapItems {
   static Future<String> getJsonSting() {
     return rootBundle.loadString('assets/json/map_items.json');
   }
-  List<String> getItemsNames(List<int> itemsIds) => mapItems
-      .where((item) => itemsIds.contains(item.id))
-      .map((item) => item.name)
-      .toList();
+
+  List<MapItem> getItems(List<int> itemsIds) {
+    List<MapItem> tmp = [];
+    int index = 0;
+    for (var item in mapItems) {
+      if (index == itemsIds.length) {
+        return tmp;
+      }
+      if (item.id == itemsIds[index]) {
+        index++;
+        tmp.add(item);
+      }
+    }
+    return tmp;
+  }
 }

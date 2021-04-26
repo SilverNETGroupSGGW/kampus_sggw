@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/screens/map_screen/filter_buttons_row.dart';
 import 'package:kampus_sggw/screens/map_screen/recently_visited_list.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
@@ -6,8 +7,11 @@ import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class SearchHelpPanel extends StatelessWidget {
-  final List<String> visitedItems;
-  const SearchHelpPanel({Key key, this.visitedItems}) : super(key: key);
+  final VisitedItems visitedItems;
+  const SearchHelpPanel({
+    Key key,
+    @required this.visitedItems,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final fsb = FloatingSearchBar.of(context);
@@ -24,7 +28,9 @@ class SearchHelpPanel extends StatelessWidget {
           Headline(
             text: LocaleKeys.recent_searches.tr(),
           ),
-          RecentlyVisitedList(visitedItems: visitedItems),
+          RecentlyVisitedList(
+            visitedItems: visitedItems,
+          ),
         ],
       ),
     );

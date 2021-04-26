@@ -18,6 +18,7 @@ Future<void> main() async {
   Map<String, dynamic> visitedItemsMap =
       jsonDecode(await VisitedItems.getJsonSting());
   final visitedItems = VisitedItems.fromJson(visitedItemsMap);
+  visitedItems.mapItems = mapItems;
 
   runApp(
     EasyLocalization(
