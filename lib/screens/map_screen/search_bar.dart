@@ -1,17 +1,21 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:kampus_sggw/screens/map_screen/search_help_panel.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 class SearchBar extends StatefulWidget {
+  final SearchHistory searchHistory;
+  const SearchBar({
+    Key key,
+    @required this.searchHistory,
+  }) : super(key: key);
   @override
   _SearchBar createState() => _SearchBar();
 }
 
 class _SearchBar extends State<SearchBar> {
-  SearchHistory _searchHistory;
   List<String> _filteredSearchHistory;
   String _selectedTerm;
   FloatingSearchBarController _controller;
@@ -19,13 +23,13 @@ class _SearchBar extends State<SearchBar> {
   @override
   void initState() {
     super.initState();
-    _searchHistory = new SearchHistory(buffer: 10);
     _controller = FloatingSearchBarController();
-    _filteredSearchHistory = _searchHistory.filterSearchTerms(null);
+    _filteredSearchHistory = widget.searchHistory.filterSearchTerms(null);
   }
 
   @override
   void dispose() {
+    widget.searchHistory.save();
     _controller.dispose();
     super.dispose();
   }
@@ -63,7 +67,7 @@ class _SearchBar extends State<SearchBar> {
           setState(
             () {
               _selectedTerm = query;
-              _searchHistory.addSearchTerm(query);
+              widget.searchHistory.addSearchTerm(query);
               updateFilteredSearchHistory(null);
             },
           );
@@ -93,7 +97,7 @@ class _SearchBar extends State<SearchBar> {
   }
 
   void updateFilteredSearchHistory(filter) =>
-      _filteredSearchHistory = _searchHistory.filterSearchTerms(filter);
+      _filteredSearchHistory = widget.searchHistory.filterSearchTerms(filter);
 
   Column searchHistoryColumn() {
     return Column(
@@ -111,14 +115,14 @@ class _SearchBar extends State<SearchBar> {
                 icon: const Icon(Icons.clear),
                 onPressed: () {
                   setState(() {
-                    _searchHistory.deleteSearchTerm(term);
+                    widget.searchHistory.deleteSearchTerm(term);
                     updateFilteredSearchHistory(null);
                   });
                 },
               ),
               onTap: () {
                 setState(() {
-                  _searchHistory.addSearchTerm(term);
+                  widget.searchHistory.addSearchTerm(term);
                   _selectedTerm = term;
                   updateFilteredSearchHistory(null);
                 });
@@ -136,7 +140,7 @@ class _SearchBar extends State<SearchBar> {
       leading: const Icon(Icons.search),
       onTap: () {
         setState(() {
-          _searchHistory.addSearchTerm(_controller.query);
+          widget.searchHistory.addSearchTerm(_controller.query);
           _selectedTerm = _controller.query;
           updateFilteredSearchHistory(null);
         });

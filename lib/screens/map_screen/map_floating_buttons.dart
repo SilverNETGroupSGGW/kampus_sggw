@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/logic/search_history.dart';
 import 'search_bar.dart';
 
-class MapFloatingButtons extends StatefulWidget {
-  @override
-  _MapFloatingButtons createState() => _MapFloatingButtons();
-}
+class MapFloatingButtons extends StatelessWidget {
+  final SearchHistory searchHistory;
 
-class _MapFloatingButtons extends State<MapFloatingButtons> {
+  const MapFloatingButtons({Key key, this.searchHistory}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,7 +36,9 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
       backgroundColor: Colors.transparent,
       builder: (context) => Container(
         height: MediaQuery.of(context).size.height * 0.6,
-        child: SearchBar(),
+        child: SearchBar(
+          searchHistory: searchHistory,
+        ),
       ),
     );
   }

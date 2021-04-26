@@ -1,31 +1,51 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:convert';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+part 'search_history.g.dart';
 
+@JsonSerializable()
 class SearchHistory {
-  int buffer;
-  List<String> _searchHistory = [];
-  SearchHistory({
-    @required this.buffer,
-  });
+  @JsonKey(defaultValue: 6)
+  final int buffer;
+  @JsonKey(defaultValue: <String>[])
+  List<String> searchHistory;
+
+  SearchHistory(this.buffer, this.searchHistory);
+  factory SearchHistory.fromJson(Map<String, dynamic> json) =>
+      _$SearchHistoryFromJson(json);
+  Map<String, dynamic> toJson() => _$SearchHistoryToJson(this);
 
   List<String> filterSearchTerms(String filter) {
     if (filter != null && filter.isNotEmpty) {
-      return _searchHistory.reversed
+      return searchHistory.reversed
           .where((term) => term.startsWith(filter))
           .toList();
     } else {
-      return _searchHistory.reversed.toList();
+      return searchHistory.reversed.toList();
     }
   }
 
   void addSearchTerm(String term) {
-    if (_searchHistory.contains(term)) {
+    if (searchHistory.contains(term)) {
       deleteSearchTerm(term);
     }
-    _searchHistory.add(term);
-    if (_searchHistory.length > buffer) {
-      _searchHistory.removeRange(0, 1);
+    searchHistory.add(term);
+    if (searchHistory.length > buffer) {
+      searchHistory.removeRange(0, 1);
     }
   }
 
-  void deleteSearchTerm(String term) =>_searchHistory.removeWhere((t) => t == term);
+  void deleteSearchTerm(String term) =>
+      searchHistory.removeWhere((t) => t == term);
+
+  void save() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    String jsonString = jsonEncode(this.toJson());
+    await sharedPreferences.setString('searchHistory', jsonString);
+  }
+
+  static Future<String> getJsonSting() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    return sharedPreferences.getString('searchHistory') ?? "{}";
+  }
 }

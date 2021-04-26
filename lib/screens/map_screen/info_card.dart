@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/models/building.dart';
 import 'package:kampus_sggw/models/category.dart';
+import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/service.dart';
 import 'package:kampus_sggw/screens/map_screen/filter_button.dart';
 import 'package:kampus_sggw/screens/map_screen/service_card.dart';
@@ -13,16 +13,23 @@ class InfoCardDialog extends StatelessWidget {
   final headerStyle = TextStyle(fontWeight: FontWeight.w500, fontSize: 26);
 
   InfoCardDialog({this.header, this.description});
-  InfoCardDialog.fromBuilding(Building building) {
-    this.header = building.name;
-    final data = building.categories;
-    this.description = ListView.builder(
-      itemCount: data.length,
-      itemBuilder: (BuildContext context, int index) => CategoryItem(
-        data[index],
-      ),
-    );
-    this.servicesRow = ServiceButtonsRow.fromServices(building.services);
+
+  InfoCardDialog.fromMapItem(MapItem mapItem) {
+    this.header = mapItem.name;
+
+    if (mapItem.categories != null && mapItem.categories.isNotEmpty) {
+      final data = mapItem.categories;
+      this.description = ListView.builder(
+        itemCount: data.length,
+        itemBuilder: (BuildContext context, int index) => CategoryItem(
+          data[index],
+        ),
+      );
+    }
+
+    if (mapItem.services != null && mapItem.services.isNotEmpty) {
+      this.servicesRow = ServiceButtonsRow.fromServices(mapItem.services);
+    }
   }
 
   @override

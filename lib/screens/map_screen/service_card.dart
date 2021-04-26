@@ -28,15 +28,16 @@ class ServiceCard extends StatelessWidget {
                 child: Image.asset(service.photoPath),
               ),
             ),
-          Padding(
-            padding: const EdgeInsets.only(
-              bottom: 15,
-              left: 22,
-              right: 22,
-              top: 5,
+          if (service.description != null)
+            Padding(
+              padding: const EdgeInsets.only(
+                bottom: 15,
+                left: 22,
+                right: 22,
+                top: 5,
+              ),
+              child: Text(service.description),
             ),
-            child: Text(service.description),
-          ),
           if (service.url != null)
             Padding(
               padding: const EdgeInsets.only(left: 22, right: 22, bottom: 8.0),
