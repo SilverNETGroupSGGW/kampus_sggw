@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/logic/visited_items.dart';
+import 'package:kampus_sggw/models/map_items.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:kampus_sggw/screens/map_screen/search_help_panel.dart';
@@ -7,9 +9,13 @@ import 'package:kampus_sggw/translations/locale_keys.g.dart';
 
 class SearchBar extends StatefulWidget {
   final SearchHistory searchHistory;
+  final VisitedItems visitedItems;
+  final MapItems mapItems;
   const SearchBar({
     Key key,
-    @required this.searchHistory,
+    this.searchHistory,
+    this.visitedItems,
+    this.mapItems,
   }) : super(key: key);
   @override
   _SearchBar createState() => _SearchBar();
@@ -36,6 +42,7 @@ class _SearchBar extends State<SearchBar> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget.visitedItems);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: FloatingSearchBar(
@@ -47,7 +54,9 @@ class _SearchBar extends State<SearchBar> {
               left: 12.0,
               right: 12.0,
             ),
-            child: SearchHelpPanel(),
+            child: SearchHelpPanel(
+              visitedItems: widget.visitedItems.getVisitedItemsNames(widget.mapItems),
+            ),
           ),
         ),
         transition: CircularFloatingSearchBarTransition(),

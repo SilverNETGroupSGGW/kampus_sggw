@@ -6,6 +6,8 @@ import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class SearchHelpPanel extends StatelessWidget {
+  final List<String> visitedItems;
+  const SearchHelpPanel({Key key, this.visitedItems}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final fsb = FloatingSearchBar.of(context);
@@ -22,7 +24,7 @@ class SearchHelpPanel extends StatelessWidget {
           Headline(
             text: LocaleKeys.recent_searches.tr(),
           ),
-          RecentlyVisitedList(),
+          RecentlyVisitedList(visitedItems: visitedItems),
         ],
       ),
     );
