@@ -38,27 +38,33 @@ class _InteractiveMapState extends State<InteractiveMap> {
   Widget build(BuildContext context) {
     return FlutterMap(
       options: MapOptions(
-        center: LatLng(51.5, -0.09),
-        zoom: 13.0,
+        center: LatLng(52.161925644006125, 21.046382380115652),
+        zoom: 16,
+        maxZoom: 23,
+        minZoom: 15
       ),
       layers: [
         TileLayerOptions(
-            urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-            subdomains: ['a', 'b', 'c']
+          tileSize: 512, // domyślnie 256, większy kafel -> mniej requestów
+          // Meta dane: https://mapy.geoportal.gov.pl/wss/service/PZGIK/ORTO/WMS/StandardResolution?service=WMS&request=GetCapabilities
+          wmsOptions: WMSTileLayerOptions(
+            baseUrl: "https://mapy.geoportal.gov.pl/wss/service/PZGIK/ORTO/WMS/StandardResolution?",
+            layers: ["Raster"],
+            // Reszta jest opcjonalna ale niech będą
+            format: "image/jpeg",
+            transparent: false,
+            version: "1.3.0", // wersja usługi WMS
+          ),
+          maxNativeZoom: 23,
+          minNativeZoom: 15,
+          maxZoom: 23,
+          minZoom: 15
         ),
-        MarkerLayerOptions(
-          markers: [
-            Marker(
-              width: 80.0,
-              height: 80.0,
-              point: LatLng(51.5, -0.09),
-              builder: (ctx) =>
-                  Container(
-                    child: FlutterLogo(),
-                  ),
-            ),
-          ],
-        ),
+        // A to OSM dla odmiany
+        // TileLayerOptions(
+        //     urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        //     subdomains: ['a', 'b', 'c']
+        // ),
       ],
     );
   }
