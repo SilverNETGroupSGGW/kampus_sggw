@@ -9,7 +9,7 @@ part of 'search_history.dart';
 SearchHistory _$SearchHistoryFromJson(Map<String, dynamic> json) {
   return SearchHistory(
     json['buffer'] as int ?? 6,
-    (json['searchHistory'] as List)?.map((e) => e as String)?.toList(),
+    (json['searchHistory'] as List)?.map((e) => e as String)?.toList() ?? [],
   );
 }
 

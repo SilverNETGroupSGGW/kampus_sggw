@@ -1,14 +1,13 @@
-import 'dart:io';
-
-import 'package:flutter/services.dart';
+import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 part 'search_history.g.dart';
 
 @JsonSerializable()
 class SearchHistory {
   @JsonKey(defaultValue: 6)
   final int buffer;
-  @JsonKey(defaultValue: [])
+  @JsonKey(defaultValue: <String>[])
   List<String> searchHistory;
 
   SearchHistory(this.buffer, this.searchHistory);
@@ -39,12 +38,14 @@ class SearchHistory {
   void deleteSearchTerm(String term) =>
       searchHistory.removeWhere((t) => t == term);
 
-  static Future<String> getJsonSting() {
-    return rootBundle.loadString('assets/json/search_history.json');
+  void save() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    String jsonString = jsonEncode(this.toJson());
+    await sharedPreferences.setString('searchHistory', jsonString);
   }
 
-  static void saveJsonString(String jsonString) async {
-    var file = File('assets/json/search_history.json');
-    file.writeAsStringSync(jsonString);
+  static Future<String> getJsonSting() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    return sharedPreferences.getString('searchHistory') ?? "{}";
   }
 }
