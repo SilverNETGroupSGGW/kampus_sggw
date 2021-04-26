@@ -42,7 +42,6 @@ class _SearchBar extends State<SearchBar> {
 
   @override
   Widget build(BuildContext context) {
-    print(widget.visitedItems);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: FloatingSearchBar(
