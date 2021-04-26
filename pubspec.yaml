@@ -14,6 +14,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   url_launcher: ^5.7.10
   json_annotation: ^3.1.1
+  flutter_map: ^0.12.0
 
 dev_dependencies:
   flutter_test:
