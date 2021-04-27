@@ -1,47 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/screens/map_screen/filter_buttons.dart';
-import 'package:kampus_sggw/screens/map_screen/recently_visited_column.dart';
+import 'package:kampus_sggw/logic/visited_items.dart';
+import 'package:kampus_sggw/screens/map_screen/filter_buttons_row.dart';
+import 'package:kampus_sggw/screens/map_screen/recently_visited_list.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class SearchHelpPanel extends StatelessWidget {
-  final searchHistory;
-
+  final VisitedItems visitedItems;
   const SearchHelpPanel({
     Key key,
-    @required this.searchHistory,
+    @required this.visitedItems,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final fsb = FloatingSearchBar.of(context);
     return Container(
       padding: EdgeInsets.only(
-        top: fsb.height + fsb.margins.vertical + 10,
+        top: fsb.height + fsb.margins.vertical + 5,
       ),
       child: Column(
         children: [
           Headline(
             text: LocaleKeys.find_nearby.tr(),
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Padding(
-              padding: EdgeInsets.only(
-                bottom: 15,
-                left: 5,
-                top: 1,
-              ),
-              child: FilterButtonsRow(),
-            ),
-          ),
+          FilterButtonsRow(),
           Headline(
             text: LocaleKeys.recent_searches.tr(),
           ),
-          RecentlyVisitedColumn(
-            recentlyVisitedPlaces: searchHistory,
-          )
+          RecentlyVisitedList(
+            visitedItems: visitedItems,
+          ),
         ],
       ),
     );

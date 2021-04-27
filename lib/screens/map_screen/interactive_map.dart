@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'location_pin.dart';
 import 'package:kampus_sggw/models/location.dart';
 import 'package:kampus_sggw/models/map.dart';
 
 class InteractiveMap extends StatefulWidget {
+  VisitedItems visitedItems;
   TransformationController transController = TransformationController();
   List<LocationPin> pins = [];
   Function _showCard;
@@ -15,13 +17,15 @@ class InteractiveMap extends StatefulWidget {
     maxScale: 0.5,
   );
 
-  InteractiveMap(List<MapItem> mapItems, this._showCard) {
+  InteractiveMap(List<MapItem> mapItems, this._showCard, this.visitedItems) {
     mapItems.forEach((mapItem) {
       pins.add(LocationPin.fromMapItem(mapItem, onPinPressed, map));
     });
   }
 
   onPinPressed(MapItem mapItem) {
+    visitedItems.addItem(mapItem.id);
+    visitedItems.save();
     _showCard(mapItem);
   }
 

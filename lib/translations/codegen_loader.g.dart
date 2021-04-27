@@ -28,7 +28,7 @@ static const Map<String,dynamic> pl = {
   "drawer_campus_rules": "Regulamin kampusu",
   "search_bar_title": "Szukaj miejsca lub adresu",
   "find_nearby": "Szukaj w pobliżu",
-  "recent_searches": "Ostatnio wyszukiwane"
+  "recent_searches": "Ostatnio odwiedzone"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "pl": pl};
 }

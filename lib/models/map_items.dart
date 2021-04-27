@@ -17,4 +17,12 @@ class MapItems {
   static Future<String> getJsonSting() {
     return rootBundle.loadString('assets/json/map_items.json');
   }
+
+  List<MapItem> getItems(List<int> itemsIds) {
+    List<MapItem> tmp = [];
+    for (var id in itemsIds) {
+      tmp.add(mapItems.firstWhere((element) => element.id == id));
+    }
+    return tmp;
+  }
 }
