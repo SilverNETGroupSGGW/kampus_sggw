@@ -51,7 +51,7 @@ class RecentlyVisitedTile extends StatelessWidget {
             child: Text(
               text,
               overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.headline6,
+              style: TextStyle(fontFamily: 'SGGWSans', fontSize: 16.0),
             ),
           ),
           Divider(

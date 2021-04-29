@@ -48,7 +48,6 @@ class _SearchBar extends State<SearchBar> {
         physics: BouncingScrollPhysics(),
         title: Text(
           selectedTerm ?? LocaleKeys.search_bar_title.tr(),
-          style: Theme.of(context).textTheme.headline6,
         ),
         onQueryChanged: (query) {},
         onSubmitted: (query) {

@@ -10,7 +10,7 @@ class InfoCardDialog extends StatelessWidget {
   ListView description;
   ServiceButtonsRow servicesRow;
 
-  final headerStyle = TextStyle(fontWeight: FontWeight.w500, fontSize: 26);
+  final headerStyle = TextStyle(fontWeight: FontWeight.w600, fontSize: 26, fontFamily: 'SGGWSans');
 
   InfoCardDialog({this.header, this.description});
 

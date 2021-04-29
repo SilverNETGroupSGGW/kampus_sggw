@@ -37,7 +37,7 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(LocaleKeys.map_screen_title.tr()),
+        title: Text(LocaleKeys.map_screen_title.tr(), style: TextStyle(fontFamily: 'SGGWMastro', fontWeight: FontWeight.w400, letterSpacing: 0.5)),
       ),
       body: Stack(
         children: [
