@@ -62,7 +62,6 @@ class _InteractiveMapState extends State<InteractiveMap> {
       rotateGesturesEnabled: true,
       tiltGesturesEnabled: false,
       compassEnabled: true,
-      myLocationButtonEnabled: true,
       myLocationEnabled: true,
       zoomControlsEnabled: false,
       minMaxZoomPreference: MinMaxZoomPreference(15, 19),
