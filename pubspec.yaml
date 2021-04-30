@@ -16,6 +16,7 @@ dependencies:
   json_annotation: ^3.1.1
   path_provider: ^2.0.1
   shared_preferences: ^2.0.5
+  google_maps_flutter: ^2.0.3
 
 dev_dependencies:
   flutter_test:
@@ -26,7 +27,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/map/map_z2.jpg
     - assets/translations/
     - assets/images/map_objects/wzim.jpg
     - assets/json/map_items.json

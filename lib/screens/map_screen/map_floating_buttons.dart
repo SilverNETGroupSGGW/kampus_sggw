@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
-import 'search_bar.dart';
+import 'search_panel/search_bar.dart';
 
 class MapFloatingButtons extends StatelessWidget {
   final SearchHistory searchHistory;
