@@ -5,13 +5,14 @@ import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 
 class InteractiveMap extends StatefulWidget {
-  VisitedItems visitedItems;
-  TransformationController transController = TransformationController();
+  final VisitedItems visitedItems;
+  final TransformationController transController = TransformationController();
+  final Map markers = <MarkerId, Marker>{};
+  final Function _showCard;
+  final Stream shouldRecenterCamera;
   List<MapItem> mapItems;
-  Map markers = <MarkerId, Marker>{};
-  Function _showCard;
 
-  InteractiveMap(List<MapItem> mapItems, this._showCard, this.visitedItems) {
+  InteractiveMap(List<MapItem> mapItems, this._showCard, this.visitedItems, this.shouldRecenterCamera) {
     mapItems.forEach((mapItem) {
       _addMarkerFromMapItem(mapItem);
     });
@@ -45,9 +46,23 @@ class InteractiveMap extends StatefulWidget {
 }
 
 class _InteractiveMapState extends State<InteractiveMap> {
-
   Completer<GoogleMapController> _controller = Completer();
   Map markers = <MarkerId, Marker>{};
+  StreamSubscription streamSubscription;
+
+  @override
+  initState() {
+    super.initState();
+    // Subscribe to the camera recentering event
+    streamSubscription = widget.shouldRecenterCamera.listen((_) => _goToTheCampus());
+  }
+
+  @override
+  dispose() {
+    super.dispose();
+    // Cancel the subscription when this widget is disposed
+    streamSubscription.cancel();
+  }
 
   static final CameraPosition _campusLocation = CameraPosition(
     target: LatLng(52.162012883882326, 21.046311475278525),
