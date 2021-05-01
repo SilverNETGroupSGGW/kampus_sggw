@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_item.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class InteractiveMap extends StatefulWidget {
   final VisitedItems visitedItems;
@@ -53,6 +54,11 @@ class _InteractiveMapState extends State<InteractiveMap> {
   @override
   initState() {
     super.initState();
+
+    // Ask the user for location permission
+    // The popup won't show up if permission was already granted
+    requestLocationPermission();
+
     // Subscribe to the camera recentering event
     streamSubscription = widget.shouldRecenterCamera.listen((_) => _goToTheCampus());
   }
@@ -63,6 +69,8 @@ class _InteractiveMapState extends State<InteractiveMap> {
     // Cancel the subscription when this widget is disposed
     streamSubscription.cancel();
   }
+
+  Future<void> requestLocationPermission() async { await Permission.location.request(); }
 
   static final CameraPosition _campusLocation = CameraPosition(
     target: LatLng(52.162012883882326, 21.046311475278525),
@@ -79,6 +87,8 @@ class _InteractiveMapState extends State<InteractiveMap> {
       compassEnabled: true,
       myLocationEnabled: true,
       zoomControlsEnabled: false,
+      myLocationButtonEnabled: false,
+      indoorViewEnabled: false,
       minMaxZoomPreference: MinMaxZoomPreference(15, 19),
       initialCameraPosition: _campusLocation,
       onMapCreated: (GoogleMapController controller) {

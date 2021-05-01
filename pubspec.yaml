@@ -12,11 +12,12 @@ dependencies:
   easy_localization: ^3.0.0
   material_floating_search_bar: ^0.2.6
   cupertino_icons: ^1.0.2
-  url_launcher: ^5.7.10
+  url_launcher: ^6.0.3
   json_annotation: ^3.1.1
   path_provider: ^2.0.1
   shared_preferences: ^2.0.5
   google_maps_flutter: ^2.0.3
+  permission_handler: ^7.1.0
 
 dev_dependencies:
   flutter_test:
