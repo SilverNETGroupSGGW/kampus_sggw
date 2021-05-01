@@ -1,27 +1,61 @@
+import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_item.dart';
-import 'location_pin.dart';
-import 'package:kampus_sggw/models/location.dart';
-import 'package:kampus_sggw/models/map.dart';
+import 'package:kampus_sggw/models/map_settings.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class InteractiveMap extends StatefulWidget {
-  TransformationController transController = TransformationController();
-  List<LocationPin> pins = [];
-  Function _showCard;
-  Map map = Map(
-    topLeftCorner: Location(52.167685, 21.035505),
-    bottomRightCorner: Location(52.155245, 21.054732),
-    minScale: 0.1,
-    maxScale: 0.5,
+  final VisitedItems visitedItems;
+  final TransformationController transController = TransformationController();
+  final Map markers = <MarkerId, Marker>{};
+  final Function _showCard;
+  final Stream shouldRecenter;
+  final mapSettings = MapSettings(
+    cameraTargetBounds: CameraTargetBounds(
+      LatLngBounds(
+        southwest: LatLng(52.14848842369187, 21.026785217862553),
+        northeast: LatLng(52.17391386567901, 21.06859758021918),
+      ),
+    ),
+    initialCameraPosition: CameraPosition(
+      target: LatLng(52.162012883882326, 21.046311475278525),
+      tilt: 0,
+      zoom: 16,
+    ),
+    minMaxZoomPreference: MinMaxZoomPreference(15, 19),
   );
+  List<MapItem> mapItems;
 
-  InteractiveMap(List<MapItem> mapItems, this._showCard) {
+  InteractiveMap(List<MapItem> mapItems, this._showCard, this.visitedItems,
+      this.shouldRecenter) {
     mapItems.forEach((mapItem) {
-      pins.add(LocationPin.fromMapItem(mapItem, onPinPressed, map));
+      _addMarkerFromMapItem(mapItem);
     });
   }
 
+  void _addMarkerFromMapItem(MapItem mapItem) {
+    final MarkerId markerId = MarkerId(mapItem.name);
+
+    final Marker marker = Marker(
+      markerId: markerId,
+      position: LatLng(
+        mapItem.geoLocation.lat,
+        mapItem.geoLocation.lon,
+      ),
+      onTap: () {
+        onPinPressed(mapItem);
+      },
+    );
+
+    markers[markerId] = marker;
+  }
+
   onPinPressed(MapItem mapItem) {
+    visitedItems.addItem(mapItem.id);
+    visitedItems.save();
     _showCard(mapItem);
   }
 
@@ -30,47 +64,73 @@ class InteractiveMap extends StatefulWidget {
 }
 
 class _InteractiveMapState extends State<InteractiveMap> {
-  double _scale;
+  Completer<GoogleMapController> _controller = Completer();
+  Map markers = <MarkerId, Marker>{};
+  StreamSubscription streamSubscription;
+
+  @override
+  initState() {
+    super.initState();
+
+    tryRequestLocation();
+
+    // Subscribe to the camera recentering event
+    streamSubscription = widget.shouldRecenter.listen((_) => _goToTheCampus());
+  }
+
+  @override
+  dispose() {
+    super.dispose();
+    // Cancel the subscription when this widget is disposed
+    streamSubscription.cancel();
+  }
+
+  void tryRequestLocation() {
+    // Check the current platform
+    bool isMobile;
+    try {
+      isMobile = Platform.isAndroid || Platform.isIOS;
+    } catch (e) {
+      isMobile = false;
+    }
+
+    // If the code isn't running on a mobile device, we can't ask for permissions
+    if (!isMobile) return;
+
+    // Ask the user for location permission
+    // The popup won't show up if permission was already granted
+    requestLocationPermission();
+  }
+
+  Future<void> requestLocationPermission() async {
+    await Permission.location.request();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return InteractiveViewer(
-      constrained: false,
-      minScale: widget.map.minScale,
-      maxScale: widget.map.maxScale,
-      child: Stack(
-        children: [
-          Image(
-            image: AssetImage("assets/images/map/map_z2.jpg"),
-          ),
-          Positioned.fill(
-            child: Stack(
-              children: widget.pins,
-            ),
-          ),
-        ],
-      ),
-      onInteractionUpdate: (ScaleUpdateDetails details) {
-        _onScaleUpdate();
+    return new GoogleMap(
+      mapType: MapType.satellite,
+      rotateGesturesEnabled: true,
+      tiltGesturesEnabled: false,
+      compassEnabled: true,
+      myLocationEnabled: true,
+      zoomControlsEnabled: false,
+      myLocationButtonEnabled: false,
+      indoorViewEnabled: false,
+      minMaxZoomPreference: widget.mapSettings.minMaxZoomPreference,
+      cameraTargetBounds: widget.mapSettings.cameraTargetBounds,
+      initialCameraPosition: widget.mapSettings.initialCameraPosition,
+      onMapCreated: (GoogleMapController controller) {
+        _controller.complete(controller);
       },
-      transformationController: widget.transController,
+      markers: Set<Marker>.of(widget.markers.values),
     );
   }
 
-  void _onScaleUpdate() {
-    setState(() {
-      _scale = _mapScale();
-    });
-
-    _updatePins();
-  }
-
-  double _mapScale() => widget.transController.value.getMaxScaleOnAxis();
-
-  void _updatePins() {
-    for (int i = 0; i < widget.pins.length; i++) {
-      widget.pins[i] =
-          LocationPin.withNewScale(widget.pins[i], _scale, widget.map);
-    }
+  Future<void> _goToTheCampus() async {
+    final GoogleMapController controller = await _controller.future;
+    controller.animateCamera(
+      CameraUpdate.newCameraPosition(widget.mapSettings.initialCameraPosition),
+    );
   }
 }

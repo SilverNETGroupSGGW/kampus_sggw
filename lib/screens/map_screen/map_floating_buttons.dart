@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
-import 'search_bar.dart';
+import 'package:kampus_sggw/logic/search_history.dart';
+import 'package:kampus_sggw/logic/visited_items.dart';
+import 'search_panel/search_bar.dart';
 
-class MapFloatingButtons extends StatefulWidget {
-  @override
-  _MapFloatingButtons createState() => _MapFloatingButtons();
-}
+class MapFloatingButtons extends StatelessWidget {
+  final SearchHistory searchHistory;
+  final VisitedItems visitedItems;
+  final Function onMapButtonPressed;
 
-class _MapFloatingButtons extends State<MapFloatingButtons> {
+  const MapFloatingButtons({
+    Key key,
+    this.searchHistory,
+    this.visitedItems,
+    this.onMapButtonPressed
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,7 +23,7 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
         FloatingActionButton(
           child: const Icon(Icons.map),
           backgroundColor: Colors.lightGreen,
-          onPressed: () {},
+          onPressed: () => onMapButtonPressed(),
         ),
         Padding(
           padding: EdgeInsets.all(5),
@@ -32,18 +40,15 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
   void _onSearchButtonPressed(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      builder: (context) {
-        return Container(
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: 5.0,
-              left: 10.0,
-              right: 10.0,
-            ),
-            child: SearchBar(),
-          ),
-        );
-      },
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => Container(
+        height: MediaQuery.of(context).size.height * 0.6,
+        child: SearchBar(
+          searchHistory: searchHistory,
+          visitedItems: visitedItems,
+        ),
+      ),
     );
   }
 }
