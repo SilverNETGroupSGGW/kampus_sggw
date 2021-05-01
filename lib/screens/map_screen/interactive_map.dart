@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_item.dart';
+import 'package:kampus_sggw/models/map_settings.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class InteractiveMap extends StatefulWidget {
@@ -11,6 +12,20 @@ class InteractiveMap extends StatefulWidget {
   final Map markers = <MarkerId, Marker>{};
   final Function _showCard;
   final Stream shouldRecenterCamera;
+  final mapSettings = MapSettings(
+    cameraTargetBounds: CameraTargetBounds(
+      LatLngBounds(
+        southwest: LatLng(52.14848842369187, 21.026785217862553),
+        northeast: LatLng(52.17391386567901, 21.06859758021918),
+      ),
+    ),
+    initialCameraPosition: CameraPosition(
+      target: LatLng(52.162012883882326, 21.046311475278525),
+      tilt: 0,
+      zoom: 16,
+    ),
+    minMaxZoomPreference: MinMaxZoomPreference(15, 19),
+  );
   List<MapItem> mapItems;
 
   InteractiveMap(List<MapItem> mapItems, this._showCard, this.visitedItems, this.shouldRecenterCamera) {
@@ -51,6 +66,8 @@ class _InteractiveMapState extends State<InteractiveMap> {
   Map markers = <MarkerId, Marker>{};
   StreamSubscription streamSubscription;
 
+
+
   @override
   initState() {
     super.initState();
@@ -70,13 +87,9 @@ class _InteractiveMapState extends State<InteractiveMap> {
     streamSubscription.cancel();
   }
 
-  Future<void> requestLocationPermission() async { await Permission.location.request(); }
-
-  static final CameraPosition _campusLocation = CameraPosition(
-    target: LatLng(52.162012883882326, 21.046311475278525),
-    tilt: 0,
-    zoom: 16,
-  );
+  Future<void> requestLocationPermission() async {
+    await Permission.location.request();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,8 +102,9 @@ class _InteractiveMapState extends State<InteractiveMap> {
       zoomControlsEnabled: false,
       myLocationButtonEnabled: false,
       indoorViewEnabled: false,
-      minMaxZoomPreference: MinMaxZoomPreference(15, 19),
-      initialCameraPosition: _campusLocation,
+      minMaxZoomPreference: widget.mapSettings.minMaxZoomPreference,
+      cameraTargetBounds: widget.mapSettings.cameraTargetBounds,
+      initialCameraPosition: widget.mapSettings.initialCameraPosition,
       onMapCreated: (GoogleMapController controller) {
         _controller.complete(controller);
       },
@@ -100,6 +114,6 @@ class _InteractiveMapState extends State<InteractiveMap> {
 
   Future<void> _goToTheCampus() async {
     final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(_campusLocation));
+    controller.animateCamera(CameraUpdate.newCameraPosition(widget.mapSettings.initialCameraPosition));
   }
 }
