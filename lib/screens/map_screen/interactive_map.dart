@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
@@ -11,7 +12,7 @@ class InteractiveMap extends StatefulWidget {
   final TransformationController transController = TransformationController();
   final Map markers = <MarkerId, Marker>{};
   final Function _showCard;
-  final Stream shouldRecenterCamera;
+  final Stream shouldRecenter;
   final mapSettings = MapSettings(
     cameraTargetBounds: CameraTargetBounds(
       LatLngBounds(
@@ -28,7 +29,8 @@ class InteractiveMap extends StatefulWidget {
   );
   List<MapItem> mapItems;
 
-  InteractiveMap(List<MapItem> mapItems, this._showCard, this.visitedItems, this.shouldRecenterCamera) {
+  InteractiveMap(List<MapItem> mapItems, this._showCard, this.visitedItems,
+      this.shouldRecenter) {
     mapItems.forEach((mapItem) {
       _addMarkerFromMapItem(mapItem);
     });
@@ -66,18 +68,14 @@ class _InteractiveMapState extends State<InteractiveMap> {
   Map markers = <MarkerId, Marker>{};
   StreamSubscription streamSubscription;
 
-
-
   @override
   initState() {
     super.initState();
 
-    // Ask the user for location permission
-    // The popup won't show up if permission was already granted
-    requestLocationPermission();
+    tryRequestLocation();
 
     // Subscribe to the camera recentering event
-    streamSubscription = widget.shouldRecenterCamera.listen((_) => _goToTheCampus());
+    streamSubscription = widget.shouldRecenter.listen((_) => _goToTheCampus());
   }
 
   @override
@@ -85,6 +83,23 @@ class _InteractiveMapState extends State<InteractiveMap> {
     super.dispose();
     // Cancel the subscription when this widget is disposed
     streamSubscription.cancel();
+  }
+
+  void tryRequestLocation() {
+    // Check the current platform
+    bool isMobile;
+    try {
+      isMobile = Platform.isAndroid || Platform.isIOS;
+    } catch (e) {
+      isMobile = false;
+    }
+
+    // If the code isn't running on a mobile device, we can't ask for permissions
+    if (!isMobile) return;
+
+    // Ask the user for location permission
+    // The popup won't show up if permission was already granted
+    requestLocationPermission();
   }
 
   Future<void> requestLocationPermission() async {
@@ -114,6 +129,8 @@ class _InteractiveMapState extends State<InteractiveMap> {
 
   Future<void> _goToTheCampus() async {
     final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(widget.mapSettings.initialCameraPosition));
+    controller.animateCamera(
+      CameraUpdate.newCameraPosition(widget.mapSettings.initialCameraPosition),
+    );
   }
 }
