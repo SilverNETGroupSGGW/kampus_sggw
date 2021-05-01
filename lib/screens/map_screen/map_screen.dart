@@ -9,6 +9,7 @@ import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'info_card.dart';
 import 'interactive_map.dart';
 import 'map_floating_buttons.dart';
+import 'dart:async';
 
 class MapScreen extends StatefulWidget {
   final MapItems mapItems;
@@ -28,6 +29,7 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   static MapItem _selectedMapItem;
+  final mapButtonClickNotifier = StreamController.broadcast();
 
   showInfoCard(MapItem mapItem) {
     _selectedMapItem = mapItem;
@@ -46,6 +48,8 @@ class _MapScreenState extends State<MapScreen> {
   void dispose() {
     widget.visitedItems.save();
     super.dispose();
+    // Close the stream when this widget is disposed
+    mapButtonClickNotifier.close();
   }
 
   @override
@@ -60,12 +64,14 @@ class _MapScreenState extends State<MapScreen> {
             widget.mapItems.mapItems,
             showInfoCard,
             widget.visitedItems,
+            mapButtonClickNotifier.stream
           ),
         ],
       ),
       floatingActionButton: MapFloatingButtons(
         searchHistory: widget.searchHistory,
         visitedItems: widget.visitedItems,
+        onMapButtonPressed: () => mapButtonClickNotifier.sink.add(null),
       ),
       drawer: SideDrawer(),
     );

@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
-import 'search_bar.dart';
+import 'search_panel/search_bar.dart';
 
 class MapFloatingButtons extends StatelessWidget {
   final SearchHistory searchHistory;
   final VisitedItems visitedItems;
+  final Function onMapButtonPressed;
 
   const MapFloatingButtons({
     Key key,
     this.searchHistory,
     this.visitedItems,
+    this.onMapButtonPressed
   }) : super(key: key);
 
   @override
@@ -21,7 +23,7 @@ class MapFloatingButtons extends StatelessWidget {
         FloatingActionButton(
           child: const Icon(Icons.map),
           backgroundColor: Colors.lightGreen,
-          onPressed: () {},
+          onPressed: () => onMapButtonPressed(),
         ),
         Padding(
           padding: EdgeInsets.all(5),
