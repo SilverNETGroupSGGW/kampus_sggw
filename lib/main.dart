@@ -60,6 +60,8 @@ class CampusSGGW extends StatelessWidget {
           headline4: TextStyle(fontFamily: 'SGGWMastro', fontSize: 18.0),
           headline5: TextStyle(fontFamily: 'SGGWMastro', fontSize: 16.0),
           headline6: TextStyle(fontFamily: 'SGGWMastro', fontSize: 14.0),
+          subtitle1: TextStyle(fontFamily: 'SGGWSans', fontSize: 18.0),
+          subtitle2: TextStyle(fontFamily: 'SGGWSans'),
           bodyText1: TextStyle(fontFamily: 'SGGWSans'),
           bodyText2: TextStyle(fontFamily: 'SGGWSans'),
         )

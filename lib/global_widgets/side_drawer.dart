@@ -10,17 +10,26 @@ class SideDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            child: Text(LocaleKeys.map_screen_title.tr()),
+            child: Text(
+              LocaleKeys.map_screen_title.tr(),
+              style: Theme.of(context).textTheme.headline3,
+            ),
             decoration: BoxDecoration(
               color: Colors.green,
             ),
           ),
           ListTile(
-            title: Text(LocaleKeys.drawer_settings.tr()),
+            title: Text(
+              LocaleKeys.drawer_settings.tr(),
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
             onTap: () {},
           ),
           ListTile(
-            title: Text(LocaleKeys.drawer_campus_rules.tr()),
+            title: Text(
+              LocaleKeys.drawer_campus_rules.tr(),
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
             onTap: () {},
           ),
         ],

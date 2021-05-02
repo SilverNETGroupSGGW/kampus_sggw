@@ -19,7 +19,7 @@ class ServiceCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SimpleDialog(
-        title: Text(service.name, style: Theme.of(context).textTheme.headline4),
+        title: Text(service.name, style: Theme.of(context).textTheme.subtitle1),
         children: [
           if (service.photoPath != null)
             Padding(
