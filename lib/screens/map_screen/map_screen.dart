@@ -56,7 +56,13 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(LocaleKeys.map_screen_title.tr()),
+        title: Text(
+          LocaleKeys.map_screen_title.tr(),
+          style: TextStyle(
+            fontFamily: 'SGGWMastro',
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
       body: Stack(
         children: [
@@ -64,7 +70,7 @@ class _MapScreenState extends State<MapScreen> {
             widget.mapItems.mapItems,
             showInfoCard,
             widget.visitedItems,
-            mapButtonClickNotifier.stream
+            mapButtonClickNotifier.stream,
           ),
         ],
       ),

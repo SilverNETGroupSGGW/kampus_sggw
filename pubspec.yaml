@@ -32,4 +32,22 @@ flutter:
     - assets/translations/
     - assets/images/map_objects/wzim.jpg
     - assets/json/map_items.json
-
+  fonts:
+    - family: SGGWMastro
+      fonts:
+        - asset: assets/fonts/SGGWMastro-Bold.ttf
+          weight: 600
+        - asset: assets/fonts/SGGWMastro-Italic.ttf
+          style: italic
+        - asset: assets/fonts/SGGWMastro-Regular.ttf
+          weight: 400
+    - family: SGGWSans
+      fonts:
+        - asset: assets/fonts/SGGWSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/SGGWSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/SGGWSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/SGGWSans-Bold.ttf
+          weight: 700
