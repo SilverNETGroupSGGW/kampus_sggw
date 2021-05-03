@@ -144,6 +144,31 @@
           ]
         }
       ]
+    },
+    {
+      "id": 4,
+      "geoLocation": {
+        "lat": 52.16433,
+        "lon": 21.04720
+      },
+      "name": "Budynek 4",
+      "description": "Budynek WSiP",
+      "url": "http://www.sggw.pl/",
+      "type": "facultyBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-03",
+      "categories": [
+        {
+          "name":"faculties",
+          "subCategories": [
+            {
+            "name": "WSiP",
+            "url": "https://wsip.sggw.pl",
+            "description": "Wydział Socjologii i Pedagogiki"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
