@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/logic/filter_service.dart';
+import 'package:kampus_sggw/logic/stream_service.dart';
+import 'package:kampus_sggw/models/map_item.dart';
+import 'package:kampus_sggw/models/service.dart';
+import 'package:kampus_sggw/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../filter_button.dart';
 
 class FilterButtonsRow extends StatelessWidget {
+  final StreamService filterButtonNotifier;
+
+  const FilterButtonsRow({
+    Key key,
+    @required this.filterButtonNotifier,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -17,32 +29,76 @@ class FilterButtonsRow extends StatelessWidget {
             FilterButton(
               color: Colors.yellow[700],
               icon: Icons.restaurant,
-              onTapFunction: () => {},
+              onTapFunction: () {
+                filterButtonNotifier.addEvent(
+                  FilterService(
+                    filterName: LocaleKeys.food.tr(),
+                    mapItemType: MapItemType.food,
+                    serviceType: ServiceType.canteen,
+                  ),
+                );
+              },
             ),
             FilterButton(
               color: Colors.blue,
               icon: Icons.bus_alert,
-              onTapFunction: () => {},
+              onTapFunction: () {
+                filterButtonNotifier.addEvent(
+                  FilterService(
+                    filterName: LocaleKeys.bus.tr(),
+                    mapItemType: MapItemType.transport,
+                  ),
+                );
+              },
             ),
             FilterButton(
               color: Colors.orange,
               icon: Icons.local_parking,
-              onTapFunction: () => {},
+              onTapFunction: () {
+                filterButtonNotifier.addEvent(
+                  FilterService(
+                    filterName: LocaleKeys.parking.tr(),
+                    mapItemType: MapItemType.parking,
+                  ),
+                );
+              },
             ),
             FilterButton(
               color: Colors.green,
               icon: Icons.park,
-              onTapFunction: () => {},
+              onTapFunction: () {
+                filterButtonNotifier.addEvent(
+                  FilterService(
+                    filterName: LocaleKeys.park.tr(),
+                    mapItemType: MapItemType.monument,
+                  ),
+                );
+              },
             ),
             FilterButton(
               color: Colors.red[300],
               icon: Icons.local_grocery_store,
-              onTapFunction: () => {},
+              onTapFunction: () {
+                filterButtonNotifier.addEvent(
+                  FilterService(
+                    filterName: LocaleKeys.store.tr(),
+                    mapItemType: MapItemType.store,
+                    serviceType: ServiceType.vendingMachine,
+                  ),
+                );
+              },
             ),
             FilterButton(
               color: Colors.indigo,
               icon: Icons.print_rounded,
-              onTapFunction: () => {},
+              onTapFunction: () {
+                filterButtonNotifier.addEvent(
+                  FilterService(
+                    filterName: LocaleKeys.xero.tr(),
+                    serviceType: ServiceType.xero,
+                  ),
+                );
+              },
             ),
           ],
         ),
