@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
+import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'search_panel/search_bar.dart';
 
 class MapFloatingButtons extends StatelessWidget {
   final SearchHistory searchHistory;
   final VisitedItems visitedItems;
-  final Function onMapButtonPressed;
+  final Function onRecenterButtonPressed;
+  final StreamService filterButtonNotifier;
 
   const MapFloatingButtons({
     Key key,
-    this.searchHistory,
-    this.visitedItems,
-    this.onMapButtonPressed
+    @required this.searchHistory,
+    @required this.visitedItems,
+    @required this.onRecenterButtonPressed,
+    @required this.filterButtonNotifier,
   }) : super(key: key);
 
   @override
@@ -23,7 +26,7 @@ class MapFloatingButtons extends StatelessWidget {
         FloatingActionButton(
           child: const Icon(Icons.map),
           backgroundColor: Colors.lightGreen,
-          onPressed: () => onMapButtonPressed(),
+          onPressed: () => onRecenterButtonPressed(),
         ),
         Padding(
           padding: EdgeInsets.all(5),
@@ -47,6 +50,7 @@ class MapFloatingButtons extends StatelessWidget {
         child: SearchBar(
           searchHistory: searchHistory,
           visitedItems: visitedItems,
+          filterButtonNotifier: filterButtonNotifier,
         ),
       ),
     );

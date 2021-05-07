@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
@@ -8,9 +9,11 @@ import 'filter_buttons_row.dart';
 
 class SearchHelpPanel extends StatelessWidget {
   final VisitedItems visitedItems;
+  final StreamService filterButtonNotifier;
   const SearchHelpPanel({
     Key key,
     @required this.visitedItems,
+    @required this.filterButtonNotifier,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,9 @@ class SearchHelpPanel extends StatelessWidget {
           Headline(
             text: LocaleKeys.find_nearby.tr(),
           ),
-          FilterButtonsRow(),
+          FilterButtonsRow(
+            filterButtonNotifier: filterButtonNotifier,
+          ),
           Headline(
             text: LocaleKeys.recent_searches.tr(),
           ),

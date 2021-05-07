@@ -10,7 +10,8 @@ class MapItems {
     this.mapItems,
   );
   List<MapItem> filter(List<MapItemType> types) =>
-      mapItems.where((element) => types.contains(element.type));
+      mapItems.where((element) => types.contains(element.type)).toList();
+      
   factory MapItems.fromJson(Map<String, dynamic> json) =>
       _$MapItemsFromJson(json);
 

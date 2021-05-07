@@ -71,7 +71,7 @@ class _MapScreenState extends State<MapScreen> {
       body: Stack(
         children: [
           InteractiveMap(
-            mapItems: widget.mapItems.mapItems,
+            mapItems: widget.mapItems,
             showCard: showInfoCard,
             visitedItems: widget.visitedItems,
             shouldRecenter: recenterButtonNotifier,
@@ -83,7 +83,8 @@ class _MapScreenState extends State<MapScreen> {
       floatingActionButton: MapFloatingButtons(
         searchHistory: widget.searchHistory,
         visitedItems: widget.visitedItems,
-        onMapButtonPressed: () => recenterButtonNotifier.addEvent(null),
+        onRecenterButtonPressed: () => recenterButtonNotifier.addEvent(null),
+        filterButtonNotifier: filterButtonNotifier,
       ),
       drawer: SideDrawer(),
     );

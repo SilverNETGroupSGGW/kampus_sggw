@@ -5,6 +5,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_item.dart';
+import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/models/map_settings.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';
@@ -30,7 +31,7 @@ class InteractiveMap extends StatefulWidget {
     ),
     minMaxZoomPreference: MinMaxZoomPreference(15, 19),
   );
-  final List<MapItem> mapItems;
+  final MapItems mapItems;
 
   InteractiveMap({
     @required this.mapItems,
@@ -49,14 +50,17 @@ class _InteractiveMapState extends State<InteractiveMap> {
   Completer<GoogleMapController> _controller = Completer();
   Map markers = <MarkerId, Marker>{};
   GoogleMap _googleMap;
+  Set<Marker> _currentMarkerSet = <Marker>{};
 
   @override
   initState() {
     super.initState();
     tryRequestLocation();
-    _setMarkers(markers, widget.mapItems);
+    _setMarkers(markers, widget.mapItems.mapItems);
+    _currentMarkerSet = markers.values.toSet();
     widget.shouldRecenter.listen((_) => _goToTheCampus());
-    widget.shouldFilterMarkers.listen((filteredMapItems) => _updateMarkers(filteredMapItems));
+    widget.shouldFilterMarkers
+        .listen((filterType) => _updateMarkers(filterType));
     widget.shouldUnfilterMarkers.listen((_) => _updateMarkersToDefault());
   }
 
@@ -135,18 +139,17 @@ class _InteractiveMapState extends State<InteractiveMap> {
       onMapCreated: (GoogleMapController controller) {
         _controller.complete(controller);
       },
-      markers: Set<Marker>.of(markers.values),
+      markers: _currentMarkerSet,
     );
     return _googleMap;
   }
 
-  void _updateMarkers(List<MapItem> filteredMapItems) {
+  void _updateMarkers(MapItemType filterType) {
+    Map<MarkerId, Marker> filteredMarkers = <MarkerId, Marker>{};
+    _setMarkers(filteredMarkers, widget.mapItems.filter([filterType]));
     setState(
       () {
-        Map filteredMarkers = <MarkerId, Marker>{};
-        _setMarkers(filteredMarkers, filteredMapItems);
-        MarkerUpdates.from(
-            _googleMap.markers, Set<Marker>.from(filteredMarkers.values));
+        _currentMarkerSet = filteredMarkers.values.toSet();
       },
     );
   }
@@ -154,8 +157,7 @@ class _InteractiveMapState extends State<InteractiveMap> {
   void _updateMarkersToDefault() {
     setState(
       () {
-        MarkerUpdates.from(
-            _googleMap.markers, Set<Marker>.from(markers.values));
+        _currentMarkerSet = markers.values;
       },
     );
   }

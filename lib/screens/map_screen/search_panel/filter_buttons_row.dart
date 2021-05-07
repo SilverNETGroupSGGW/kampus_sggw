@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/logic/stream_service.dart';
+import 'package:kampus_sggw/models/map_item.dart';
+import 'package:kampus_sggw/models/map_items.dart';
 import '../filter_button.dart';
 
 class FilterButtonsRow extends StatelessWidget {
+  final StreamService filterButtonNotifier;
+
+  const FilterButtonsRow({
+    Key key,
+    @required this.filterButtonNotifier,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -17,7 +26,9 @@ class FilterButtonsRow extends StatelessWidget {
             FilterButton(
               color: Colors.yellow[700],
               icon: Icons.restaurant,
-              onTapFunction: () => {},
+              onTapFunction: () {
+                filterButtonNotifier.addEvent(MapItemType.food);
+              },
             ),
             FilterButton(
               color: Colors.blue,
