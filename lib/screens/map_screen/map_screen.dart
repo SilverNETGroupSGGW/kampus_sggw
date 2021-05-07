@@ -10,7 +10,6 @@ import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'info_card.dart';
 import 'interactive_map.dart';
 import 'map_floating_buttons.dart';
-import 'dart:async';
 
 class MapScreen extends StatefulWidget {
   final MapItems mapItems;

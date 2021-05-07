@@ -12,11 +12,16 @@ class MapItems {
   );
   List<MapItem> filter(FilterService filterService) {
     List<MapItem> filteredItems = [];
-    if(filterService.mapItemType != null){
-      filteredItems.addAll(mapItems.where((element) => element.type==filterService.mapItemType).toList());
+    if (filterService.mapItemType != null) {
+      filteredItems.addAll(mapItems
+          .where((element) => element.type == filterService.mapItemType)
+          .toList());
     }
-    if(filterService.serviceType != null){
-      filteredItems.addAll(mapItems.where((mapItem) => mapItem.isItemContaingService(filterService.serviceType)).toList());
+    if (filterService.serviceType != null) {
+      filteredItems.addAll(mapItems
+          .where((mapItem) =>
+              mapItem.itemContainsService(filterService.serviceType))
+          .toList());
     }
     return filteredItems;
   }

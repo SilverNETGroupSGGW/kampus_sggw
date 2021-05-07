@@ -51,5 +51,7 @@ class MapItem {
   factory MapItem.fromJson(Map<String, dynamic> json) =>
       _$MapItemFromJson(json);
 
-  bool isItemContaingService(ServiceType wantedService) => services!=null ? services.any((service) => service.type==wantedService): false;
+  bool itemContainsService(ServiceType wantedService) => services != null
+      ? services.any((service) => service.type == wantedService)
+      : false;
 }
