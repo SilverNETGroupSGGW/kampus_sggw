@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:kampus_sggw/logic/filter_service.dart';
 import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_item.dart';
@@ -60,7 +61,7 @@ class _InteractiveMapState extends State<InteractiveMap> {
     _currentMarkerSet = markers.values.toSet();
     widget.shouldRecenter.listen((_) => _goToTheCampus());
     widget.shouldFilterMarkers
-        .listen((filterType) => _updateMarkers(filterType));
+        .listen((filterService) => _updateMarkers(filterService));
     widget.shouldUnfilterMarkers.listen((_) => _updateMarkersToDefault());
   }
 
@@ -144,9 +145,9 @@ class _InteractiveMapState extends State<InteractiveMap> {
     return _googleMap;
   }
 
-  void _updateMarkers(MapItemType filterType) {
+  void _updateMarkers(FilterService filterService) {
     Map<MarkerId, Marker> filteredMarkers = <MarkerId, Marker>{};
-    _setMarkers(filteredMarkers, widget.mapItems.filter([filterType]));
+    _setMarkers(filteredMarkers, widget.mapItems.filter(filterService));
     setState(
       () {
         _currentMarkerSet = filteredMarkers.values.toSet();

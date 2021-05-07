@@ -1,3 +1,4 @@
+import 'package:kampus_sggw/logic/filter_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -9,9 +10,17 @@ class MapItems {
   MapItems(
     this.mapItems,
   );
-  List<MapItem> filter(List<MapItemType> types) =>
-      mapItems.where((element) => types.contains(element.type)).toList();
-      
+  List<MapItem> filter(FilterService filterService) {
+    List<MapItem> filteredItems = [];
+    if(filterService.mapItemType != null){
+      filteredItems.addAll(mapItems.where((element) => element.type==filterService.mapItemType).toList());
+    }
+    if(filterService.serviceType != null){
+      filteredItems.addAll(mapItems.where((mapItem) => mapItem.services!=null ? mapItem.services.any((service) => service.type==filterService.serviceType): false).toList());
+    }
+    return filteredItems;
+  }
+
   factory MapItems.fromJson(Map<String, dynamic> json) =>
       _$MapItemsFromJson(json);
 

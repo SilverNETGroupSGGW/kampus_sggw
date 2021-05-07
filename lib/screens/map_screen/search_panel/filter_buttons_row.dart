@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/logic/filter_service.dart';
 import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
-import 'package:kampus_sggw/models/map_items.dart';
+import 'package:kampus_sggw/models/service.dart';
 import '../filter_button.dart';
 
 class FilterButtonsRow extends StatelessWidget {
@@ -27,33 +28,69 @@ class FilterButtonsRow extends StatelessWidget {
               color: Colors.yellow[700],
               icon: Icons.restaurant,
               onTapFunction: () {
-                filterButtonNotifier.addEvent(MapItemType.food);
+                filterButtonNotifier.addEvent(
+                  FilterService(
+                    mapItemType: MapItemType.food,
+                    serviceType: ServiceType.canteen,
+                  ),
+                );
               },
             ),
             FilterButton(
               color: Colors.blue,
               icon: Icons.bus_alert,
-              onTapFunction: () => {},
+              onTapFunction: () {
+                filterButtonNotifier.addEvent(
+                  FilterService(
+                    mapItemType: MapItemType.transport,
+                  ),
+                );
+              },
             ),
             FilterButton(
               color: Colors.orange,
               icon: Icons.local_parking,
-              onTapFunction: () => {},
+              onTapFunction: () {
+                filterButtonNotifier.addEvent(
+                  FilterService(
+                    mapItemType: MapItemType.parking,
+                  ),
+                );
+              },
             ),
             FilterButton(
               color: Colors.green,
               icon: Icons.park,
-              onTapFunction: () => {},
+              onTapFunction: () {
+                filterButtonNotifier.addEvent(
+                  FilterService(
+                    mapItemType: MapItemType.monument,
+                  ),
+                );
+              },
             ),
             FilterButton(
               color: Colors.red[300],
               icon: Icons.local_grocery_store,
-              onTapFunction: () => {},
+              onTapFunction: () {
+                filterButtonNotifier.addEvent(
+                  FilterService(
+                    mapItemType: MapItemType.store,
+                    serviceType: ServiceType.vendingMachine,
+                  ),
+                );
+              },
             ),
             FilterButton(
               color: Colors.indigo,
               icon: Icons.print_rounded,
-              onTapFunction: () => {},
+              onTapFunction: () {
+                filterButtonNotifier.addEvent(
+                  FilterService(
+                    serviceType: ServiceType.xero,
+                  ),
+                );
+              },
             ),
           ],
         ),
