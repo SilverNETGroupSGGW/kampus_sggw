@@ -20,7 +20,14 @@ class CodegenLoader extends AssetLoader{
   "drawer_campus_rules": "Campus rules",
   "search_bar_title": "Search for a place or address",
   "find_nearby": "Find Nearby",
-  "recent_searches": "Recent"
+  "recent_searches": "Recent",
+  "food": "Restaurants",
+  "bus": "Public Transport",
+  "parking": "Car parks",
+  "park": "Parks and Monuments",
+  "store": "Stores",
+  "xero": "Xeros and Printing"
+
 };
 static const Map<String,dynamic> pl = {
   "map_screen_title": "Kampus SGGW",
@@ -28,7 +35,13 @@ static const Map<String,dynamic> pl = {
   "drawer_campus_rules": "Regulamin kampusu",
   "search_bar_title": "Szukaj miejsca lub adresu",
   "find_nearby": "Szukaj w pobliżu",
-  "recent_searches": "Ostatnio odwiedzone"
+  "recent_searches": "Ostatnio odwiedzone",
+  "food": "Restauracje",
+  "bus": "Transport publiczny",
+  "parking": "Parkingi",
+  "park": "Parki i pomniki",
+  "store": "Sklepy",
+  "xero": "Ksero i drukarnie",
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "pl": pl};
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/logic/filter_service.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
@@ -31,8 +32,8 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
   initState() {
     super.initState();
     _searchButton = _filterButton();
-    widget.filterButtonNotifier
-        .listen((_) => _replaceFilterButtonWithUnfilterButton());
+    widget.filterButtonNotifier.listen((filterService) =>
+        _replaceFilterButtonWithUnfilterButton(filterService));
   }
 
   @override
@@ -59,9 +60,9 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
     );
   }
 
-  TextButton _unfilterButton() {
+  TextButton _unfilterButton(String filterName) {
     return TextButton.icon(
-      label: Text("sth"),
+      label: Text(filterName),
       icon: Icon(Icons.clear),
       onPressed: () {
         widget.onUnfilterButtonPressed();
@@ -99,11 +100,11 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
     );
   }
 
-  void _replaceFilterButtonWithUnfilterButton() {
+  void _replaceFilterButtonWithUnfilterButton(FilterService filterService) {
     Navigator.pop(context);
     setState(
       () {
-        _searchButton = _unfilterButton();
+        _searchButton = _unfilterButton(filterService.filterName);
       },
     );
   }

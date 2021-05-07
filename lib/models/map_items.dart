@@ -16,7 +16,7 @@ class MapItems {
       filteredItems.addAll(mapItems.where((element) => element.type==filterService.mapItemType).toList());
     }
     if(filterService.serviceType != null){
-      filteredItems.addAll(mapItems.where((mapItem) => mapItem.services!=null ? mapItem.services.any((service) => service.type==filterService.serviceType): false).toList());
+      filteredItems.addAll(mapItems.where((mapItem) => mapItem.isItemContaingService(filterService.serviceType)).toList());
     }
     return filteredItems;
   }

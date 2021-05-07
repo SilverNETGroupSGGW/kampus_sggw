@@ -3,6 +3,8 @@ import 'package:kampus_sggw/logic/filter_service.dart';
 import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/service.dart';
+import 'package:kampus_sggw/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../filter_button.dart';
 
 class FilterButtonsRow extends StatelessWidget {
@@ -30,6 +32,7 @@ class FilterButtonsRow extends StatelessWidget {
               onTapFunction: () {
                 filterButtonNotifier.addEvent(
                   FilterService(
+                    filterName: LocaleKeys.food.tr(),
                     mapItemType: MapItemType.food,
                     serviceType: ServiceType.canteen,
                   ),
@@ -42,6 +45,7 @@ class FilterButtonsRow extends StatelessWidget {
               onTapFunction: () {
                 filterButtonNotifier.addEvent(
                   FilterService(
+                    filterName: LocaleKeys.bus.tr(),
                     mapItemType: MapItemType.transport,
                   ),
                 );
@@ -53,6 +57,7 @@ class FilterButtonsRow extends StatelessWidget {
               onTapFunction: () {
                 filterButtonNotifier.addEvent(
                   FilterService(
+                    filterName: LocaleKeys.parking.tr(),
                     mapItemType: MapItemType.parking,
                   ),
                 );
@@ -64,6 +69,7 @@ class FilterButtonsRow extends StatelessWidget {
               onTapFunction: () {
                 filterButtonNotifier.addEvent(
                   FilterService(
+                    filterName: LocaleKeys.park.tr(),
                     mapItemType: MapItemType.monument,
                   ),
                 );
@@ -75,6 +81,7 @@ class FilterButtonsRow extends StatelessWidget {
               onTapFunction: () {
                 filterButtonNotifier.addEvent(
                   FilterService(
+                    filterName: LocaleKeys.store.tr(),
                     mapItemType: MapItemType.store,
                     serviceType: ServiceType.vendingMachine,
                   ),
@@ -87,6 +94,7 @@ class FilterButtonsRow extends StatelessWidget {
               onTapFunction: () {
                 filterButtonNotifier.addEvent(
                   FilterService(
+                    filterName: LocaleKeys.xero.tr(),
                     serviceType: ServiceType.xero,
                   ),
                 );
