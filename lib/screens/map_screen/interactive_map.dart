@@ -2,17 +2,20 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_settings.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';
 
 class InteractiveMap extends StatefulWidget {
   final VisitedItems visitedItems;
   final TransformationController transController = TransformationController();
-  final Map markers = <MarkerId, Marker>{};
-  final Function _showCard;
-  final Stream shouldRecenter;
+  final Function showCard;
+  final StreamService shouldRecenter;
+  final StreamService shouldFilterMarkers;
+  final StreamService shouldUnfilterMarkers;
   final mapSettings = MapSettings(
     cameraTargetBounds: CameraTargetBounds(
       LatLngBounds(
@@ -27,37 +30,16 @@ class InteractiveMap extends StatefulWidget {
     ),
     minMaxZoomPreference: MinMaxZoomPreference(15, 19),
   );
-  List<MapItem> mapItems;
+  final List<MapItem> mapItems;
 
-  InteractiveMap(List<MapItem> mapItems, this._showCard, this.visitedItems,
-      this.shouldRecenter) {
-    mapItems.forEach((mapItem) {
-      _addMarkerFromMapItem(mapItem);
-    });
-  }
-
-  void _addMarkerFromMapItem(MapItem mapItem) {
-    final MarkerId markerId = MarkerId(mapItem.name);
-
-    final Marker marker = Marker(
-      markerId: markerId,
-      position: LatLng(
-        mapItem.geoLocation.lat,
-        mapItem.geoLocation.lon,
-      ),
-      onTap: () {
-        onPinPressed(mapItem);
-      },
-    );
-
-    markers[markerId] = marker;
-  }
-
-  onPinPressed(MapItem mapItem) {
-    visitedItems.addItem(mapItem.id);
-    visitedItems.save();
-    _showCard(mapItem);
-  }
+  InteractiveMap({
+    @required this.mapItems,
+    @required this.showCard,
+    @required this.visitedItems,
+    @required this.shouldRecenter,
+    @required this.shouldFilterMarkers,
+    @required this.shouldUnfilterMarkers,
+  });
 
   @override
   _InteractiveMapState createState() => _InteractiveMapState();
@@ -66,23 +48,52 @@ class InteractiveMap extends StatefulWidget {
 class _InteractiveMapState extends State<InteractiveMap> {
   Completer<GoogleMapController> _controller = Completer();
   Map markers = <MarkerId, Marker>{};
-  StreamSubscription streamSubscription;
+  GoogleMap _googleMap;
 
   @override
   initState() {
     super.initState();
-
     tryRequestLocation();
-
-    // Subscribe to the camera recentering event
-    streamSubscription = widget.shouldRecenter.listen((_) => _goToTheCampus());
+    _setMarkers(markers, widget.mapItems);
+    widget.shouldRecenter.listen((_) => _goToTheCampus());
+    widget.shouldFilterMarkers.listen((filteredMapItems) => _updateMarkers(filteredMapItems));
+    widget.shouldUnfilterMarkers.listen((_) => _updateMarkersToDefault());
   }
 
   @override
   dispose() {
     super.dispose();
-    // Cancel the subscription when this widget is disposed
-    streamSubscription.cancel();
+    widget.shouldRecenter.cancelSubscription();
+    widget.shouldFilterMarkers.cancelSubscription();
+    widget.shouldUnfilterMarkers.cancelSubscription();
+  }
+
+  void _setMarkers(Map markersMap, List<MapItem> mapItems) {
+    mapItems.forEach((mapItem) {
+      Marker marker = _getMarkerFromMapItem(mapItem);
+      markersMap[marker.markerId] = marker;
+    });
+  }
+
+  Marker _getMarkerFromMapItem(MapItem mapItem) {
+    MarkerId markerId = MarkerId(mapItem.name);
+    Marker marker = Marker(
+      markerId: markerId,
+      position: LatLng(
+        mapItem.geoLocation.lat,
+        mapItem.geoLocation.lon,
+      ),
+      onTap: () {
+        _onPinPressed(mapItem);
+      },
+    );
+    return marker;
+  }
+
+  _onPinPressed(MapItem mapItem) {
+    widget.visitedItems.addItem(mapItem.id);
+    widget.visitedItems.save();
+    widget.showCard(mapItem);
   }
 
   void tryRequestLocation() {
@@ -108,7 +119,7 @@ class _InteractiveMapState extends State<InteractiveMap> {
 
   @override
   Widget build(BuildContext context) {
-    return new GoogleMap(
+    _googleMap = new GoogleMap(
       mapType: MapType.satellite,
       rotateGesturesEnabled: true,
       tiltGesturesEnabled: false,
@@ -117,13 +128,35 @@ class _InteractiveMapState extends State<InteractiveMap> {
       zoomControlsEnabled: false,
       myLocationButtonEnabled: false,
       indoorViewEnabled: false,
+      mapToolbarEnabled: false,
       minMaxZoomPreference: widget.mapSettings.minMaxZoomPreference,
       cameraTargetBounds: widget.mapSettings.cameraTargetBounds,
       initialCameraPosition: widget.mapSettings.initialCameraPosition,
       onMapCreated: (GoogleMapController controller) {
         _controller.complete(controller);
       },
-      markers: Set<Marker>.of(widget.markers.values),
+      markers: Set<Marker>.of(markers.values),
+    );
+    return _googleMap;
+  }
+
+  void _updateMarkers(List<MapItem> filteredMapItems) {
+    setState(
+      () {
+        Map filteredMarkers = <MarkerId, Marker>{};
+        _setMarkers(filteredMarkers, filteredMapItems);
+        MarkerUpdates.from(
+            _googleMap.markers, Set<Marker>.from(filteredMarkers.values));
+      },
+    );
+  }
+
+  void _updateMarkersToDefault() {
+    setState(
+      () {
+        MarkerUpdates.from(
+            _googleMap.markers, Set<Marker>.from(markers.values));
+      },
     );
   }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
+import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
@@ -29,7 +30,9 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   static MapItem _selectedMapItem;
-  final mapButtonClickNotifier = StreamController.broadcast();
+  StreamService recenterButtonNotifier = StreamService();
+  StreamService filterButtonNotifier = StreamService();
+  StreamService unfilterButtonNotifier = StreamService();
 
   showInfoCard(MapItem mapItem) {
     _selectedMapItem = mapItem;
@@ -47,9 +50,10 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void dispose() {
     widget.visitedItems.save();
+    recenterButtonNotifier.dispose();
+    filterButtonNotifier.dispose();
+    unfilterButtonNotifier.dispose();
     super.dispose();
-    // Close the stream when this widget is disposed
-    mapButtonClickNotifier.close();
   }
 
   @override
@@ -67,17 +71,19 @@ class _MapScreenState extends State<MapScreen> {
       body: Stack(
         children: [
           InteractiveMap(
-            widget.mapItems.mapItems,
-            showInfoCard,
-            widget.visitedItems,
-            mapButtonClickNotifier.stream,
+            mapItems: widget.mapItems.mapItems,
+            showCard: showInfoCard,
+            visitedItems: widget.visitedItems,
+            shouldRecenter: recenterButtonNotifier,
+            shouldFilterMarkers: filterButtonNotifier,
+            shouldUnfilterMarkers: unfilterButtonNotifier,
           ),
         ],
       ),
       floatingActionButton: MapFloatingButtons(
         searchHistory: widget.searchHistory,
         visitedItems: widget.visitedItems,
-        onMapButtonPressed: () => mapButtonClickNotifier.sink.add(null),
+        onMapButtonPressed: () => recenterButtonNotifier.addEvent(null),
       ),
       drawer: SideDrawer(),
     );
