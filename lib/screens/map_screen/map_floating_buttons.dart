@@ -4,11 +4,12 @@ import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'search_panel/search_bar.dart';
 
-class MapFloatingButtons extends StatelessWidget {
+class MapFloatingButtons extends StatefulWidget {
   final SearchHistory searchHistory;
   final VisitedItems visitedItems;
   final Function onRecenterButtonPressed;
   final StreamService filterButtonNotifier;
+  final Function onUnfilterButtonPressed;
 
   const MapFloatingButtons({
     Key key,
@@ -16,7 +17,29 @@ class MapFloatingButtons extends StatelessWidget {
     @required this.visitedItems,
     @required this.onRecenterButtonPressed,
     @required this.filterButtonNotifier,
+    @required this.onUnfilterButtonPressed,
   }) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _MapFloatingButtons();
+}
+
+class _MapFloatingButtons extends State<MapFloatingButtons> {
+  var _searchButton;
+
+  @override
+  initState() {
+    super.initState();
+    _searchButton = _filterButton();
+    widget.filterButtonNotifier
+        .listen((_) => _replaceFilterButtonWithUnfilterButton());
+  }
+
+  @override
+  void dispose() {
+    widget.filterButtonNotifier.cancelSubscription();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,17 +49,37 @@ class MapFloatingButtons extends StatelessWidget {
         FloatingActionButton(
           child: const Icon(Icons.map),
           backgroundColor: Colors.lightGreen,
-          onPressed: () => onRecenterButtonPressed(),
+          onPressed: () => widget.onRecenterButtonPressed(),
         ),
         Padding(
           padding: EdgeInsets.all(5),
         ),
-        FloatingActionButton(
-          child: const Icon(Icons.search),
-          backgroundColor: Colors.green,
-          onPressed: () => _onSearchButtonPressed(context),
-        ),
+        _searchButton,
       ],
+    );
+  }
+
+  TextButton _unfilterButton() {
+    return TextButton.icon(
+      label: Text("sth"),
+      icon: Icon(Icons.clear),
+      onPressed: () {
+        widget.onUnfilterButtonPressed();
+        _replaceUnfilterButtonWithFilterButton();
+      },
+      style: TextButton.styleFrom(
+        backgroundColor: Colors.green,
+        primary: Colors.white,
+        textStyle: TextStyle(fontFamily: 'SGGWSans', fontSize: 20),
+      ),
+    );
+  }
+
+  FloatingActionButton _filterButton() {
+    return FloatingActionButton(
+      child: const Icon(Icons.search),
+      backgroundColor: Colors.green,
+      onPressed: () => _onSearchButtonPressed(context),
     );
   }
 
@@ -48,11 +91,28 @@ class MapFloatingButtons extends StatelessWidget {
       builder: (context) => Container(
         height: MediaQuery.of(context).size.height * 0.6,
         child: SearchBar(
-          searchHistory: searchHistory,
-          visitedItems: visitedItems,
-          filterButtonNotifier: filterButtonNotifier,
+          searchHistory: widget.searchHistory,
+          visitedItems: widget.visitedItems,
+          filterButtonNotifier: widget.filterButtonNotifier,
         ),
       ),
+    );
+  }
+
+  void _replaceFilterButtonWithUnfilterButton() {
+    Navigator.pop(context);
+    setState(
+      () {
+        _searchButton = _unfilterButton();
+      },
+    );
+  }
+
+  void _replaceUnfilterButtonWithFilterButton() {
+    setState(
+      () {
+        _searchButton = _filterButton();
+      },
     );
   }
 }

@@ -158,7 +158,7 @@ class _InteractiveMapState extends State<InteractiveMap> {
   void _updateMarkersToDefault() {
     setState(
       () {
-        _currentMarkerSet = markers.values;
+        _currentMarkerSet = markers.values.toSet();
       },
     );
   }

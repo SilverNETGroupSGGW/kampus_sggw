@@ -85,6 +85,7 @@ class _MapScreenState extends State<MapScreen> {
         visitedItems: widget.visitedItems,
         onRecenterButtonPressed: () => recenterButtonNotifier.addEvent(null),
         filterButtonNotifier: filterButtonNotifier,
+        onUnfilterButtonPressed: () => unfilterButtonNotifier.addEvent(null),
       ),
       drawer: SideDrawer(),
     );
