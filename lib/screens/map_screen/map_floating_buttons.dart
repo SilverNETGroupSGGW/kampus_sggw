@@ -46,6 +46,7 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         FloatingActionButton(
           child: const Icon(Icons.map),
