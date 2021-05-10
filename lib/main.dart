@@ -5,6 +5,8 @@ import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/screens/map_screen/map_screen.dart';
+import 'package:kampus_sggw/themes/dark_theme.dart';
+import 'package:kampus_sggw/themes/light_theme.dart';
 import 'package:kampus_sggw/translations/codegen_loader.g.dart';
 
 Future<void> main() async {
@@ -35,7 +37,7 @@ Future<void> main() async {
   );
 }
 
-class CampusSGGW extends StatelessWidget {
+class CampusSGGW extends StatefulWidget {
   final MapItems mapItems;
   final SearchHistory searchHistory;
   final VisitedItems visitedItems;
@@ -47,29 +49,25 @@ class CampusSGGW extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _CampusSGGWState createState() => _CampusSGGWState();
+}
+
+class _CampusSGGWState extends State<CampusSGGW> {
+  bool _hasDarkTheme = true;
+  ThemeData _lightTheme = LightTheme().theme;
+  ThemeData _darkTheme = DarkTheme().theme;
+  
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Kampus SGGW',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-        fontFamily: 'SGGWSans',
-        textTheme: TextTheme(
-          headline1: TextStyle(fontFamily: 'SGGWMastro', fontSize: 48.0),
-          headline2: TextStyle(fontFamily: 'SGGWMastro', fontSize: 32.0),
-          headline3: TextStyle(fontFamily: 'SGGWMastro', fontSize: 24.0),
-          headline4: TextStyle(fontFamily: 'SGGWMastro', fontSize: 18.0),
-          headline5: TextStyle(fontFamily: 'SGGWMastro', fontSize: 16.0),
-          headline6: TextStyle(fontFamily: 'SGGWMastro', fontSize: 14.0),
-          subtitle1: TextStyle(fontFamily: 'SGGWSans', fontSize: 18.0),
-          subtitle2: TextStyle(fontFamily: 'SGGWSans'),
-          bodyText1: TextStyle(fontFamily: 'SGGWSans'),
-          bodyText2: TextStyle(fontFamily: 'SGGWSans'),
-        )
-      ),
+      theme: _lightTheme,
+      darkTheme: _darkTheme,
+      themeMode: _hasDarkTheme ? ThemeMode.dark : ThemeMode.light,
       home: MapScreen(
-        mapItems: mapItems,
-        searchHistory: searchHistory,
-        visitedItems: visitedItems,
+        mapItems: widget.mapItems,
+        searchHistory: widget.searchHistory,
+        visitedItems: widget.visitedItems,
       ),
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
