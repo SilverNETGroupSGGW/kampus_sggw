@@ -69,7 +69,6 @@ class _InteractiveMapState extends State<InteractiveMap> {
     widget.shouldRecenter.cancelSubscription();
     widget.shouldFilterMarkers.cancelSubscription();
     widget.shouldUnfilterMarkers.cancelSubscription();
-    widget.recentlyVisitedItemNotifier.dispose();
     super.dispose();
   }
 
@@ -152,6 +151,7 @@ class _InteractiveMapState extends State<InteractiveMap> {
         _currentMarkerSet = filteredMarkers.values.toSet();
       },
     );
+    _zoomInto(_currentMarkerSet.first);
   }
 
   void _updateMarkersToDefault() {
@@ -166,6 +166,19 @@ class _InteractiveMapState extends State<InteractiveMap> {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(
       CameraUpdate.newCameraPosition(widget.mapSettings.initialCameraPosition),
+    );
+  }
+
+  Future<void> _zoomInto(Marker marker) async {
+    final GoogleMapController controller = await _controller.future;
+    controller.animateCamera(
+      CameraUpdate.newCameraPosition(
+        CameraPosition(
+          target: LatLng(marker.position.latitude, marker.position.longitude),
+          tilt: 0,
+          zoom: 16.5,
+        ),
+      ),
     );
   }
 }
