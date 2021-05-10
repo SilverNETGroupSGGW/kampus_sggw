@@ -12,10 +12,11 @@ class MapItems {
   );
   List<MapItem> filter(FilterService filterService) {
     List<MapItem> filteredItems = [];
-    if (filterService.mapItemType != null) {
-      filteredItems.addAll(mapItems
-          .where((element) => element.type == filterService.mapItemType)
-          .toList());
+    if (filterService.mapItemTypes != null) {
+      filterService.mapItemTypes.forEach((itemType) {
+        filteredItems.addAll(
+            mapItems.where((element) => element.type == itemType).toList());
+      });
     }
     if (filterService.serviceType != null) {
       filteredItems.addAll(mapItems

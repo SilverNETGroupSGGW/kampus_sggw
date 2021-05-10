@@ -33,7 +33,7 @@ class FilterButtonsRow extends StatelessWidget {
                 filterButtonNotifier.addEvent(
                   FilterService(
                     filterName: LocaleKeys.food.tr(),
-                    mapItemType: MapItemType.food,
+                    mapItemTypes: [MapItemType.food],
                     serviceType: ServiceType.canteen,
                   ),
                 );
@@ -46,7 +46,7 @@ class FilterButtonsRow extends StatelessWidget {
                 filterButtonNotifier.addEvent(
                   FilterService(
                     filterName: LocaleKeys.bus.tr(),
-                    mapItemType: MapItemType.transport,
+                    mapItemTypes: [MapItemType.transport],
                   ),
                 );
               },
@@ -58,7 +58,7 @@ class FilterButtonsRow extends StatelessWidget {
                 filterButtonNotifier.addEvent(
                   FilterService(
                     filterName: LocaleKeys.parking.tr(),
-                    mapItemType: MapItemType.parking,
+                    mapItemTypes: [MapItemType.parking],
                   ),
                 );
               },
@@ -70,7 +70,7 @@ class FilterButtonsRow extends StatelessWidget {
                 filterButtonNotifier.addEvent(
                   FilterService(
                     filterName: LocaleKeys.park.tr(),
-                    mapItemType: MapItemType.monument,
+                    mapItemTypes: [MapItemType.monument],
                   ),
                 );
               },
@@ -82,7 +82,7 @@ class FilterButtonsRow extends StatelessWidget {
                 filterButtonNotifier.addEvent(
                   FilterService(
                     filterName: LocaleKeys.store.tr(),
-                    mapItemType: MapItemType.store,
+                    mapItemTypes: [MapItemType.store, MapItemType.medicine],
                     serviceType: ServiceType.vendingMachine,
                   ),
                 );

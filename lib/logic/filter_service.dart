@@ -3,11 +3,11 @@ import 'package:kampus_sggw/models/service.dart';
 
 class FilterService {
   String filterName;
-  MapItemType mapItemType;
+  List<MapItemType> mapItemTypes;
   ServiceType serviceType;
   FilterService({
     this.filterName,
-    this.mapItemType,
+    this.mapItemTypes,
     this.serviceType,
   });
 }
