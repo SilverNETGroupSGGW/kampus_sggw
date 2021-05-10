@@ -46,7 +46,6 @@ class InfoCardDialog extends StatelessWidget {
           width: 200.0,
         ),
         Divider(
-          color: Colors.grey[800],
           thickness: 1.5,
           indent: 12.0,
           endIndent: 12.0,
@@ -143,11 +142,9 @@ class CategoryItem extends StatelessWidget {
     if (root.subCategories == null || root.subCategories.isEmpty) {
       return ListTile(
         title: Text(root.name),
-        tileColor: Colors.grey[100],
       );
     }
     return ExpansionTile(
-      backgroundColor: Colors.white,
       key: PageStorageKey<Category>(root),
       title: Text(root.name),
       children: root.subCategories.map<Widget>(_buildTiles).toList(),

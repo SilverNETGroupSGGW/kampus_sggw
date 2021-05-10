@@ -35,7 +35,7 @@ Future<void> main() async {
   );
 }
 
-class CampusSGGW extends StatelessWidget {
+class CampusSGGW extends StatefulWidget {
   final MapItems mapItems;
   final SearchHistory searchHistory;
   final VisitedItems visitedItems;
@@ -47,16 +47,60 @@ class CampusSGGW extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _CampusSGGWState createState() => _CampusSGGWState();
+}
+
+class _CampusSGGWState extends State<CampusSGGW> {
+  bool _hasDarkTheme = false;
+
+  ThemeData _lightTheme = ThemeData.light().copyWith(
+    primaryColor: Colors.green,
+    accentColor: Colors.green,
+    brightness: Brightness.light,
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: Colors.lightGreen,
+      foregroundColor: Colors.white
+    ),
+    textButtonTheme: TextButtonThemeData(style: ButtonStyle(
+      foregroundColor: MaterialStateProperty.all<Color>(Colors.green)
+    )),
+    bannerTheme: MaterialBannerThemeData(
+      backgroundColor: Color.fromRGBO(110, 200, 80, 1),
+      contentTextStyle: TextStyle(color: Colors.black)
+    ),
+  );
+
+  ThemeData _darkTheme = ThemeData.dark().copyWith(
+    primaryColor: Colors.grey[900],
+    brightness: Brightness.dark,
+    accentColor: Colors.white,
+    focusColor: Colors.grey[800],
+    textTheme: TextTheme(
+      button: TextStyle(color: Colors.white),
+      
+    ),
+    bannerTheme: MaterialBannerThemeData(
+      backgroundColor: Color.fromRGBO(50, 118, 57, 1)
+    ),
+    toggleableActiveColor: Colors.black,
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: Colors.green[900],
+      foregroundColor: Colors.white
+    ),
+    dividerColor: Colors.white60
+  );
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Kampus SGGW',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
+      theme: _lightTheme,
+      darkTheme: _darkTheme,
+      themeMode: _hasDarkTheme ? ThemeMode.dark : ThemeMode.light,
       home: MapScreen(
-        mapItems: mapItems,
-        searchHistory: searchHistory,
-        visitedItems: visitedItems,
+        mapItems: widget.mapItems,
+        searchHistory: widget.searchHistory,
+        visitedItems: widget.visitedItems,
       ),
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
