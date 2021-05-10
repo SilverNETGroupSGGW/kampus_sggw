@@ -58,37 +58,51 @@ class _CampusSGGWState extends State<CampusSGGW> {
     accentColor: Colors.green,
     brightness: Brightness.light,
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: Colors.lightGreen,
-      foregroundColor: Colors.white
+        backgroundColor: Colors.lightGreen, foregroundColor: Colors.white),
+    textTheme: TextTheme(
+      headline1: TextStyle(fontFamily: 'SGGWMastro', fontSize: 48.0),
+      headline2: TextStyle(fontFamily: 'SGGWMastro', fontSize: 32.0),
+      headline3: TextStyle(fontFamily: 'SGGWMastro', fontSize: 24.0),
+      headline4: TextStyle(fontFamily: 'SGGWMastro', fontSize: 18.0),
+      headline5: TextStyle(fontFamily: 'SGGWMastro', fontSize: 16.0),
+      headline6: TextStyle(fontFamily: 'SGGWMastro', fontSize: 14.0),
+      subtitle1: TextStyle(fontFamily: 'SGGWSans', fontSize: 18.0),
+      subtitle2: TextStyle(fontFamily: 'SGGWSans'),
+      bodyText1: TextStyle(fontFamily: 'SGGWSans'),
+      bodyText2: TextStyle(fontFamily: 'SGGWSans'),
     ),
-    textButtonTheme: TextButtonThemeData(style: ButtonStyle(
-      foregroundColor: MaterialStateProperty.all<Color>(Colors.green)
-    )),
+    textButtonTheme: TextButtonThemeData(
+        style: ButtonStyle(
+            foregroundColor: MaterialStateProperty.all<Color>(Colors.green))),
     bannerTheme: MaterialBannerThemeData(
-      backgroundColor: Color.fromRGBO(110, 200, 80, 1),
-      contentTextStyle: TextStyle(color: Colors.black)
-    ),
+        backgroundColor: Color.fromRGBO(110, 200, 80, 1),
+        contentTextStyle: TextStyle(color: Colors.black)),
   );
 
   ThemeData _darkTheme = ThemeData.dark().copyWith(
-    primaryColor: Colors.grey[900],
-    brightness: Brightness.dark,
-    accentColor: Colors.white,
-    focusColor: Colors.grey[800],
-    textTheme: TextTheme(
-      button: TextStyle(color: Colors.white),
-      
-    ),
-    bannerTheme: MaterialBannerThemeData(
-      backgroundColor: Color.fromRGBO(50, 118, 57, 1)
-    ),
-    toggleableActiveColor: Colors.black,
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: Colors.green[900],
-      foregroundColor: Colors.white
-    ),
-    dividerColor: Colors.white60
-  );
+      primaryColor: Colors.grey[900],
+      brightness: Brightness.dark,
+      accentColor: Colors.white,
+      focusColor: Colors.grey[800],
+      textTheme: TextTheme(
+        button: TextStyle(color: Colors.white),
+        headline1: TextStyle(fontFamily: 'SGGWMastro', fontSize: 48.0),
+        headline2: TextStyle(fontFamily: 'SGGWMastro', fontSize: 32.0),
+        headline3: TextStyle(fontFamily: 'SGGWMastro', fontSize: 24.0),
+        headline4: TextStyle(fontFamily: 'SGGWMastro', fontSize: 18.0),
+        headline5: TextStyle(fontFamily: 'SGGWMastro', fontSize: 16.0),
+        headline6: TextStyle(fontFamily: 'SGGWMastro', fontSize: 14.0),
+        subtitle1: TextStyle(fontFamily: 'SGGWSans', fontSize: 18.0),
+        subtitle2: TextStyle(fontFamily: 'SGGWSans'),
+        bodyText1: TextStyle(fontFamily: 'SGGWSans'),
+        bodyText2: TextStyle(fontFamily: 'SGGWSans'),
+      ),
+      bannerTheme: MaterialBannerThemeData(
+          backgroundColor: Color.fromRGBO(50, 118, 57, 1)),
+      toggleableActiveColor: Colors.black,
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Colors.green[900], foregroundColor: Colors.white),
+      dividerColor: Colors.white60);
 
   @override
   Widget build(BuildContext context) {
