@@ -7,4 +7,10 @@ abstract class  LocaleKeys {
   static const search_bar_title = 'search_bar_title';
   static const find_nearby = 'find_nearby';
   static const recent_searches = 'recent_searches';
+  static const food = 'food';
+  static const bus = 'bus';
+  static const parking = 'parking';
+  static const park = 'park';
+  static const store = 'store';
+  static const xero = 'xero';
 }

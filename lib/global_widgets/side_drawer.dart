@@ -19,11 +19,17 @@ class SideDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text(LocaleKeys.drawer_settings.tr()),
+            title: Text(
+              LocaleKeys.drawer_settings.tr(),
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
             onTap: () {},
           ),
           ListTile(
-            title: Text(LocaleKeys.drawer_campus_rules.tr()),
+            title: Text(
+              LocaleKeys.drawer_campus_rules.tr(),
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
             onTap: () {},
           ),
         ],

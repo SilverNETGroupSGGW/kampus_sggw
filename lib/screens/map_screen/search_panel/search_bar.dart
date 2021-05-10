@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
@@ -9,10 +10,12 @@ import 'package:kampus_sggw/translations/locale_keys.g.dart';
 class SearchBar extends StatefulWidget {
   final SearchHistory searchHistory;
   final VisitedItems visitedItems;
+  final StreamService filterButtonNotifier;
   const SearchBar({
     Key key,
-    this.searchHistory,
-    this.visitedItems,
+    @required this.searchHistory,
+    @required this.visitedItems,
+    @required this.filterButtonNotifier,
   }) : super(key: key);
   @override
   _SearchBar createState() => _SearchBar();
@@ -52,6 +55,7 @@ class _SearchBar extends State<SearchBar> {
             ),
             child: SearchHelpPanel(
               visitedItems: widget.visitedItems,
+              filterButtonNotifier: widget.filterButtonNotifier,
             ),
           ),
         ),
