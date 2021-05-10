@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kampus_sggw/logic/filter_service.dart';
 import 'package:kampus_sggw/logic/stream_service.dart';
-import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/models/map_settings.dart';
@@ -12,12 +11,12 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';
 
 class InteractiveMap extends StatefulWidget {
-  final VisitedItems visitedItems;
   final TransformationController transController = TransformationController();
   final Function showCard;
   final StreamService shouldRecenter;
   final StreamService shouldFilterMarkers;
   final StreamService shouldUnfilterMarkers;
+  final StreamService recentlyVisitedItemNotifier;
   final mapSettings = MapSettings(
     cameraTargetBounds: CameraTargetBounds(
       LatLngBounds(
@@ -37,10 +36,10 @@ class InteractiveMap extends StatefulWidget {
   InteractiveMap({
     @required this.mapItems,
     @required this.showCard,
-    @required this.visitedItems,
     @required this.shouldRecenter,
     @required this.shouldFilterMarkers,
     @required this.shouldUnfilterMarkers,
+    @required this.recentlyVisitedItemNotifier,
   });
 
   @override
@@ -67,10 +66,11 @@ class _InteractiveMapState extends State<InteractiveMap> {
 
   @override
   dispose() {
-    super.dispose();
     widget.shouldRecenter.cancelSubscription();
     widget.shouldFilterMarkers.cancelSubscription();
     widget.shouldUnfilterMarkers.cancelSubscription();
+    widget.recentlyVisitedItemNotifier.dispose();
+    super.dispose();
   }
 
   void _setMarkers(Map markersMap, List<MapItem> mapItems) {
@@ -96,8 +96,7 @@ class _InteractiveMapState extends State<InteractiveMap> {
   }
 
   _onPinPressed(MapItem mapItem) {
-    widget.visitedItems.addItem(mapItem.id);
-    widget.visitedItems.save();
+    widget.recentlyVisitedItemNotifier.addEvent(mapItem.id);
     widget.showCard(mapItem);
   }
 

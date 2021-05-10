@@ -32,6 +32,7 @@ class _MapScreenState extends State<MapScreen> {
   StreamService recenterButtonNotifier = StreamService();
   StreamService filterButtonNotifier = StreamService();
   StreamService unfilterButtonNotifier = StreamService();
+  StreamService shouldAddRecentlyVisitedItem = StreamService();
 
   showInfoCard(MapItem mapItem) {
     _selectedMapItem = mapItem;
@@ -46,12 +47,26 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
+  void _addItemToRecentlyVisited(int mapItemId) {
+    widget.visitedItems.addItem(mapItemId);
+    widget.visitedItems.save();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    shouldAddRecentlyVisitedItem
+        .listen((mapItemId) => _addItemToRecentlyVisited(mapItemId));
+  }
+
   @override
   void dispose() {
     widget.visitedItems.save();
     recenterButtonNotifier.dispose();
     filterButtonNotifier.dispose();
     unfilterButtonNotifier.dispose();
+    shouldAddRecentlyVisitedItem.cancelSubscription();
+    shouldAddRecentlyVisitedItem.dispose();
     super.dispose();
   }
 
@@ -72,10 +87,10 @@ class _MapScreenState extends State<MapScreen> {
           InteractiveMap(
             mapItems: widget.mapItems,
             showCard: showInfoCard,
-            visitedItems: widget.visitedItems,
             shouldRecenter: recenterButtonNotifier,
             shouldFilterMarkers: filterButtonNotifier,
             shouldUnfilterMarkers: unfilterButtonNotifier,
+            recentlyVisitedItemNotifier: shouldAddRecentlyVisitedItem,
           ),
         ],
       ),
