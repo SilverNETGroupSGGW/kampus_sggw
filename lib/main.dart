@@ -51,7 +51,7 @@ class CampusSGGW extends StatefulWidget {
 }
 
 class _CampusSGGWState extends State<CampusSGGW> {
-  bool _hasDarkTheme = false;
+  bool _hasDarkTheme = true;
 
   ThemeData _lightTheme = ThemeData.light().copyWith(
     primaryColor: Colors.green,
@@ -60,16 +60,23 @@ class _CampusSGGWState extends State<CampusSGGW> {
     floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: Colors.lightGreen, foregroundColor: Colors.white),
     textTheme: TextTheme(
-      headline1: TextStyle(fontFamily: 'SGGWMastro', fontSize: 48.0),
-      headline2: TextStyle(fontFamily: 'SGGWMastro', fontSize: 32.0),
-      headline3: TextStyle(fontFamily: 'SGGWMastro', fontSize: 24.0),
-      headline4: TextStyle(fontFamily: 'SGGWMastro', fontSize: 18.0),
-      headline5: TextStyle(fontFamily: 'SGGWMastro', fontSize: 16.0),
-      headline6: TextStyle(fontFamily: 'SGGWMastro', fontSize: 14.0),
-      subtitle1: TextStyle(fontFamily: 'SGGWSans', fontSize: 18.0),
-      subtitle2: TextStyle(fontFamily: 'SGGWSans'),
-      bodyText1: TextStyle(fontFamily: 'SGGWSans'),
-      bodyText2: TextStyle(fontFamily: 'SGGWSans'),
+      headline1: TextStyle(
+          fontFamily: 'SGGWMastro', fontSize: 48.0, color: Colors.black),
+      headline2: TextStyle(
+          fontFamily: 'SGGWMastro', fontSize: 32.0, color: Colors.black),
+      headline3: TextStyle(
+          fontFamily: 'SGGWMastro', fontSize: 24.0, color: Colors.black),
+      headline4: TextStyle(
+          fontFamily: 'SGGWMastro', fontSize: 18.0, color: Colors.black),
+      headline5: TextStyle(
+          fontFamily: 'SGGWMastro', fontSize: 16.0, color: Colors.black),
+      headline6: TextStyle(
+          fontFamily: 'SGGWMastro', fontSize: 14.0, color: Colors.black),
+      subtitle1: TextStyle(
+          fontFamily: 'SGGWSans', fontSize: 18.0, color: Colors.black),
+      subtitle2: TextStyle(fontFamily: 'SGGWSans', color: Colors.black),
+      bodyText1: TextStyle(fontFamily: 'SGGWSans', color: Colors.black),
+      bodyText2: TextStyle(fontFamily: 'SGGWSans', color: Colors.black),
     ),
     textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
@@ -86,19 +93,28 @@ class _CampusSGGWState extends State<CampusSGGW> {
       focusColor: Colors.grey[800],
       textTheme: TextTheme(
         button: TextStyle(color: Colors.white),
-        headline1: TextStyle(fontFamily: 'SGGWMastro', fontSize: 48.0),
-        headline2: TextStyle(fontFamily: 'SGGWMastro', fontSize: 32.0),
-        headline3: TextStyle(fontFamily: 'SGGWMastro', fontSize: 24.0),
-        headline4: TextStyle(fontFamily: 'SGGWMastro', fontSize: 18.0),
-        headline5: TextStyle(fontFamily: 'SGGWMastro', fontSize: 16.0),
-        headline6: TextStyle(fontFamily: 'SGGWMastro', fontSize: 14.0),
-        subtitle1: TextStyle(fontFamily: 'SGGWSans', fontSize: 18.0),
-        subtitle2: TextStyle(fontFamily: 'SGGWSans'),
-        bodyText1: TextStyle(fontFamily: 'SGGWSans'),
-        bodyText2: TextStyle(fontFamily: 'SGGWSans'),
+        headline1: TextStyle(
+            fontFamily: 'SGGWMastro', fontSize: 48.0, color: Colors.white),
+        headline2: TextStyle(
+            fontFamily: 'SGGWMastro', fontSize: 32.0, color: Colors.white),
+        headline3: TextStyle(
+            fontFamily: 'SGGWMastro', fontSize: 24.0, color: Colors.white),
+        headline4: TextStyle(
+            fontFamily: 'SGGWMastro', fontSize: 18.0, color: Colors.white),
+        headline5: TextStyle(
+            fontFamily: 'SGGWMastro', fontSize: 16.0, color: Colors.white),
+        headline6: TextStyle(
+            fontFamily: 'SGGWMastro', fontSize: 14.0, color: Colors.white),
+        subtitle1: TextStyle(
+            fontFamily: 'SGGWSans', fontSize: 18.0, color: Colors.white),
+        subtitle2: TextStyle(fontFamily: 'SGGWSans', color: Colors.white),
+        bodyText1: TextStyle(fontFamily: 'SGGWSans', color: Colors.white),
+        bodyText2: TextStyle(fontFamily: 'SGGWSans', color: Colors.white),
       ),
       bannerTheme: MaterialBannerThemeData(
-          backgroundColor: Color.fromRGBO(50, 118, 57, 1)),
+        backgroundColor: Color.fromRGBO(50, 118, 57, 1),
+        contentTextStyle: TextStyle(color: Colors.white),
+      ),
       toggleableActiveColor: Colors.black,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: Colors.green[900], foregroundColor: Colors.white),
