@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/logic/filter_service.dart';
+import 'package:kampus_sggw/logic/filter_button_service.dart';
 import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/service.dart';
@@ -31,7 +31,7 @@ class FilterButtonsRow extends StatelessWidget {
               icon: Icons.restaurant,
               onTapFunction: () {
                 filterButtonNotifier.addEvent(
-                  FilterService(
+                  FilterButtonService(
                     filterName: LocaleKeys.food.tr(),
                     mapItemTypes: [MapItemType.food],
                     serviceType: ServiceType.canteen,
@@ -44,7 +44,7 @@ class FilterButtonsRow extends StatelessWidget {
               icon: Icons.bus_alert,
               onTapFunction: () {
                 filterButtonNotifier.addEvent(
-                  FilterService(
+                  FilterButtonService(
                     filterName: LocaleKeys.bus.tr(),
                     mapItemTypes: [MapItemType.transport],
                   ),
@@ -56,7 +56,7 @@ class FilterButtonsRow extends StatelessWidget {
               icon: Icons.local_parking,
               onTapFunction: () {
                 filterButtonNotifier.addEvent(
-                  FilterService(
+                  FilterButtonService(
                     filterName: LocaleKeys.parking.tr(),
                     mapItemTypes: [MapItemType.parking],
                   ),
@@ -68,7 +68,7 @@ class FilterButtonsRow extends StatelessWidget {
               icon: Icons.park,
               onTapFunction: () {
                 filterButtonNotifier.addEvent(
-                  FilterService(
+                  FilterButtonService(
                     filterName: LocaleKeys.park.tr(),
                     mapItemTypes: [MapItemType.monument],
                   ),
@@ -80,7 +80,7 @@ class FilterButtonsRow extends StatelessWidget {
               icon: Icons.local_grocery_store,
               onTapFunction: () {
                 filterButtonNotifier.addEvent(
-                  FilterService(
+                  FilterButtonService(
                     filterName: LocaleKeys.store.tr(),
                     mapItemTypes: [MapItemType.store, MapItemType.medicine],
                     serviceType: ServiceType.vendingMachine,
@@ -93,7 +93,7 @@ class FilterButtonsRow extends StatelessWidget {
               icon: Icons.print_rounded,
               onTapFunction: () {
                 filterButtonNotifier.addEvent(
-                  FilterService(
+                  FilterButtonService(
                     filterName: LocaleKeys.xero.tr(),
                     serviceType: ServiceType.xero,
                   ),

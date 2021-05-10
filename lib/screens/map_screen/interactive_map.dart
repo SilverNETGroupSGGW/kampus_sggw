@@ -145,7 +145,7 @@ class _InteractiveMapState extends State<InteractiveMap> {
 
   void _updateMarkers(FilterService filterService) {
     Map<MarkerId, Marker> filteredMarkers = <MarkerId, Marker>{};
-    _setMarkers(filteredMarkers, widget.mapItems.filter(filterService));
+    _setMarkers(filteredMarkers, filterService.filteredMapItems);
     setState(
       () {
         _currentMarkerSet = filteredMarkers.values.toSet();

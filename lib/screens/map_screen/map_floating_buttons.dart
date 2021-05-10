@@ -10,6 +10,7 @@ class MapFloatingButtons extends StatefulWidget {
   final VisitedItems visitedItems;
   final Function onRecenterButtonPressed;
   final StreamService filterButtonNotifier;
+  final StreamService filtrationNotifier;
   final Function onUnfilterButtonPressed;
 
   const MapFloatingButtons({
@@ -18,6 +19,7 @@ class MapFloatingButtons extends StatefulWidget {
     @required this.visitedItems,
     @required this.onRecenterButtonPressed,
     @required this.filterButtonNotifier,
+    @required this.filtrationNotifier,
     @required this.onUnfilterButtonPressed,
   }) : super(key: key);
 
@@ -32,13 +34,13 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
   initState() {
     super.initState();
     _searchButton = _filterButton();
-    widget.filterButtonNotifier.listen((filterService) =>
+    widget.filtrationNotifier.listen((filterService) =>
         _replaceFilterButtonWithUnfilterButton(filterService));
   }
 
   @override
   void dispose() {
-    widget.filterButtonNotifier.cancelSubscription();
+    widget.filtrationNotifier.cancelSubscription();
     super.dispose();
   }
 

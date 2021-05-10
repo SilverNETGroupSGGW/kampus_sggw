@@ -1,4 +1,4 @@
-import 'package:kampus_sggw/logic/filter_service.dart';
+import 'package:kampus_sggw/logic/filter_button_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -10,7 +10,7 @@ class MapItems {
   MapItems(
     this.mapItems,
   );
-  List<MapItem> filter(FilterService filterService) {
+  List<MapItem> filter(FilterButtonService filterService) {
     List<MapItem> filteredItems = [];
     if (filterService.mapItemTypes != null) {
       filterService.mapItemTypes.forEach((itemType) {
