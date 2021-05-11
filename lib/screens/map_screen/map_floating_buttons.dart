@@ -104,6 +104,7 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
           searchHistory: widget.searchHistory,
           visitedItems: widget.visitedItems,
           filterButtonNotifier: widget.filterButtonNotifier,
+          searchBarNotifier: widget.searchBarNotifier,
         ),
       ),
     );

@@ -41,4 +41,10 @@ class MapItems {
     }
     return tmp;
   }
+
+  MapItem findItemByQuery(String query) {
+    query = query.toLowerCase();
+    return mapItems.firstWhere((item) => item.name.toLowerCase() == query,
+        orElse: () => null);
+  }
 }

@@ -6,6 +6,7 @@ import 'package:kampus_sggw/global_widgets/side_drawer.dart';
 import 'package:kampus_sggw/logic/filter_button_service.dart';
 import 'package:kampus_sggw/logic/filter_service.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
+import 'package:kampus_sggw/logic/search_service.dart';
 import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_item.dart';
@@ -61,11 +62,24 @@ class _MapScreenState extends State<MapScreen> {
     widget.visitedItems.save();
   }
 
-  void _notifyInteractiveMap(FilterButtonService filterButtonService) {
+  void _filterMapItemsByFunction(FilterButtonService filterButtonService) {
     FilterService filterService = FilterService(
         filterName: filterButtonService.filterName,
         filteredMapItems: widget.mapItems.filter(filterButtonService));
     _shouldUpdateMapMarkers.addEvent(filterService);
+  }
+
+  void _filterMapItemsByQuery(SearchService searchService) {
+    MapItem queriedItem = widget.mapItems.findItemByQuery(searchService.query);
+    if (queriedItem != null) {
+      FilterService filterService = FilterService(
+          filterName: searchService.query, filteredMapItems: [queriedItem]);
+      _shouldUpdateMapMarkers.addEvent(filterService);
+    }
+    else{
+      //TODO
+      //alert dialog? => no such item found
+    }
   }
 
   @override
@@ -74,8 +88,10 @@ class _MapScreenState extends State<MapScreen> {
     _shouldAddRecentlyVisitedItem = _recentlyVisitedItemNotifier
         .listen((mapItemId) => _addItemToRecentlyVisited(mapItemId));
     _shouldFilterItemTypes = _filterButtonNotifier.listen(
-        (filterButtonService) => _notifyInteractiveMap(filterButtonService));
-    _shouldSearchForItem = _searchBarNotifier.listen((_) => {});
+        (filterButtonService) =>
+            _filterMapItemsByFunction(filterButtonService));
+    _shouldSearchForItem = _searchBarNotifier
+        .listen((searchService) => _filterMapItemsByQuery(searchService));
   }
 
   @override
