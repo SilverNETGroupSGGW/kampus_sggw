@@ -9,13 +9,13 @@ class SideDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          DrawerHeader(
-            child: Text(
-              LocaleKeys.map_screen_title.tr(),
-              style: Theme.of(context).textTheme.headline3,
-            ),
-            decoration: BoxDecoration(
-              color: Colors.green,
+          Container(
+            height: 120.0,
+            child: DrawerHeader(
+              child: Text(LocaleKeys.map_screen_title.tr(), style: TextStyle(color: Theme.of(context).bannerTheme.contentTextStyle.color),),
+              decoration: BoxDecoration(
+                color: Theme.of(context).bannerTheme.backgroundColor
+              ),
             ),
           ),
           ListTile(

@@ -100,7 +100,7 @@ class _MapScreenState extends State<MapScreen> {
         title: Text(
           LocaleKeys.map_screen_title.tr(),
           style: TextStyle(
-            fontFamily: 'SGGWMastro',
+            fontFamily: 'SGGWSans',
             fontWeight: FontWeight.w600,
           ),
         ),
