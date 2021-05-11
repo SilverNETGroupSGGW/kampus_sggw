@@ -2,18 +2,14 @@ import 'dart:async';
 
 class StreamService {
   StreamController _streamController = StreamController.broadcast();
-  StreamSubscription _subscription;
 
   void dispose() {
     _streamController.close();
   }
 
-  void cancelSubscription() {
-    _subscription.cancel();
-  }
-
-  void listen(function) {
-    _subscription = _streamController.stream.listen(function);
+  StreamSubscription listen(function) {
+    StreamSubscription subscription = _streamController.stream.listen(function);
+    return subscription;
   }
 
   void addEvent(param) {

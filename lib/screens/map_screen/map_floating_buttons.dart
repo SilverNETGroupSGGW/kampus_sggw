@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/filter_service.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
@@ -10,6 +12,7 @@ class MapFloatingButtons extends StatefulWidget {
   final VisitedItems visitedItems;
   final Function onRecenterButtonPressed;
   final StreamService filterButtonNotifier;
+  final StreamService searchBarNotifier;
   final StreamService filtrationNotifier;
   final Function onUnfilterButtonPressed;
 
@@ -19,6 +22,7 @@ class MapFloatingButtons extends StatefulWidget {
     @required this.visitedItems,
     @required this.onRecenterButtonPressed,
     @required this.filterButtonNotifier,
+    @required this.searchBarNotifier,
     @required this.filtrationNotifier,
     @required this.onUnfilterButtonPressed,
   }) : super(key: key);
@@ -29,18 +33,20 @@ class MapFloatingButtons extends StatefulWidget {
 
 class _MapFloatingButtons extends State<MapFloatingButtons> {
   var _searchButton;
+  StreamSubscription _shouldCreateUnfilterButton;
 
   @override
   initState() {
     super.initState();
     _searchButton = _filterButton();
-    widget.filtrationNotifier.listen((filterService) =>
-        _replaceFilterButtonWithUnfilterButton(filterService));
+    _shouldCreateUnfilterButton = widget.filtrationNotifier.listen(
+        (filterService) =>
+            _replaceFilterButtonWithUnfilterButton(filterService));
   }
 
   @override
   void dispose() {
-    widget.filtrationNotifier.cancelSubscription();
+    _shouldCreateUnfilterButton.cancel();
     super.dispose();
   }
 

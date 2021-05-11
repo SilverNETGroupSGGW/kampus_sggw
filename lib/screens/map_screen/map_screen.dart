@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
@@ -33,9 +35,13 @@ class _MapScreenState extends State<MapScreen> {
   static MapItem _selectedMapItem;
   StreamService _recenterButtonNotifier = StreamService();
   StreamService _filterButtonNotifier = StreamService();
+  StreamService _searchBarNotifier = StreamService();
   StreamService _shouldUpdateMapMarkers = StreamService();
   StreamService _unfilterButtonNotifier = StreamService();
-  StreamService _shouldAddRecentlyVisitedItem = StreamService();
+  StreamService _recentlyVisitedItemNotifier = StreamService();
+  StreamSubscription _shouldAddRecentlyVisitedItem;
+  StreamSubscription _shouldFilterItemTypes;
+  StreamSubscription _shouldSearchForItem;
 
   showInfoCard(MapItem mapItem) {
     _selectedMapItem = mapItem;
@@ -65,22 +71,25 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void initState() {
     super.initState();
-    _shouldAddRecentlyVisitedItem
+    _shouldAddRecentlyVisitedItem = _recentlyVisitedItemNotifier
         .listen((mapItemId) => _addItemToRecentlyVisited(mapItemId));
-    _filterButtonNotifier.listen(
+    _shouldFilterItemTypes = _filterButtonNotifier.listen(
         (filterButtonService) => _notifyInteractiveMap(filterButtonService));
+    _shouldSearchForItem = _searchBarNotifier.listen((_) => {});
   }
 
   @override
   void dispose() {
     widget.visitedItems.save();
     _recenterButtonNotifier.dispose();
-    _filterButtonNotifier.cancelSubscription();
+    _shouldFilterItemTypes.cancel();
     _filterButtonNotifier.dispose();
+    _shouldSearchForItem.cancel();
+    _searchBarNotifier.dispose();
     _shouldUpdateMapMarkers.dispose();
     _unfilterButtonNotifier.dispose();
-    _shouldAddRecentlyVisitedItem.cancelSubscription();
-    _shouldAddRecentlyVisitedItem.dispose();
+    _shouldAddRecentlyVisitedItem.cancel();
+    _recentlyVisitedItemNotifier.dispose();
     super.dispose();
   }
 
@@ -104,7 +113,7 @@ class _MapScreenState extends State<MapScreen> {
             shouldRecenter: _recenterButtonNotifier,
             shouldFilterMarkers: _shouldUpdateMapMarkers,
             shouldUnfilterMarkers: _unfilterButtonNotifier,
-            recentlyVisitedItemNotifier: _shouldAddRecentlyVisitedItem,
+            recentlyVisitedItemNotifier: _recentlyVisitedItemNotifier,
           ),
         ],
       ),
@@ -114,6 +123,7 @@ class _MapScreenState extends State<MapScreen> {
         onRecenterButtonPressed: () => _recenterButtonNotifier.addEvent(null),
         filtrationNotifier: _shouldUpdateMapMarkers,
         filterButtonNotifier: _filterButtonNotifier,
+        searchBarNotifier: _searchBarNotifier,
         onUnfilterButtonPressed: () => _unfilterButtonNotifier.addEvent(null),
       ),
       drawer: SideDrawer(),

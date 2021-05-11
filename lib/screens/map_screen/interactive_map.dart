@@ -51,6 +51,9 @@ class _InteractiveMapState extends State<InteractiveMap> {
   Map markers = <MarkerId, Marker>{};
   GoogleMap _googleMap;
   Set<Marker> _currentMarkerSet = <Marker>{};
+  StreamSubscription _shouldRecenter;
+  StreamSubscription _shouldFilterMarkers;
+  StreamSubscription _shouldUnfilterMarkers;
 
   @override
   initState() {
@@ -58,17 +61,18 @@ class _InteractiveMapState extends State<InteractiveMap> {
     tryRequestLocation();
     _setMarkers(markers, widget.mapItems.mapItems);
     _currentMarkerSet = markers.values.toSet();
-    widget.shouldRecenter.listen((_) => _goToTheCampus());
-    widget.shouldFilterMarkers
+    _shouldRecenter = widget.shouldRecenter.listen((_) => _goToTheCampus());
+    _shouldFilterMarkers = widget.shouldFilterMarkers
         .listen((filterService) => _updateMarkers(filterService));
-    widget.shouldUnfilterMarkers.listen((_) => _updateMarkersToDefault());
+    _shouldUnfilterMarkers =
+        widget.shouldUnfilterMarkers.listen((_) => _updateMarkersToDefault());
   }
 
   @override
   dispose() {
-    widget.shouldRecenter.cancelSubscription();
-    widget.shouldFilterMarkers.cancelSubscription();
-    widget.shouldUnfilterMarkers.cancelSubscription();
+    _shouldRecenter.cancel();
+    _shouldFilterMarkers.cancel();
+    _shouldUnfilterMarkers.cancel();
     super.dispose();
   }
 
