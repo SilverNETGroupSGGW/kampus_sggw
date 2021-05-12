@@ -97,7 +97,6 @@ class _SearchBar extends State<SearchBar> {
           return ClipRRect(
             borderRadius: BorderRadius.circular(5),
             child: Material(
-              color: Colors.white,
               elevation: 4,
               child: Builder(
                 builder: (context) {
