@@ -28,7 +28,7 @@ class FilterButtonsRow extends StatelessWidget {
             FilterButton(
               color: Colors.yellow[700],
               icon: Icons.restaurant,
-              onTapFunction: onButtonPressed(
+              onTapFunction: () => onButtonPressed(
                 FilterByFunctionEventParam(
                   filterName: LocaleKeys.food.tr(),
                   mapItemTypes: [MapItemType.food],
@@ -39,7 +39,7 @@ class FilterButtonsRow extends StatelessWidget {
             FilterButton(
               color: Colors.blue,
               icon: Icons.bus_alert,
-              onTapFunction: onButtonPressed(
+              onTapFunction: () => onButtonPressed(
                 FilterByFunctionEventParam(
                   filterName: LocaleKeys.bus.tr(),
                   mapItemTypes: [MapItemType.transport],
@@ -49,7 +49,7 @@ class FilterButtonsRow extends StatelessWidget {
             FilterButton(
               color: Colors.orange,
               icon: Icons.local_parking,
-              onTapFunction: onButtonPressed(
+              onTapFunction: () => onButtonPressed(
                 FilterByFunctionEventParam(
                   filterName: LocaleKeys.parking.tr(),
                   mapItemTypes: [MapItemType.parking],
@@ -59,7 +59,7 @@ class FilterButtonsRow extends StatelessWidget {
             FilterButton(
               color: Colors.green,
               icon: Icons.park,
-              onTapFunction: onButtonPressed(
+              onTapFunction: () => onButtonPressed(
                 FilterByFunctionEventParam(
                   filterName: LocaleKeys.park.tr(),
                   mapItemTypes: [MapItemType.monument],
@@ -69,7 +69,7 @@ class FilterButtonsRow extends StatelessWidget {
             FilterButton(
               color: Colors.red[300],
               icon: Icons.local_grocery_store,
-              onTapFunction: onButtonPressed(
+              onTapFunction: () => onButtonPressed(
                 FilterByFunctionEventParam(
                   filterName: LocaleKeys.store.tr(),
                   mapItemTypes: [MapItemType.store, MapItemType.medicine],
@@ -80,7 +80,7 @@ class FilterButtonsRow extends StatelessWidget {
             FilterButton(
               color: Colors.indigo,
               icon: Icons.print_rounded,
-              onTapFunction: onButtonPressed(
+              onTapFunction: () => onButtonPressed(
                 FilterByFunctionEventParam(
                   filterName: LocaleKeys.xero.tr(),
                   serviceTypes: [ServiceType.xero],
