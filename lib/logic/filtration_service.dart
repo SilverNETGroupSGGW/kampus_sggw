@@ -10,25 +10,32 @@ import 'event_parameters/filter_by_function_event_param.dart';
 
 class FiltrationService {
   final MapItems mapItems;
-  final StreamService filterByFunctionEvent = StreamService();
-  final StreamService searchWithQueryEvent = StreamService();
-  final StreamService filterMarkersEvent = StreamService();
-  final StreamService unfilterMarkersEvent = StreamService();
-  final StreamService searchWithNameEvent = StreamService();
+  StreamService _filterByFunctionEvent;
+  StreamService _searchWithQueryEvent;
+  StreamService _filterMarkersEvent;
+  StreamService _unfilterMarkersEvent;
+  StreamService _searchWithNameEvent;
   StreamSubscription _filterByFunctionListener;
   StreamSubscription _searchWithQueryListener;
   StreamSubscription _searchWithNameListener;
   final Function onNoItemFound;
   FiltrationService({this.mapItems, this.onNoItemFound}) {
+    _initializeStreamServices();
     _initializeListeners();
   }
 
+  StreamService get filterByFunctionEvent => _filterByFunctionEvent;
+  StreamService get searchWithQueryEvent => _searchWithQueryEvent;
+  StreamService get filterMarkersEvent => _filterMarkersEvent;
+  StreamService get unfilterMarkersEvent => _unfilterMarkersEvent;
+  StreamService get searchWithNameEvent => _searchWithNameEvent;
+
   void _initializeListeners() {
-    _filterByFunctionListener = filterByFunctionEvent
+    _filterByFunctionListener = _filterByFunctionEvent
         .listen((filterEventParam) => _filterItemsByFunction(filterEventParam));
-    _searchWithQueryListener = searchWithQueryEvent
+    _searchWithQueryListener = _searchWithQueryEvent
         .listen((searchEventParam) => _filterItemsByQuery(searchEventParam));
-    _searchWithNameListener = searchWithNameEvent
+    _searchWithNameListener = _searchWithNameEvent
         .listen((mapItem) => _triggerInteractiveMap(mapItem.name, [mapItem]));
   }
 
@@ -67,14 +74,22 @@ class FiltrationService {
     return itemsFilteredByType.union(itemsFilteredByServices).toList();
   }
 
+  void _initializeStreamServices() {
+    _filterByFunctionEvent = StreamService();
+    _searchWithQueryEvent = StreamService();
+    _filterMarkersEvent = StreamService();
+    _unfilterMarkersEvent = StreamService();
+    _searchWithNameEvent = StreamService();
+  }
+
   void dispose() {
     _filterByFunctionListener.cancel();
     _searchWithQueryListener.cancel();
     _searchWithNameListener.cancel();
-    filterByFunctionEvent.dispose();
-    searchWithQueryEvent.dispose();
-    filterMarkersEvent.dispose();
-    unfilterMarkersEvent.dispose();
-    searchWithNameEvent.dispose();
+    _filterByFunctionEvent.dispose();
+    _searchWithQueryEvent.dispose();
+    _filterMarkersEvent.dispose();
+    _unfilterMarkersEvent.dispose();
+    _searchWithNameEvent.dispose();
   }
 }
