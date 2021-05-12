@@ -1,7 +1,7 @@
-class SearchService {
+class SearchEventParam {
   String query;
   bool isFinal;
-  SearchService({
+  SearchEventParam({
     this.query,
     this.isFinal,
   });

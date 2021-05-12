@@ -1,9 +1,9 @@
 import 'package:kampus_sggw/models/map_item.dart';
 
-class FilterService {
+class UpdateMarkersEventParam {
   String filterName;
   List<MapItem> filteredMapItems;
-  FilterService({
+  UpdateMarkersEventParam({
     this.filterName,
     this.filteredMapItems,
   });

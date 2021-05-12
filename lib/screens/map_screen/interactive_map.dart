@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:kampus_sggw/logic/filter_service.dart';
 import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
@@ -13,10 +12,10 @@ import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platf
 class InteractiveMap extends StatefulWidget {
   final TransformationController transController = TransformationController();
   final Function showCard;
+  final Function onItemVisit;
   final StreamService shouldRecenter;
   final StreamService shouldFilterMarkers;
   final StreamService shouldUnfilterMarkers;
-  final StreamService recentlyVisitedItemNotifier;
   final mapSettings = MapSettings(
     cameraTargetBounds: CameraTargetBounds(
       LatLngBounds(
@@ -36,10 +35,10 @@ class InteractiveMap extends StatefulWidget {
   InteractiveMap({
     @required this.mapItems,
     @required this.showCard,
+    @required this.onItemVisit,
     @required this.shouldRecenter,
     @required this.shouldFilterMarkers,
     @required this.shouldUnfilterMarkers,
-    @required this.recentlyVisitedItemNotifier,
   });
 
   @override
@@ -63,7 +62,7 @@ class _InteractiveMapState extends State<InteractiveMap> {
     _currentMarkerSet = markers.values.toSet();
     _shouldRecenter = widget.shouldRecenter.listen((_) => _goToTheCampus());
     _shouldFilterMarkers = widget.shouldFilterMarkers
-        .listen((filterService) => _updateMarkers(filterService));
+        .listen((filterService) => _updateMarkers(filterService.filteredMapItems));
     _shouldUnfilterMarkers =
         widget.shouldUnfilterMarkers.listen((_) => _updateMarkersToDefault());
   }
@@ -99,7 +98,7 @@ class _InteractiveMapState extends State<InteractiveMap> {
   }
 
   _onPinPressed(MapItem mapItem) {
-    widget.recentlyVisitedItemNotifier.addEvent(mapItem.id);
+    widget.onItemVisit(mapItem.id);
     widget.showCard(mapItem);
   }
 
@@ -147,9 +146,9 @@ class _InteractiveMapState extends State<InteractiveMap> {
     return _googleMap;
   }
 
-  void _updateMarkers(FilterService filterService) {
+  void _updateMarkers(List<MapItem> filteredMapItems) {
     Map<MarkerId, Marker> filteredMarkers = <MarkerId, Marker>{};
-    _setMarkers(filteredMarkers, filterService.filteredMapItems);
+    _setMarkers(filteredMarkers, filteredMapItems);
     setState(
       () {
         _currentMarkerSet = filteredMarkers.values.toSet();

@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/logic/search_service.dart';
-import 'package:kampus_sggw/logic/stream_service.dart';
+import 'package:kampus_sggw/logic/event_parameters/search_event_param.dart';
+import 'package:kampus_sggw/logic/filtration_service.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
@@ -13,14 +13,12 @@ import 'package:kampus_sggw/translations/locale_keys.g.dart';
 class SearchBar extends StatefulWidget {
   final SearchHistory searchHistory;
   final VisitedItems visitedItems;
-  final StreamService filterButtonNotifier;
-  final StreamService searchBarNotifier;
+  final FiltrationService filtrationService;
   const SearchBar({
     Key key,
     @required this.searchHistory,
     @required this.visitedItems,
-    @required this.filterButtonNotifier,
-    @required this.searchBarNotifier,
+    @required this.filtrationService,
   }) : super(key: key);
   @override
   _SearchBar createState() => _SearchBar();
@@ -60,7 +58,12 @@ class _SearchBar extends State<SearchBar> {
             ),
             child: SearchHelpPanel(
               visitedItems: widget.visitedItems,
-              filterButtonNotifier: widget.filterButtonNotifier,
+              onFilterButtonPressed: (eventParam) => widget
+                  .filtrationService.filterByFunctionEvent
+                  .trigger(param: eventParam),
+              onItemTilePressed: (eventParam) => widget
+                  .filtrationService.searchWithNameEvent
+                  .trigger(param: eventParam),
             ),
           ),
         ),
@@ -83,7 +86,9 @@ class _SearchBar extends State<SearchBar> {
               _selectedTerm = query;
               widget.searchHistory.addSearchTerm(query);
               updateFilteredSearchHistory(null);
-              widget.searchBarNotifier.addEvent(SearchService(query: _selectedTerm, isFinal: false));
+              widget.filtrationService.searchWithQueryEvent.trigger(
+                  param:
+                      SearchEventParam(query: _selectedTerm, isFinal: false));
             },
           );
           _controller.close();

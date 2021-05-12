@@ -12,7 +12,7 @@ class StreamService {
     return subscription;
   }
 
-  void addEvent(param) {
+  void trigger({param}) {
     param == null
         ? _streamController.sink.add(null)
         : _streamController.sink.add(param);

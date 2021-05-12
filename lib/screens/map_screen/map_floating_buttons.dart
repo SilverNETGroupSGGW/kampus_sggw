@@ -1,30 +1,30 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/logic/filter_service.dart';
+import 'package:kampus_sggw/logic/event_parameters/update_markers_event_param.dart';
+import 'package:kampus_sggw/logic/filtration_service.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
-import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
-import 'search_panel/search_bar.dart';
+import 'filtration_widgets/search_bar.dart';
 
 class MapFloatingButtons extends StatefulWidget {
   final SearchHistory searchHistory;
   final VisitedItems visitedItems;
   final Function onRecenterButtonPressed;
-  final StreamService filterButtonNotifier;
-  final StreamService searchBarNotifier;
-  final StreamService filtrationNotifier;
-  final Function onUnfilterButtonPressed;
+  final FiltrationService filtrationService;
+  //final StreamService filterButtonNotifier;
+  //final StreamService searchBarNotifier;
+  //final StreamService filtrationNotifier;
 
   const MapFloatingButtons({
     Key key,
     @required this.searchHistory,
     @required this.visitedItems,
     @required this.onRecenterButtonPressed,
-    @required this.filterButtonNotifier,
-    @required this.searchBarNotifier,
-    @required this.filtrationNotifier,
-    @required this.onUnfilterButtonPressed,
+    @required this.filtrationService,
+    //@required this.filterButtonNotifier,
+    //@required this.searchBarNotifier,
+    //@required this.filtrationNotifier,
   }) : super(key: key);
 
   @override
@@ -33,20 +33,19 @@ class MapFloatingButtons extends StatefulWidget {
 
 class _MapFloatingButtons extends State<MapFloatingButtons> {
   var _searchButton;
-  StreamSubscription _shouldCreateUnfilterButton;
+  StreamSubscription _createUnfilterButton;
 
   @override
   initState() {
     super.initState();
     _searchButton = _filterButton();
-    _shouldCreateUnfilterButton = widget.filtrationNotifier.listen(
-        (filterService) =>
-            _replaceFilterButtonWithUnfilterButton(filterService));
+    _createUnfilterButton = widget.filtrationService.filterMarkersEvent.listen(
+        (eventParam) => _replaceFilterButtonWithUnfilterButton(eventParam));
   }
 
   @override
   void dispose() {
-    _shouldCreateUnfilterButton.cancel();
+    _createUnfilterButton.cancel();
     super.dispose();
   }
 
@@ -74,7 +73,7 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
       label: Text(filterName),
       icon: Icon(Icons.clear),
       onPressed: () {
-        widget.onUnfilterButtonPressed();
+        widget.filtrationService.unfilterMarkersEvent.trigger();
         _replaceUnfilterButtonWithFilterButton();
       },
       style: TextButton.styleFrom(
@@ -103,18 +102,18 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
         child: SearchBar(
           searchHistory: widget.searchHistory,
           visitedItems: widget.visitedItems,
-          filterButtonNotifier: widget.filterButtonNotifier,
-          searchBarNotifier: widget.searchBarNotifier,
+          filtrationService: widget.filtrationService,
         ),
       ),
     );
   }
 
-  void _replaceFilterButtonWithUnfilterButton(FilterService filterService) {
+  void _replaceFilterButtonWithUnfilterButton(
+      UpdateMarkersEventParam eventParam) {
     Navigator.pop(context);
     setState(
       () {
-        _searchButton = _unfilterButton(filterService.filterName);
+        _searchButton = _unfilterButton(eventParam.filterName);
       },
     );
   }
