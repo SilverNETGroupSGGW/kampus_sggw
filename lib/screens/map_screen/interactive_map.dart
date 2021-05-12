@@ -98,7 +98,7 @@ class _InteractiveMapState extends State<InteractiveMap> {
   }
 
   _onPinPressed(MapItem mapItem) {
-    widget.onItemVisit(mapItem.id);
+    widget.onItemVisit(mapItem);
     widget.showCard(mapItem);
   }
 
