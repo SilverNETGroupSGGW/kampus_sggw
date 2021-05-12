@@ -1,8 +1,8 @@
-import 'package:kampus_sggw/logic/event_parameters/filter_by_function_event_param.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/models/service.dart';
+import 'package:string_similarity/string_similarity.dart';
 part 'map_items.g.dart';
 
 @JsonSerializable()
@@ -51,5 +51,18 @@ class MapItems {
     query = query.toLowerCase();
     return mapItems.firstWhere((item) => item.name.toLowerCase() == query,
         orElse: () => null);
+  }
+
+  // TODO: do something with this
+  List<MapItem> findItemsByQuery(String query) {
+    query = query.toLowerCase();
+
+    mapItems.forEach(
+      (item) => print(
+        item.name + ": " + item.name.similarityTo(query).toString(),
+      ),
+    );
+
+    return mapItems.where((item) => item.name.toLowerCase() == query).toList();
   }
 }

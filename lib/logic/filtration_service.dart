@@ -46,6 +46,10 @@ class FiltrationService {
 
   void _filterItemsByQuery(SearchEventParam searchEventParam) {
     MapItem queriedItem = mapItems.findItemByQuery(searchEventParam.query);
+
+    // TODO: DELETE DEBUG
+    mapItems.findItemsByQuery(searchEventParam.query);
+
     if (queriedItem != null) {
       _triggerInteractiveMap(searchEventParam.query, [queriedItem]);
     } else {
