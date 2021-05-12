@@ -63,23 +63,57 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   void _filterMapItemsByFunction(FilterButtonService filterButtonService) {
-    FilterService filterService = FilterService(
-        filterName: filterButtonService.filterName,
-        filteredMapItems: widget.mapItems.filter(filterButtonService));
-    _shouldUpdateMapMarkers.addEvent(filterService);
+    List<MapItem> filteredMapItems =
+        widget.mapItems.filter(filterButtonService);
+    _notifyInteractiveMap(filterButtonService.filterName, filteredMapItems);
   }
 
   void _filterMapItemsByQuery(SearchService searchService) {
     MapItem queriedItem = widget.mapItems.findItemByQuery(searchService.query);
     if (queriedItem != null) {
-      FilterService filterService = FilterService(
-          filterName: searchService.query, filteredMapItems: [queriedItem]);
-      _shouldUpdateMapMarkers.addEvent(filterService);
+      _notifyInteractiveMap(searchService.query, [queriedItem]);
+    } else {
+      _showAlertDialogNoItemFound();
     }
-    else{
-      //TODO
-      //alert dialog? => no such item found
-    }
+  }
+
+  _notifyInteractiveMap(String filterName, List<MapItem> filteredMapItems) {
+    FilterService filterService = FilterService(
+        filterName: filterName, filteredMapItems: filteredMapItems);
+    _shouldUpdateMapMarkers.addEvent(filterService);
+  }
+
+  _showAlertDialogNoItemFound() {
+    Navigator.pop(context);
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+            LocaleKeys.no_results_found.tr(),
+            style: TextStyle(
+              fontFamily: 'SGGWSans',
+              fontSize: 20,
+            ),
+          ),
+          actions: [
+            TextButton(
+              style: ButtonStyle(animationDuration: Duration(milliseconds: 0)),
+              onPressed: () => Navigator.pop(context),
+              child: Text(
+                LocaleKeys.close.tr(),
+                style: TextStyle(
+                  fontFamily: 'SGGWSans',
+                  fontSize: 18,
+                ),
+              ),
+            ),
+          ],
+          shape: RoundedRectangleBorder(
+              borderRadius: new BorderRadius.circular(10)),
+        );
+      },
+    );
   }
 
   @override
