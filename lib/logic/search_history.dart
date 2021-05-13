@@ -15,13 +15,13 @@ class SearchHistory {
       _$SearchHistoryFromJson(json);
   Map<String, dynamic> toJson() => _$SearchHistoryToJson(this);
 
-  List<String> filterSearchTerms(String filter) {
-    if (filter != null && filter.isNotEmpty) {
+  Set<String> filterSearchTerms({String query}) {
+    if (query != null && query.isNotEmpty) {
       return searchHistory.reversed
-          .where((term) => term.startsWith(filter))
-          .toList();
+          .where((term) => term.startsWith(query))
+          .toSet();
     } else {
-      return searchHistory.reversed.toList();
+      return searchHistory.reversed.toSet();
     }
   }
 

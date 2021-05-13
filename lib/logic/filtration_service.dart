@@ -1,11 +1,9 @@
 import 'dart:async';
-
 import 'package:kampus_sggw/logic/event_parameters/search_event_param.dart';
 import 'package:kampus_sggw/logic/event_parameters/update_markers_event_param.dart';
 import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
-
 import 'event_parameters/filter_by_function_event_param.dart';
 
 class FiltrationService {
@@ -15,6 +13,7 @@ class FiltrationService {
   StreamService _filterMarkersEvent;
   StreamService _unfilterMarkersEvent;
   StreamService _searchWithNameEvent;
+  StreamService _searchSuggestionEvent;
   StreamSubscription _filterByFunctionListener;
   StreamSubscription _searchWithQueryListener;
   StreamSubscription _searchWithNameListener;
@@ -29,6 +28,7 @@ class FiltrationService {
   StreamService get filterMarkersEvent => _filterMarkersEvent;
   StreamService get unfilterMarkersEvent => _unfilterMarkersEvent;
   StreamService get searchWithNameEvent => _searchWithNameEvent;
+  StreamService get searchSuggestionEvent => _searchSuggestionEvent;
 
   void _initializeListeners() {
     _filterByFunctionListener = _filterByFunctionEvent
@@ -45,13 +45,25 @@ class FiltrationService {
   }
 
   void _filterItemsByQuery(SearchEventParam searchEventParam) {
-    MapItem queriedItem = mapItems.findItemByQuery(searchEventParam.query);
+    if (searchEventParam.isFinal) {
+      _finalQuerySearch(searchEventParam.query);
+    } else {
+      _suggestSearches(searchEventParam.query);
+    }
+  }
 
+  void _suggestSearches(String query) {
     // TODO: DELETE DEBUG
-    mapItems.findItemsByQuery(searchEventParam.query);
+    List<MapItem> suggestedItems = mapItems.findItemsByQuery(query);
+    // TODO : reduce number of suggested items to 6!
+    Set<String> suggestedItemsNames = suggestedItems.map((e) => e.name).toSet();
+    _searchSuggestionEvent.trigger(param: suggestedItemsNames);
+  }
 
+  void _finalQuerySearch(String query) {
+    MapItem queriedItem = mapItems.findItemByQuery(query);
     if (queriedItem != null) {
-      _triggerInteractiveMap(searchEventParam.query, [queriedItem]);
+      _triggerInteractiveMap(query, [queriedItem]);
     } else {
       onNoItemFound();
     }
@@ -84,6 +96,7 @@ class FiltrationService {
     _filterMarkersEvent = StreamService();
     _unfilterMarkersEvent = StreamService();
     _searchWithNameEvent = StreamService();
+    _searchSuggestionEvent = StreamService();
   }
 
   void dispose() {

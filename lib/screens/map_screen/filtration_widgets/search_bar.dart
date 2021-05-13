@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/search_event_param.dart';
@@ -23,21 +25,27 @@ class SearchBar extends StatefulWidget {
 }
 
 class _SearchBar extends State<SearchBar> {
-  List<String> _filteredSearchHistory;
+  Set<String> _filteredSearchHistory;
+  Set<String> _searchSuggestions;
   String _selectedTerm;
   FloatingSearchBarController _controller;
+  StreamSubscription _searchSuggestionListener;
 
   @override
   void initState() {
     super.initState();
     _controller = FloatingSearchBarController();
-    _filteredSearchHistory = widget.searchHistory.filterSearchTerms(null);
+    _filteredSearchHistory = widget.searchHistory.filterSearchTerms();
+    _searchSuggestions = {};
+    _searchSuggestionListener = widget.filtrationService.searchSuggestionEvent
+        .listen((eventParam) => _searchSuggestions = eventParam);
   }
 
   @override
   void dispose() {
     widget.searchHistory.save();
     _controller.dispose();
+    _searchSuggestionListener.cancel();
     super.dispose();
   }
 
@@ -76,97 +84,102 @@ class _SearchBar extends State<SearchBar> {
           FloatingSearchBarAction.searchToClear(),
         ],
         onQueryChanged: (query) => setState(
-          () => updateFilteredSearchHistory(query),
+          () {
+            widget.filtrationService.searchWithQueryEvent.trigger(
+              param: SearchEventParam(query: query, isFinal: false),
+            );
+            _updateFilteredSearchHistory(query: query);
+          },
         ),
         onSubmitted: (query) {
-          setState(
-            () {
-              _selectedTerm = query;
-              widget.searchHistory.addSearchTerm(query);
-              updateFilteredSearchHistory(null);
-              widget.filtrationService.searchWithQueryEvent.trigger(
-                param: SearchEventParam(query: _selectedTerm, isFinal: false),
-              );
-            },
-          );
-          _controller.close();
+          _onSubmitted(query);
         },
         builder: (context, transition) {
-          return ClipRRect(
-            borderRadius: BorderRadius.circular(5),
-            child: Material(
-              elevation: 4,
-              child: Builder(
-                builder: (context) {
-                  if (_filteredSearchHistory.isEmpty &&
-                      _controller.query.isNotEmpty) {
-                    return suggestedSearchHistoryListTile();
-                  } else {
-                    return searchHistoryColumn();
-                  }
-                },
-              ),
-            ),
-          );
+          return _suggestionPanel();
         },
       ),
     );
   }
 
-  void updateFilteredSearchHistory(filter) =>
-      _filteredSearchHistory = widget.searchHistory.filterSearchTerms(filter);
+  void _updateFilteredSearchHistory({query}) => _filteredSearchHistory =
+      widget.searchHistory.filterSearchTerms(query: query);
 
-  Column searchHistoryColumn() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: _filteredSearchHistory
-          .map(
-            (term) => ListTile(
-              title: Text(
-                term,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-              leading: const Icon(Icons.history),
-              trailing: IconButton(
-                icon: const Icon(Icons.clear),
-                onPressed: () {
-                  setState(() {
-                    widget.searchHistory.deleteSearchTerm(term);
-                    updateFilteredSearchHistory(null);
-                  });
-                },
-              ),
-              onTap: () {
-                setState(() {
-                  widget.searchHistory.addSearchTerm(term);
-                  _selectedTerm = term;
-                  updateFilteredSearchHistory(null);
-                  widget.filtrationService.searchWithQueryEvent.trigger(
-                    param:
-                        SearchEventParam(query: _selectedTerm, isFinal: false),
-                  );
-                });
-                _controller.close();
-              },
-            ),
-          )
-          .toList(),
+  ClipRRect _suggestionPanel() {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(5),
+      child: Material(
+        elevation: 4,
+        child: Builder(
+          builder: (context) {
+            return _suggestionColumn();
+          },
+        ),
+      ),
     );
   }
 
-  ListTile suggestedSearchHistoryListTile() {
-    return ListTile(
-      title: Text(_controller.query),
-      leading: const Icon(Icons.search),
-      onTap: () {
-        setState(() {
-          widget.searchHistory.addSearchTerm(_controller.query);
-          _selectedTerm = _controller.query;
-          updateFilteredSearchHistory(null);
-        });
-        _controller.close();
+  Column _suggestionColumn() {
+    List<Widget> _displayedSuggestions = [];
+    var _history = _filteredSearchHistory.map((text) => _historyListTile(text));
+    var _suggestion =
+        _searchSuggestions.map((text) => _suggestionListTile(text));
+    _displayedSuggestions.addAll(_history);
+    int leftForDisplaying = 6 - _history.length;
+    if (leftForDisplaying > 0) {
+      _displayedSuggestions.addAll(_suggestion.take(leftForDisplaying));
+    }
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: _displayedSuggestions,
+    );
+  }
+
+  ListTile _suggestionListTile(String text) {
+    return _listTile(
+      text,
+      Icon(Icons.pin_drop),
+    );
+  }
+
+  ListTile _historyListTile(String text) {
+    var removeIconButton = IconButton(
+      icon: Icon(Icons.clear),
+      onPressed: () {
+        setState(
+          () {
+            widget.searchHistory.deleteSearchTerm(text);
+            _updateFilteredSearchHistory();
+          },
+        );
       },
     );
+    return _listTile(text, Icon(Icons.history),
+        trailingIconButton: removeIconButton);
+  }
+
+  ListTile _listTile(String text, Icon leadingIcon,
+      {IconButton trailingIconButton}) {
+    return ListTile(
+      title: Text(
+        text,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      leading: leadingIcon,
+      trailing: trailingIconButton,
+      onTap: () => _onSubmitted(text),
+    );
+  }
+
+  void _onSubmitted(String query) {
+    setState(
+      () {
+        widget.searchHistory.addSearchTerm(query);
+        widget.filtrationService.searchWithQueryEvent.trigger(
+          param: SearchEventParam(query: query, isFinal: true),
+        );
+      },
+    );
+    _controller.close();
   }
 }
