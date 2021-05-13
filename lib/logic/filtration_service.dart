@@ -14,6 +14,7 @@ class FiltrationService {
   StreamService _unfilterMarkersEvent;
   StreamService _searchWithNameEvent;
   StreamService _searchSuggestionEvent;
+  StreamService _manageSearchHistoryEvent;
   StreamSubscription _filterByFunctionListener;
   StreamSubscription _searchWithQueryListener;
   StreamSubscription _searchWithNameListener;
@@ -29,6 +30,7 @@ class FiltrationService {
   StreamService get unfilterMarkersEvent => _unfilterMarkersEvent;
   StreamService get searchWithNameEvent => _searchWithNameEvent;
   StreamService get searchSuggestionEvent => _searchSuggestionEvent;
+  StreamService get manageSearchHistoryEvent => _manageSearchHistoryEvent;
 
   void _initializeListeners() {
     _filterByFunctionListener = _filterByFunctionEvent
@@ -62,6 +64,7 @@ class FiltrationService {
   void _finalQuerySearch(String query) {
     MapItem queriedItem = mapItems.findItemByQuery(query);
     if (queriedItem != null) {
+      _manageSearchHistoryEvent.trigger(param: query);
       _triggerInteractiveMap(query, [queriedItem]);
     } else {
       onNoItemFound();
@@ -96,6 +99,7 @@ class FiltrationService {
     _unfilterMarkersEvent = StreamService();
     _searchWithNameEvent = StreamService();
     _searchSuggestionEvent = StreamService();
+    _manageSearchHistoryEvent = StreamService();
   }
 
   void dispose() {
@@ -107,5 +111,6 @@ class FiltrationService {
     _filterMarkersEvent.dispose();
     _unfilterMarkersEvent.dispose();
     _searchWithNameEvent.dispose();
+    _manageSearchHistoryEvent.dispose();
   }
 }

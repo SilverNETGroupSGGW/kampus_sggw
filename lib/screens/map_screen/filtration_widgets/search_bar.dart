@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/search_event_param.dart';
 import 'package:kampus_sggw/logic/filtration_service.dart';
+import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
@@ -30,6 +31,7 @@ class _SearchBar extends State<SearchBar> {
   String _selectedTerm;
   FloatingSearchBarController _controller;
   StreamSubscription _searchSuggestionListener;
+  StreamSubscription _searchHistoryListener;
 
   @override
   void initState() {
@@ -39,6 +41,8 @@ class _SearchBar extends State<SearchBar> {
     _searchSuggestions = {};
     _searchSuggestionListener = widget.filtrationService.searchSuggestionEvent
         .listen((eventParam) => _searchSuggestions = eventParam);
+    _searchHistoryListener = widget.filtrationService.manageSearchHistoryEvent
+        .listen((eventParam) => _addToSearchHistory(eventParam));
   }
 
   @override
@@ -46,6 +50,7 @@ class _SearchBar extends State<SearchBar> {
     widget.searchHistory.save();
     _controller.dispose();
     _searchSuggestionListener.cancel();
+    _searchHistoryListener.cancel();
     super.dispose();
   }
 
@@ -160,26 +165,31 @@ class _SearchBar extends State<SearchBar> {
   ListTile _listTile(String text, Icon leadingIcon,
       {IconButton trailingIconButton}) {
     return ListTile(
-      title: Text(
-        text,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-      ),
-      leading: leadingIcon,
-      trailing: trailingIconButton,
-      onTap: () => _onSubmitted(text),
-    );
+        title: Text(
+          text,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+        leading: leadingIcon,
+        trailing: trailingIconButton,
+        onTap: () {
+          _onSubmitted(text);
+        });
   }
 
   void _onSubmitted(String query) {
     setState(
       () {
-        widget.searchHistory.addSearchTerm(query);
         widget.filtrationService.searchWithQueryEvent.trigger(
           param: SearchEventParam(query: query, isFinal: true),
         );
       },
     );
     _controller.close();
+  }
+
+  void _addToSearchHistory(String query) {
+    widget.searchHistory.addSearchTerm(query);
+    widget.searchHistory.save();
   }
 }
