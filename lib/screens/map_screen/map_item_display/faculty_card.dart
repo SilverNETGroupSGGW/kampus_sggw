@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/models/category.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
-import 'package:kampus_sggw/screens/map_screen/service_button_row.dart';
+import 'service_button_row.dart';
 
 class FacultyCard extends StatelessWidget {
   final Category category;

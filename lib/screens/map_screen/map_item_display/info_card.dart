@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/models/category.dart';
 import 'package:kampus_sggw/models/map_item.dart';
-import 'package:kampus_sggw/screens/map_screen/gallery_card.dart';
-import 'package:kampus_sggw/screens/map_screen/photo_card.dart';
-import 'package:kampus_sggw/screens/map_screen/faculty_card.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
-import 'package:kampus_sggw/screens/map_screen/service_button_row.dart';
+import 'category_item.dart';
+import 'floor_tile.dart';
+import 'gallery_button.dart';
+import 'service_button_row.dart';
 
 class InfoCardDialog extends StatelessWidget {
   String header;
@@ -45,47 +45,7 @@ class InfoCardDialog extends StatelessWidget {
             otherCategories.add(CategoryItem(subCategory));
         }
       }
-      this.description = ListView.builder(
-        shrinkWrap: true,
-        itemCount: (facultyTile != null ? 1 : 0) +
-            1 +
-            (otherCategories.length > 0 ? 1 : 0),
-        itemBuilder: (BuildContext context, int index) {
-          if (index == 1 || facultyTile == null && index == 0) {
-            return ExpansionTile(
-              title: Text(LocaleKeys.building_plans.tr()),
-              leading: Icon(Icons.map),
-              children: [
-                FloorTile(
-                  Image.asset("assets/images/floors/floor_1.jpg"),
-                  LocaleKeys.ground.tr() + " I",
-                ),
-                FloorTile(
-                  Image.asset("assets/images/floors/floor_1.jpg"),
-                  LocaleKeys.ground.tr() + " II",
-                ),
-                FloorTile(
-                  Image.asset("assets/images/floors/floor_1.jpg"),
-                  LocaleKeys.ground.tr() + " III",
-                ),
-                FloorTile(
-                  Image.asset("assets/images/floors/floor_1.jpg"),
-                  LocaleKeys.ground.tr() + " IV",
-                ),
-              ],
-            );
-          }
-          if (index == 2) {
-            if (otherCategories != null && otherCategories.isNotEmpty)
-              return ExpansionTile(
-                leading: Icon(Icons.build_outlined),
-                title: Text(LocaleKeys.other_institutions.tr()),
-                children: otherCategories,
-              );
-          }
-          if (facultyTile != null) return facultyTile;
-        },
-      );
+      this.description = _buildDescription();
     }
 
     if (mapItem.description != null) {
@@ -177,148 +137,59 @@ class InfoCardDialog extends StatelessWidget {
       ),
     );
   }
-}
 
-class CategoryItem extends StatefulWidget {
-  final Category category;
-  CategoryItem(this.category);
-  @override
-  _CategoryItemState createState() => _CategoryItemState();
-}
-
-class _CategoryItemState extends State<CategoryItem> {
-  static Category _category;
-
-  @override
-  Widget build(BuildContext context) {
-    return _buildTiles(widget.category);
+  ListView _buildDescription() {
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: _descriptionItemsCount(),
+      itemBuilder: _descriptionItemsBuilder,
+    );
   }
 
-  Widget _buildTiles(Category root, {bool isFaculty = false}) {
-    if (isFaculty) {
-      return ListTile(
-        leading: Icon(Icons.info_outline),
-        title: Text(root.name),
-        onTap: () {
-          showFacultyCard(root);
-        },
-      );
-    }
-    if (root.subCategories != null && root.subCategories.isNotEmpty) {
+  int _descriptionItemsCount() {
+    int isFaculty = facultyTile != null ? 1 : 0;
+    int hasOtherCategories = otherCategories.length > 0 ? 1 : 0;
+
+    return isFaculty + hasOtherCategories + 1;
+  }
+
+  Widget _descriptionItemsBuilder(BuildContext context, int index) {
+    if ((facultyTile != null && index == 1) ||
+        (facultyTile == null && index == 0)) {
       return ExpansionTile(
-        leading: (root.name == 'faculties' ? Icon(Icons.science) : null),
-        key: PageStorageKey<Category>(root),
-        title: Text(
-            root.name == 'faculties' ? LocaleKeys.faculties.tr() : root.name),
-        children: root.subCategories.map<Widget>((sub) {
-          return _buildTiles(sub, isFaculty: root.name == 'faculties');
-        }).toList(),
+        title: Text(LocaleKeys.building_plans.tr()),
+        leading: Icon(Icons.map),
+        children: [
+          // TODO: load floors from mapItem
+          FloorTile(
+            Image.asset("assets/images/floors/floor_1.jpg"),
+            LocaleKeys.ground.tr() + " I",
+          ),
+          FloorTile(
+            Image.asset("assets/images/floors/floor_1.jpg"),
+            LocaleKeys.ground.tr() + " II",
+          ),
+          FloorTile(
+            Image.asset("assets/images/floors/floor_1.jpg"),
+            LocaleKeys.ground.tr() + " III",
+          ),
+          FloorTile(
+            Image.asset("assets/images/floors/floor_1.jpg"),
+            LocaleKeys.ground.tr() + " IV",
+          ),
+        ],
       );
     }
-    return ListTile(
-      leading: Icon(Icons.info_outline),
-      title: Text(root.name),
-    );
-  }
-
-  showFacultyCard(Category category) {
-    _category = category;
-    Navigator.of(context).restorablePush(_dialogBuilder);
-  }
-
-  static Route<Object> _dialogBuilder(BuildContext context, Object arguments) {
-    ServiceButtonsRow categoryServiceRow;
-    if (_category.services != null && _category.services.isNotEmpty) {
-      categoryServiceRow = ServiceButtonsRow(_category.services);
+    if (index == 2 || (facultyTile == null && index == 1)) {
+      if (otherCategories != null && otherCategories.isNotEmpty) {
+        return ExpansionTile(
+          leading: Icon(Icons.build_outlined),
+          title: Text(LocaleKeys.other_institutions.tr()),
+          children: otherCategories,
+        );
+      }
     }
-    return DialogRoute<void>(
-      context: context,
-      builder: (BuildContext context) => FacultyCard(
-        category: _category,
-        servicesRow: categoryServiceRow,
-      ),
-    );
-  }
-}
 
-class FloorTile extends StatefulWidget {
-  final Image floorPlan;
-  final String floorNum;
-
-  FloorTile(this.floorPlan, this.floorNum);
-
-  @override
-  _FloorTile createState() => _FloorTile();
-}
-
-class _FloorTile extends State<FloorTile> {
-  static Image _selectedFloorPlan;
-  static String _selectedFloorNum;
-
-  static Route<Object> _dialogBuilder(BuildContext context, Object arguments) {
-    return DialogRoute<void>(
-      context: context,
-      builder: (BuildContext context) => PhotoCard(
-        image: _selectedFloorPlan,
-        heading: _selectedFloorNum,
-      ),
-    );
-  }
-
-  showFloorCard(Image floorPlan, String floorNum) {
-    _selectedFloorPlan = floorPlan;
-    _selectedFloorNum = floorNum;
-    Navigator.of(context).restorablePush(_dialogBuilder);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: Icon(Icons.info_outline),
-      title: Text(widget.floorNum),
-      onTap: () => showFloorCard(widget.floorPlan, widget.floorNum),
-    );
-  }
-}
-
-class GalleryButton extends StatefulWidget {
-  final List<Image> images;
-
-  GalleryButton(this.images);
-
-  @override
-  _GalleryButton createState() => _GalleryButton();
-}
-
-class _GalleryButton extends State<GalleryButton> {
-  static List<Image> _selectedImages;
-
-  static Route<Object> _dialogBuilder(BuildContext context, Object arguments) {
-    return DialogRoute<void>(
-      context: context,
-      builder: (BuildContext context) => GalleryCard(images: _selectedImages),
-    );
-  }
-
-  void _showGalleryCard(List<Image> images) {
-    _selectedImages = images;
-    Navigator.of(context).restorablePush(_dialogBuilder);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      child: Icon(Icons.photo),
-      style: ElevatedButton.styleFrom(
-        primary: Colors.green,
-        onPrimary: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(90.0),
-        ),
-      ),
-      onPressed: () {
-        _showGalleryCard(widget.images);
-      },
-    );
+    return facultyTile;
   }
 }

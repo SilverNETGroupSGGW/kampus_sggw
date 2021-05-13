@@ -11,7 +11,7 @@ import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'filtration_widgets/no_item_found_alert_dialog.dart';
-import 'info_card.dart';
+import 'map_item_display/info_card.dart';
 import 'interactive_map.dart';
 import 'map_floating_buttons.dart';
 

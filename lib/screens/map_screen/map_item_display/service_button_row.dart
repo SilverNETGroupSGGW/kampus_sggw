@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/models/service.dart';
-import 'package:kampus_sggw/screens/map_screen/service_card.dart';
 import 'package:kampus_sggw/screens/map_screen/filter_button.dart';
+import 'service_card.dart';
 
 class ServiceButtonsRow extends StatefulWidget {
   final List<Service> services;
