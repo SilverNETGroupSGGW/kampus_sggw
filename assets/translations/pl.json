@@ -5,5 +5,23 @@
     "drawer_campus_rules": "Regulamin kampusu",
     "search_bar_title": "Szukaj miejsca lub adresu",
     "find_nearby": "Szukaj w pobliżu",
-    "recent": "Ostatnio odwiedzone"
+    "recent": "Ostatnio odwiedzone",
+    "recent_searches": "Ostatnio odwiedzone",
+    "food": "Restauracje",
+    "bus": "Transport publiczny",
+    "parking": "Parkingi",
+    "park": "Parki i pomniki",
+    "store": "Sklepy",
+    "copier": "Copy and print",
+    "no_results_found": "No search results found",
+
+    "other_institutions": "Pozostałe instytucje",
+    "building_plans": "Mapy pięter",
+    "photo": "Zdjęcie",
+    "gallery": "Galeria",
+    "departaments": "Katedry",
+    "faculties": "Wydziały",
+    "ground": "Piętro",
+    "website": "Strona internetowa",
+    "close": "Zamknij"
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/models/service.dart';
+import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ServiceCard extends StatelessWidget {
@@ -57,7 +59,7 @@ class ServiceCard extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                        text: 'Strona Internetowa',
+                        text: LocaleKeys.website.tr(),
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.blue,
@@ -78,7 +80,7 @@ class ServiceCard extends StatelessWidget {
                   animationDuration: Duration(milliseconds: 0),
                 ),
                 onPressed: () => Navigator.pop(context),
-                child: Text("Close"),
+                child: Text(LocaleKeys.close.tr()),
               ),
             ),
           ),

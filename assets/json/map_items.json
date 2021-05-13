@@ -10,7 +10,7 @@
       "description": "Budynek WZIM, WL, WTD",
       "url": "http://www.sggw.pl/",
       "type": "facultyBuilding",
-      "photoPath": "http://www.wzim.sggw.pl/wp-content/themes/mgr_01/dist/img/header-bg-big.jpg",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-04-22",
       "gallery": [
