@@ -93,7 +93,9 @@ class InfoCardDialog extends StatelessWidget {
             : Center()),
         (mapItemType == MapItemType.facultyBuilding
             ? Container(
-                constraints: BoxConstraints(minHeight: 0, maxHeight: 450),
+                constraints: BoxConstraints(
+                    minHeight: 0,
+                    maxHeight: MediaQuery.of(context).size.height - 600),
                 child: description,
                 width: 350.0,
               )
