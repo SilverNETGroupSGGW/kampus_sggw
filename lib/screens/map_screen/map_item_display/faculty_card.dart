@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/models/category.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'service_button_row.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FacultyCard extends StatelessWidget {
   final Category category;
@@ -71,6 +72,14 @@ class FacultyCard extends StatelessWidget {
       return Center();
     }
 
+    Future<void> _goToFacultyURL() async {
+      if (await canLaunch(category.url)) {
+        await launch(category.url);
+      } else {
+        throw 'Could not launch ' + category.url;
+      }
+    }
+
     return Column(children: [
       Divider(
         color: Colors.grey[800],
@@ -87,10 +96,13 @@ class FacultyCard extends StatelessWidget {
       ),
       Padding(
         padding: EdgeInsets.only(top: 5),
-        child: Text(
-          category.url,
-          textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.blue),
+        child: GestureDetector(
+          onTap: _goToFacultyURL,
+          child: Text(
+            category.url,
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.blue),
+          ),
         ),
       ),
     ]);
