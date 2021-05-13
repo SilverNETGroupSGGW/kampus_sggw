@@ -87,13 +87,7 @@ class _SearchBar extends State<SearchBar> {
         actions: [
           FloatingSearchBarAction.searchToClear(),
         ],
-        onQueryChanged: (query) => setState(
-          () {
-            widget.filtrationService.searchWithQueryEvent
-                .trigger(param: SearchEventParam(query: query, isFinal: false));
-            _updateFilteredSearchHistory(query: query);
-          },
-        ),
+        onQueryChanged: (query) => _onQueryChanged(query),
         onSubmitted: (query) => _onSubmitted(query),
         builder: (context, transition) => _suggestionPanel(),
       ),
@@ -134,10 +128,7 @@ class _SearchBar extends State<SearchBar> {
   }
 
   ListTile _suggestionListTile(String text) {
-    return _listTile(
-      text,
-      Icon(Icons.pin_drop),
-    );
+    return _listTile(text, Icon(Icons.pin_drop));
   }
 
   ListTile _historyListTile(String text) {
@@ -153,12 +144,11 @@ class _SearchBar extends State<SearchBar> {
         );
       },
     );
-    return _listTile(text, Icon(Icons.history),
-        trailingIconButton: removeIconButton);
+    return _listTile(text, Icon(Icons.history), removeIconButton);
   }
 
   ListTile _listTile(String text, Icon leadingIcon,
-      {IconButton trailingIconButton}) {
+      [IconButton trailingIconButton]) {
     return ListTile(
       title: Text(
         text,
@@ -171,11 +161,20 @@ class _SearchBar extends State<SearchBar> {
     );
   }
 
+  void _onQueryChanged(String query) {
+    setState(() {
+      widget.filtrationService.searchWithQueryEvent.trigger(
+        param: SearchEventParam(query: query, isFinal: false),
+      );
+      _updateFilteredSearchHistory(query: query);
+    });
+  }
+
   void _onSubmitted(String query) {
-    setState(
-      () => widget.filtrationService.searchWithQueryEvent
-          .trigger(param: SearchEventParam(query: query, isFinal: true)),
-    );
+    setState(() {
+      widget.filtrationService.searchWithQueryEvent
+          .trigger(param: SearchEventParam(query: query, isFinal: true));
+    });
     _controller.close();
   }
 
