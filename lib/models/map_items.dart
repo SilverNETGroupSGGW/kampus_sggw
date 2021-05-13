@@ -1,4 +1,3 @@
-import 'package:kampus_sggw/logic/event_parameters/filter_by_function_event_param.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';

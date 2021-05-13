@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/search_event_param.dart';
@@ -87,8 +85,8 @@ class _SearchBar extends State<SearchBar> {
               widget.searchHistory.addSearchTerm(query);
               updateFilteredSearchHistory(null);
               widget.filtrationService.searchWithQueryEvent.trigger(
-                  param:
-                      SearchEventParam(query: _selectedTerm, isFinal: false));
+                param: SearchEventParam(query: _selectedTerm, isFinal: false),
+              );
             },
           );
           _controller.close();
@@ -144,6 +142,10 @@ class _SearchBar extends State<SearchBar> {
                   widget.searchHistory.addSearchTerm(term);
                   _selectedTerm = term;
                   updateFilteredSearchHistory(null);
+                  widget.filtrationService.searchWithQueryEvent.trigger(
+                    param:
+                        SearchEventParam(query: _selectedTerm, isFinal: false),
+                  );
                 });
                 _controller.close();
               },
