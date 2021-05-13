@@ -53,7 +53,6 @@ class MapItems {
         orElse: () => null);
   }
 
-  // TODO: do something with this
   List<MapItem> findItemsByQuery(String query) {
     query = query.toLowerCase();
     Map<MapItem, double> similarityMap = <MapItem, double>{};
@@ -62,13 +61,14 @@ class MapItems {
       (item) {
         var similarity = item.name.similarityTo(query);
         print(item.name + ": " + similarity.toString());
-        similarityMap[item] = similarity;
+
+        if(similarity > 0) {
+          similarityMap[item] = similarity;
+        }
       },
     );
     List<MapItem> items = (similarityMap.keys.toList());
     items.sort((a,b) => similarityMap[a].compareTo(similarityMap[b]));
     return items;
-
-    //return mapItems.where((item) => item.name.toLowerCase() == query).toList();
   }
 }

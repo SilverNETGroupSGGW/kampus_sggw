@@ -53,7 +53,6 @@ class FiltrationService {
   }
 
   void _suggestSearches(String query) {
-    // TODO: DELETE DEBUG
     List<MapItem> suggestedItems = mapItems.findItemsByQuery(query);
     // TODO : reduce number of suggested items to 6!
     Set<String> suggestedItemsNames = suggestedItems.map((e) => e.name).toSet();
