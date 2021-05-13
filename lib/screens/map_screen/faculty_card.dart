@@ -18,72 +18,12 @@ class FacultyCard extends StatelessWidget {
         title: Text(
           category.name,
           textAlign: TextAlign.center,
-          style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 26,
-              fontFamily: 'SGGWMastro'),
+          style: Theme.of(context).textTheme.headline3,
         ),
         children: [
-          (category.description != null
-              ? Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Text(
-                    category.description,
-                    textAlign: TextAlign.center,
-                  ),
-                )
-              : Center()),
-          (category.subCategories != null &&
-                  category.subCategories[0].name == 'departaments'
-              ? Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Divider(
-                      color: Colors.grey[800],
-                      thickness: 1.5,
-                      indent: 12.0,
-                      endIndent: 12.0,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 10),
-                      child: Text(LocaleKeys.departaments.tr()),
-                    ),
-                    for (var i = 0;
-                        i < category.subCategories[0].subCategories.length;
-                        i++)
-                      Padding(
-                        padding: EdgeInsets.only(left: 0, bottom: 5),
-                        child: Text(
-                            category.subCategories[0].subCategories[i].name),
-                      )
-                  ],
-                )
-              : Center()),
-          (category.url != null
-              ? Column(children: [
-                  Divider(
-                    color: Colors.grey[800],
-                    thickness: 1.5,
-                    indent: 12.0,
-                    endIndent: 12.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 5),
-                    child: Text(
-                      LocaleKeys.website.tr(),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 5),
-                    child: Text(
-                      category.url,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.blue),
-                    ),
-                  )
-                ])
-              : Center()),
+          _descriptionWidget(),
+          _subCategories(),
+          _websiteUrl(),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Padding(
@@ -110,6 +50,77 @@ class FacultyCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _descriptionWidget() {
+    if (category.description == null) {
+      return Center();
+    }
+    return Padding(
+      padding: EdgeInsets.all(5),
+      child: Text(
+        category.description,
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+
+  Widget _websiteUrl() {
+    if (category.url == null) {
+      return Center();
+    }
+
+    return Column(children: [
+      Divider(
+        color: Colors.grey[800],
+        thickness: 1.5,
+        indent: 12.0,
+        endIndent: 12.0,
+      ),
+      Padding(
+        padding: EdgeInsets.only(top: 5),
+        child: Text(
+          LocaleKeys.website.tr(),
+          textAlign: TextAlign.center,
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.only(top: 5),
+        child: Text(
+          category.url,
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.blue),
+        ),
+      ),
+    ]);
+  }
+
+  Widget _subCategories() {
+    if (category.subCategories == null ||
+        category.subCategories[0].name != 'departaments') {
+      return Center();
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Divider(
+          color: Colors.grey[800],
+          thickness: 1.5,
+          indent: 12.0,
+          endIndent: 12.0,
+        ),
+        Padding(
+          padding: EdgeInsets.only(bottom: 10),
+          child: Text(LocaleKeys.departaments.tr()),
+        ),
+        for (var i = 0; i < category.subCategories[0].subCategories.length; i++)
+          Padding(
+            padding: EdgeInsets.only(left: 0, bottom: 5),
+            child: Text(category.subCategories[0].subCategories[i].name),
+          )
+      ],
     );
   }
 }
