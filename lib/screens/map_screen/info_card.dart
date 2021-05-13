@@ -98,7 +98,7 @@ class InfoCardDialog extends StatelessWidget {
     }
 
     if (mapItem.services != null && mapItem.services.isNotEmpty) {
-      this.servicesRow = ServiceButtonsRow.fromServices(mapItem.services);
+      this.servicesRow = ServiceButtonsRow(mapItem.services);
     }
   }
 
@@ -229,7 +229,7 @@ class _CategoryItemState extends State<CategoryItem> {
   static Route<Object> _dialogBuilder(BuildContext context, Object arguments) {
     ServiceButtonsRow categoryServiceRow;
     if (_category.services != null && _category.services.isNotEmpty) {
-      categoryServiceRow = ServiceButtonsRow.fromServices(_category.services);
+      categoryServiceRow = ServiceButtonsRow(_category.services);
     }
     return DialogRoute<void>(
       context: context,
