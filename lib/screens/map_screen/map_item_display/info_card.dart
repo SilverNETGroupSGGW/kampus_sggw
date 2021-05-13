@@ -253,21 +253,21 @@ class FloorTile extends StatefulWidget {
 
 class _FloorTile extends State<FloorTile> {
   static Image _selectedFloorPlan;
-  static String _selectedFloornum;
+  static String _selectedFloorNum;
 
   static Route<Object> _dialogBuilder(BuildContext context, Object arguments) {
     return DialogRoute<void>(
       context: context,
       builder: (BuildContext context) => PhotoCard(
         image: _selectedFloorPlan,
-        heading: _selectedFloornum,
+        heading: _selectedFloorNum,
       ),
     );
   }
 
   showFloorCard(Image floorPlan, String floorNum) {
     _selectedFloorPlan = floorPlan;
-    _selectedFloornum = floorNum;
+    _selectedFloorNum = floorNum;
     Navigator.of(context).restorablePush(_dialogBuilder);
   }
 
@@ -276,15 +276,13 @@ class _FloorTile extends State<FloorTile> {
     return ListTile(
       leading: Icon(Icons.info_outline),
       title: Text(widget.floorNum),
-      onTap: () {
-        showFloorCard(widget.floorPlan, widget.floorNum);
-      },
+      onTap: () => showFloorCard(widget.floorPlan, widget.floorNum),
     );
   }
 }
 
 class GalleryButton extends StatefulWidget {
-  List<Image> images;
+  final List<Image> images;
 
   GalleryButton(this.images);
 
@@ -302,7 +300,7 @@ class _GalleryButton extends State<GalleryButton> {
     );
   }
 
-  showGalleryCard(List<Image> images) {
+  void _showGalleryCard(List<Image> images) {
     _selectedImages = images;
     Navigator.of(context).restorablePush(_dialogBuilder);
   }
@@ -319,7 +317,7 @@ class _GalleryButton extends State<GalleryButton> {
         ),
       ),
       onPressed: () {
-        showGalleryCard(widget.images);
+        _showGalleryCard(widget.images);
       },
     );
   }
