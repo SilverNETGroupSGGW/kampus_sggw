@@ -8,7 +8,7 @@ class ServiceCard extends StatelessWidget {
   final Service service;
   ServiceCard({this.service});
 
-  _goToServiceURL() async {
+  Future<void> _goToServiceURL() async {
     if (await canLaunch(service.url)) {
       await launch(service.url);
     } else {
@@ -22,71 +22,85 @@ class ServiceCard extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: SimpleDialog(
         title: Text(service.name, style: Theme.of(context).textTheme.subtitle1),
-        children: [
-          if (service.photoPath != null)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: ClipRect(
-                child: Image.asset(service.photoPath),
-              ),
-            ),
-          if (service.description != null)
-            Padding(
-              padding: const EdgeInsets.only(
-                bottom: 15,
-                left: 22,
-                right: 22,
-                top: 5,
-              ),
-              child: Text(service.description),
-            ),
-          if (service.url != null)
-            Padding(
-              padding: const EdgeInsets.only(left: 22, right: 22, bottom: 8.0),
-              child: GestureDetector(
-                onTap: _goToServiceURL,
-                child: RichText(
-                  text: TextSpan(
-                    children: [
-                      WidgetSpan(
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 4.0),
-                          child: Icon(
-                            Icons.language,
-                            size: 20,
-                            color: Colors.blue,
-                          ),
-                        ),
-                      ),
-                      TextSpan(
-                        text: LocaleKeys.website.tr(),
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.blue,
-                          decoration: TextDecoration.underline,
-                        ),
-                      ),
-                    ],
+        children: _dialogChildren(context),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18.0),
+        ),
+      ),
+    );
+  }
+
+  List<Widget> _dialogChildren(BuildContext context) {
+    List<Widget> widgets = [];
+
+    if (service.photoPath != null) {
+      widgets.add(Padding(
+        padding: const EdgeInsets.only(bottom: 8.0),
+        child: ClipRect(
+          child: Image.asset(service.photoPath),
+        ),
+      ));
+    }
+    if (service.description != null) {
+      widgets.add(Padding(
+        padding: const EdgeInsets.only(
+          bottom: 15,
+          left: 22,
+          right: 22,
+          top: 5,
+        ),
+        child: Text(service.description),
+      ));
+    }
+    if (service.url != null) {
+      widgets.add(_serviceUrlWidget(context));
+    }
+
+    widgets.add(Padding(
+      padding: const EdgeInsets.only(right: 16.0, left: 16.0),
+      child: Align(
+        alignment: Alignment.bottomRight,
+        child: TextButton(
+          style: ButtonStyle(
+            animationDuration: Duration(milliseconds: 0),
+          ),
+          onPressed: () => Navigator.pop(context),
+          child: Text(LocaleKeys.close.tr()),
+        ),
+      ),
+    ));
+
+    return widgets;
+  }
+
+  Widget _serviceUrlWidget(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 22, right: 22, bottom: 8.0),
+      child: GestureDetector(
+        onTap: _goToServiceURL,
+        child: RichText(
+          text: TextSpan(
+            children: [
+              WidgetSpan(
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 4.0),
+                  child: Icon(
+                    Icons.language,
+                    size: 20,
+                    color: Colors.blue,
                   ),
                 ),
               ),
-            ),
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0, left: 16.0),
-            child: Align(
-              alignment: Alignment.bottomRight,
-              child: TextButton(
-                style: ButtonStyle(
-                  animationDuration: Duration(milliseconds: 0),
+              TextSpan(
+                text: LocaleKeys.website.tr(),
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.blue,
+                  decoration: TextDecoration.underline,
                 ),
-                onPressed: () => Navigator.pop(context),
-                child: Text(LocaleKeys.close.tr()),
               ),
-            ),
+            ],
           ),
-        ],
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(18.0),
         ),
       ),
     );
