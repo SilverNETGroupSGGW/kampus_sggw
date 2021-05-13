@@ -60,15 +60,14 @@ class MapItems {
     mapItems.forEach(
       (item) {
         var similarity = item.name.similarityTo(query);
-        print(item.name + ": " + similarity.toString());
 
-        if(similarity > 0) {
+        if (similarity > 0) {
           similarityMap[item] = similarity;
         }
       },
     );
     List<MapItem> items = (similarityMap.keys.toList());
-    items.sort((a,b) => similarityMap[a].compareTo(similarityMap[b]));
+    items.sort((a, b) => similarityMap[a].compareTo(similarityMap[b]));
     return items;
   }
 }
