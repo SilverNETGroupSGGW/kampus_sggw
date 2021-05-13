@@ -26,7 +26,7 @@ class CodegenLoader extends AssetLoader {
     "parking": "Car parks",
     "park": "Parks and Monuments",
     "store": "Stores",
-    "xero": "Xeros and Printing",
+    "copier": "Copy and print",
     "close": "close",
     "no_results_found": "No search results found",
   };
@@ -42,7 +42,7 @@ class CodegenLoader extends AssetLoader {
     "parking": "Parkingi",
     "park": "Parki i pomniki",
     "store": "Sklepy",
-    "xero": "Ksero i drukarnie",
+    "copier": "Punkty drukarskie i ksero",
     "close": "zamknij",
     "no_results_found": "Nie znaleziono wyników wyszukiwania",
   };

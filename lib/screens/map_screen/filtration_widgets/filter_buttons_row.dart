@@ -82,8 +82,8 @@ class FilterButtonsRow extends StatelessWidget {
               icon: Icons.print_rounded,
               onTapFunction: () => onButtonPressed(
                 FilterByFunctionEventParam(
-                  filterName: LocaleKeys.xero.tr(),
-                  serviceTypes: [ServiceType.xero],
+                  filterName: LocaleKeys.copier.tr(),
+                  serviceTypes: [ServiceType.copier],
                 ),
               ),
             ),

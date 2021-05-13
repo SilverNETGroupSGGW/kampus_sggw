@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'service.g.dart';
 
 enum ServiceType {
-  xero,
+  copier,
   canteen,
   deanery,
   vendingMachine,
@@ -30,7 +30,7 @@ class Service {
     switch (type) {
       case ServiceType.canteen:
         return Icon(Icons.restaurant, color: Colors.yellow[700]);
-      case ServiceType.xero:
+      case ServiceType.copier:
         return Icon(Icons.print_rounded, color: Colors.indigo);
       case ServiceType.deanery:
         return Icon(Icons.event_seat, color: Colors.red[400]);

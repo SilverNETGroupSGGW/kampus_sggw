@@ -12,7 +12,7 @@ abstract class LocaleKeys {
   static const parking = 'parking';
   static const park = 'park';
   static const store = 'store';
-  static const xero = 'xero';
+  static const copier = 'copier';
   static const close = 'close';
   static const no_results_found = 'no_results_found';
 }
