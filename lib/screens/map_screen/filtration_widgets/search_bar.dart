@@ -153,6 +153,7 @@ class _SearchBar extends State<SearchBar> {
         setState(
           () {
             widget.searchHistory.deleteSearchTerm(text);
+            widget.searchHistory.save();
             _updateFilteredSearchHistory();
           },
         );
