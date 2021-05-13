@@ -26,9 +26,7 @@ class GalleryCard extends StatelessWidget {
             height: 450,
             child: GridView.count(
               crossAxisCount: 2,
-              children: <Widget>[
-                for (Image image in images) PhotoViewer(image),
-              ],
+              children: _photoViewers(),
             ),
           ),
           Padding(
@@ -48,10 +46,14 @@ class GalleryCard extends StatelessWidget {
       ),
     );
   }
+
+  List<Widget> _photoViewers() {
+    return images.map((image) => PhotoViewer(image)).toList();
+  }
 }
 
 class PhotoViewer extends StatefulWidget {
-  Image image;
+  final Image image;
 
   PhotoViewer(this.image);
 
@@ -72,7 +74,7 @@ class _PhotoViewer extends State<PhotoViewer> {
     );
   }
 
-  showGalleryCard(Image image) {
+  void _showGalleryCard(Image image) {
     _selectedImage = image;
     Navigator.of(context).restorablePush(_dialogBuilder);
   }
@@ -84,7 +86,7 @@ class _PhotoViewer extends State<PhotoViewer> {
         child: widget.image,
       ),
       onTap: () {
-        showGalleryCard(widget.image);
+        _showGalleryCard(widget.image);
       },
     );
   }
