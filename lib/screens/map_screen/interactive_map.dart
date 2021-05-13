@@ -2,9 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:kampus_sggw/logic/filter_service.dart';
 import 'package:kampus_sggw/logic/stream_service.dart';
-import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/models/map_settings.dart';
@@ -12,9 +10,9 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';
 
 class InteractiveMap extends StatefulWidget {
-  final VisitedItems visitedItems;
   final TransformationController transController = TransformationController();
   final Function showCard;
+  final Function onItemVisit;
   final StreamService shouldRecenter;
   final StreamService shouldFilterMarkers;
   final StreamService shouldUnfilterMarkers;
@@ -37,7 +35,7 @@ class InteractiveMap extends StatefulWidget {
   InteractiveMap({
     @required this.mapItems,
     @required this.showCard,
-    @required this.visitedItems,
+    @required this.onItemVisit,
     @required this.shouldRecenter,
     @required this.shouldFilterMarkers,
     @required this.shouldUnfilterMarkers,
@@ -52,6 +50,9 @@ class _InteractiveMapState extends State<InteractiveMap> {
   Map markers = <MarkerId, Marker>{};
   GoogleMap _googleMap;
   Set<Marker> _currentMarkerSet = <Marker>{};
+  StreamSubscription _shouldRecenter;
+  StreamSubscription _shouldFilterMarkers;
+  StreamSubscription _shouldUnfilterMarkers;
 
   @override
   initState() {
@@ -59,18 +60,19 @@ class _InteractiveMapState extends State<InteractiveMap> {
     tryRequestLocation();
     _setMarkers(markers, widget.mapItems.mapItems);
     _currentMarkerSet = markers.values.toSet();
-    widget.shouldRecenter.listen((_) => _goToTheCampus());
-    widget.shouldFilterMarkers
-        .listen((filterService) => _updateMarkers(filterService));
-    widget.shouldUnfilterMarkers.listen((_) => _updateMarkersToDefault());
+    _shouldRecenter = widget.shouldRecenter.listen((_) => _goToTheCampus());
+    _shouldFilterMarkers = widget.shouldFilterMarkers
+        .listen((filterService) => _updateMarkers(filterService.filteredMapItems));
+    _shouldUnfilterMarkers =
+        widget.shouldUnfilterMarkers.listen((_) => _updateMarkersToDefault());
   }
 
   @override
   dispose() {
+    _shouldRecenter.cancel();
+    _shouldFilterMarkers.cancel();
+    _shouldUnfilterMarkers.cancel();
     super.dispose();
-    widget.shouldRecenter.cancelSubscription();
-    widget.shouldFilterMarkers.cancelSubscription();
-    widget.shouldUnfilterMarkers.cancelSubscription();
   }
 
   void _setMarkers(Map markersMap, List<MapItem> mapItems) {
@@ -96,8 +98,7 @@ class _InteractiveMapState extends State<InteractiveMap> {
   }
 
   _onPinPressed(MapItem mapItem) {
-    widget.visitedItems.addItem(mapItem.id);
-    widget.visitedItems.save();
+    widget.onItemVisit(mapItem);
     widget.showCard(mapItem);
   }
 
@@ -145,14 +146,15 @@ class _InteractiveMapState extends State<InteractiveMap> {
     return _googleMap;
   }
 
-  void _updateMarkers(FilterService filterService) {
+  void _updateMarkers(List<MapItem> filteredMapItems) {
     Map<MarkerId, Marker> filteredMarkers = <MarkerId, Marker>{};
-    _setMarkers(filteredMarkers, widget.mapItems.filter(filterService));
+    _setMarkers(filteredMarkers, filteredMapItems);
     setState(
       () {
         _currentMarkerSet = filteredMarkers.values.toSet();
       },
     );
+    _zoomInto(_currentMarkerSet.first);
   }
 
   void _updateMarkersToDefault() {
@@ -167,6 +169,19 @@ class _InteractiveMapState extends State<InteractiveMap> {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(
       CameraUpdate.newCameraPosition(widget.mapSettings.initialCameraPosition),
+    );
+  }
+
+  Future<void> _zoomInto(Marker marker) async {
+    final GoogleMapController controller = await _controller.future;
+    controller.animateCamera(
+      CameraUpdate.newCameraPosition(
+        CameraPosition(
+          target: LatLng(marker.position.latitude, marker.position.longitude),
+          tilt: 0,
+          zoom: 16.5,
+        ),
+      ),
     );
   }
 }

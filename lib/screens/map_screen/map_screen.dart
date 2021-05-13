@@ -1,12 +1,16 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
+import 'package:kampus_sggw/logic/filtration_service.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
+import 'filtration_widgets/no_item_found_alert_dialog.dart';
 import 'info_card.dart';
 import 'interactive_map.dart';
 import 'map_floating_buttons.dart';
@@ -29,9 +33,10 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   static MapItem _selectedMapItem;
-  StreamService recenterButtonNotifier = StreamService();
-  StreamService filterButtonNotifier = StreamService();
-  StreamService unfilterButtonNotifier = StreamService();
+  StreamService _recenterMap = StreamService();
+  StreamService _visitItem = StreamService();
+  FiltrationService _filtrationService;
+  StreamSubscription _visitItemListener;
 
   showInfoCard(MapItem mapItem) {
     _selectedMapItem = mapItem;
@@ -46,13 +51,28 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
-  @override
-  void dispose() {
+  void _addItemToRecentlyVisited(MapItem mapItem) {
+    widget.visitedItems.addItem(mapItem.id);
     widget.visitedItems.save();
-    recenterButtonNotifier.dispose();
-    filterButtonNotifier.dispose();
-    unfilterButtonNotifier.dispose();
-    super.dispose();
+  }
+
+  void _showAlertDialogNoItemFound() {
+    Navigator.pop(context);
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return NoItemFoundAlertDialog();
+      },
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _filtrationService = FiltrationService(
+        mapItems: widget.mapItems, onNoItemFound: _showAlertDialogNoItemFound);
+    _visitItemListener =
+        _visitItem.listen((mapItem) => _addItemToRecentlyVisited(mapItem));
   }
 
   @override
@@ -72,21 +92,30 @@ class _MapScreenState extends State<MapScreen> {
           InteractiveMap(
             mapItems: widget.mapItems,
             showCard: showInfoCard,
-            visitedItems: widget.visitedItems,
-            shouldRecenter: recenterButtonNotifier,
-            shouldFilterMarkers: filterButtonNotifier,
-            shouldUnfilterMarkers: unfilterButtonNotifier,
+            onItemVisit: (mapItem) => _visitItem.trigger(param: mapItem),
+            shouldRecenter: _recenterMap,
+            shouldFilterMarkers: _filtrationService.filterMarkersEvent,
+            shouldUnfilterMarkers: _filtrationService.unfilterMarkersEvent,
           ),
         ],
       ),
       floatingActionButton: MapFloatingButtons(
         searchHistory: widget.searchHistory,
         visitedItems: widget.visitedItems,
-        onRecenterButtonPressed: () => recenterButtonNotifier.addEvent(null),
-        filterButtonNotifier: filterButtonNotifier,
-        onUnfilterButtonPressed: () => unfilterButtonNotifier.addEvent(null),
+        onRecenterButtonPressed: () => _recenterMap.trigger(),
+        filtrationService: _filtrationService,
       ),
       drawer: SideDrawer(),
     );
+  }
+
+  @override
+  void dispose() {
+    widget.visitedItems.save();
+    _visitItemListener.cancel();
+    _recenterMap.dispose();
+    _visitItem.dispose();
+    _filtrationService.dispose();
+    super.dispose();
   }
 }

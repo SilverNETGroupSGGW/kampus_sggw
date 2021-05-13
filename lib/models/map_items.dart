@@ -1,7 +1,8 @@
-import 'package:kampus_sggw/logic/filter_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kampus_sggw/models/service.dart';
+import 'package:string_similarity/string_similarity.dart';
 part 'map_items.g.dart';
 
 @JsonSerializable()
@@ -10,19 +11,24 @@ class MapItems {
   MapItems(
     this.mapItems,
   );
-  List<MapItem> filter(FilterService filterService) {
-    List<MapItem> filteredItems = [];
-    if (filterService.mapItemType != null) {
-      filteredItems.addAll(mapItems
-          .where((element) => element.type == filterService.mapItemType)
-          .toList());
-    }
-    if (filterService.serviceType != null) {
-      filteredItems.addAll(mapItems
-          .where((mapItem) =>
-              mapItem.itemContainsService(filterService.serviceType))
-          .toList());
-    }
+
+  Set<MapItem> filterItemsByItsServices(List<ServiceType> serviceTypes) {
+    Set<MapItem> filteredItems = {};
+    mapItems.forEach((item) {
+      if (item.containsAtLeastOneServiceType(serviceTypes)) {
+        filteredItems.add(item);
+      }
+    });
+    return filteredItems;
+  }
+
+  Set<MapItem> filterItemsByItsType(List<MapItemType> itemTypes) {
+    Set<MapItem> filteredItems = {};
+    mapItems.forEach((item) {
+      if (itemTypes.contains(item.type)) {
+        filteredItems.add(item);
+      }
+    });
     return filteredItems;
   }
 
@@ -39,5 +45,29 @@ class MapItems {
       tmp.add(mapItems.firstWhere((element) => element.id == id));
     }
     return tmp;
+  }
+
+  MapItem findItemByQuery(String query) {
+    query = query.toLowerCase();
+    return mapItems.firstWhere((item) => item.name.toLowerCase() == query,
+        orElse: () => null);
+  }
+
+  List<MapItem> findItemsByQuery(String query) {
+    query = query.toLowerCase();
+    Map<MapItem, double> similarityMap = <MapItem, double>{};
+
+    mapItems.forEach(
+      (item) {
+        var similarity = item.name.similarityTo(query);
+
+        if (similarity > 0) {
+          similarityMap[item] = similarity;
+        }
+      },
+    );
+    List<MapItem> items = (similarityMap.keys.toList());
+    items.sort((a, b) => similarityMap[a].compareTo(similarityMap[b]));
+    return items;
   }
 }

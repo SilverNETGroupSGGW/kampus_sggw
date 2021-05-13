@@ -4,10 +4,12 @@ import 'package:kampus_sggw/models/map_item.dart';
 
 class RecentlyVisitedList extends StatefulWidget {
   final VisitedItems visitedItems;
+  final Function onItemTilePressed;
 
   const RecentlyVisitedList({
     Key key,
     @required this.visitedItems,
+    @required this.onItemTilePressed,
   }) : super(key: key);
 
   @override
@@ -60,6 +62,7 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
     setState(() {
       widget.visitedItems.addItem(item.id);
       _updateRecentlyVisited();
+      widget.onItemTilePressed(item);
     });
   }
 

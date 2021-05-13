@@ -57,7 +57,7 @@ T _$enumDecodeNullable<T>(
 }
 
 const _$ServiceTypeEnumMap = {
-  ServiceType.xero: 'xero',
+  ServiceType.copier: 'copier',
   ServiceType.canteen: 'canteen',
   ServiceType.deanery: 'deanery',
   ServiceType.vendingMachine: 'vendingMachine',
