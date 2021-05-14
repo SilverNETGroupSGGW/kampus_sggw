@@ -4,9 +4,9 @@ import 'package:kampus_sggw/models/category.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/screens/map_screen/map_item_display/info_card.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
-import 'category_item.dart';
-import 'floor_tile.dart';
-import 'service_button_row.dart';
+import 'package:kampus_sggw/screens/map_screen/map_item_display/category_item.dart';
+import 'package:kampus_sggw/screens/map_screen/map_item_display/floor_tile.dart';
+import 'package:kampus_sggw/screens/map_screen/map_item_display/service_button_row.dart';
 
 class InfoCardDialogBuilder {
   String header;
