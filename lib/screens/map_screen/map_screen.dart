@@ -9,6 +9,7 @@ import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
+import 'package:kampus_sggw/screens/map_screen/map_item_display/InfoCardDialogBuilder.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'filtration_widgets/no_item_found_alert_dialog.dart';
 import 'map_item_display/info_card.dart';
@@ -47,7 +48,7 @@ class _MapScreenState extends State<MapScreen> {
     return DialogRoute<void>(
       context: context,
       builder: (BuildContext context) =>
-          InfoCardDialog.fromMapItem(_selectedMapItem),
+        InfoCardDialogBuilder().fromMapItem(_selectedMapItem),
     );
   }
 
