@@ -132,7 +132,9 @@ class InfoCardDialog extends StatelessWidget {
     return Container(
       constraints: BoxConstraints(
         minHeight: 0,
-        maxHeight: MediaQuery.of(context).size.height - 520,
+        maxHeight: MediaQuery.of(context).size.height -
+            520 +
+            (servicesRow != null ? 0 : 100),
       ),
       width: 350.0,
       child: subcategories,
