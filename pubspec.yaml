@@ -33,6 +33,7 @@ flutter:
     - assets/translations/
     - assets/images/map_objects/wzim.jpg
     - assets/json/map_items.json
+    - assets/images/floors/floor_1.jpg
   fonts:
     - family: SGGWMastro
       fonts:

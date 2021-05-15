@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
@@ -7,11 +6,11 @@ import 'package:kampus_sggw/logic/filtration_service.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
+import 'package:kampus_sggw/logic/info_card_dialog_builder.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'filtration_widgets/no_item_found_alert_dialog.dart';
-import 'info_card.dart';
 import 'interactive_map.dart';
 import 'map_floating_buttons.dart';
 
@@ -47,7 +46,7 @@ class _MapScreenState extends State<MapScreen> {
     return DialogRoute<void>(
       context: context,
       builder: (BuildContext context) =>
-          InfoCardDialog.fromMapItem(_selectedMapItem),
+        InfoCardDialogBuilder().fromMapItem(_selectedMapItem),
     );
   }
 
