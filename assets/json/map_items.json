@@ -26,13 +26,204 @@
       ]
     },
     {
+      "id": 22,
+      "geoLocation": {
+        "lat": 52.16001,
+        "lon": 21.04837
+      },
+      "name": "Budynek 22",
+      "description": "Klinika Małych Zwierząt",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+        {
+          "name":"faculties",
+          "subCategories": [
+            {
+            "name": "WMW",
+            "url": "https://wmw.sggw.pl",
+            "description": "Wydział Medycyny Weterynaryjnej"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "geoLocation": {
+        "lat": 52.15837,
+        "lon": 21.04734
+      },
+      "name": "Budynek 23",
+      "description": "Budynek WMW i WHBiOZ",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+        {
+          "name":"faculties",
+          "subCategories": [
+            {
+            "name": "WMW",
+            "url": "https://wmw.sggw.pl",
+            "description": "Wydział Medycyny Weterynaryjnej"
+            },
+            {
+              "name": "WHBiOZ",
+              "url": "https://animal.sggw.pl",
+              "description": "Wydział Hodowli, Bioinżynierii i Ochrony Zwierząt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "geoLocation": {
+        "lat": 52.15940,
+        "lon": 21.04674
+      },
+      "name": "Budynek 24",
+      "description": "Budynek WMW",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+        {
+          "name":"faculties",
+          "subCategories": [
+            {
+            "name": "WMW",
+            "url": "https://wmw.sggw.pl",
+            "description": "Wydział Medycyny Weterynaryjnej"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "geoLocation": {
+        "lat": 52.15820,
+        "lon": 21.04514
+      },
+      "name": "Budynek 25",
+      "description": "Zwierzętarnia",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+        {
+          "name":"faculties",
+          "subCategories": [
+            {
+            "name": "WHBiOZ",
+            "url": "https://animal.sggw.pl",
+            "description": "Wydział Hodowli, Bioinżynierii i Ochrony Zwierząt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "geoLocation": {
+        "lat": 52.15820,
+        "lon": 21.04514
+      },
+      "name": "Budynek 26",
+      "description": "Hala Sportowa",
+      "type": "sportsFacility",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 27,
+      "geoLocation": {
+        "lat": 52.15770,
+        "lon": 21.04541
+      },
+      "name": "Budynek 27",
+      "description": "Basen",
+      "type": "sportsFacility",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 28,
+      "geoLocation": {
+        "lat": 52.15736,
+        "lon": 21.04465
+      },
+      "name": "Budynek 28",
+      "description": "Centrum Językowo-Sportowe",
+      "type": "facultynBuilding",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 30,
+      "geoLocation": {
+        "lat": 52.15871,
+        "lon": 21.04435
+      },
+      "name": "Budynek 30",
+      "description": "Budynek administracyjny",
+      "type": "administrationBuilding",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 31,
+      "geoLocation": {
+        "lat": 52.15906,
+        "lon": 21.04401
+      },
+      "name": "Budynek 31",
+      "description": "Budynek administracyjny",
+      "type": "administrationBuilding",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
       "id": 32,
       "geoLocation": {
         "lat": 52.16010,
         "lon": 21.04476
       },
       "name": "Budynek 32",
+      "description" : "Budynek WŻC i WTŻ",
       "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-04-23",
@@ -41,10 +232,40 @@
           "name": "faculties",
           "subCategories": [
             {
-              "name": "Wydział Nauk o Żywności"
+              "name": "WŻC",
+              "description": "Wydział Żywienia Człowieka"
             },
             {
-              "name": "Wydział Nauk o Żywieniu Człowieka i Konsumpcji"
+              "name": "WTŻ",
+              "description": "Wydział Technologii Żywności"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "geoLocation": {
+        "lat": 52.16085,
+        "lon": 21.04656
+      },
+      "name": "Budynek 33",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WBiIŚ",
+              "description": "Wydział Budownictwa i Inżynierii Środowiska"
+            },
+            {
+              "name": "MSOŚ",
+              "description": "Międzywydziałowe Studium Ochrony Środowiska"
             }
           ]
         }
@@ -169,8 +390,295 @@
           ]
         }
       ]
+    },
+    {
+      "id": 35,
+      "geoLocation": {
+        "lat": 52.16032,
+        "lon": 21.04260
+      },
+      "name": "Budynek 35",
+      "description": "Budynek WOiB",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WOiB",
+              "description": "Wydział Ogrodnictwa i Bioinżynierii"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "geoLocation": {
+        "lat": 52.16190,
+        "lon": 21.04295
+      },
+      "name": "Budynek 37",
+      "description": "Budynek WOiB i WRiB",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WOiB",
+              "description": "Wydział Ogrodnictwa i Bioinżynierii"
+            },
+            {
+              "name": "WRiB",
+              "description": "Wydział Rolnictwa i Biologii"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "geoLocation": {
+        "lat": 52.16290,
+        "lon": 21.03912
+      },
+      "name": "Dom studencki 'Limba'",
+      "description": "Dom studencki 'Limba'",
+      "type": "dormitories",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 39,
+      "geoLocation": {
+        "lat": 52.16361,
+        "lon": 21.03911
+      },
+      "name": "Hotel 'Ikar'",
+      "type": "dormitories",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 40,
+      "geoLocation": {
+        "lat": 52.16402,
+        "lon": 21.04067
+      },
+      "name": "Dom studencki 'Hilton'",
+      "type": "dormitories",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 41,
+      "geoLocation": {
+        "lat": 52.16364,
+        "lon": 21.04121
+      },
+      "name": "Dom studencki 'Grand'",
+      "type": "dormitories",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 42,
+      "geoLocation": {
+        "lat": 52.16405,
+        "lon": 21.04153
+      },
+      "name": "Dom studencki 'Eden'",
+      "type": "dormitories",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 43,
+      "geoLocation": {
+        "lat": 52.16367,
+        "lon": 21.04204
+      },
+      "name": "Dom studencki 'Feniks'",
+      "type": "dormitories",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 44,
+      "geoLocation": {
+        "lat": 52.16406,
+        "lon": 21.04237
+      },
+      "name": "Dom studencki 'Bazyliszek'",
+      "type": "dormitories",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 45,
+      "geoLocation": {
+        "lat": 52.16369,
+        "lon": 21.04290
+      },
+      "name": "Dom studencki 'Adara'",
+      "type": "dormitories",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 46,
+      "geoLocation": {
+        "lat": 52.16411,
+        "lon": 21.04322
+      },
+      "name": "Dom studencki 'Cezar'",
+      "type": "dormitories",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 47,
+      "geoLocation": {
+        "lat": 52.16372,
+        "lon": 21.04373
+      },
+      "name": "Dom studencki 'Dendryt'",
+      "type": "dormitories",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 48,
+      "geoLocation": {
+        "lat": 52.16416,
+        "lon": 21.04476
+      },
+      "name": "Biblioteka Główna SGGW",
+      "type": "library",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 49,
+      "geoLocation": {
+        "lat": 52.15902,
+        "lon": 21.04907
+      },
+      "name": "Centrum Wodne SGGW",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "Wydział Budownictwa i Inżynierii Środowiska"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "geoLocation": {
+        "lat": 52.16442,
+        "lon": 21.04555
+      },
+      "name": "Pomnik Władysława Grabskiego",
+      "type": "monument",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 54,
+      "geoLocation": {
+        "lat": 52.16235,
+        "lon": 21.04600
+      },
+      "name": "Pomnik Stanisława Wawrzyńca Staszica",
+      "type": "monument",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
+    },
+    {
+      "id": 55,
+      "geoLocation": {
+        "lat": 52.16361,
+        "lon": 21.04487
+      },
+      "name": "Dąb Jana Pawła II",
+      "type": "monument",
+      "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-16",
+      "categories": [
+      ]
     }
-    
-    
   ]
 }
+
