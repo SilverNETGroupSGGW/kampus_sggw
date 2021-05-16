@@ -1,6 +1,56 @@
 {
   "mapItems": [
     {
+      "id": 4,
+      "geoLocation": {
+        "lat": 52.16470029311513,
+        "lon": 21.047332974389505
+      },
+      "name": "Budynek 4",
+      "description": "Budynek WSiP",
+      "url": "http://www.sggw.pl/",
+      "type": "facultyBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-03",
+      "categories": [
+        {
+          "name":"faculties",
+          "subCategories": [
+            {
+            "name": "WSiP",
+            "url": "https://wsip.sggw.pl",
+            "description": "Wydział Socjologii i Pedagogiki"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "geoLocation": {
+        "lat": 52.16010,
+        "lon": 21.04476
+      },
+      "name": "Budynek 32",
+      "type": "facultyBuilding",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-04-23",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "Wydział Nauk o Żywności"
+            },
+            {
+              "name": "Wydział Nauk o Żywieniu Człowieka i Konsumpcji"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": 34,
       "geoLocation": {
         "lat": 52.16200969489112,
@@ -119,56 +169,8 @@
           ]
         }
       ]
-    },
-    {
-      "id": 32,
-      "geoLocation": {
-        "lat": 52.16010,
-        "lon": 21.04476
-      },
-      "name": "Budynek 32",
-      "type": "facultyBuilding",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
-      "minScale": 1.0,
-      "lastModified": "2021-04-23",
-      "categories": [
-        {
-          "name": "faculties",
-          "subCategories": [
-            {
-              "name": "Wydział Nauk o Żywności"
-            },
-            {
-              "name": "Wydział Nauk o Żywieniu Człowieka i Konsumpcji"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "geoLocation": {
-        "lat": 52.16470029311513,
-        "lon": 21.047332974389505
-      },
-      "name": "Budynek 4",
-      "description": "Budynek WSiP",
-      "url": "http://www.sggw.pl/",
-      "type": "facultyBuilding",
-      "minScale": 1.0,
-      "lastModified": "2021-05-03",
-      "categories": [
-        {
-          "name":"faculties",
-          "subCategories": [
-            {
-            "name": "WSiP",
-            "url": "https://wsip.sggw.pl",
-            "description": "Wydział Socjologii i Pedagogiki"
-            }
-          ]
-        }
-      ]
     }
+    
+    
   ]
 }
