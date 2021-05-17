@@ -35,10 +35,10 @@
       "name": "Budynek 22",
       "description": "Klinika Małych Zwierząt",
       "type": "facultyBuilding",
-      "url": "http://www.sggw.pl/",
+      "url": "http://www.klinikawet.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
         {
           "name":"faculties",
@@ -64,7 +64,14 @@
       "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
+      "services": [
+        {
+          "name": "Bufet",
+          "type": "canteen",
+          "description": "Bufet"
+        }
+      ],
       "categories": [
         {
           "name":"faculties",
@@ -95,7 +102,14 @@
       "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
+      "services": [
+        {
+          "name": "Bufet",
+          "type": "canteen",
+          "description": "Bufet"
+        }
+      ],
       "categories": [
         {
           "name":"faculties",
@@ -121,7 +135,7 @@
       "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
         {
           "name":"faculties",
@@ -147,7 +161,7 @@
       "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
       ]
     },
@@ -163,7 +177,14 @@
       "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
+      "services": [
+        {
+          "name": "Bufet",
+          "type": "canteen",
+          "description": "Bufet"
+        }
+      ],
       "categories": [
       ]
     },
@@ -179,7 +200,7 @@
       "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
       ]
     },
@@ -195,7 +216,7 @@
       "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
       ]
     },
@@ -211,7 +232,7 @@
       "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
       ]
     },
@@ -228,17 +249,26 @@
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-04-23",
+      "services": [
+        {
+          "name": "Bufet",
+          "type": "canteen",
+          "description": "Bufet"
+        }
+      ],
       "categories": [
         {
           "name": "faculties",
           "subCategories": [
             {
               "name": "WŻC",
-              "description": "Wydział Żywienia Człowieka"
+              "description": "Wydział Żywienia Człowieka",
+              "url": "http://wzcz.sggw.pl/"
             },
             {
               "name": "WTŻ",
-              "description": "Wydział Technologii Żywności"
+              "description": "Wydział Technologii Żywności",
+              "url": "http://wnoz.sggw.pl/"
             }
           ]
         }
@@ -255,18 +285,27 @@
       "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
+      "services": [
+        {
+          "name": "Bufet",
+          "type": "canteen",
+          "description": "Bufet"
+        }
+      ],
       "categories": [
         {
           "name": "faculties",
           "subCategories": [
             {
               "name": "WBiIŚ",
-              "description": "Wydział Budownictwa i Inżynierii Środowiska"
+              "description": "Wydział Budownictwa i Inżynierii Środowiska",
+              "url": "http://wbis.sggw.pl/"
             },
             {
               "name": "MSOŚ",
-              "description": "Międzywydziałowe Studium Ochrony Środowiska"
+              "description": "Międzywydziałowe Studium Ochrony Środowiska",
+              "url": "http://j310000.sggw.pl/"
             }
           ]
         }
@@ -275,8 +314,8 @@
     {
       "id": 34,
       "geoLocation": {
-        "lat": 52.16200969489112,
-        "lon": 21.046338709693675
+        "lat": 52.16200,
+        "lon": 21.04634
       },
       "name": "Budynek 34",
       "description": "Budynek WZIM, WL, WTD",
@@ -296,9 +335,9 @@
           "description": "Super xero, nie to co w innych budynkach"
         },
         {
-          "name": "Stołówka",
+          "name": "Bufet",
           "type": "canteen",
-          "description": "Super stołówka"
+          "description": "Super bufet"
         },
         {
           "name": "Automat z kawą",
@@ -380,7 +419,8 @@
             },
             {
               "name": "WTD",
-              "description": "Wydział technologii drewna",
+              "description": "Wydział Technologii Drewna",
+              "url": "http://wtd.sggw.pl/",
               "services": [
                 {
                   "name": "Dziekanat WTD",
@@ -404,14 +444,22 @@
       "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
+      "services": [
+        {
+          "name": "Bufet",
+          "type": "canteen",
+          "description": "Bufet"
+        }
+      ],
       "categories": [
         {
           "name": "faculties",
           "subCategories": [
             {
               "name": "WOiB",
-              "description": "Wydział Ogrodnictwa i Bioinżynierii"
+              "description": "Wydział Ogrodnictwa i Bioinżynierii",
+              "url": "http://wobiak.sggw.pl/"
             }
           ]
         }
@@ -429,18 +477,27 @@
       "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
+      "services": [
+        {
+          "name": "Bufet",
+          "type": "canteen",
+          "description": "Bufet"
+        }
+      ],
       "categories": [
         {
           "name": "faculties",
           "subCategories": [
             {
               "name": "WOiB",
-              "description": "Wydział Ogrodnictwa i Bioinżynierii"
+              "description": "Wydział Ogrodnictwa i Bioinżynierii",
+              "url": "http://wobiak.sggw.pl/"
             },
             {
               "name": "WRiB",
-              "description": "Wydział Rolnictwa i Biologii"
+              "description": "Wydział Rolnictwa i Biologii",
+              "url": "http://wrib.sggw.pl/"
             }
           ]
         }
@@ -455,10 +512,17 @@
       "name": "Dom studencki 'Limba'",
       "description": "Dom studencki 'Limba'",
       "type": "dormitories",
-      "url": "http://www.sggw.pl/",
+      "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
+      "services": [
+        {
+          "name": "Stołówka",
+          "type": "canteen",
+          "description": "Stołówka Limba"
+        }
+      ],
       "categories": [
       ]
     },
@@ -469,11 +533,12 @@
         "lon": 21.03911
       },
       "name": "Hotel 'Ikar'",
+      "description": "Hotel 'Ikar'",
       "type": "dormitories",
-      "url": "http://www.sggw.pl/",
+      "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
       ]
     },
@@ -484,11 +549,12 @@
         "lon": 21.04067
       },
       "name": "Dom studencki 'Hilton'",
+      "description": "Dom studencki 'Hilton'",
       "type": "dormitories",
-      "url": "http://www.sggw.pl/",
+      "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
       ]
     },
@@ -499,11 +565,12 @@
         "lon": 21.04121
       },
       "name": "Dom studencki 'Grand'",
+      "description": "Dom studencki 'Grand'",
       "type": "dormitories",
-      "url": "http://www.sggw.pl/",
+      "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
       ]
     },
@@ -514,11 +581,12 @@
         "lon": 21.04153
       },
       "name": "Dom studencki 'Eden'",
+      "description": "Dom studencki 'Eden'",
       "type": "dormitories",
-      "url": "http://www.sggw.pl/",
+      "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
       ]
     },
@@ -529,11 +597,12 @@
         "lon": 21.04204
       },
       "name": "Dom studencki 'Feniks'",
+      "description": "Dom studencki 'Feniks'",
       "type": "dormitories",
-      "url": "http://www.sggw.pl/",
+      "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
       ]
     },
@@ -544,11 +613,12 @@
         "lon": 21.04237
       },
       "name": "Dom studencki 'Bazyliszek'",
+      "description": "Dom studencki 'Bazyliszek'",
       "type": "dormitories",
-      "url": "http://www.sggw.pl/",
+      "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
       ]
     },
@@ -559,11 +629,12 @@
         "lon": 21.04290
       },
       "name": "Dom studencki 'Adara'",
+      "description": "Dom studencki 'Adara'",
       "type": "dormitories",
-      "url": "http://www.sggw.pl/",
+      "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
       ]
     },
@@ -574,11 +645,12 @@
         "lon": 21.04322
       },
       "name": "Dom studencki 'Cezar'",
+      "description": "Dom studencki 'Cezar'",
       "type": "dormitories",
-      "url": "http://www.sggw.pl/",
+      "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
       ]
     },
@@ -589,11 +661,19 @@
         "lon": 21.04373
       },
       "name": "Dom studencki 'Dendryt'",
+      "description": "Dom studencki 'Dendryt'",
       "type": "dormitories",
-      "url": "http://www.sggw.pl/",
+      "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
+      "services": [
+        {
+          "name": "Stołówka",
+          "type": "canteen",
+          "description": "Stołówka Dendryt"
+        }
+      ],
       "categories": [
       ]
     },
@@ -604,11 +684,12 @@
         "lon": 21.04476
       },
       "name": "Biblioteka Główna SGGW",
+      "description": "Biblioteka Główna SGGW",
       "type": "library",
-      "url": "http://www.sggw.pl/",
+      "url": "http://www.bg.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
       ]
     },
@@ -619,17 +700,20 @@
         "lon": 21.04907
       },
       "name": "Centrum Wodne SGGW",
+      "description": "Centrum Wodne SGGW",
       "type": "facultyBuilding",
       "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
         {
           "name": "faculties",
           "subCategories": [
             {
-              "name": "Wydział Budownictwa i Inżynierii Środowiska"
+              "name": "WBiIŚ",
+              "description": "Wydział Budownictwa i Inżynierii Środowiska",
+              "url": "http://wbis.sggw.pl/"
             }
           ]
         }
@@ -642,11 +726,12 @@
         "lon": 21.04555
       },
       "name": "Pomnik Władysława Grabskiego",
+      "description": "Pomnik Władysława Grabskiego",
       "type": "monument",
       "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
       ]
     },
@@ -657,11 +742,12 @@
         "lon": 21.04600
       },
       "name": "Pomnik Stanisława Wawrzyńca Staszica",
+      "description": "Pomnik Stanisława Wawrzyńca Staszica",
       "type": "monument",
       "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
       ]
     },
@@ -672,11 +758,12 @@
         "lon": 21.04487
       },
       "name": "Dąb Jana Pawła II",
+      "description": "Dąb Jana Pawła II",
       "type": "monument",
       "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-16",
+      "lastModified": "2021-05-17",
       "categories": [
       ]
     }
