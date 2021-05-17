@@ -9,6 +9,7 @@
       "name": "Budynek 4",
       "description": "Budynek WSiP",
       "url": "http://www.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
       "type": "facultyBuilding",
       "minScale": 1.0,
       "lastModified": "2021-05-03",
@@ -44,7 +45,7 @@
           "subCategories": [
             {
             "name": "WMW",
-            "url": "https://wmw.sggw.pl",
+            "url": "http://wmw.sggw.pl",
             "description": "Wydział Medycyny Weterynaryjnej"
             }
           ]
@@ -70,7 +71,7 @@
           "subCategories": [
             {
             "name": "WMW",
-            "url": "https://wmw.sggw.pl",
+            "url": "http://wmw.sggw.pl",
             "description": "Wydział Medycyny Weterynaryjnej"
             },
             {
@@ -101,7 +102,7 @@
           "subCategories": [
             {
             "name": "WMW",
-            "url": "https://wmw.sggw.pl",
+            "url": "http://wmw.sggw.pl",
             "description": "Wydział Medycyny Weterynaryjnej"
             }
           ]
@@ -174,7 +175,7 @@
       },
       "name": "Budynek 28",
       "description": "Centrum Językowo-Sportowe",
-      "type": "facultynBuilding",
+      "type": "facultyBuilding",
       "url": "http://www.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
