@@ -37,6 +37,10 @@ class InfoCardDialogBuilder {
         }
       }
       description = _buildDescription();
+    } else {
+      description = ListView(
+        shrinkWrap: true,
+      );
     }
 
     if (mapItem.description != null) {
