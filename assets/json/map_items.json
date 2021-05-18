@@ -1,6 +1,51 @@
 {
   "mapItems": [
     {
+      "id": 1,
+      "geoLocation": {
+        "lat": 52.16448038621403,
+        "lon": 21.046905645070797
+      },
+      "name": "Budynek 1",
+      "description": "Centrum informatyczne",
+      "url": "http://www.sggw.pl/",
+      "type": "administrationBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+      ]
+    },
+    {
+      "id": 2,
+      "geoLocation": {
+        "lat": 52.16483549084909,
+        "lon": 21.046486428068054
+      },
+      "name": "Budynek 2",
+      "description": "Centrum Innowacji i Transferu Technologii, Wydawnictwo SGGW",
+      "url": "http://cobis.sggw.pl/",
+      "type": "administrationBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+      ]
+    },
+    {
+      "id": 3,
+      "geoLocation": {
+        "lat": 52.165081476459584,
+        "lon": 21.047062503937646
+      },
+      "name": "Budynek 3",
+      "description": "Centrum Innowacji i Transferu Wiedzy w Agrobiznesie",
+      "url": "http://www.sggw.pl/",
+      "type": "administrationBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+      ]
+    },
+    {
       "id": 4,
       "geoLocation": {
         "lat": 52.16470029311513,
@@ -9,7 +54,6 @@
       "name": "Budynek 4",
       "description": "Budynek WSiP",
       "url": "http://www.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "type": "facultyBuilding",
       "minScale": 1.0,
       "lastModified": "2021-05-03",
@@ -21,6 +65,293 @@
             "name": "WSiP",
             "url": "https://wsip.sggw.pl",
             "description": "Wydział Socjologii i Pedagogiki"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "geoLocation": {
+        "lat": 52.165194152862945,
+        "lon": 21.04838811410134
+      },
+      "name": "Budynek 5",
+      "description": "Katedra Ekonomii i Polityki Gospodarczej",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+      ]
+    },
+    {
+      "id": 6,
+      "geoLocation": {
+        "lat": 52.16463174973483,
+        "lon": 21.047737129832846
+      },
+      "name": "Budynek 6",
+      "description": "Katedra Polityki Europejskiej, Finansów Publicznych i Marketingu",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+      ]
+    },
+    {
+      "id": 7,
+      "geoLocation": {
+        "lat": 52.164822328882714,
+        "lon": 21.049482455432877
+      },
+      "name": "Budynek 7",
+      "description": "Katedra Ekonomiki i Organizacji Przedsiębiorstw",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "services": [
+        {
+          "name": "Drukarnia/ksero",
+          "type": "copier",
+          "description": "Mozna sobie cos wydrukowac"
+        }
+      ],
+      "categories": [
+      ]
+    },
+    {
+      "id": 8,
+      "geoLocation": {
+        "lat": 52.16385162332129,
+        "lon": 21.049498548721584
+      },
+      "name": "Budynek 8",
+      "description": "Administracja Uczelni, Biuro Spraw Studenckich, Biuro Nauki, Biuro Współpracy Międzynarodowej, Biuro Prasowe, Biuro Międzynarodowych Projektów Badawczych",
+      "type": "administrationBuilding",
+      "url": "http://www.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+      ]
+    },
+    {
+      "id": 9,
+      "geoLocation": {
+        "lat": 52.16334242787381,
+        "lon": 21.049033927584134
+      },
+      "name": "Budynek 9",
+      "description": "Aula Kryształowa",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+      ]
+    },
+    {
+      "id": 10,
+      "geoLocation": {
+        "lat": 52.163447726978596,
+        "lon": 21.047859120092117 
+      },
+      "name": "Budynek 10",
+      "description": "Administracja Uczelni, Biuro Spraw Osobowych, Biuro Promocji, Biuro Karier i Monitorowania Losów Absolwentów, Agendy Studenckie, Sekcja Zamówień Publicznych, Uniwersytet Trzeciego Wieku",
+      "type": "administrationBuilding",
+      "url": "http://www.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+      ]
+    },
+    {
+      "id": 11,
+      "geoLocation": {
+        "lat": 52.163951184878584,
+        "lon": 21.04738705127446
+      },
+      "name": "Budynek 11",
+      "description": "Bank, Kwestura",
+      "type": "finance",
+      "url": "http://www.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+      ]
+    },
+    {
+      "id": 12,
+      "geoLocation": {
+        "lat": 52.16469155378769,
+        "lon": 21.050455498232783
+      },
+      "name": "Budynek 12",
+      "description": "Rektorat SGGW, Kanclerz",
+      "type": "administrationBuilding",
+      "url": "http://www.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+      ]
+    },
+    {
+      "id": 13,
+      "geoLocation": {
+        "lat": 52.163707683081306,
+        "lon": 21.050605702019055
+      },
+      "name": "Budynek 13",
+      "description": "Pracownie Sztuki Wydziału Ogrodnictwa, Biotechnologii i Architektury Krajobrazu",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+      ]
+    },
+    {
+      "id": 15,
+      "geoLocation": {
+        "lat": 52.16338520566346,
+        "lon": 21.051099228555678
+      },
+      "name": "Budynek 15",
+      "description": "Administracja Uczelni",
+      "type": "administrationBuilding",
+      "url": "http://www.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+      ]
+    },
+    {
+      "id": 16,
+      "geoLocation": {
+        "lat": 52.16154901425477,
+        "lon": 21.053073334281724
+      },
+      "name": "Budynek 16",
+      "description": "Hala Maszyn Wydziału Technologii Drewna",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+      ]
+    },
+    {
+      "id": 17,
+      "geoLocation": {
+        "lat": 52.161180450583934,
+        "lon": 21.0520111796126
+      },
+      "name": "Budynek 17",
+      "description": "Budynek WIP",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+        {
+          "name":"faculties",
+          "subCategories": [
+            {
+            "name": "WIP",
+            "url": "http://wip.sggw.pl/pl/",
+            "description": "Wydział Inżynierii Produkcji"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "geoLocation": {
+        "lat": 52.160594691312944,
+        "lon": 21.052097010359113
+      },
+      "name": "Budynek 18",
+      "description": "Budynek WIP",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+        {
+          "name":"faculties",
+          "subCategories": [
+            {
+            "name": "WIP",
+            "url": "http://wip.sggw.pl/pl/",
+            "description": "Wydział Inżynierii Produkcji"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "geoLocation": {
+        "lat": 52.16031168126926,
+        "lon": 21.051850247153155
+      },
+      "name": "Budynek 19",
+      "description": "Budynek WIP",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+        {
+          "name":"faculties",
+          "subCategories": [
+            {
+            "name": "WIP",
+            "url": "http://wip.sggw.pl/pl/",
+            "description": "Wydział Inżynierii Produkcji"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "geoLocation": {
+        "lat": 52.160713160099206,
+        "lon": 21.05407111600678  
+      },
+      "name": "Budynek 20",
+      "description": "Hala Maszyn Wydziału Inżynierii Produkcji, Stacja Kontroli Pojazdów",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+      ]
+    },
+    {
+      "id": 21,
+      "geoLocation": {
+        "lat": 52.16035117115084,
+        "lon": 21.052654909781282
+      },
+      "name": "Budynek 21",
+      "description": "Budynek WIP",
+      "type": "facultyBuilding",
+      "url": "http://www.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
+        {
+          "name":"faculties",
+          "subCategories": [
+            {
+            "name": "WIP",
+            "url": "http://wip.sggw.pl/pl/",
+            "description": "Wydział Inżynierii Produkcji"
             }
           ]
         }
@@ -717,6 +1048,20 @@
             }
           ]
         }
+      ]
+    },
+    {
+      "id": 50,
+      "geoLocation": {
+        "lat": 52.162746825118305,
+        "lon": 21.052933859591096
+      },
+      "name": "Byliniarnia SGGW",
+      "description": "Ogród Bylinowy",
+      "type": "monument",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18",
+      "categories": [
       ]
     },
     {
