@@ -3,6 +3,7 @@
 
     "drawer_settings": "Ustawienia",
     "drawer_campus_rules": "Regulamin kampusu",
+
     "search_bar_title": "Szukaj miejsca lub adresu",
     "find_nearby": "Szukaj w pobliżu",
     "recent": "Ostatnio odwiedzone",
@@ -16,12 +17,13 @@
     "no_results_found": "Nie znaleziono wyników wyszukiwania",
 
     "other_institutions": "Pozostałe instytucje",
-    "building_plans": "Mapy pięter",
+    "floor_plans": "Mapy pięter",
     "photo": "Zdjęcie",
     "gallery": "Galeria",
     "departments": "Katedry",
     "faculties": "Wydziały",
-    "ground": "Piętro",
+    "floor": "Piętro",
     "website": "Strona internetowa",
+
     "close": "Zamknij"
 }

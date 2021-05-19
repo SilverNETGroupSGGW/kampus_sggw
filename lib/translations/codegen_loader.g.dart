@@ -30,12 +30,12 @@ class CodegenLoader extends AssetLoader{
   "copier": "Copier",
   "no_results_found": "No search results found",
   "other_institutions": "Other institutions",
-  "building_plans": "Building plans",
+  "floor_plans": "Floor plans",
   "photo": "Photo",
   "gallery": "Gallery",
   "departments": "Departments",
   "faculties": "Faculties",
-  "ground": "Ground",
+  "floor": "Floor",
   "website": "Website",
   "close": "Close"
 };
@@ -55,12 +55,12 @@ static const Map<String,dynamic> pl = {
   "copier": "Ksero",
   "no_results_found": "Nie znaleziono wyników wyszukiwania",
   "other_institutions": "Pozostałe instytucje",
-  "building_plans": "Mapy pięter",
+  "floor_plans": "Mapy pięter",
   "photo": "Zdjęcie",
   "gallery": "Galeria",
   "departments": "Katedry",
   "faculties": "Wydziały",
-  "ground": "Piętro",
+  "floor": "Piętro",
   "website": "Strona internetowa",
   "close": "Zamknij"
 };

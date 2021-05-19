@@ -3,6 +3,7 @@
 
     "drawer_settings": "Settings",
     "drawer_campus_rules": "Campus rules",
+
     "search_bar_title": "Search for a place or address",
     "find_nearby": "Find Nearby",
     "recent": "Recent",
@@ -16,12 +17,13 @@
     "no_results_found": "No search results found",
 
     "other_institutions": "Other institutions",
-    "building_plans": "Building plans",
+    "floor_plans": "Floor plans",
     "photo": "Photo",
     "gallery": "Gallery",
     "departments": "Departments",
     "faculties": "Faculties",
-    "ground": "Ground",
+    "floor": "Floor",
     "website": "Website",
+
     "close": "Close"
 }
