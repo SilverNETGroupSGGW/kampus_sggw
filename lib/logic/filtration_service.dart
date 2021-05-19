@@ -64,7 +64,7 @@ class FiltrationService {
   void _finalQuerySearch(String query) {
     MapItem queriedItem = mapItems.findItemByQuery(query);
     if (queriedItem != null) {
-      _manageSearchHistoryEvent.trigger(param: query);
+      _manageSearchHistoryEvent.trigger(param: queriedItem.name);
       _triggerInteractiveMap(query, [queriedItem]);
     } else {
       onNoItemFound();
