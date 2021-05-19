@@ -10,7 +10,7 @@
       "description": "Centrum informatyczne",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
+      "lastModified": "2021-05-19",
       "categories": [
       ]
     },
@@ -25,7 +25,7 @@
       "url": "http://cobis.sggw.pl/",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
+      "lastModified": "2021-05-19",
       "categories": [
       ]
     },
@@ -40,7 +40,7 @@
       "url": "http://innowacje.sggw.pl/",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
+      "lastModified": "2021-05-19",
       "categories": [
       ]
     },
@@ -54,7 +54,7 @@
       "description": "Budynek WSiP",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-03",
+      "lastModified": "2021-05-19",
       "categories": [
         {
           "name":"faculties",
@@ -79,7 +79,7 @@
       "type": "facultyBuilding",
       "url": "http://keipg.ieif.sggw.pl/",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
+      "lastModified": "2021-05-19",
       "categories": [
       ]
     },
@@ -93,7 +93,7 @@
       "description": "Katedra Polityki Europejskiej, Finansów Publicznych i Marketingu",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
+      "lastModified": "2021-05-19",
       "categories": [
       ]
     },
@@ -108,14 +108,28 @@
       "type": "facultyBuilding",
       "url": "http://keiop.ieif.sggw.pl/",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
+      "lastModified": "2021-05-19",
       "services": [
         {
           "name": "Drukarnia/ksero",
           "type": "copier"
+        },
+        {
+          "name": "Dziekanat",
+          "type": "deanery"
         }
       ],
       "categories": [
+        {
+          "name":"institutes",
+          "subCategories": [
+            {
+            "name": "IEIF",
+            "url": "https://www.ieif.sggw.pl/",
+            "description": "Instytut Ekonomii i Finansów"
+            }
+          ]
+        }
       ]
     },
     {
@@ -128,7 +142,7 @@
       "description": "Administracja Uczelni, Biuro Spraw Studenckich, Biuro Nauki, Biuro Współpracy Międzynarodowej, Biuro Prasowe, Biuro Międzynarodowych Projektów Badawczych",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
+      "lastModified": "2021-05-19",
       "categories": [
       ]
     },
@@ -156,7 +170,7 @@
       "description": "Administracja Uczelni, Biuro Spraw Osobowych, Biuro Promocji, Biuro Karier i Monitorowania Losów Absolwentów, Agendy Studenckie, Sekcja Zamówień Publicznych, Uniwersytet Trzeciego Wieku",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
+      "lastModified": "2021-05-19",
       "categories": [
       ]
     },
@@ -212,7 +226,7 @@
       "description": "Administracja Uczelni",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
+      "lastModified": "2021-05-19",
       "categories": [
       ]
     },
@@ -226,7 +240,7 @@
       "description": "Hala Maszyn Wydziału Technologii Drewna",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
+      "lastModified": "2021-05-19",
       "categories": [  
       ]
     },
@@ -240,7 +254,7 @@
       "description": "Budynek WIP",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
+      "lastModified": "2021-05-19",
       "categories": [
         {
           "name":"faculties",
@@ -264,7 +278,7 @@
       "description": "Budynek WIP",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
+      "lastModified": "2021-05-19",
       "categories": [
         {
           "name":"faculties",
@@ -288,7 +302,7 @@
       "description": "Budynek WIP",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
+      "lastModified": "2021-05-19",
       "categories": [
         {
           "name":"faculties",
@@ -312,7 +326,7 @@
       "description": "Hala Maszyn Wydziału Inżynierii Produkcji, Stacja Kontroli Pojazdów",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
+      "lastModified": "2021-05-19",
       "categories": [
       ]
     },
@@ -326,7 +340,7 @@
       "description": "Budynek WIP",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
+      "lastModified": "2021-05-19",
       "categories": [
         {
           "name":"faculties",
