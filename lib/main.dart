@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_items.dart';
@@ -56,9 +57,12 @@ class _CampusSGGWState extends State<CampusSGGW> {
   bool _hasDarkTheme = true;
   ThemeData _lightTheme = LightTheme().theme;
   ThemeData _darkTheme = DarkTheme().theme;
-  
+
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return MaterialApp(
       title: 'Kampus SGGW',
       theme: _lightTheme,
