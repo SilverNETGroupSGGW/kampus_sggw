@@ -48,9 +48,8 @@ class MapItems {
   }
 
   MapItem findItemByQuery(String query) {
-    query = query.toLowerCase();
-    return mapItems.firstWhere((item) => item.name.toLowerCase() == query,
-        orElse: () => null);
+    List<MapItem> similarItems = findItemsByQuery(query);
+    return similarItems.length > 0 ? similarItems[0] : null;
   }
 
   List<MapItem> findItemsByQuery(String query) {
