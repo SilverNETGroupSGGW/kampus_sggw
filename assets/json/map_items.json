@@ -17,8 +17,8 @@
     {
       "id": 2,
       "geoLocation": {
-        "lat": 52.16483549084909,
-        "lon": 21.046486428068054
+        "lat": 52.16474476886445,
+        "lon": 21.046544757179074
       },
       "name": "Budynek 2",
       "description": "Centrum Innowacji i Transferu Technologii, Wydawnictwo SGGW",
@@ -47,8 +47,8 @@
     {
       "id": 4,
       "geoLocation": {
-        "lat": 52.16470029311513,
-        "lon": 21.047332974389505
+        "lat": 52.16538641118835,
+        "lon": 21.047743704629244
       },
       "name": "Budynek 4",
       "description": "Budynek WSiP",
@@ -86,8 +86,8 @@
     {
       "id": 6,
       "geoLocation": {
-        "lat": 52.16463174973483,
-        "lon": 21.047737129832846
+        "lat": 52.164502916676014,
+        "lon": 21.04782417089825
       },
       "name": "Budynek 6",
       "description": "Katedra Polityki Europejskiej, Finansów Publicznych i Marketingu",
@@ -100,8 +100,8 @@
     {
       "id": 7,
       "geoLocation": {
-        "lat": 52.164822328882714,
-        "lon": 21.049482455432877
+        "lat": 52.16465921586108,
+        "lon": 21.049020436140445
       },
       "name": "Budynek 7",
       "description": "Katedra Ekonomiki i Organizacji Przedsiębiorstw",
@@ -121,8 +121,8 @@
     {
       "id": 8,
       "geoLocation": {
-        "lat": 52.16385162332129,
-        "lon": 21.049498548721584
+        "lat": 52.163963268925144,
+        "lon": 21.04972317490107
       },
       "name": "Budynek 8",
       "description": "Administracja Uczelni, Biuro Spraw Studenckich, Biuro Nauki, Biuro Współpracy Międzynarodowej, Biuro Prasowe, Biuro Międzynarodowych Projektów Badawczych",
@@ -138,8 +138,8 @@
         "lat": 52.16334242787381,
         "lon": 21.049033927584134
       },
-      "name": "Budynek 9",
-      "description": "Aula Kryształowa",
+      "name": "Aula Kryształowa",
+      "description": "Budynek 9",
       "type": "facultyBuilding",
       "minScale": 1.0,
       "lastModified": "2021-05-18",
@@ -149,8 +149,8 @@
     {
       "id": 10,
       "geoLocation": {
-        "lat": 52.163447726978596,
-        "lon": 21.047859120092117 
+        "lat": 52.1633783689352,
+        "lon": 21.04786574512511   
       },
       "name": "Budynek 10",
       "description": "Administracja Uczelni, Biuro Spraw Osobowych, Biuro Promocji, Biuro Karier i Monitorowania Losów Absolwentów, Agendy Studenckie, Sekcja Zamówień Publicznych, Uniwersytet Trzeciego Wieku",
@@ -205,8 +205,8 @@
     {
       "id": 15,
       "geoLocation": {
-        "lat": 52.16338520566346,
-        "lon": 21.051099228555678
+        "lat": 52.163177641994714,
+        "lon": 21.051030751803392
       },
       "name": "Budynek 15",
       "description": "Administracja Uczelni",
