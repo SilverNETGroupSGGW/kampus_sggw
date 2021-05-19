@@ -3,6 +3,7 @@
 
     "drawer_settings": "Ustawienia",
     "drawer_campus_rules": "Regulamin kampusu",
+
     "search_bar_title": "Szukaj miejsca lub adresu",
     "find_nearby": "Szukaj w pobliżu",
     "recent": "Ostatnio odwiedzone",
@@ -12,16 +13,17 @@
     "parking": "Parkingi",
     "park": "Parki i pomniki",
     "store": "Sklepy",
-    "copier": "Copy and print",
-    "no_results_found": "No search results found",
+    "copier": "Ksero",
+    "no_results_found": "Nie znaleziono wyników wyszukiwania",
 
     "other_institutions": "Pozostałe instytucje",
-    "building_plans": "Mapy pięter",
+    "floor_plans": "Mapy pięter",
     "photo": "Zdjęcie",
     "gallery": "Galeria",
-    "departaments": "Katedry",
+    "departments": "Katedry",
     "faculties": "Wydziały",
-    "ground": "Piętro",
+    "floor": "Piętro",
     "website": "Strona internetowa",
+
     "close": "Zamknij"
 }

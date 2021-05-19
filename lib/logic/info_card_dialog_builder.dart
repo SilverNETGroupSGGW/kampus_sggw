@@ -88,25 +88,25 @@ class InfoCardDialogBuilder {
     if ((facultyTile != null && index == 1) ||
         (facultyTile == null && index == 0)) {
       return ExpansionTile(
-        title: Text(LocaleKeys.building_plans.tr()),
+        title: Text(LocaleKeys.floor_plans.tr()),
         leading: Icon(Icons.map),
         children: [
           // TODO: load floors from mapItem
           FloorTile(
             Image.asset("assets/images/floors/floor_1.jpg"),
-            LocaleKeys.ground.tr() + " I",
+            LocaleKeys.floor.tr() + " I",
           ),
           FloorTile(
             Image.asset("assets/images/floors/floor_1.jpg"),
-            LocaleKeys.ground.tr() + " II",
+            LocaleKeys.floor.tr() + " II",
           ),
           FloorTile(
             Image.asset("assets/images/floors/floor_1.jpg"),
-            LocaleKeys.ground.tr() + " III",
+            LocaleKeys.floor.tr() + " III",
           ),
           FloorTile(
             Image.asset("assets/images/floors/floor_1.jpg"),
-            LocaleKeys.ground.tr() + " IV",
+            LocaleKeys.floor.tr() + " IV",
           ),
         ],
       );
