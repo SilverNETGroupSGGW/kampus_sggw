@@ -38,7 +38,7 @@
       },
       "name": "Budynek 3",
       "description": "Centrum Innowacji i Transferu Wiedzy w Agrobiznesie",
-      "url": "http://www.sggw.pl/",
+      "url": "http://innowacje.sggw.pl/",
       "type": "administrationBuilding",
       "minScale": 1.0,
       "lastModified": "2021-05-18",
@@ -1114,4 +1114,3 @@
     }
   ]
 }
-
