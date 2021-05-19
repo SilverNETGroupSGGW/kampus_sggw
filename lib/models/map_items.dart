@@ -67,7 +67,7 @@ class MapItems {
       },
     );
     List<MapItem> items = (similarityMap.keys.toList());
-    items.sort((a, b) => similarityMap[a].compareTo(similarityMap[b]));
+    items.sort((a, b) => similarityMap[a].compareTo(similarityMap[b]) * -1);
     return items;
   }
 }

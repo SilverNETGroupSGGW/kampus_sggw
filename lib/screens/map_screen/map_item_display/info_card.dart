@@ -86,6 +86,10 @@ class InfoCardDialog extends StatelessWidget {
   }
 
   Widget _mapItemImage() {
+    if(photoPath == null || photoPath == "") {
+      return Center();
+    }
+
     Widget coverImage;
     if (buildingGallery.isEmpty) {
       coverImage = Center();
