@@ -112,8 +112,7 @@
       "services": [
         {
           "name": "Drukarnia/ksero",
-          "type": "copier",
-          "description": "Mozna sobie cos wydrukowac"
+          "type": "copier"
         }
       ],
       "categories": [
@@ -220,22 +219,22 @@
     {
       "id": 16,
       "geoLocation": {
-        "lat": 52.16154901425477,
-        "lon": 21.053073334281724
+        "lat": 52.16138225684824,
+        "lon": 21.053045222584878
       },
       "name": "Budynek 16",
       "description": "Hala Maszyn Wydziału Technologii Drewna",
       "type": "facultyBuilding",
       "minScale": 1.0,
       "lastModified": "2021-05-18",
-      "categories": [
+      "categories": [  
       ]
     },
     {
       "id": 17,
       "geoLocation": {
-        "lat": 52.161180450583934,
-        "lon": 21.0520111796126
+        "lat": 52.16104659951015,
+        "lon": 21.052170822428536
       },
       "name": "Budynek 17",
       "description": "Budynek WIP",
@@ -258,8 +257,8 @@
     {
       "id": 18,
       "geoLocation": {
-        "lat": 52.160594691312944,
-        "lon": 21.052097010359113
+        "lat": 52.160607279462305,
+        "lon": 21.05234784822003 
       },
       "name": "Budynek 18",
       "description": "Budynek WIP",
@@ -282,8 +281,8 @@
     {
       "id": 19,
       "geoLocation": {
-        "lat": 52.16031168126926,
-        "lon": 21.051850247153155
+        "lat": 52.16019592717151,
+        "lon": 21.052583882608587
       },
       "name": "Budynek 19",
       "description": "Budynek WIP",
@@ -306,8 +305,8 @@
     {
       "id": 20,
       "geoLocation": {
-        "lat": 52.160713160099206,
-        "lon": 21.05407111600678  
+        "lat": 52.1606895494588,
+        "lon": 21.053715774840466 
       },
       "name": "Budynek 20",
       "description": "Hala Maszyn Wydziału Inżynierii Produkcji, Stacja Kontroli Pojazdów",
@@ -320,8 +319,8 @@
     {
       "id": 21,
       "geoLocation": {
-        "lat": 52.16035117115084,
-        "lon": 21.052654909781282
+        "lat": 52.16016301882074,
+        "lon": 21.051779219903015   
       },
       "name": "Budynek 21",
       "description": "Budynek WIP",
@@ -1025,14 +1024,14 @@
     {
       "id": 50,
       "geoLocation": {
-        "lat": 52.162746825118305,
-        "lon": 21.052933859591096
+        "lat": 52.16265575726116,
+        "lon": 21.052768955050894    
       },
       "name": "Byliniarnia SGGW",
       "description": "Ogród Bylinowy",
       "type": "monument",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
+      "lastModified": "2021-05-19",
       "categories": [
       ]
     },
