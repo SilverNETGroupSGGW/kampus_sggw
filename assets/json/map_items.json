@@ -366,7 +366,7 @@
       "url": "http://www.klinikawet.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
+      "lastModified": "2021-05-20",
       "categories": [
         {
           "name":"faculties",
@@ -391,7 +391,7 @@
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
+      "lastModified": "2021-05-20",
       "services": [
         {
           "name": "Bufet",
@@ -411,7 +411,15 @@
             {
               "name": "WHBiOZ",
               "url": "https://animal.sggw.pl",
-              "description": "Wydział Hodowli, Bioinżynierii i Ochrony Zwierząt"
+              "description": "Wydział Hodowli, Bioinżynierii i Ochrony Zwierząt",
+              "services": [
+                {
+                  "name": "Dziekanat WHBiOZ",
+                  "type": "deanery",
+                  "description": "Pokój 69",
+                  "url": "http://animal.sggw.pl/wydzial/dziekanat/"
+                }
+              ]
             }
           ]
         }
@@ -428,7 +436,7 @@
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
+      "lastModified": "2021-05-20",
       "services": [
         {
           "name": "Bufet",
@@ -443,7 +451,15 @@
             {
             "name": "WMW",
             "url": "http://wmw.sggw.pl",
-            "description": "Wydział Medycyny Weterynaryjnej"
+            "description": "Wydział Medycyny Weterynaryjnej",
+            "services": [
+              {
+                "name": "Dziekanat WMW",
+                "type": "deanery",
+                "description": "Pokój 79",
+                "url": "http://wmw.sggw.pl/category/dziekanat/"
+              }
+            ]
             }
           ]
         }
@@ -460,7 +476,7 @@
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
+      "lastModified": "2021-05-20",
       "categories": [
         {
           "name":"faculties",
@@ -486,9 +502,7 @@
       "url": "http://obiektysportowe.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
-      "categories": [
-      ]
+      "lastModified": "2021-05-20"
     },
     {
       "id": 27,
@@ -497,35 +511,53 @@
         "lon": 21.04541
       },
       "name": "Budynek 27",
-      "description": "Basen",
+      "description": "Basen SGGW",
       "type": "sportsFacility",
       "url": "http://obiektysportowe.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
+      "lastModified": "2021-05-20",
       "services": [
         {
           "name": "Bufet",
           "type": "canteen",
           "description": "Bufet"
         }
-      ],
-      "categories": [
       ]
     },
     {
       "id": 28,
       "geoLocation": {
-        "lat": 52.15736,
-        "lon": 21.04465
+        "lat": 52.15732,
+        "lon": 21.04505
       },
       "name": "Budynek 28",
-      "description": "Centrum Językowo-Sportowe",
+      "description": "Centrum Językowo-Sportowe (SPNJO)",
       "type": "facultyBuilding",
+      "url" : "http://jezyki.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
+      "lastModified": "2021-05-20",
       "categories": [
+        {
+          "name": "faculties",
+          "subCategories":[
+            {
+              "name": "SPNJO",
+              "description": "Studium Praktycznej Nauki Języków Obcych",
+              "url": "http://jezyki.sggw.pl/",
+              "services": [
+                {
+                  "name": "Sekretariat SPNJO",
+                  "type": "deanery",
+                  "description": "Pokój 208",
+                  "url": "http://jezyki.sggw.pl/"
+                }
+              ]
+            }
+          ]
+
+        }
       ]
     },
     {
@@ -539,9 +571,7 @@
       "type": "administrationBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
-      "categories": [
-      ]
+      "lastModified": "2021-05-20"
     },
     {
       "id": 31,
@@ -554,9 +584,7 @@
       "type": "administrationBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
-      "categories": [
-      ]
+      "lastModified": "2021-05-20"
     },
     {
       "id": 32,
@@ -584,12 +612,28 @@
             {
               "name": "WŻC",
               "description": "Wydział Żywienia Człowieka",
-              "url": "http://wzcz.sggw.pl/"
+              "url": "http://wzcz.sggw.pl/",
+              "services": [
+                {
+                  "name": "Dziekanat WŻC",
+                  "type": "deanery",
+                  "description": "Pokój 071 i 072",
+                  "url": "http://wzcz.sggw.pl/student/zywienie-czlowieka-i-ocena-zywnosci/dziekanaty/"
+                }
+              ]
             },
             {
               "name": "WTŻ",
               "description": "Wydział Technologii Żywności",
-              "url": "http://wnoz.sggw.pl/"
+              "url": "http://wnoz.sggw.pl/",
+              "services": [
+                {
+                  "name": "Dziekanat WTŻ",
+                  "type": "deanery",
+                  "description": "Pokój 018, 50, 51 i 52",
+                  "url": "http://wnoz.sggw.pl/dziekanat/"
+                }
+              ]
             }
           ]
         }
@@ -602,10 +646,11 @@
         "lon": 21.04656
       },
       "name": "Budynek 33",
+      "description": "Budynek WBiIŚ",
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
+      "lastModified": "2021-05-20",
       "services": [
         {
           "name": "Bufet",
@@ -620,12 +665,15 @@
             {
               "name": "WBiIŚ",
               "description": "Wydział Budownictwa i Inżynierii Środowiska",
-              "url": "http://wbis.sggw.pl/"
-            },
-            {
-              "name": "MSOŚ",
-              "description": "Międzywydziałowe Studium Ochrony Środowiska",
-              "url": "http://j310000.sggw.pl/"
+              "url": "http://wbis.sggw.pl/",
+              "services": [
+                {
+                  "name": "Dziekanat WBIiŚ",
+                  "type": "deanery",
+                  "description": "Pokój 13, 143 i 145",
+                  "url": "http://wbis.sggw.pl/student/dziekanat/"
+                }
+              ]
             }
           ]
         }
@@ -649,18 +697,14 @@
       ],
       "services": [
         {
-          "name": "Ksero na parterze",
+          "name": "Ksero",
           "type": "copier",
-          "description": "Super xero, nie to co w innych budynkach"
+          "description": "Ksero samoobsługowe, położone na poziomie -1"
         },
         {
           "name": "Bufet",
           "type": "canteen",
-          "description": "Super bufet"
-        },
-        {
-          "name": "Automat z kawą",
-          "type": "vendingMachine"
+          "description": "Bufet"
         }
       ],
       "categories": [
@@ -673,42 +717,13 @@
               "url": "http://wzim.sggw.pl/",
               "services": [
                 {
-                  "name": "Automat z jedzeniem",
-                  "type": "vendingMachine",
-                  "description": "Automat z jedzeniem"
-                },
-                {
                   "name": "Dziekanat WZIM",
-                  "type": "deanery"
-                },
-                {
-                  "name": "Aula III",
-                  "type": "lectureHall"
-                },
-                {
-                  "name": "Aula IV",
-                  "type": "lectureHall"
-                }
-              ],
-              "subCategories": [
-                {
-                  "name": "departaments",
-                  "subCategories": [
-                    {
-                      "name": "Katedra Zastosowań Informatyki"
-                    },
-                    {
-                      "name": "Katedra Informatyki"
-                    },
-                    {
-                      "name": "Katedra Ekonometrii i Statystyki"
-                    },
-                    {
-                      "name": "Katedra Zastosowań Matematyki"
-                    }
-                  ]
+                  "type": "deanery",
+                  "description": "Pokój 3/35 i 3/36B",
+                  "url": "http://student.wzim.sggw.pl/"
                 }
               ]
+              
             },
             {
               "name": "WL",
@@ -716,23 +731,10 @@
               "url": "http://wl.sggw.pl/",
               "services": [
                 {
-                  "name": "Automat z jedzeniem",
-                  "type": "vendingMachine",
-                  "description": "Automat z jedzeniem"
-                },
-                {
                   "name": "Dziekanat WL",
-                  "type": "deanery"
-                }
-              ],
-              "subCategories": [
-                {
-                  "name": "departaments",
-                  "subCategories": [
-                    {
-                      "name": "Instytut Nauk Leśnych"
-                    }
-                  ]
+                  "type": "deanery",
+                  "description" : "Pokój 0/7, 0/8 i 0/9",
+                  "url" : "http://wl.sggw.pl/dziekanat"
                 }
               ]
             },
@@ -743,9 +745,38 @@
               "services": [
                 {
                   "name": "Dziekanat WTD",
-                  "type": "deanery"
+                  "type": "deanery",
+                  "description": "Pokój 1/19 i 1/20",
+                  "url" : "http://wtd.sggw.pl/Content/dziekana"
                 }
               ]
+            }
+          ]
+        },
+        {
+          "name" : "institutes",
+          "subCategories" : [
+            {
+              "name" : "IIT",
+              "description" : "Instytut Informatyki Technicznej",
+              "url" : "https://www.iit.sggw.pl/"
+            }
+          ]
+        },
+        {
+          "name": "departments",
+          "subCategories": [
+            {
+              "name": "Katedra Systemów Informatycznych"
+            },
+            {
+              "name": "Katedra Sztucznej Inteligencji"
+            },
+            {
+              "name": "Katedra Zastosowań Matematyki"
+            },
+            {
+              "name": "Laboratorium Komputerowe"
             }
           ]
         }
@@ -762,7 +793,7 @@
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
+      "lastModified": "2021-05-20",
       "services": [
         {
           "name": "Bufet",
@@ -777,7 +808,15 @@
             {
               "name": "WOiB",
               "description": "Wydział Ogrodnictwa i Bioinżynierii",
-              "url": "http://wobiak.sggw.pl/"
+              "url": "http://wobiak.sggw.pl/",
+              "services" :[
+                {
+                  "name": "Dziekanat WOiB",
+                  "type": "deanery",
+                  "description": "Pokój 2",
+                  "url" : "http://wobiak.sggw.pl/wydzial/kontakt/"
+                }
+              ]
             }
           ]
         }
@@ -794,7 +833,7 @@
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
+      "lastModified": "2021-05-20",
       "services": [
         {
           "name": "Bufet",
@@ -809,12 +848,28 @@
             {
               "name": "WOiB",
               "description": "Wydział Ogrodnictwa i Bioinżynierii",
-              "url": "http://wobiak.sggw.pl/"
+              "url": "http://wobiak.sggw.pl/",
+              "services" :[
+                {
+                  "name": "Dziekanat WOiB",
+                  "type": "deanery",
+                  "description": "Pokój 0/63 i 0/65",
+                  "url" : "http://wobiak.sggw.pl/wydzial/kontakt/"
+                }
+              ]
             },
             {
               "name": "WRiB",
               "description": "Wydział Rolnictwa i Biologii",
-              "url": "http://wrib.sggw.pl/"
+              "url": "http://wrib.sggw.pl/",
+              "services" :[
+                {
+                  "name": "Dziekanat WRiB",
+                  "type": "deanery",
+                  "description": "Pokój 0/9, 0/10, 0/109 i 0/110",
+                  "url" : "http://wrib.sggw.pl/2015-01-03-16-11-33/dziekanat"
+                }
+              ]
             }
           ]
         }
@@ -832,7 +887,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
+      "lastModified": "2021-05-20",
       "services": [
         {
           "name": "Stołówka",
@@ -855,9 +910,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
-      "categories": [
-      ]
+      "lastModified": "2021-05-20"
     },
     {
       "id": 40,
@@ -871,9 +924,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
-      "categories": [
-      ]
+      "lastModified": "2021-05-20"
     },
     {
       "id": 41,
@@ -887,9 +938,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
-      "categories": [
-      ]
+      "lastModified": "2021-05-20"
     },
     {
       "id": 42,
@@ -903,9 +952,8 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
-      "categories": [
-      ]
+      "lastModified": "2021-05-20"
+      
     },
     {
       "id": 43,
@@ -919,9 +967,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
-      "categories": [
-      ]
+      "lastModified": "2021-05-20"
     },
     {
       "id": 44,
@@ -935,9 +981,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
-      "categories": [
-      ]
+      "lastModified": "2021-05-20"
     },
     {
       "id": 45,
@@ -951,9 +995,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
-      "categories": [
-      ]
+      "lastModified": "2021-05-20"
     },
     {
       "id": 46,
@@ -967,9 +1009,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
-      "categories": [
-      ]
+      "lastModified": "2021-05-20"
     },
     {
       "id": 47,
@@ -983,15 +1023,13 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
+      "lastModified": "2021-05-20",
       "services": [
         {
           "name": "Stołówka",
           "type": "canteen",
           "description": "Stołówka Dendryt"
         }
-      ],
-      "categories": [
       ]
     },
     {
@@ -1006,9 +1044,7 @@
       "url": "http://www.bg.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
-      "categories": [
-      ]
+      "lastModified": "2021-05-20"
     },
     {
       "id": 49,
@@ -1021,7 +1057,7 @@
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
+      "lastModified": "2021-05-20",
       "categories": [
         {
           "name": "faculties",
@@ -1045,9 +1081,7 @@
       "description": "Ogród Bylinowy",
       "type": "monument",
       "minScale": 1.0,
-      "lastModified": "2021-05-19",
-      "categories": [
-      ]
+      "lastModified": "2021-05-20"
     },
     {
       "id": 53,
@@ -1060,9 +1094,7 @@
       "type": "monument",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
-      "categories": [
-      ]
+      "lastModified": "2021-05-20"
     },
     {
       "id": 54,
@@ -1075,9 +1107,7 @@
       "type": "monument",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
-      "categories": [
-      ]
+      "lastModified": "2021-05-20"
     },
     {
       "id": 55,
@@ -1090,8 +1120,40 @@
       "type": "monument",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-17",
+      "lastModified": "2021-05-20"
+    },
+    {
+      "id": 98,
+      "geoLocation": {
+        "lat": 52.15736,
+        "lon": 21.04407
+      },
+      "name": "Budynek 28",
+      "description": "Centrum Językowo-Sportowe (SWFiS)",
+      "type": "sportsFacility",
+      "url" : "http://swfs.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-20",
       "categories": [
+        {
+          "name": "faculties",
+          "subCategories":[
+            {
+              "name": "SWFiS",
+              "description": "Studium Wychowania Fizycznego i Sportu",
+              "url": "http://swfs.sggw.pl/",
+              "services": [
+                {
+                  "name": "Sekretariat SWFiS",
+                  "type": "deanery",
+                  "description": "Pokój 103",
+                  "url": "http://swfs.sggw.pl/"
+                }
+              ]
+            }
+          ]
+        }
       ]
     }
   ]
