@@ -54,11 +54,8 @@ class FiltrationService {
     }
   }
 
-  void _suggestSearches(String query) {
-    List<MapItem> suggestedItems = mapItems.findItemsByQuery(query);
-    Set<String> suggestedItemsNames = suggestedItems.map((e) => e.name).toSet();
-    _searchSuggestionEvent.trigger(param: suggestedItemsNames);
-  }
+  void _suggestSearches(String query) =>
+      _searchSuggestionEvent.trigger(param: mapItems.findItemsByQuery(query));
 
   void _finalQuerySearch(String query) {
     MapItem queriedItem = mapItems.findItemByQuery(query);

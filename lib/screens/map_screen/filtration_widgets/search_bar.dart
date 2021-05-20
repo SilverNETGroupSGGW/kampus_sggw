@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/search_event_param.dart';
 import 'package:kampus_sggw/logic/filtration_service.dart';
+import 'package:kampus_sggw/logic/key_value.dart';
 import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
@@ -26,7 +27,7 @@ class SearchBar extends StatefulWidget {
 
 class _SearchBar extends State<SearchBar> {
   Set<String> _filteredSearchHistory;
-  Set<String> _searchSuggestions;
+  List<KeyValue> _searchSuggestions;
   String _selectedTerm;
   FloatingSearchBarController _controller;
   StreamSubscription _searchSuggestionListener;
@@ -37,7 +38,7 @@ class _SearchBar extends State<SearchBar> {
     super.initState();
     _controller = FloatingSearchBarController();
     _filteredSearchHistory = widget.searchHistory.filterSearchTerms();
-    _searchSuggestions = {};
+    _searchSuggestions = [];
     _searchSuggestionListener = widget.filtrationService.searchSuggestionEvent
         .listen((eventParam) => _searchSuggestions = eventParam);
     _searchHistoryListener = widget.filtrationService.manageSearchHistoryEvent
@@ -114,8 +115,10 @@ class _SearchBar extends State<SearchBar> {
   Column _suggestionColumn() {
     List<Widget> _displayedSuggestions = [];
     var _history = _filteredSearchHistory.map((text) => _historyListTile(text));
-    var _suggestion =
-        _searchSuggestions.map((text) => _suggestionListTile(text));
+    var _suggestion = _searchSuggestions.map(
+      (suggestion) =>
+          _suggestionListTile(suggestion.key.name, suggestion.value),
+    );
     _displayedSuggestions.addAll(_history);
     int leftForDisplaying = 6 - _history.length;
     if (leftForDisplaying > 0) {
@@ -127,8 +130,13 @@ class _SearchBar extends State<SearchBar> {
     );
   }
 
-  ListTile _suggestionListTile(String text) {
-    return _listTile(text, Icon(Icons.pin_drop));
+  ListTile _suggestionListTile(String text, String query) {
+    var subtitle = Text(
+      query,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
+    );
+    return _listTile(text, Icon(Icons.pin_drop), subtitle: subtitle);
   }
 
   ListTile _historyListTile(String text) {
@@ -144,19 +152,21 @@ class _SearchBar extends State<SearchBar> {
         );
       },
     );
-    return _listTile(text, Icon(Icons.history), removeIconButton);
+    return _listTile(text, Icon(Icons.history),
+        trailingButton: removeIconButton);
   }
 
   ListTile _listTile(String text, Icon leadingIcon,
-      [IconButton trailingIconButton]) {
+      {Text subtitle, IconButton trailingButton}) {
     return ListTile(
       title: Text(
         text,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
+      subtitle: subtitle,
       leading: leadingIcon,
-      trailing: trailingIconButton,
+      trailing: trailingButton,
       onTap: () => _onSubmitted(text),
     );
   }
