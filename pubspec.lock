@@ -245,13 +245,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  fuzzywuzzy:
+  fuzzy:
     dependency: "direct main"
     description:
-      name: fuzzywuzzy
+      name: fuzzy
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.6"
+    version: "0.3.0"
   glob:
     dependency: transitive
     description:
@@ -357,6 +357,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.5.1"
+  latinize:
+    dependency: transitive
+    description:
+      name: latinize
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   logging:
     dependency: transitive
     description:
@@ -614,13 +621,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
-  string_similarity:
-    dependency: "direct main"
-    description:
-      name: string_similarity
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
   term_glyph:
     dependency: transitive
     description:

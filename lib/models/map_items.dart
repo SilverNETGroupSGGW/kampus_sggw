@@ -3,13 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/models/service.dart';
 import 'package:fuzzywuzzy/fuzzywuzzy.dart';
+import 'package:fuzzy/fuzzy.dart';
 part 'map_items.g.dart';
 
 @JsonSerializable()
 class MapItems {
   List<MapItem> mapItems;
   @JsonKey(ignore: true)
-  Map<MapItem, String> searchableStringMap;
+  Map<MapItem, Fuzzy> searchableStringsMap;
   MapItems(
     this.mapItems,
   );
@@ -56,41 +57,68 @@ class MapItems {
 
   List<MapItem> findItemsByQuery(String query) {
     query = query.toLowerCase();
-    Map<MapItem, int> similarityMap = <MapItem, int>{};
+    Map<MapItem, double> similarityMap = <MapItem, double>{};
     mapItems.forEach(
       (item) {
-        var similarity = tokenSetPartialRatio(searchableStringMap[item], query);
-        if (similarity > 0) {
-          similarityMap[item] = similarity;
+        var similarity = searchableStringsMap[item].search(query);
+        if (similarity.length != 0) {
+          similarityMap[item] = similarity[0].score;
         }
       },
     );
     List<MapItem> items = (similarityMap.keys.toList());
-    items.sort((a, b) => similarityMap[a].compareTo(similarityMap[b]) * -1);
+    items.sort((a, b) => similarityMap[a].compareTo(similarityMap[b]));
     return items.take(6).toList();
   }
 
   void generateSearchableStringMap() {
-    searchableStringMap = Map<MapItem, String>();
+    searchableStringsMap = Map<MapItem, Fuzzy>();
+
     for (var item in mapItems) {
-      String searchableString = item.name;
+      List<String> searchableStrings = [];
+
+      searchableStrings.add(item.name);
       if (item.description != null) {
-        searchableString += " " + item.description;
+        searchableStrings.add(item.description);
       }
       if (item.categories != null && item.categories.isNotEmpty) {
         for (var category in item.categories) {
           if (category.subCategories != null &&
               category.subCategories.isNotEmpty) {
             for (var subCategory in category.subCategories) {
-              searchableString += " " + subCategory.name;
+              searchableStrings.add(subCategory.name);
               if (subCategory.description != null) {
-                searchableString += " " + subCategory.description;
+                searchableStrings.add(subCategory.description);
+                if (subCategory.subCategories != null &&
+                    category.subCategories.isNotEmpty) {
+                  for (var innerSubCategory in subCategory.subCategories) {
+                    if (innerSubCategory.subCategories != null &&
+                        innerSubCategory.subCategories.isNotEmpty) {
+                      for (var innerInnerSubCategory
+                          in innerSubCategory.subCategories) {
+                        searchableStrings.add(innerInnerSubCategory.name);
+                        if (innerInnerSubCategory.description != null) {
+                          searchableStrings
+                              .add(innerInnerSubCategory.description);
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }
         }
       }
-      searchableStringMap[item] = searchableString.toLowerCase();
+      var fuse = Fuzzy(
+        searchableStrings,
+        options: FuzzyOptions(
+          findAllMatches: true,
+          tokenize: true,
+          threshold: 0.5,
+        ),
+      );
+      searchableStringsMap[item] = fuse;
     }
   }
 }
