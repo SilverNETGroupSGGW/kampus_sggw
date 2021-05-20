@@ -2,12 +2,14 @@ import 'package:kampus_sggw/models/map_item.dart';
 import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/models/service.dart';
-import 'package:string_similarity/string_similarity.dart';
+import 'package:fuzzy/fuzzy.dart';
 part 'map_items.g.dart';
 
 @JsonSerializable()
 class MapItems {
   List<MapItem> mapItems;
+  @JsonKey(ignore: true)
+  Map<MapItem, Fuzzy> fuzzySetItemMap;
   MapItems(
     this.mapItems,
   );
@@ -53,20 +55,33 @@ class MapItems {
   }
 
   List<MapItem> findItemsByQuery(String query) {
-    query = query.toLowerCase();
-    Map<MapItem, double> similarityMap = <MapItem, double>{};
+    Map<MapItem, double> similarityMap =
+        _getSimilarityMapForEachItem(query.toLowerCase());
+    return _getMostSimilarMapItems(similarityMap);
+  }
 
+  void generateFuzzyStringSetForMapItems() {
+    mapItems.forEach((item) {
+      item.generateFuzzySet();
+    });
+  }
+
+  Map<MapItem, double> _getSimilarityMapForEachItem(String query) {
+    Map<MapItem, double> similarityMap = <MapItem, double>{};
     mapItems.forEach(
       (item) {
-        var similarity = item.name.similarityTo(query);
-
-        if (similarity > 0) {
-          similarityMap[item] = similarity;
+        var similarity = item.searchingSet.search(query);
+        if (similarity.length > 0) {
+          similarityMap[item] = similarity[0].score;
         }
       },
     );
-    List<MapItem> items = (similarityMap.keys.toList());
-    items.sort((a, b) => similarityMap[a].compareTo(similarityMap[b]) * -1);
-    return items;
+    return similarityMap;
+  }
+
+  List<MapItem> _getMostSimilarMapItems(Map<MapItem, double> similarityMap) {
+    List<MapItem> items = similarityMap.keys.toList();
+    items.sort((a, b) => similarityMap[a].compareTo(similarityMap[b]));
+    return items.take(6).toList();
   }
 }
