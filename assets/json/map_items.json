@@ -10,9 +10,7 @@
       "description": "Centrum informatyczne",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19",
-      "categories": [
-      ]
+      "lastModified": "2021-05-19"
     },
     {
       "id": 2,
@@ -25,9 +23,7 @@
       "url": "http://cobis.sggw.pl/",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19",
-      "categories": [
-      ]
+      "lastModified": "2021-05-19"
     },
     {
       "id": 3,
@@ -40,9 +36,7 @@
       "url": "http://innowacje.sggw.pl/",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19",
-      "categories": [
-      ]
+      "lastModified": "2021-05-19"
     },
     {
       "id": 4,
@@ -79,9 +73,7 @@
       "type": "facultyBuilding",
       "url": "http://keipg.ieif.sggw.pl/",
       "minScale": 1.0,
-      "lastModified": "2021-05-19",
-      "categories": [
-      ]
+      "lastModified": "2021-05-19"
     },
     {
       "id": 6,
@@ -93,9 +85,7 @@
       "description": "Katedra Polityki Europejskiej, Finansów Publicznych i Marketingu",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19",
-      "categories": [
-      ]
+      "lastModified": "2021-05-19"
     },
     {
       "id": 7,
@@ -142,9 +132,7 @@
       "description": "Administracja Uczelni, Biuro Spraw Studenckich, Biuro Nauki, Biuro Współpracy Międzynarodowej, Biuro Prasowe, Biuro Międzynarodowych Projektów Badawczych",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19",
-      "categories": [
-      ]
+      "lastModified": "2021-05-19"
     },
     {
       "id": 9,
@@ -156,9 +144,7 @@
       "description": "Budynek 9",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
-      "categories": [
-      ]
+      "lastModified": "2021-05-18"
     },
     {
       "id": 10,
@@ -170,9 +156,7 @@
       "description": "Administracja Uczelni, Biuro Spraw Osobowych, Biuro Promocji, Biuro Karier i Monitorowania Losów Absolwentów, Agendy Studenckie, Sekcja Zamówień Publicznych, Uniwersytet Trzeciego Wieku",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19",
-      "categories": [
-      ]
+      "lastModified": "2021-05-19"
     },
     {
       "id": 11,
@@ -184,9 +168,7 @@
       "description": "Bank, Kwestura",
       "type": "finance",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
-      "categories": [
-      ]
+      "lastModified": "2021-05-18"
     },
     {
       "id": 12,
@@ -198,9 +180,7 @@
       "description": "Rektorat SGGW, Kanclerz",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
-      "categories": [
-      ]
+      "lastModified": "2021-05-18"
     },
     {
       "id": 13,
@@ -212,9 +192,7 @@
       "description": "Pracownie Sztuki Wydziału Ogrodnictwa, Biotechnologii i Architektury Krajobrazu",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18",
-      "categories": [
-      ]
+      "lastModified": "2021-05-18"
     },
     {
       "id": 15,
@@ -226,9 +204,7 @@
       "description": "Administracja Uczelni",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19",
-      "categories": [
-      ]
+      "lastModified": "2021-05-19"
     },
     {
       "id": 16,
@@ -240,9 +216,7 @@
       "description": "Hala Maszyn Wydziału Technologii Drewna",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19",
-      "categories": [  
-      ]
+      "lastModified": "2021-05-19"
     },
     {
       "id": 17,
@@ -326,9 +300,7 @@
       "description": "Hala Maszyn Wydziału Inżynierii Produkcji, Stacja Kontroli Pojazdów",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19",
-      "categories": [
-      ]
+      "lastModified": "2021-05-19"
     },
     {
       "id": 21,
@@ -894,8 +866,6 @@
           "type": "canteen",
           "description": "Stołówka Limba"
         }
-      ],
-      "categories": [
       ]
     },
     {
