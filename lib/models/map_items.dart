@@ -2,12 +2,14 @@ import 'package:kampus_sggw/models/map_item.dart';
 import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/models/service.dart';
-import 'package:string_similarity/string_similarity.dart';
+import 'package:fuzzywuzzy/fuzzywuzzy.dart';
 part 'map_items.g.dart';
 
 @JsonSerializable()
 class MapItems {
   List<MapItem> mapItems;
+  @JsonKey(ignore: true)
+  Map<MapItem, String> searchableStringMap;
   MapItems(
     this.mapItems,
   );
@@ -54,30 +56,41 @@ class MapItems {
 
   List<MapItem> findItemsByQuery(String query) {
     query = query.toLowerCase();
-
-    RegExp regExp = new RegExp(
-      r"(^[1-9][0-9]*)",
-      caseSensitive: false,
-      multiLine: false,
+    Map<MapItem, int> similarityMap = <MapItem, int>{};
+    mapItems.forEach(
+      (item) {
+        var similarity = tokenSetPartialRatio(searchableStringMap[item], query);
+        if (similarity > 0) {
+          similarityMap[item] = similarity;
+        }
+      },
     );
-    if (regExp.hasMatch(query)) {
-      return mapItems
-          .where((item) => item.id.toString().contains(query))
-          .toList();
-    } else {
-      Map<MapItem, double> similarityMap = <MapItem, double>{};
-      mapItems.forEach(
-        (item) {
-          var similarity = item.name.toLowerCase().similarityTo(query);
+    List<MapItem> items = (similarityMap.keys.toList());
+    items.sort((a, b) => similarityMap[a].compareTo(similarityMap[b]) * -1);
+    return items.take(6).toList();
+  }
 
-          if (similarity > 0) {
-            similarityMap[item] = similarity;
+  void generateSearchableStringMap() {
+    searchableStringMap = Map<MapItem, String>();
+    for (var item in mapItems) {
+      String searchableString = item.name;
+      if (item.description != null) {
+        searchableString += " " + item.description;
+      }
+      if (item.categories != null && item.categories.isNotEmpty) {
+        for (var category in item.categories) {
+          if (category.subCategories != null &&
+              category.subCategories.isNotEmpty) {
+            for (var subCategory in category.subCategories) {
+              searchableString += " " + subCategory.name;
+              if (subCategory.description != null) {
+                searchableString += " " + subCategory.description;
+              }
+            }
           }
-        },
-      );
-      List<MapItem> items = (similarityMap.keys.toList());
-      items.sort((a, b) => similarityMap[a].compareTo(similarityMap[b]) * -1);
-      return items;
+        }
+      }
+      searchableStringMap[item] = searchableString.toLowerCase();
     }
   }
 }
