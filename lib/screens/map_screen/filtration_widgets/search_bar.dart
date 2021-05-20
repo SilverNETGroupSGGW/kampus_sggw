@@ -136,6 +136,9 @@ class _SearchBar extends State<SearchBar> {
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
     );
+    if (text == query) {
+      subtitle = null;
+    }
     return _listTile(text, Icon(Icons.pin_drop), subtitle: subtitle);
   }
 
