@@ -19,16 +19,6 @@ class Category {
   factory Category.fromJson(Map<String, dynamic> json) =>
       _$CategoryFromJson(json);
 
-  void _addInnerData(List<String> strings) {
-    strings.add(name);
-    if (description != null) {
-      strings.add(description);
-    }
-  }
-
-  bool _subCatExist() =>
-      subCategories != null && subCategories.isNotEmpty ? true : false;
-
   void addData(List<String> strings) {
     if (_subCatExist()) {
       for (var faculties in subCategories) {
@@ -45,4 +35,14 @@ class Category {
       }
     }
   }
+
+  void _addInnerData(List<String> strings) {
+    strings.add(name);
+    if (description != null) {
+      strings.add(description);
+    }
+  }
+
+  bool _subCatExist() =>
+      subCategories != null && subCategories.isNotEmpty ? true : false;
 }

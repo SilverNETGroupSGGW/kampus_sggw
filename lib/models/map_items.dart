@@ -75,9 +75,10 @@ class MapItems {
         if (similarity.length > 0) {
           similarityList.add(
             KeyValue(
-                key: item,
-                value: similarity[0].item,
-                similarity: similarity[0].score),
+              key: item,
+              value: similarity[0].item,
+              similarity: similarity[0].score,
+            ),
           );
         }
       },
