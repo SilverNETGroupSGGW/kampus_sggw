@@ -18,6 +18,7 @@ class InfoCardDialogBuilder {
   List<Image> buildingGallery = [];
   List<Widget> otherCategories = [];
   Widget facultyTile;
+  Widget instituteTile;
   String buildingWebsite;
 
   InfoCardDialog fromMapItem(MapItem mapItem) {
@@ -32,6 +33,8 @@ class InfoCardDialogBuilder {
       for (Category category in data) {
         if (category.name == 'faculties') {
           facultyTile = CategoryItem(category);
+        } else if (category.name == 'institutes') {
+          instituteTile = CategoryItem(category);
         } else {
           for (Category subCategory in category.subCategories)
             otherCategories.add(CategoryItem(subCategory));
@@ -85,14 +88,14 @@ class InfoCardDialogBuilder {
 
   int _descriptionItemsCount() {
     int isFaculty = facultyTile != null ? 1 : 0;
+    int isInstituete = instituteTile != null ? 1 : 0;
     int hasOtherCategories = otherCategories.length > 0 ? 1 : 0;
 
-    return isFaculty + hasOtherCategories + 1;
+    return isFaculty + isInstituete + hasOtherCategories + 1;
   }
 
   Widget _descriptionItemsBuilder(BuildContext context, int index) {
-    if ((facultyTile != null && index == 1) ||
-        (facultyTile == null && index == 0)) {
+    if (index == _descriptionItemsCount() - 1) {
       return ExpansionTile(
         title: Text(LocaleKeys.floor_plans.tr()),
         leading: Icon(Icons.map),
@@ -117,7 +120,7 @@ class InfoCardDialogBuilder {
         ],
       );
     }
-    if (index == 2 || (facultyTile == null && index == 1)) {
+    if (index == _descriptionItemsCount()) {
       if (otherCategories != null && otherCategories.isNotEmpty) {
         return ExpansionTile(
           leading: Icon(Icons.build_outlined),
@@ -126,7 +129,8 @@ class InfoCardDialogBuilder {
         );
       }
     }
-
-    return facultyTile;
+    if (facultyTile != null && index == 0) return facultyTile;
+    if (instituteTile != null && index == 1 ||
+        facultyTile != null && index == 0) return instituteTile;
   }
 }
