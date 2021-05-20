@@ -32,10 +32,9 @@ class _CategoryItemState extends State<CategoryItem> {
     }
     if (root.subCategories != null && root.subCategories.isNotEmpty) {
       return ExpansionTile(
-        leading: (root.name == 'faculties' ? Icon(Icons.science) : null),
+        leading: _tileIcon(root.name),
         key: PageStorageKey<Category>(root),
-        title: Text(
-            root.name == 'faculties' ? LocaleKeys.faculties.tr() : root.name),
+        title: _tileTitle(root.name),
         children: root.subCategories.map<Widget>((sub) {
           return _buildTiles(sub, isFaculty: root.name == 'faculties');
         }).toList(),
@@ -45,6 +44,26 @@ class _CategoryItemState extends State<CategoryItem> {
       leading: Icon(Icons.info_outline),
       title: Text(root.name),
     );
+  }
+
+  Icon _tileIcon(String name) {
+    if (name == 'faculties') {
+      return Icon(Icons.science);
+    } else if (name == 'institutes') {
+      return Icon(Icons.book);
+    } else {
+      return null;
+    }
+  }
+
+  Text _tileTitle(String name) {
+    if (name == 'faculties') {
+      return Text(LocaleKeys.faculties.tr());
+    } else if (name == 'institutes') {
+      return Text(LocaleKeys.institutes.tr());
+    } else {
+      return Text(name);
+    }
   }
 
   showFacultyCard(Category category) {
