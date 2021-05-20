@@ -117,7 +117,7 @@ class _SearchBar extends State<SearchBar> {
     var _history = _filteredSearchHistory.map((text) => _historyListTile(text));
     var _suggestion = _searchSuggestions.map(
       (suggestion) =>
-          _suggestionListTile(suggestion.key.name, suggestion.value),
+          _suggestionListTile(suggestion.value, suggestion.key.name),
     );
     _displayedSuggestions.addAll(_history);
     int leftForDisplaying = 6 - _history.length;
