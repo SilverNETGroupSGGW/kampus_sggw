@@ -18,6 +18,7 @@ class InfoCardDialogBuilder {
   List<Image> buildingGallery = [];
   List<Widget> otherCategories = [];
   Widget facultyTile;
+  String buildingWebsite;
 
   InfoCardDialog fromMapItem(MapItem mapItem) {
     if (mapItem.gallery != null && mapItem.gallery.isNotEmpty) {
@@ -56,6 +57,10 @@ class InfoCardDialogBuilder {
       servicesRow = ServiceButtonsRow(mapItem.services);
     }
 
+    if (mapItem.url != null) {
+      buildingWebsite = mapItem.url;
+    }
+
     return InfoCardDialog(
       header: mapItem.name,
       subcategories: description,
@@ -66,6 +71,7 @@ class InfoCardDialogBuilder {
       buildingGallery: buildingGallery,
       otherCategories: otherCategories,
       facultyTile: facultyTile,
+      buildingWebsite: buildingWebsite,
     );
   }
 
