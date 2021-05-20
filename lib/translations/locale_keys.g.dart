@@ -20,6 +20,7 @@ abstract class  LocaleKeys {
   static const photo = 'photo';
   static const gallery = 'gallery';
   static const departments = 'departments';
+  static const institutes = 'institutes';
   static const faculties = 'faculties';
   static const floor = 'floor';
   static const website = 'website';
