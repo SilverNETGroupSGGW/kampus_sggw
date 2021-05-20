@@ -54,19 +54,30 @@ class MapItems {
 
   List<MapItem> findItemsByQuery(String query) {
     query = query.toLowerCase();
-    Map<MapItem, double> similarityMap = <MapItem, double>{};
 
-    mapItems.forEach(
-      (item) {
-        var similarity = item.name.similarityTo(query);
-
-        if (similarity > 0) {
-          similarityMap[item] = similarity;
-        }
-      },
+    RegExp regExp = new RegExp(
+      r"(^[1-9][0-9]*)",
+      caseSensitive: false,
+      multiLine: false,
     );
-    List<MapItem> items = (similarityMap.keys.toList());
-    items.sort((a, b) => similarityMap[a].compareTo(similarityMap[b]) * -1);
-    return items;
+    if (regExp.hasMatch(query)) {
+      return mapItems
+          .where((item) => item.id.toString().contains(query))
+          .toList();
+    } else {
+      Map<MapItem, double> similarityMap = <MapItem, double>{};
+      mapItems.forEach(
+        (item) {
+          var similarity = item.name.toLowerCase().similarityTo(query);
+
+          if (similarity > 0) {
+            similarityMap[item] = similarity;
+          }
+        },
+      );
+      List<MapItem> items = (similarityMap.keys.toList());
+      items.sort((a, b) => similarityMap[a].compareTo(similarityMap[b]) * -1);
+      return items;
+    }
   }
 }
