@@ -12,11 +12,11 @@ class InfoCardDialog extends StatelessWidget {
   final ServiceButtonsRow servicesRow;
   final String photoPath;
   final MapItemType mapItemType;
-  final Text buildingDescription;
-  final List<Image> buildingGallery;
+  final Text mapItemDescription;
+  final List<Image> mapItemGallery;
   final List<Widget> otherCategories;
   final Widget facultyTile;
-  final String buildingWebsite;
+  final String mapItemWebsite;
 
   InfoCardDialog({
     this.header,
@@ -24,11 +24,11 @@ class InfoCardDialog extends StatelessWidget {
     this.servicesRow,
     this.photoPath,
     this.mapItemType,
-    this.buildingDescription,
-    this.buildingGallery,
+    this.mapItemDescription,
+    this.mapItemGallery,
     this.otherCategories,
     this.facultyTile,
-    this.buildingWebsite,
+    this.mapItemWebsite,
   });
 
   @override
@@ -51,7 +51,7 @@ class InfoCardDialog extends StatelessWidget {
 
     children.add(_mapItemImage());
     children.add(_mapItemDescription());
-    children.add(_buildingUrlWidget());
+    children.add(_mapItemUrlWidget());
     children.add(_subcategoriesDisplay(context));
     children.add(_divider());
 
@@ -95,14 +95,14 @@ class InfoCardDialog extends StatelessWidget {
     }
 
     Widget coverImage;
-    if (buildingGallery.isEmpty) {
+    if (mapItemGallery.isEmpty) {
       coverImage = Center();
     } else {
       coverImage = Align(
         alignment: FractionalOffset.bottomRight,
         child: Padding(
           padding: EdgeInsets.only(right: 5),
-          child: GalleryButton(buildingGallery),
+          child: GalleryButton(mapItemGallery),
         ),
       );
     }
@@ -120,27 +120,27 @@ class InfoCardDialog extends StatelessWidget {
   }
 
   Widget _mapItemDescription() {
-    if (buildingDescription == null) {
+    if (mapItemDescription == null) {
       return Center();
     }
 
     return Container(
-      child: buildingDescription,
+      child: mapItemDescription,
       width: 350.0,
       padding: EdgeInsets.all(20),
     );
   }
 
-  Widget _buildingUrlWidget() {
-    Future<void> _goToBuildingURL() async {
-      if (await canLaunch(buildingWebsite)) {
-        await launch(buildingWebsite);
+  Widget _mapItemUrlWidget() {
+    Future<void> _goToMapItemURL() async {
+      if (await canLaunch(mapItemWebsite)) {
+        await launch(mapItemWebsite);
       } else {
-        throw 'Could not launch ' + buildingWebsite;
+        throw 'Could not launch ' + mapItemWebsite;
       }
     }
 
-    if (buildingWebsite == null) {
+    if (mapItemWebsite == null) {
       return Center();
     }
     return Column(
@@ -157,9 +157,9 @@ class InfoCardDialog extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(top: 5),
           child: GestureDetector(
-            onTap: _goToBuildingURL,
+            onTap: _goToMapItemURL,
             child: Text(
-              buildingWebsite,
+              mapItemWebsite,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.blue,
