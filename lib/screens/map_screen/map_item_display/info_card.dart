@@ -51,7 +51,7 @@ class InfoCardDialog extends StatelessWidget {
 
     children.add(_mapItemImage());
     children.add(_mapItemDescription());
-    children.add(_buioldingUrlWidget());
+    children.add(_buildingUrlWidget());
     children.add(_subcategoriesDisplay(context));
     children.add(_divider());
 
@@ -131,7 +131,7 @@ class InfoCardDialog extends StatelessWidget {
     );
   }
 
-  Widget _buioldingUrlWidget() {
+  Widget _buildingUrlWidget() {
     Future<void> _goToBuildingURL() async {
       if (await canLaunch(buildingWebsite)) {
         await launch(buildingWebsite);
@@ -143,16 +143,34 @@ class InfoCardDialog extends StatelessWidget {
     if (buildingWebsite == null) {
       return Center();
     }
-    return Padding(
-      padding: EdgeInsets.only(top: 5),
-      child: GestureDetector(
-        onTap: _goToBuildingURL,
-        child: Text(
+    return Column(
+      children: [
+        Text(
           LocaleKeys.website.tr(),
           textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.blue),
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 16,
+            fontFamily: 'SGGWSans',
+          ),
         ),
-      ),
+        Padding(
+          padding: EdgeInsets.only(top: 5),
+          child: GestureDetector(
+            onTap: _goToBuildingURL,
+            child: Text(
+              buildingWebsite,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.blue,
+                fontWeight: FontWeight.w500,
+                fontSize: 16,
+                fontFamily: 'SGGWSans',
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 
