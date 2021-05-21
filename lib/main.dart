@@ -22,6 +22,7 @@ Future<void> main() async {
       jsonDecode(await VisitedItems.getJsonSting());
   final visitedItems = VisitedItems.fromJson(visitedItemsMap);
   visitedItems.mapItems = mapItems;
+  mapItems.generateFuzzyStringSetForMapItems();
 
   runApp(
     EasyLocalization(

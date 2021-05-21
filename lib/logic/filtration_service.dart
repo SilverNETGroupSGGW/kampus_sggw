@@ -54,18 +54,14 @@ class FiltrationService {
     }
   }
 
-  void _suggestSearches(String query) {
-    List<MapItem> suggestedItems = mapItems.findItemsByQuery(query);
-    // TODO : reduce number of suggested items to 6!
-    Set<String> suggestedItemsNames = suggestedItems.map((e) => e.name).toSet();
-    _searchSuggestionEvent.trigger(param: suggestedItemsNames);
-  }
+  void _suggestSearches(String query) =>
+      _searchSuggestionEvent.trigger(param: mapItems.findItemsByQuery(query));
 
   void _finalQuerySearch(String query) {
     MapItem queriedItem = mapItems.findItemByQuery(query);
     if (queriedItem != null) {
-      _manageSearchHistoryEvent.trigger(param: query);
-      _triggerInteractiveMap(query, [queriedItem]);
+      _manageSearchHistoryEvent.trigger(param: queriedItem.name);
+      _triggerInteractiveMap(queriedItem.name, [queriedItem]);
     } else {
       onNoItemFound();
     }
