@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:kampus_sggw/screens/map_screen/settings_card.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 
 class SideDrawer extends StatelessWidget {
@@ -30,8 +31,14 @@ class SideDrawer extends StatelessWidget {
               LocaleKeys.drawer_campus_rules.tr(),
               style: Theme.of(context).textTheme.subtitle2,
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SettingsCard()),
+              );
+            },
           ),
+
         ],
       ),
     );
