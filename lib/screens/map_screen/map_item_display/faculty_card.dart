@@ -129,8 +129,11 @@ class FacultyCard extends StatelessWidget {
         ),
         for (var i = 0; i < category.subCategories[0].subCategories.length; i++)
           Padding(
-            padding: EdgeInsets.only(left: 0, bottom: 5),
-            child: Text(category.subCategories[0].subCategories[i].name),
+            padding: EdgeInsets.only(left: 10, bottom: 5, right: 10),
+            child: Text(
+              category.subCategories[0].subCategories[i].name,
+              textAlign: TextAlign.center,
+            ),
           )
       ],
     );
