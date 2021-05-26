@@ -21,7 +21,9 @@ class ServiceCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SimpleDialog(
-        title: Text(service.name, style: Theme.of(context).textTheme.subtitle1),
+        title: Text(service.name,
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.subtitle1),
         children: _dialogChildren(context),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(18.0),
@@ -49,7 +51,10 @@ class ServiceCard extends StatelessWidget {
           right: 22,
           top: 5,
         ),
-        child: Text(service.description),
+        child: Text(
+          service.description,
+          textAlign: TextAlign.center,
+        ),
       ));
     }
     if (service.url != null) {
@@ -74,35 +79,31 @@ class ServiceCard extends StatelessWidget {
   }
 
   Widget _serviceUrlWidget(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 22, right: 22, bottom: 8.0),
-      child: GestureDetector(
-        onTap: _goToServiceURL,
-        child: RichText(
-          text: TextSpan(
-            children: [
-              WidgetSpan(
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 4.0),
-                  child: Icon(
-                    Icons.language,
-                    size: 20,
-                    color: Colors.blue,
-                  ),
-                ),
-              ),
-              TextSpan(
-                text: LocaleKeys.website.tr(),
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.blue,
-                  decoration: TextDecoration.underline,
-                ),
-              ),
-            ],
+    return Column(children: [
+      Divider(
+        color: Colors.grey[800],
+        thickness: 1.5,
+        indent: 12.0,
+        endIndent: 12.0,
+      ),
+      Padding(
+        padding: EdgeInsets.only(top: 5),
+        child: Text(
+          LocaleKeys.website.tr(),
+          textAlign: TextAlign.center,
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.only(top: 5),
+        child: GestureDetector(
+          onTap: _goToServiceURL,
+          child: Text(
+            service.url,
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.blue),
           ),
         ),
       ),
-    );
+    ]);
   }
 }
