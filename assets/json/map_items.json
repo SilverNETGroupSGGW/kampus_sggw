@@ -731,24 +731,116 @@
             {
               "name" : "IIT",
               "description" : "Instytut Informatyki Technicznej",
-              "url" : "https://www.iit.sggw.pl/"
-            }
-          ]
-        },
-        {
-          "name": "departments",
-          "subCategories": [
-            {
-              "name": "Katedra Systemów Informatycznych"
+              "url" : "https://www.iit.sggw.pl/",
+              "subCategories":[
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Systemów Informatycznych"
+                    },
+                    {
+                      "name": "Katedra Sztucznej Inteligencji"
+                    },
+                    {
+                      "name": "Katedra Zastosowań Matematyki"
+                    },
+                    {
+                      "name": "Laboratorium Komputerowe"
+                    }
+                  ]
+                }
+              ]
             },
             {
-              "name": "Katedra Sztucznej Inteligencji"
+              "name" : "IEiF",
+              "description" : "Instytut Ekonomii i Finansów",
+              "url" : "https://www.ieif.sggw.pl/",
+              "subCategories":[
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Ekonomii i Polityki Gospodarczej"
+                    },
+                    {
+                      "name": "Katedra Ekonomii Międzynarodowej i Agrobiznesu"
+                    },
+                    {
+                      "name": "Katedra Ekonometrii i Statystyki"
+                    },
+                    {
+                      "name": "Katedra Ekonomiki i Organizacji Przedsiębiorstw"
+                    },
+                    {
+                      "name": "Katedra Polityki Rozwoju i Marketingu"
+                    },
+                    {
+                      "name": "Katedra Turystyki, Komunikowania Społecznego i Doradztwa"
+                    },
+                    {
+                      "name": "Katedra Logistyki"
+                    },
+                    {
+                      "name": "Katedra Finansów"
+                    }
+                  ]
+                }
+              ]
             },
             {
-              "name": "Katedra Zastosowań Matematyki"
+              "name" : "INL",
+              "description" : "Instytut Nauk Leśnych",
+              "url" : "http://wl.sggw.pl/science",
+              "subCategories":[
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Hodowli Lasu"
+                    },
+                    {
+                      "name": "Katedra Ochrony Lasu"
+                    },
+                    {
+                      "name": "Katedra Urządzania Lasu, Dendrometrii i Ekonomiki Leśnictwa"
+                    },
+                    {
+                      "name": "Katedra Użytkowania Lasu"
+                    },
+                    {
+                      "name": "Samodzielny Zakład Botaniki Leśnej"
+                    },
+                    {
+                      "name": "Samodzielny Zakład Geomatyki i Gospodarki Przestrzennej"
+                    },
+                    {
+                      "name": "Samodzielny Zakład Zoologii Leśnej i Łowiectwa"
+                    }
+                  ]
+                }
+              ]
             },
             {
-              "name": "Laboratorium Komputerowe"
+              "name" : "INDiM",
+              "description" : "Instytut Nauk Drzewnych i Meblarstwa",
+              "url" : "http://www.indm.sggw.pl/",
+              "subCategories":[
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Mechanicznej Obróbki Drewna"
+                    },
+                    {
+                      "name": "Katedra Nauki o Drewnie i Ochrony Drewna"
+                    },
+                    {
+                      "name": "Katedra Technologii i Przedsiębiorczości w Przemyśle Drzewnym"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
