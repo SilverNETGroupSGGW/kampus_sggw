@@ -21,9 +21,11 @@ class ServiceCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SimpleDialog(
-        title: Text(service.name,
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.subtitle1),
+        title: Text(
+          service.name,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.subtitle1,
+        ),
         children: _dialogChildren(context),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(18.0),
@@ -79,31 +81,33 @@ class ServiceCard extends StatelessWidget {
   }
 
   Widget _serviceUrlWidget(BuildContext context) {
-    return Column(children: [
-      Divider(
-        color: Colors.grey[800],
-        thickness: 1.5,
-        indent: 12.0,
-        endIndent: 12.0,
-      ),
-      Padding(
-        padding: EdgeInsets.only(top: 5),
-        child: Text(
-          LocaleKeys.website.tr(),
-          textAlign: TextAlign.center,
+    return Column(
+      children: [
+        Divider(
+          color: Colors.grey[800],
+          thickness: 1.5,
+          indent: 12.0,
+          endIndent: 12.0,
         ),
-      ),
-      Padding(
-        padding: EdgeInsets.only(top: 5),
-        child: GestureDetector(
-          onTap: _goToServiceURL,
+        Padding(
+          padding: EdgeInsets.only(top: 5),
           child: Text(
-            service.url,
+            LocaleKeys.website.tr(),
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.blue),
           ),
         ),
-      ),
-    ]);
+        Padding(
+          padding: EdgeInsets.only(top: 5),
+          child: GestureDetector(
+            onTap: _goToServiceURL,
+            child: Text(
+              service.url,
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.blue),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
