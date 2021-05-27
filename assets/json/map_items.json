@@ -32,11 +32,33 @@
         "lon": 21.047062503937646
       },
       "name": "Budynek 3",
-      "description": "Centrum Innowacji i Transferu Wiedzy w Agrobiznesie",
+      "description": "Centrum Innowacji i Transferu Wiedzy w Agrobiznesie, Katedra Logistyki",
       "url": "http://innowacje.sggw.pl/",
-      "type": "administrationBuilding",
+      "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19"
+      "lastModified": "2021-05-27",
+      "categories": [
+        {
+          "name": "institutes",
+          "subCategories": [
+            {
+              "name": "IEIF",
+              "description": "Instytut Ekonomii i Finansów",
+              "url": "https://www.ieif.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Logistyki"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 4,
@@ -51,12 +73,35 @@
       "lastModified": "2021-05-19",
       "categories": [
         {
-          "name":"faculties",
+          "name": "faculties",
           "subCategories": [
             {
-            "name": "WSiP",
-            "url": "https://wsip.sggw.pl",
-            "description": "Wydział Socjologii i Pedagogiki"
+              "name": "WSiP",
+              "url": "https://wsip.sggw.pl",
+              "description": "Wydział Socjologii i Pedagogiki"
+            }
+          ]
+        },
+        {
+          "name": "institutes",
+          "subCategories": [
+            {
+              "name": "INSIP",
+              "description": "Instytut Nauk Socjologicznych i Pedagogiki",
+              "url": "https://insip.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Socjologii"
+                    },
+                    {
+                      "name": "Katedra Pedagogiki"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -111,12 +156,12 @@
       ],
       "categories": [
         {
-          "name":"institutes",
+          "name": "institutes",
           "subCategories": [
             {
-            "name": "IEIF",
-            "url": "https://www.ieif.sggw.pl/",
-            "description": "Instytut Ekonomii i Finansów"
+              "name": "IEIF",
+              "url": "https://www.ieif.sggw.pl/",
+              "description": "Instytut Ekonomii i Finansów"
             }
           ]
         }
@@ -150,7 +195,7 @@
       "id": 10,
       "geoLocation": {
         "lat": 52.1633783689352,
-        "lon": 21.04786574512511   
+        "lon": 21.04786574512511
       },
       "name": "Budynek 10",
       "description": "Administracja Uczelni, Biuro Spraw Osobowych, Biuro Promocji, Biuro Karier i Monitorowania Losów Absolwentów, Agendy Studenckie, Sekcja Zamówień Publicznych, Uniwersytet Trzeciego Wieku",
@@ -231,12 +276,12 @@
       "lastModified": "2021-05-19",
       "categories": [
         {
-          "name":"faculties",
+          "name": "faculties",
           "subCategories": [
             {
-            "name": "WIP",
-            "url": "http://wip.sggw.pl/pl/",
-            "description": "Wydział Inżynierii Produkcji"
+              "name": "WIP",
+              "url": "http://wip.sggw.pl/pl/",
+              "description": "Wydział Inżynierii Produkcji"
             }
           ]
         }
@@ -246,7 +291,7 @@
       "id": 18,
       "geoLocation": {
         "lat": 52.160607279462305,
-        "lon": 21.05234784822003 
+        "lon": 21.05234784822003
       },
       "name": "Budynek 18",
       "description": "Budynek WIP",
@@ -255,12 +300,12 @@
       "lastModified": "2021-05-19",
       "categories": [
         {
-          "name":"faculties",
+          "name": "faculties",
           "subCategories": [
             {
-            "name": "WIP",
-            "url": "http://wip.sggw.pl/pl/",
-            "description": "Wydział Inżynierii Produkcji"
+              "name": "WIP",
+              "url": "http://wip.sggw.pl/pl/",
+              "description": "Wydział Inżynierii Produkcji"
             }
           ]
         }
@@ -279,12 +324,12 @@
       "lastModified": "2021-05-19",
       "categories": [
         {
-          "name":"faculties",
+          "name": "faculties",
           "subCategories": [
             {
-            "name": "WIP",
-            "url": "http://wip.sggw.pl/pl/",
-            "description": "Wydział Inżynierii Produkcji"
+              "name": "WIP",
+              "url": "http://wip.sggw.pl/pl/",
+              "description": "Wydział Inżynierii Produkcji"
             }
           ]
         }
@@ -294,7 +339,7 @@
       "id": 20,
       "geoLocation": {
         "lat": 52.1606895494588,
-        "lon": 21.053715774840466 
+        "lon": 21.053715774840466
       },
       "name": "Budynek 20",
       "description": "Hala Maszyn Wydziału Inżynierii Produkcji, Stacja Kontroli Pojazdów",
@@ -306,7 +351,7 @@
       "id": 21,
       "geoLocation": {
         "lat": 52.16016301882074,
-        "lon": 21.051779219903015   
+        "lon": 21.051779219903015
       },
       "name": "Budynek 21",
       "description": "Budynek WIP",
@@ -315,12 +360,12 @@
       "lastModified": "2021-05-19",
       "categories": [
         {
-          "name":"faculties",
+          "name": "faculties",
           "subCategories": [
             {
-            "name": "WIP",
-            "url": "http://wip.sggw.pl/pl/",
-            "description": "Wydział Inżynierii Produkcji"
+              "name": "WIP",
+              "url": "http://wip.sggw.pl/pl/",
+              "description": "Wydział Inżynierii Produkcji"
             }
           ]
         }
@@ -341,12 +386,12 @@
       "lastModified": "2021-05-20",
       "categories": [
         {
-          "name":"faculties",
+          "name": "faculties",
           "subCategories": [
             {
-            "name": "WMW",
-            "url": "http://wmw.sggw.pl",
-            "description": "Wydział Medycyny Weterynaryjnej"
+              "name": "WMW",
+              "url": "http://wmw.sggw.pl",
+              "description": "Wydział Medycyny Weterynaryjnej"
             }
           ]
         }
@@ -373,12 +418,12 @@
       ],
       "categories": [
         {
-          "name":"faculties",
+          "name": "faculties",
           "subCategories": [
             {
-            "name": "WMW",
-            "url": "http://wmw.sggw.pl",
-            "description": "Wydział Medycyny Weterynaryjnej"
+              "name": "WMW",
+              "url": "http://wmw.sggw.pl",
+              "description": "Wydział Medycyny Weterynaryjnej"
             },
             {
               "name": "WHBiOZ",
@@ -418,20 +463,20 @@
       ],
       "categories": [
         {
-          "name":"faculties",
+          "name": "faculties",
           "subCategories": [
             {
-            "name": "WMW",
-            "url": "http://wmw.sggw.pl",
-            "description": "Wydział Medycyny Weterynaryjnej",
-            "services": [
-              {
-                "name": "Dziekanat WMW",
-                "type": "deanery",
-                "description": "Pokój 79",
-                "url": "http://wmw.sggw.pl/category/dziekanat/"
-              }
-            ]
+              "name": "WMW",
+              "url": "http://wmw.sggw.pl",
+              "description": "Wydział Medycyny Weterynaryjnej",
+              "services": [
+                {
+                  "name": "Dziekanat WMW",
+                  "type": "deanery",
+                  "description": "Pokój 79",
+                  "url": "http://wmw.sggw.pl/category/dziekanat/"
+                }
+              ]
             }
           ]
         }
@@ -451,12 +496,12 @@
       "lastModified": "2021-05-20",
       "categories": [
         {
-          "name":"faculties",
+          "name": "faculties",
           "subCategories": [
             {
-            "name": "WHBiOZ",
-            "url": "https://animal.sggw.pl",
-            "description": "Wydział Hodowli, Bioinżynierii i Ochrony Zwierząt"
+              "name": "WHBiOZ",
+              "url": "https://animal.sggw.pl",
+              "description": "Wydział Hodowli, Bioinżynierii i Ochrony Zwierząt"
             }
           ]
         }
@@ -506,14 +551,14 @@
       "name": "Budynek 28",
       "description": "Centrum Językowo-Sportowe (SPNJO)",
       "type": "facultyBuilding",
-      "url" : "http://jezyki.sggw.pl/",
+      "url": "http://jezyki.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-20",
       "categories": [
         {
           "name": "faculties",
-          "subCategories":[
+          "subCategories": [
             {
               "name": "SPNJO",
               "description": "Studium Praktycznej Nauki Języków Obcych",
@@ -528,7 +573,6 @@
               ]
             }
           ]
-
         }
       ]
     },
@@ -565,7 +609,7 @@
         "lon": 21.04476
       },
       "name": "Budynek 32",
-      "description" : "Budynek WŻC i WTŻ",
+      "description": "Budynek WŻC i WTŻ",
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
@@ -695,7 +739,6 @@
                   "url": "http://student.wzim.sggw.pl/"
                 }
               ]
-              
             },
             {
               "name": "WL",
@@ -705,8 +748,8 @@
                 {
                   "name": "Dziekanat WL",
                   "type": "deanery",
-                  "description" : "Pokój 0/7, 0/8 i 0/9",
-                  "url" : "http://wl.sggw.pl/dziekanat"
+                  "description": "Pokój 0/7, 0/8 i 0/9",
+                  "url": "http://wl.sggw.pl/dziekanat"
                 }
               ]
             },
@@ -719,20 +762,20 @@
                   "name": "Dziekanat WTD",
                   "type": "deanery",
                   "description": "Pokój 1/19 i 1/20",
-                  "url" : "http://wtd.sggw.pl/Content/dziekana"
+                  "url": "http://wtd.sggw.pl/Content/dziekana"
                 }
               ]
             }
           ]
         },
         {
-          "name" : "institutes",
-          "subCategories" : [
+          "name": "institutes",
+          "subCategories": [
             {
-              "name" : "IIT",
-              "description" : "Instytut Informatyki Technicznej",
-              "url" : "https://www.iit.sggw.pl/",
-              "subCategories":[
+              "name": "IIT",
+              "description": "Instytut Informatyki Technicznej",
+              "url": "https://www.iit.sggw.pl/",
+              "subCategories": [
                 {
                   "name": "departments",
                   "subCategories": [
@@ -753,10 +796,10 @@
               ]
             },
             {
-              "name" : "IEiF",
-              "description" : "Instytut Ekonomii i Finansów",
-              "url" : "https://www.ieif.sggw.pl/",
-              "subCategories":[
+              "name": "IEiF",
+              "description": "Instytut Ekonomii i Finansów",
+              "url": "https://www.ieif.sggw.pl/",
+              "subCategories": [
                 {
                   "name": "departments",
                   "subCategories": [
@@ -789,10 +832,10 @@
               ]
             },
             {
-              "name" : "INL",
-              "description" : "Instytut Nauk Leśnych",
-              "url" : "http://wl.sggw.pl/science",
-              "subCategories":[
+              "name": "INL",
+              "description": "Instytut Nauk Leśnych",
+              "url": "http://wl.sggw.pl/science",
+              "subCategories": [
                 {
                   "name": "departments",
                   "subCategories": [
@@ -822,10 +865,10 @@
               ]
             },
             {
-              "name" : "INDiM",
-              "description" : "Instytut Nauk Drzewnych i Meblarstwa",
-              "url" : "http://www.indm.sggw.pl/",
-              "subCategories":[
+              "name": "INDiM",
+              "description": "Instytut Nauk Drzewnych i Meblarstwa",
+              "url": "http://www.indm.sggw.pl/",
+              "subCategories": [
                 {
                   "name": "departments",
                   "subCategories": [
@@ -873,12 +916,12 @@
               "name": "WOiB",
               "description": "Wydział Ogrodnictwa i Bioinżynierii",
               "url": "http://wobiak.sggw.pl/",
-              "services" :[
+              "services": [
                 {
                   "name": "Dziekanat WOiB",
                   "type": "deanery",
                   "description": "Pokój 2",
-                  "url" : "http://wobiak.sggw.pl/wydzial/kontakt/"
+                  "url": "http://wobiak.sggw.pl/wydzial/kontakt/"
                 }
               ]
             }
@@ -913,12 +956,12 @@
               "name": "WOiB",
               "description": "Wydział Ogrodnictwa i Bioinżynierii",
               "url": "http://wobiak.sggw.pl/",
-              "services" :[
+              "services": [
                 {
                   "name": "Dziekanat WOiB",
                   "type": "deanery",
                   "description": "Pokój 0/63 i 0/65",
-                  "url" : "http://wobiak.sggw.pl/wydzial/kontakt/"
+                  "url": "http://wobiak.sggw.pl/wydzial/kontakt/"
                 }
               ]
             },
@@ -926,12 +969,12 @@
               "name": "WRiB",
               "description": "Wydział Rolnictwa i Biologii",
               "url": "http://wrib.sggw.pl/",
-              "services" :[
+              "services": [
                 {
                   "name": "Dziekanat WRiB",
                   "type": "deanery",
                   "description": "Pokój 0/9, 0/10, 0/109 i 0/110",
-                  "url" : "http://wrib.sggw.pl/2015-01-03-16-11-33/dziekanat"
+                  "url": "http://wrib.sggw.pl/2015-01-03-16-11-33/dziekanat"
                 }
               ]
             }
@@ -1015,7 +1058,6 @@
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-20"
-      
     },
     {
       "id": 43,
@@ -1137,7 +1179,7 @@
       "id": 50,
       "geoLocation": {
         "lat": 52.16265575726116,
-        "lon": 21.052768955050894    
+        "lon": 21.052768955050894
       },
       "name": "Byliniarnia SGGW",
       "description": "Ogród Bylinowy",
@@ -1193,14 +1235,14 @@
       "name": "Budynek 28",
       "description": "Centrum Językowo-Sportowe (SWFiS)",
       "type": "sportsFacility",
-      "url" : "http://swfs.sggw.pl/",
+      "url": "http://swfs.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-20",
       "categories": [
         {
           "name": "faculties",
-          "subCategories":[
+          "subCategories": [
             {
               "name": "SWFiS",
               "description": "Studium Wychowania Fizycznego i Sportu",
