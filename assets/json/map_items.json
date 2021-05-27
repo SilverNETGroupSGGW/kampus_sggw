@@ -32,12 +32,22 @@
         "lon": 21.047062503937646
       },
       "name": "Budynek 3",
-      "description": "Centrum Innowacji i Transferu Wiedzy w Agrobiznesie, Katedra Logistyki",
+      "description": "Budynek WNE, Centrum Innowacji i Transferu Wiedzy w Agrobiznesie",
       "url": "http://innowacje.sggw.pl/",
       "type": "facultyBuilding",
       "minScale": 1.0,
       "lastModified": "2021-05-27",
       "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WNE",
+              "url": "http://www.wne.sggw.pl/",
+              "description": "Wydział Nauk Ekonomicznych"
+            }
+          ]
+        },
         {
           "name": "institutes",
           "subCategories": [
@@ -70,7 +80,7 @@
       "description": "Budynek WSiP",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19",
+      "lastModified": "2021-05-27",
       "categories": [
         {
           "name": "faculties",
@@ -114,11 +124,45 @@
         "lon": 21.04838811410134
       },
       "name": "Budynek 5",
-      "description": "Katedra Ekonomii i Polityki Gospodarczej",
+      "description": "Budynek WNE",
       "type": "facultyBuilding",
-      "url": "http://keipg.ieif.sggw.pl/",
       "minScale": 1.0,
-      "lastModified": "2021-05-19"
+      "lastModified": "2021-05-27",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WNE",
+              "url": "http://www.wne.sggw.pl/",
+              "description": "Wydział Nauk Ekonomicznych"
+            }
+          ]
+        },
+        {
+          "name": "institutes",
+          "subCategories": [
+            {
+              "name": "IEIF",
+              "description": "Instytut Ekonomii i Finansów",
+              "url": "https://www.ieif.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Ekonomii i Polityki Gospodarczej"
+                    },
+                    {
+                      "name": "Katedra Ekonomii Międzynarodowej i Agrobiznesu"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 6,
@@ -127,10 +171,45 @@
         "lon": 21.04782417089825
       },
       "name": "Budynek 6",
-      "description": "Katedra Polityki Europejskiej, Finansów Publicznych i Marketingu",
+      "description": "Budynek WNE",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19"
+      "lastModified": "2021-05-27",
+      "categories":[
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WNE",
+              "url": "http://www.wne.sggw.pl/",
+              "description": "Wydział Nauk Ekonomicznych"
+            }
+          ]
+        },
+        {
+          "name":"institutes",
+          "subCategories":[
+            {
+              "name": "IEIF",
+              "description": "Instytut Ekonomii i Finansów",
+              "url": "https://www.ieif.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Polityki Rozwoju i Marketingu"
+                    },
+                    {
+                      "name": "Katedra Turystyki, Komunikowania Społecznego i Doradztwa"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 7,
@@ -139,11 +218,10 @@
         "lon": 21.049020436140445
       },
       "name": "Budynek 7",
-      "description": "Katedra Ekonomiki i Organizacji Przedsiębiorstw",
+      "description": "Budynek WNE",
       "type": "facultyBuilding",
-      "url": "http://keiop.ieif.sggw.pl/",
       "minScale": 1.0,
-      "lastModified": "2021-05-19",
+      "lastModified": "2021-05-27",
       "services": [
         {
           "name": "Drukarnia/ksero",
@@ -156,12 +234,35 @@
       ],
       "categories": [
         {
-          "name": "institutes",
+          "name": "faculties",
           "subCategories": [
             {
+              "name": "WNE",
+              "url": "http://www.wne.sggw.pl/",
+              "description": "Wydział Nauk Ekonomicznych"
+            }
+          ]
+        },
+        {
+          "name":"institutes",
+          "subCategories":[
+            {
               "name": "IEIF",
+              "description": "Instytut Ekonomii i Finansów",
               "url": "https://www.ieif.sggw.pl/",
-              "description": "Instytut Ekonomii i Finansów"
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Finansów"
+                    },
+                    {
+                      "name": "Katedra Ekonomiki i Organizacji Przedsiębiorstw"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -273,7 +374,7 @@
       "description": "Budynek WIP",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19",
+      "lastModified": "2021-05-27",
       "categories": [
         {
           "name": "faculties",
@@ -282,6 +383,25 @@
               "name": "WIP",
               "url": "http://wip.sggw.pl/pl/",
               "description": "Wydział Inżynierii Produkcji"
+            }
+          ]
+        },
+        {
+          "name":"institutes",
+          "subCategories":[
+            {
+              "name": "IIM",
+              "description": "Instytut Inżynierii Mechanicznej",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Inżynierii Produkcji"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -297,7 +417,7 @@
       "description": "Budynek WIP",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19",
+      "lastModified": "2021-05-27",
       "categories": [
         {
           "name": "faculties",
@@ -306,6 +426,25 @@
               "name": "WIP",
               "url": "http://wip.sggw.pl/pl/",
               "description": "Wydział Inżynierii Produkcji"
+            }
+          ]
+        },
+        {
+          "name":"institutes",
+          "subCategories":[
+            {
+              "name": "IIM",
+              "description": "Instytut Inżynierii Mechanicznej",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Inżynierii Biosystemów"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -321,7 +460,7 @@
       "description": "Budynek WIP",
       "type": "facultyBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19",
+      "lastModified": "2021-05-27",
       "categories": [
         {
           "name": "faculties",
@@ -330,6 +469,25 @@
               "name": "WIP",
               "url": "http://wip.sggw.pl/pl/",
               "description": "Wydział Inżynierii Produkcji"
+            }
+          ]
+        },
+        {
+          "name":"institutes",
+          "subCategories":[
+            {
+              "name": "IIM",
+              "description": "Instytut Inżynierii Mechanicznej",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Podstaw Inżynierii i Energetyki"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
