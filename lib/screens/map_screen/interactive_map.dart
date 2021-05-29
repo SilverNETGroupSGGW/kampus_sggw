@@ -63,23 +63,23 @@ class _InteractiveMapState extends State<InteractiveMap> {
   initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       facultyMarker = await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(1, 1)),
+          ImageConfiguration(size: Size(30, 45)),
           'assets/images/icons/facultyMarker.png');
 
       sportMarker = await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(1, 1)),
+          ImageConfiguration(size: Size(30, 45)),
           'assets/images/icons/sportMarker.png');
 
       otherMarker = await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(1, 1)),
+          ImageConfiguration(size: Size(30, 45)),
           'assets/images/icons/otherMarker.png');
 
       administrationMarker = await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(1, 1)),
+          ImageConfiguration(size: Size(30, 45)),
           'assets/images/icons/administrationMarker.png');
 
       hotelMarker = await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(1, 1)),
+          ImageConfiguration(size: Size(30, 45)),
           'assets/images/icons/hotelMarker.png');
       setState(() {});
 
