@@ -306,7 +306,19 @@
       "description": "Administracja Uczelni, Biuro Spraw Osobowych, Biuro Promocji, Biuro Karier i Monitorowania Losów Absolwentów, Agendy Studenckie, Sekcja Zamówień Publicznych, Uniwersytet Trzeciego Wieku",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19"
+      "lastModified": "2021-05-29",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "UO",
+              "url": "https://uo.sggw.pl/pl/",
+              "description": "Uniwersytet Otwarty SGGW"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 11,
@@ -1531,7 +1543,7 @@
         "lon": 21.03912
       },
       "name": "Dom studencki 'Limba'",
-      "description": "Dom studencki 'Limba'",
+      "description": "Dom studencki 'Limba', Administracja Domów i Stołówek Studenckich",
       "type": "dormitories",
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
@@ -1662,14 +1674,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-29",
-      "services": [
-        {
-          "name": "Stołówka",
-          "type": "canteen",
-          "description": "Stołówka Dendryt"
-        }
-      ]
+      "lastModified": "2021-05-29"
     },
     {
       "id": 48,
@@ -1904,6 +1909,34 @@
       "lastModified": "2021-05-29"
     },
     {
+      "id": 77,
+      "geoLocation": {
+        "lat": 52.16350,
+        "lon": 21.04269
+      },
+      "name": "Orkiestra Reprezentacyjna SGGW",
+      "description": "Orkiestra Reprezentacyjna SGGW w przybudówkce DS Adara",
+      "type": "facultyBuilding",
+      "url": "http://orkiestra.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 78,
+      "geoLocation": {
+        "lat": 52.16349,
+        "lon": 21.04184
+      },
+      "name": "Centrum Samorządowca SGGW",
+      "description": "Centrum Samorządowca SGGW w przybudówkce DS Feniks",
+      "type": "facultyBuilding",
+      "url": "https://www.facebook.com/RussSGGW/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
       "id": 98,
       "geoLocation": {
         "lat": 52.15736,
@@ -1938,6 +1971,61 @@
       ]
     },
     {
+      "id": 100,
+      "geoLocation": {
+        "lat": 52.16353,
+        "lon": 21.04398
+      },
+      "name": "Sklep spożywczy 'Szopik'",
+      "description": "Sklep spożywczy 'Szopik' w przyziemiu DS Dendryt",
+      "type": "store",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 101,
+      "geoLocation": {
+        "lat": 52.16432,
+        "lon": 21.04540
+      },
+      "name": "Księgarnia PWN",
+      "description": "Księgarnia PWN w budynku BG",
+      "type": "store",
+      "url": "http://warszawa.ksiegarnienaukowe.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 102,
+      "geoLocation": {
+        "lat": 52.16301,
+        "lon": 21.03886
+      },
+      "name": "Sklep Firmowy 'Mlekovita'",
+      "description": "Sklep Firmowy 'Mlekovita'",
+      "type": "store",
+      "url": "https://www.mlekovita.com.pl/pl/nasze-sklepy",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 102,
+      "geoLocation": {
+        "lat": 52.16247,
+        "lon": 21.03957
+      },
+      "name": "Drukarnia 'Polimax'",
+      "description": "Drukarnia 'Polimax'",
+      "type": "store",
+      "url": "https://polimax.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
       "id": 200,
       "geoLocation": {
         "lat": 52.16261,
@@ -1961,6 +2049,90 @@
       "description": "Pizzeria Limba",
       "type": "food",
       "url": "https://www.catering-gastro.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 202,
+      "geoLocation": {
+        "lat": 52.16355,
+        "lon": 21.04356
+      },
+      "name": "Stołówka Dendryt",
+      "description": "Stołówka przy DS Dendryt",
+      "type": "food",
+      "url": "https://www.catering-gastro.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 400,
+      "geoLocation": {
+        "lat": 52.16346,
+        "lon": 21.04391
+      },
+      "name": "Bankomat Euronet",
+      "description": "Bankomat Euronet przy DS Dendryt",
+      "type": "finance",
+      "url": "https://www.euronetpolska.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 401,
+      "geoLocation": {
+        "lat": 52.16397,
+        "lon": 21.04733
+      },
+      "name": "Bankomat Pekao S.A.",
+      "description": "Bankomat Pekao S.A.",
+      "type": "finance",
+      "url": "https://www.pekao.com.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 402,
+      "geoLocation": {
+        "lat": 52.16389,
+        "lon": 21.04739
+      },
+      "name": "Bank Pekao S.A.",
+      "description": "Bank Pekao S.A.",
+      "type": "finance",
+      "url": "https://www.pekao.com.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 403,
+      "geoLocation": {
+        "lat": 52.16402,
+        "lon": 21.04230
+      },
+      "name": "Bankomat Euronet",
+      "description": "Bankomat Euronet przy DS Adara",
+      "type": "finance",
+      "url": "https://www.euronetpolska.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 500,
+      "geoLocation": {
+        "lat": 52.16305,
+        "lon": 21.03878
+      },
+      "name": "Apteka 'Pod Limbą'",
+      "description": "Apteka 'Pod Limbą'",
+      "type": "medicine",
+      "url": "http://www.tanilek.com/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
