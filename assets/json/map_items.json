@@ -739,6 +739,13 @@
               "name": "IMW",
               "description": "Instytut Medycyny Weterynaryjnej",
               "url": "http://wmw.sggw.pl/instytut/pelnomocnicy-dziekana/",
+              "services": [
+                {
+                  "name": "Biblioteka przy IMW",
+                  "type": "library",
+                  "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/weterynaria"
+                }
+              ],
               "subCategories": [
                 {
                   "name": "departments",
@@ -938,6 +945,18 @@
               "name": "INoŻC",
               "description": "Instytut Nauk o Żywieniu Człowieka",
               "url": "http://inzcz.sggw.pl/",
+              "services": [
+                {
+                  "name": "Biblioteka przy INoŻC",
+                  "type": "library",
+                  "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/zywienie"
+                },
+                {
+                  "name": "Poradnia Dietetyczno-Żywieniowa",
+                  "type": "medicine",
+                  "url": "https://poradnia-dietetyczna.portal-tst.sggw.edu.pl/"
+                }
+              ],
               "subCategories": [
                 {
                   "name": "departments",
@@ -1037,6 +1056,13 @@
               "name": "IIL",
               "description": "Instytut Inżynierii Lądowej",
               "url": "http://wbis.sggw.pl/instytuty/instytut-inzynierii-ladowej/",
+              "services": [
+                {
+                  "name": "Biblioteka przy IIL",
+                  "type": "library",
+                  "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/budownictwo"
+                }
+              ],
               "subCategories": [
                 {
                   "name": "departments",
@@ -1061,6 +1087,13 @@
               "name": "IIŚ",
               "description": "Instytut Inżynierii Środowiska",
               "url": "http://wbis.sggw.pl/instytuty/instytut-inzynierii-srodowiska/",
+              "services": [
+                {
+                  "name": "Biblioteka przy IIŚ",
+                  "type": "library",
+                  "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/budownictwo"
+                }
+              ],
               "subCategories": [
                 {
                   "name": "departments",
@@ -1727,6 +1760,148 @@
       "name": "Dąb Jana Pawła II",
       "description": "Dąb Jana Pawła II",
       "type": "monument",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 70,
+      "geoLocation": {
+        "lat": 52.14976,
+        "lon": 21.06280
+      },
+      "name": "Klinika Koni Wolica",
+      "description": "Klinika Koni Wolica",
+      "type": "facultyBuilding",
+      "url": "http://www.klinikakoni.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WMW",
+              "url": "http://wmw.sggw.pl",
+              "description": "Wydział Medycyny Weterynaryjnej"
+            }
+          ]
+        },
+        {
+          "name":"institutes",
+          "subCategories":[
+            {
+              "name": "IMW",
+              "description": "Instytut Medycyny Weterynaryjnej",
+              "url": "http://wmw.sggw.pl/instytut/pelnomocnicy-dziekana/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Chorób Dużych Zwierząt i Klinika"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "geoLocation": {
+        "lat": 52.16141,
+        "lon": 21.04977
+      },
+      "name": "Parking",
+      "description": "Parking bezpłatny niestrzeżony",
+      "type": "parking",
+      "url": "https://www.sggw.edu.pl/strona-glowna/informacje-praktyczne/kampus/dojazd-mapa-rekomendacje-jak-dojechac/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 72,
+      "geoLocation": {
+        "lat": 52.16239,
+        "lon": 21.04399
+      },
+      "name": "Parking",
+      "description": "Parking podziemny płatny strzeżony",
+      "type": "parking",
+      "url": "https://www.sggw.edu.pl/strona-glowna/informacje-praktyczne/kampus/dojazd-mapa-rekomendacje-jak-dojechac/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 73,
+      "geoLocation": {
+        "lat": 52.15792,
+        "lon": 21.04605
+      },
+      "name": "Parking",
+      "description": "Parking płatny niestrzeżony (przy Basenie SGGW)",
+      "type": "parking",
+      "url": "https://www.sggw.edu.pl/strona-glowna/informacje-praktyczne/kampus/dojazd-mapa-rekomendacje-jak-dojechac/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 74,
+      "geoLocation": {
+        "lat": 52.16346,
+        "lon": 21.04097
+      },
+      "name": "Niepubliczne Przedszkole SGGW",
+      "description": "Niepubliczne Przedszkole SGGW",
+      "type": "kindergarten",
+      "url": "https://przedszkole.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 75,
+      "geoLocation": {
+        "lat": 52.16318,
+        "lon": 21.03872
+      },
+      "name": "NZOZ SGGW",
+      "description": "Niepubliczny Zakład Opieki Zdrowotnej SGGW",
+      "type": "medicine",
+      "url": "https://www.sggw.edu.pl/strona-glowna/wspolpraca/uslugi/niepubliczny-zaklad-opieki-zdrowotnej/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 75,
+      "geoLocation": {
+        "lat": 52.16330,
+        "lon": 21.03998
+      },
+      "name": "Boiska",
+      "description": "Boiska",
+      "type": "sportsFacility",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 76,
+      "geoLocation": {
+        "lat": 52.15979,
+        "lon": 21.04320
+      },
+      "name": "Szklarnie",
+      "description": "Szklarnie przy Katedrze Roślin Ozdobnych",
+      "type": "facultyBuilding",
+      "url": "http://kro.sggw.pl/pl/oferta",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
