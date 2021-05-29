@@ -1532,14 +1532,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-29",
-      "services": [
-        {
-          "name": "Stołówka",
-          "type": "canteen",
-          "description": "Stołówka Limba"
-        }
-      ]
+      "lastModified": "2021-05-29"
     },
     {
       "id": 39,
@@ -1939,6 +1932,34 @@
           ]
         }
       ]
+    },
+    {
+      "id": 200,
+      "geoLocation": {
+        "lat": 52.16261,
+        "lon": 21.03950
+      },
+      "name": "Dziekanat 161",
+      "description": "Pub Dziekanat 161",
+      "type": "food",
+      "url": "https://www.facebook.com/Dziekanat161/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 201,
+      "geoLocation": {
+        "lat": 52.16242,
+        "lon": 21.03935
+      },
+      "name": "Pizzeria Limba",
+      "description": "Pizzeria Limba",
+      "type": "food",
+      "url": "https://www.catering-gastro.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
     }
   ]
 }
