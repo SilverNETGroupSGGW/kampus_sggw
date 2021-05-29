@@ -226,10 +226,6 @@
         {
           "name": "Drukarnia/ksero",
           "type": "copier"
-        },
-        {
-          "name": "Dziekanat",
-          "type": "deanery"
         }
       ],
       "categories": [
@@ -239,7 +235,15 @@
             {
               "name": "WNE",
               "url": "http://www.wne.sggw.pl/",
-              "description": "Wydział Nauk Ekonomicznych"
+              "description": "Wydział Nauk Ekonomicznych",
+              "services": [
+                {
+                  "name": "Dziekanat WNE",
+                  "type": "deanery",
+                  "description": "Pokoje 7A, 7B, 7C, 9A, 9B, 10, 11",
+                  "url": "https://www.we.sggw.pl/student/dziekanaty/"
+                }
+              ]
             }
           ]
         },
