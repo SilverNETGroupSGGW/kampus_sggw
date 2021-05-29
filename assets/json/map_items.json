@@ -541,7 +541,7 @@
       "url": "http://www.klinikawet.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20",
+      "lastModified": "2021-05-29",
       "categories": [
         {
           "name": "faculties",
@@ -550,6 +550,32 @@
               "name": "WMW",
               "url": "http://wmw.sggw.pl",
               "description": "Wydział Medycyny Weterynaryjnej"
+            }
+          ]
+        },
+        {
+          "name": "institutes",
+          "subCategories":[
+            {
+              "name": "IMW",
+              "description": "Instytut Medycyny Weterynaryjnej",
+              "url": "http://wmw.sggw.pl/instytut/pelnomocnicy-dziekana/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Patologii i Diagnostyki Weterynaryjnej"
+                    },
+                    {
+                      "name": "Katedra Chorób Małych Zwierząt"
+                    },
+                    {
+                      "name": "Samodzielny Zakład Epidemiologii i Ekonomiki Weterynaryjnej"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -566,7 +592,7 @@
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20",
+      "lastModified": "2021-05-29",
       "services": [
         {
           "name": "Bufet",
@@ -597,6 +623,74 @@
               ]
             }
           ]
+        },
+        {
+          "name": "institutes",
+          "subCategories":[
+            {
+              "name": "IB",
+              "description": "Instytut Biologii",
+              "url": "http://ib.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Nanobiotechnologii"
+                    },
+                    {
+                      "name": "Samodzielna Pracownia Biologii Nowotworu"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "IMW",
+              "description": "Instytut Medycyny Weterynaryjnej",
+              "url": "http://wmw.sggw.pl/instytut/pelnomocnicy-dziekana/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Nauk Przedklinicznych"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "INoZ",
+              "description": "Instytut Nauk o Zwierzętach",
+              "url": "http://animal.sggw.pl/wydzial-2/wladze/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Biologii Środowiska Zwierząt"
+                    },
+                    {
+                      "name": "Katedra Genetyki i Ochrony Zwierząt"
+                    },
+                    {
+                      "name": "Katedra Hodowli Zwierząt"
+                    },
+                    {
+                      "name": "Samodzielny Zakład Ichtiobiologii i Biotechnologii w Akwakulturze"
+                    },
+                    {
+                      "name": "Samodzielna Pracownia Żywienia Zwierząt"
+                    },
+                    {
+                      "name": "Samodzielna Pracownia Pszczelnictwa"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -611,7 +705,7 @@
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20",
+      "lastModified": "2021-05-29",
       "services": [
         {
           "name": "Bufet",
@@ -637,6 +731,32 @@
               ]
             }
           ]
+        },
+        {
+          "name": "institutes",
+          "subCategories":[
+            {
+              "name": "IMW",
+              "description": "Instytut Medycyny Weterynaryjnej",
+              "url": "http://wmw.sggw.pl/instytut/pelnomocnicy-dziekana/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Nauk Morfologicznych"
+                    },
+                    {
+                      "name": "Katedra Higieny Żywności i Ochrony Zdrowia Publicznego"
+                    },
+                    {
+                      "name": "Katedra Nauk Fizjologicznych"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -651,7 +771,7 @@
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20",
+      "lastModified": "2021-05-29",
       "categories": [
         {
           "name": "faculties",
@@ -677,7 +797,7 @@
       "url": "http://obiektysportowe.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20"
+      "lastModified": "2021-05-29"
     },
     {
       "id": 27,
@@ -691,7 +811,7 @@
       "url": "http://obiektysportowe.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20",
+      "lastModified": "2021-05-29",
       "services": [
         {
           "name": "Bufet",
@@ -712,7 +832,7 @@
       "url": "http://jezyki.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20",
+      "lastModified": "2021-05-29",
       "categories": [
         {
           "name": "faculties",
@@ -745,7 +865,7 @@
       "type": "administrationBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20"
+      "lastModified": "2021-05-29"
     },
     {
       "id": 31,
@@ -758,7 +878,7 @@
       "type": "administrationBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20"
+      "lastModified": "2021-05-29"
     },
     {
       "id": 32,
@@ -810,6 +930,65 @@
               ]
             }
           ]
+        },
+        {
+          "name": "institutes",
+          "subCategories":[
+            {
+              "name": "INoŻC",
+              "description": "Instytut Nauk o Żywieniu Człowieka",
+              "url": "http://inzcz.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Żywienia Człowieka"
+                    },
+                    {
+                      "name": "Katedra Dietetyki"
+                    },
+                    {
+                      "name": "Katedra Technologii Gastronomicznej i Higieny Żywności"
+                    },
+                    {
+                      "name": "Katedra Żywności Funkcjonalnej i Ekologicznej"
+                    },
+                    {
+                      "name": "katedra Badań Rynku Żywności i Konsumpcji"
+                    },
+                    {
+                      "name": "Katedra Techniki i Projektowania Żywności"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "INoŻ",
+              "description": "Instytut Nauk o Żywności",
+              "url": "http://wnoz.sggw.pl/wladze-instytut/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Biotechnologii i Mikrobiologii Żywnosci"
+                    },
+                    {
+                      "name": "Katedra Chemii"
+                    },
+                    {
+                      "name": "Katedra Inżynierii Żywności i Organizacji Produkcji"
+                    },
+                    {
+                      "name": "Katedra Technologii i Oceny Żywności"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -824,7 +1003,7 @@
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20",
+      "lastModified": "2021-05-29",
       "services": [
         {
           "name": "Bufet",
@@ -846,6 +1025,68 @@
                   "type": "deanery",
                   "description": "Pokój 13, 143 i 145",
                   "url": "http://wbis.sggw.pl/student/dziekanat/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "institutes",
+          "subCategories":[
+            {
+              "name": "IIL",
+              "description": "Instytut Inżynierii Lądowej",
+              "url": "http://wbis.sggw.pl/instytuty/instytut-inzynierii-ladowej/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Mechaniki i Konstrukcji Budowlanych"
+                    },
+                    {
+                      "name": "Katedra Geotechniki"
+                    },
+                    {
+                      "name": "Katedra Hydrotechniki, Technologii i Organizacji Robót"
+                    },
+                    {
+                      "name": "Katedra Rewitalizacji i Architektury"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "IIŚ",
+              "description": "Instytut Inżynierii Środowiska",
+              "url": "http://wbis.sggw.pl/instytuty/instytut-inzynierii-srodowiska/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Hydrologii, Meteorologii i Gospodarki Wodnej"
+                    },
+                    {
+                      "name": "Katedra Hydrauliki i Inżynierii Sanitarnej"
+                    },
+                    {
+                      "name": "Katedra Kształtowania Środowiska"
+                    },
+                    {
+                      "name": "Katedra Inżynierii Wodnej i Geologii Stosowanej"
+                    },
+                    {
+                      "name": "Katedra Teledetekcji i Badań Środowiska"
+                    },
+                    {
+                      "name": "Katedra Sztuki Krajobrazu"
+                    },
+                    {
+                      "name": "Katedra Architektury Krajobrazu"
+                    }
+                  ]
                 }
               ]
             }
@@ -962,28 +1203,7 @@
                   "name": "departments",
                   "subCategories": [
                     {
-                      "name": "Katedra Ekonomii i Polityki Gospodarczej"
-                    },
-                    {
-                      "name": "Katedra Ekonomii Międzynarodowej i Agrobiznesu"
-                    },
-                    {
                       "name": "Katedra Ekonometrii i Statystyki"
-                    },
-                    {
-                      "name": "Katedra Ekonomiki i Organizacji Przedsiębiorstw"
-                    },
-                    {
-                      "name": "Katedra Polityki Rozwoju i Marketingu"
-                    },
-                    {
-                      "name": "Katedra Turystyki, Komunikowania Społecznego i Doradztwa"
-                    },
-                    {
-                      "name": "Katedra Logistyki"
-                    },
-                    {
-                      "name": "Katedra Finansów"
                     }
                   ]
                 }
@@ -1042,6 +1262,21 @@
                   ]
                 }
               ]
+            },
+            {
+              "name": "IB",
+              "description": "Instytut Biologii",
+              "url": "http://ib.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Fizyki i Biofizyki"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -1058,7 +1293,7 @@
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20",
+      "lastModified": "2021-05-29",
       "services": [
         {
           "name": "Bufet",
@@ -1084,6 +1319,50 @@
               ]
             }
           ]
+        },
+        {
+          "name": "institutes",
+          "subCategories": [
+            {
+              "name": "INO",
+              "description": "Instytut Nauk Ogrodniczych",
+              "url": "http://sggw.ovh/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Ochrony Środowiska i Dendrologii"
+                    },
+                    {
+                      "name": "Samodzielny Zakład Roślin Ozdobnych"
+                    },
+                    {
+                      "name": "Katedra Roślin Warzywniczych i Leczniczych"
+                    },
+                    {
+                      "name": "Katedra Sadownictwa i Ekonomiki Ogrodnictwa"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "INSIP",
+              "description": "Instytut Nauk Socjologicznych i Pedagogiki",
+              "url": "https://insip.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Pedagogiki"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -1098,7 +1377,7 @@
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20",
+      "lastModified": "2021-05-29",
       "services": [
         {
           "name": "Bufet",
@@ -1137,6 +1416,74 @@
               ]
             }
           ]
+        },
+        {
+          "name": "institutes",
+          "subCategories":[
+            {
+              "name": "IB",
+              "description": "Instytut Biologii",
+              "url": "http://ib.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Biochemii i Mikrobiologii"
+                    },
+                    {
+                      "name": "Katedra Botaniki"
+                    },
+                    {
+                      "name": "Katedra Fizjologii Roślin"
+                    },
+                    {
+                      "name": "Katedra Genetyki, Hodowli i Biotechnologii Roślin"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "INO",
+              "description": "Instytut Nauk Ogrodniczych",
+              "url": "http://sggw.ovh/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Ochrony Roślin"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "IR",
+              "description": "Instytut Rolnictwa",
+              "url": "https://ir.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Agronomii"
+                    },
+                    {
+                      "name": "Katedra Biometrii"
+                    },
+                    {
+                      "name": "Katedra Gleboznawstwa"
+                    },
+                    {
+                      "name": "Samodzielny Zakład Chemii Rolniczej"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -1152,7 +1499,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20",
+      "lastModified": "2021-05-29",
       "services": [
         {
           "name": "Stołówka",
@@ -1173,7 +1520,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20"
+      "lastModified": "2021-05-29"
     },
     {
       "id": 40,
@@ -1187,7 +1534,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20"
+      "lastModified": "2021-05-29"
     },
     {
       "id": 41,
@@ -1201,7 +1548,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20"
+      "lastModified": "2021-05-29"
     },
     {
       "id": 42,
@@ -1215,7 +1562,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20"
+      "lastModified": "2021-05-29"
     },
     {
       "id": 43,
@@ -1229,7 +1576,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20"
+      "lastModified": "2021-05-29"
     },
     {
       "id": 44,
@@ -1243,7 +1590,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20"
+      "lastModified": "2021-05-29"
     },
     {
       "id": 45,
@@ -1257,7 +1604,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20"
+      "lastModified": "2021-05-29"
     },
     {
       "id": 46,
@@ -1271,7 +1618,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20"
+      "lastModified": "2021-05-29"
     },
     {
       "id": 47,
@@ -1285,7 +1632,7 @@
       "url": "http://adiss.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20",
+      "lastModified": "2021-05-29",
       "services": [
         {
           "name": "Stołówka",
@@ -1306,7 +1653,7 @@
       "url": "http://www.bg.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20"
+      "lastModified": "2021-05-29"
     },
     {
       "id": 49,
@@ -1319,7 +1666,7 @@
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20",
+      "lastModified": "2021-05-29",
       "categories": [
         {
           "name": "faculties",
@@ -1343,7 +1690,7 @@
       "description": "Ogród Bylinowy",
       "type": "monument",
       "minScale": 1.0,
-      "lastModified": "2021-05-20"
+      "lastModified": "2021-05-29"
     },
     {
       "id": 53,
@@ -1356,7 +1703,7 @@
       "type": "monument",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20"
+      "lastModified": "2021-05-29"
     },
     {
       "id": 54,
@@ -1369,7 +1716,7 @@
       "type": "monument",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20"
+      "lastModified": "2021-05-29"
     },
     {
       "id": 55,
@@ -1382,7 +1729,7 @@
       "type": "monument",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20"
+      "lastModified": "2021-05-29"
     },
     {
       "id": 98,
@@ -1396,7 +1743,7 @@
       "url": "http://swfs.sggw.pl/",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-05-20",
+      "lastModified": "2021-05-29",
       "categories": [
         {
           "name": "faculties",
