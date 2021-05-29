@@ -40,11 +40,7 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
   ListTile _recentlyVisitedItemCard(MapItem item) {
     return ListTile(
       onTap: () => _onTapFunc(item),
-      leading: Container(
-        child: _mapItemIcon(item.type),
-        width: 30,
-        height: 30,
-      ),
+      leading: _mapItemIcon(item.type),
       title: Text(
         item.name,
         overflow: TextOverflow.ellipsis,
@@ -62,20 +58,17 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
     );
   }
 
-  Image _mapItemIcon(MapItemType type) {
-    if (type == MapItemType.facultyBuilding)
-      return Image.asset('assets/images/icons/faculty.png');
+  Icon _mapItemIcon(MapItemType type) {
+    if (type == MapItemType.facultyBuilding) return Icon(Icons.school_outlined);
 
     if (type == MapItemType.administrationBuilding)
-      return Image.asset('assets/images/icons/administration.png');
+      return Icon(Icons.corporate_fare_outlined);
 
-    if (type == MapItemType.dormitories)
-      return Image.asset('assets/images/icons/hotel.png');
+    if (type == MapItemType.dormitories) return Icon(Icons.hotel_outlined);
 
-    if (type == MapItemType.sportsFacility)
-      return Image.asset('assets/images/icons/sport.png');
+    if (type == MapItemType.sportsFacility) return Icon(Icons.sports_soccer);
 
-    return Image.asset('assets/images/icons/other.png');
+    return Icon(Icons.info_outline);
   }
 
   void _onTapFunc(MapItem item) {
