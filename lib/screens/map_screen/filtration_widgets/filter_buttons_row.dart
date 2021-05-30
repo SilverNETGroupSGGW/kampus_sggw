@@ -26,7 +26,7 @@ class FilterButtonsRow extends StatelessWidget {
         child: Row(
           children: <Widget>[
             FilterButton(
-              color: Colors.yellow[700],
+              color: Color(0xFFf29900),
               icon: Icons.restaurant,
               onTapFunction: () => onButtonPressed(
                 FilterByFunctionEventParam(
@@ -37,8 +37,8 @@ class FilterButtonsRow extends StatelessWidget {
               ),
             ),
             FilterButton(
-              color: Colors.blue,
-              icon: Icons.bus_alert,
+              color: Color(0xFF1a73e8),
+              icon: Icons.directions_bus_outlined,
               onTapFunction: () => onButtonPressed(
                 FilterByFunctionEventParam(
                   filterName: LocaleKeys.bus.tr(),
@@ -47,8 +47,8 @@ class FilterButtonsRow extends StatelessWidget {
               ),
             ),
             FilterButton(
-              color: Colors.orange,
-              icon: Icons.local_parking,
+              color: Color(0xFF7986CB),
+              icon: Icons.local_parking_outlined,
               onTapFunction: () => onButtonPressed(
                 FilterByFunctionEventParam(
                   filterName: LocaleKeys.parking.tr(),
@@ -67,8 +67,8 @@ class FilterButtonsRow extends StatelessWidget {
               ),
             ),
             FilterButton(
-              color: Colors.red[300],
-              icon: Icons.local_grocery_store,
+              color: Color(0xFF5491f5),
+              icon: Icons.storefront_outlined,
               onTapFunction: () => onButtonPressed(
                 FilterByFunctionEventParam(
                   filterName: LocaleKeys.store.tr(),
