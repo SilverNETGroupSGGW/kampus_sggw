@@ -14,15 +14,17 @@ class InfoCardDialogBuilder {
   ServiceButtonsRow servicesRow;
   String photoPath;
   MapItemType mapItemType;
-  Text buildingDescription;
-  List<Image> buildingGallery = [];
+  Text mapItemDescription;
+  List<Image> mapItemGallery = [];
   List<Widget> otherCategories = [];
   Widget facultyTile;
+  Widget instituteTile;
+  String mapItemWebsite;
 
   InfoCardDialog fromMapItem(MapItem mapItem) {
     if (mapItem.gallery != null && mapItem.gallery.isNotEmpty) {
       for (var image in mapItem.gallery) {
-        buildingGallery.add(Image.network(image));
+        mapItemGallery.add(Image.network(image));
       }
     }
 
@@ -31,6 +33,8 @@ class InfoCardDialogBuilder {
       for (Category category in data) {
         if (category.name == 'faculties') {
           facultyTile = CategoryItem(category);
+        } else if (category.name == 'institutes') {
+          instituteTile = CategoryItem(category);
         } else {
           for (Category subCategory in category.subCategories)
             otherCategories.add(CategoryItem(subCategory));
@@ -44,7 +48,7 @@ class InfoCardDialogBuilder {
     }
 
     if (mapItem.description != null) {
-      buildingDescription = Text(
+      mapItemDescription = Text(
         mapItem.description,
         textAlign: TextAlign.center,
         style: TextStyle(
@@ -56,16 +60,21 @@ class InfoCardDialogBuilder {
       servicesRow = ServiceButtonsRow(mapItem.services);
     }
 
+    if (mapItem.url != null) {
+      mapItemWebsite = mapItem.url;
+    }
+
     return InfoCardDialog(
       header: mapItem.name,
       subcategories: description,
       servicesRow: servicesRow,
       photoPath: mapItem.photoPath,
       mapItemType: mapItem.type,
-      buildingDescription: buildingDescription,
-      buildingGallery: buildingGallery,
+      mapItemDescription: mapItemDescription,
+      mapItemGallery: mapItemGallery,
       otherCategories: otherCategories,
       facultyTile: facultyTile,
+      mapItemWebsite: mapItemWebsite,
     );
   }
 
@@ -79,14 +88,14 @@ class InfoCardDialogBuilder {
 
   int _descriptionItemsCount() {
     int isFaculty = facultyTile != null ? 1 : 0;
+    int isInstitute = instituteTile != null ? 1 : 0;
     int hasOtherCategories = otherCategories.length > 0 ? 1 : 0;
 
-    return isFaculty + hasOtherCategories + 1;
+    return isFaculty + isInstitute + hasOtherCategories + 1;
   }
 
   Widget _descriptionItemsBuilder(BuildContext context, int index) {
-    if ((facultyTile != null && index == 1) ||
-        (facultyTile == null && index == 0)) {
+    if (index == _descriptionItemsCount() - 1) {
       return ExpansionTile(
         title: Text(LocaleKeys.floor_plans.tr()),
         leading: Icon(Icons.map),
@@ -111,7 +120,7 @@ class InfoCardDialogBuilder {
         ],
       );
     }
-    if (index == 2 || (facultyTile == null && index == 1)) {
+    if (index == _descriptionItemsCount()) {
       if (otherCategories != null && otherCategories.isNotEmpty) {
         return ExpansionTile(
           leading: Icon(Icons.build_outlined),
@@ -120,7 +129,8 @@ class InfoCardDialogBuilder {
         );
       }
     }
-
-    return facultyTile;
+    if (facultyTile != null && index == 0) return facultyTile;
+    if (instituteTile != null && index == 1 ||
+        facultyTile != null && index == 0) return instituteTile;
   }
 }
