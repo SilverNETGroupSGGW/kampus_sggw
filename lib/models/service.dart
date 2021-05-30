@@ -8,6 +8,8 @@ enum ServiceType {
   deanery,
   vendingMachine,
   lectureHall,
+  library,
+  medicine,
 }
 
 @JsonSerializable()
@@ -35,9 +37,13 @@ class Service {
       case ServiceType.deanery:
         return Icon(Icons.event_seat, color: Colors.red[400]);
       case ServiceType.vendingMachine:
-        return Icon(Icons.payment, color: Colors.pink[400]);
+        return Icon(Icons.local_drink, color: Colors.pink[400]);
       case ServiceType.lectureHall:
         return Icon(Icons.account_balance, color: Colors.lightBlue[600]);
+      case ServiceType.library:
+        return Icon(Icons.local_library, color: Colors.green[800]);
+      case ServiceType.medicine:
+        return Icon(Icons.medical_services_outlined, color: Colors.red[700]);
       default:
         return null;
     }
