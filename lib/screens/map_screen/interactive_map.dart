@@ -53,18 +53,47 @@ class _InteractiveMapState extends State<InteractiveMap> {
   StreamSubscription _shouldRecenter;
   StreamSubscription _shouldFilterMarkers;
   StreamSubscription _shouldUnfilterMarkers;
+  BitmapDescriptor facultyMarker;
+  BitmapDescriptor sportMarker;
+  BitmapDescriptor otherMarker;
+  BitmapDescriptor hotelMarker;
+  BitmapDescriptor administrationMarker;
 
   @override
   initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      facultyMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/facultyMarker.png');
+
+      sportMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/sportMarker.png');
+
+      otherMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/otherMarker.png');
+
+      administrationMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/administrationMarker.png');
+
+      hotelMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/hotelMarker.png');
+      setState(() {});
+
+      tryRequestLocation();
+      _setMarkers(markers, widget.mapItems.mapItems);
+      _currentMarkerSet = markers.values.toSet();
+      _shouldRecenter = widget.shouldRecenter.listen((_) => _goToTheCampus());
+      _shouldFilterMarkers = widget.shouldFilterMarkers.listen(
+          (filterService) => _updateMarkers(filterService.filteredMapItems));
+      _shouldUnfilterMarkers =
+          widget.shouldUnfilterMarkers.listen((_) => _updateMarkersToDefault());
+    });
+
     super.initState();
-    tryRequestLocation();
-    _setMarkers(markers, widget.mapItems.mapItems);
-    _currentMarkerSet = markers.values.toSet();
-    _shouldRecenter = widget.shouldRecenter.listen((_) => _goToTheCampus());
-    _shouldFilterMarkers = widget.shouldFilterMarkers
-        .listen((filterService) => _updateMarkers(filterService.filteredMapItems));
-    _shouldUnfilterMarkers =
-        widget.shouldUnfilterMarkers.listen((_) => _updateMarkersToDefault());
   }
 
   @override
@@ -85,6 +114,7 @@ class _InteractiveMapState extends State<InteractiveMap> {
   Marker _getMarkerFromMapItem(MapItem mapItem) {
     MarkerId markerId = MarkerId(mapItem.name);
     Marker marker = Marker(
+      icon: _iconType(mapItem.type),
       markerId: markerId,
       position: LatLng(
         mapItem.geoLocation.lat,
@@ -95,6 +125,18 @@ class _InteractiveMapState extends State<InteractiveMap> {
       },
     );
     return marker;
+  }
+
+  BitmapDescriptor _iconType(MapItemType type) {
+    if (type == MapItemType.facultyBuilding) return facultyMarker;
+
+    if (type == MapItemType.administrationBuilding) return administrationMarker;
+
+    if (type == MapItemType.dormitories) return hotelMarker;
+
+    if (type == MapItemType.sportsFacility) return sportMarker;
+
+    return otherMarker;
   }
 
   _onPinPressed(MapItem mapItem) {

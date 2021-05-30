@@ -155,7 +155,7 @@ class InfoCardDialog extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: 5),
+          padding: EdgeInsets.only(top: 5, bottom: 10),
           child: GestureDetector(
             onTap: _goToMapItemURL,
             child: Text(
