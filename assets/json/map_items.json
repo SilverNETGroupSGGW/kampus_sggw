@@ -849,7 +849,7 @@
         "lat": 52.15732,
         "lon": 21.04505
       },
-      "name": "Budynek 28",
+      "name": "Budynek 28 SPNJO",
       "description": "Centrum Językowo-Sportowe (SPNJO)",
       "type": "facultyBuilding",
       "url": "http://jezyki.sggw.pl/",
@@ -1940,9 +1940,9 @@
       "id": 98,
       "geoLocation": {
         "lat": 52.15736,
-        "lon": 21.04407
+        "lon": 21.04447
       },
-      "name": "Budynek 28",
+      "name": "Budynek 28 SWFiS",
       "description": "Centrum Językowo-Sportowe (SWFiS)",
       "type": "sportsFacility",
       "url": "http://swfs.sggw.pl/",
@@ -2012,7 +2012,7 @@
       "lastModified": "2021-05-29"
     },
     {
-      "id": 102,
+      "id": 103,
       "geoLocation": {
         "lat": 52.16247,
         "lon": 21.03957
