@@ -40,7 +40,7 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
   ListTile _recentlyVisitedItemCard(MapItem item) {
     return ListTile(
       onTap: () => _onTapFunc(item),
-      leading: Icon(Icons.park),
+      leading: _mapItemIcon(item.type),
       title: Text(
         item.name,
         overflow: TextOverflow.ellipsis,
@@ -56,6 +56,19 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
             });
           }),
     );
+  }
+
+  Icon _mapItemIcon(MapItemType type) {
+    if (type == MapItemType.facultyBuilding) return Icon(Icons.school_outlined);
+
+    if (type == MapItemType.administrationBuilding)
+      return Icon(Icons.corporate_fare_outlined);
+
+    if (type == MapItemType.dormitories) return Icon(Icons.hotel_outlined);
+
+    if (type == MapItemType.sportsFacility) return Icon(Icons.sports_soccer);
+
+    return Icon(Icons.info_outline);
   }
 
   void _onTapFunc(MapItem item) {
