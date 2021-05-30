@@ -8,6 +8,8 @@ enum ServiceType {
   deanery,
   vendingMachine,
   lectureHall,
+  library,
+  medicine,
 }
 
 @JsonSerializable()

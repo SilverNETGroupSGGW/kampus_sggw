@@ -62,4 +62,6 @@ const _$ServiceTypeEnumMap = {
   ServiceType.deanery: 'deanery',
   ServiceType.vendingMachine: 'vendingMachine',
   ServiceType.lectureHall: 'lectureHall',
+  ServiceType.library: 'library',
+  ServiceType.medicine: 'medicine',
 };
