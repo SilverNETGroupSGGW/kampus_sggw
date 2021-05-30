@@ -58,6 +58,12 @@ class _InteractiveMapState extends State<InteractiveMap> {
   BitmapDescriptor otherMarker;
   BitmapDescriptor hotelMarker;
   BitmapDescriptor administrationMarker;
+  BitmapDescriptor storeMarker;
+  BitmapDescriptor foodMarker;
+  BitmapDescriptor libraryMarker;
+  BitmapDescriptor parkingMarker;
+  BitmapDescriptor transportMarker;
+  BitmapDescriptor financeMarker;
 
   @override
   initState() {
@@ -70,10 +76,6 @@ class _InteractiveMapState extends State<InteractiveMap> {
           ImageConfiguration(size: Size(30, 45)),
           'assets/images/icons/sportMarker.png');
 
-      otherMarker = await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(30, 45)),
-          'assets/images/icons/otherMarker.png');
-
       administrationMarker = await BitmapDescriptor.fromAssetImage(
           ImageConfiguration(size: Size(30, 45)),
           'assets/images/icons/administrationMarker.png');
@@ -81,6 +83,35 @@ class _InteractiveMapState extends State<InteractiveMap> {
       hotelMarker = await BitmapDescriptor.fromAssetImage(
           ImageConfiguration(size: Size(30, 45)),
           'assets/images/icons/hotelMarker.png');
+
+      storeMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/storeMarker.png');
+
+      foodMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/foodMarker.png');
+
+      libraryMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/libraryMarker.png');
+
+      parkingMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/parkingMarker.png');
+
+      transportMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/transportMarker.png');
+
+      financeMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/financeMarker.png');
+
+      otherMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/otherMarker.png');
+
       setState(() {});
 
       tryRequestLocation();
@@ -135,6 +166,18 @@ class _InteractiveMapState extends State<InteractiveMap> {
     if (type == MapItemType.dormitories) return hotelMarker;
 
     if (type == MapItemType.sportsFacility) return sportMarker;
+
+    if (type == MapItemType.finance) return financeMarker;
+
+    if (type == MapItemType.food) return foodMarker;
+
+    if (type == MapItemType.library) return libraryMarker;
+
+    if (type == MapItemType.parking) return parkingMarker;
+
+    if (type == MapItemType.store) return storeMarker;
+
+    if (type == MapItemType.transport) return transportMarker;
 
     return otherMarker;
   }
