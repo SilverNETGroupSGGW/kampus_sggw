@@ -66,7 +66,7 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
     if (type == MapItemType.sportsFacility) return Icon(Icons.sports_soccer);
     if (type == MapItemType.finance) return Icon(Icons.attach_money_outlined);
     if (type == MapItemType.food) return Icon(Icons.restaurant_outlined);
-    if (type == MapItemType.library) return Icon(Icons.book_outlined);
+    if (type == MapItemType.library) return Icon(Icons.local_library_outlined);
     if (type == MapItemType.parking) return Icon(Icons.local_parking_outlined);
     if (type == MapItemType.store) return Icon(Icons.storefront_outlined);
     if (type == MapItemType.transport)
