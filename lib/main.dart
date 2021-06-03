@@ -9,10 +9,14 @@ import 'package:kampus_sggw/screens/map_screen/map_screen.dart';
 import 'package:kampus_sggw/themes/dark_theme.dart';
 import 'package:kampus_sggw/themes/light_theme.dart';
 import 'package:kampus_sggw/translations/codegen_loader.g.dart';
+import 'package:kampus_sggw/updateLocalData.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+
+  await checkUpdates();
+
   Map<String, dynamic> mapItemsMap = jsonDecode(await MapItems.getJsonSting());
   final mapItems = MapItems.fromJson(mapItemsMap);
   Map<String, dynamic> searchHistoryMap =
