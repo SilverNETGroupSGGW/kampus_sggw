@@ -39,7 +39,7 @@ class MapItems {
       _$MapItemsFromJson(json);
 
   static Future<String> getJsonSting() {
-    return rootBundle.loadString('assets/json/map_items.json');
+    return rootBundle.loadString('assets/json/map_items.json', cache: false);
   }
 
   void generateFuzzyStringSetForMapItems() {

@@ -12,7 +12,7 @@ Future<Status> checkUpdates() async {
     final directory = (await getApplicationDocumentsDirectory()).path;
 
     Map<String, dynamic> metadata = jsonDecode(
-        await rootBundle.loadString('assets/metadata.json'));
+        await rootBundle.loadString('assets/metadata.json', cache: false));
     String token = metadata["map_items_token"];
 
     var response = await http.get(Uri.parse(
@@ -37,8 +37,8 @@ Future<Status> checkUpdates() async {
     String newMapItems = updateStatus['data'];
 
     if (newMapItems != null && newMapItems.length != 0) {
-      await File("$directory/assets/metadata.json").writeAsString(jsonEncode(metadata));
-      await File("$directory/assets/json/map_items.json").writeAsString(newMapItems);
+      await File("$directory/flutter_assets/assets/metadata.json").writeAsString(jsonEncode(metadata));
+      await File("$directory/flutter_assets/assets/json/map_items.json").writeAsString(newMapItems);
 
       developer.log('Update: Zakończony');
 
