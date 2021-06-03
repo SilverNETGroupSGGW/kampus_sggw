@@ -1,28 +1,29 @@
 import * as functions from 'firebase-functions'
 
-import { getFileEditDate, DataResponse } from './getFileEditDate'
+import { getFileUpdate, DataResponse } from './getFileEditDate'
 
 export const mapItems = functions.https.onRequest(async (request, response) => {
-  const date = request.query.date?.toString() || ''
+  const token = request.query.token?.toString() || ''
 
   try {
-    const result = await getFileEditDate(date, 'map_items.json')
+    const result = await getFileUpdate(token, 'map_items.json')
 
     functions.logger.log({
-      requestedDate: date,
+      requestedToken: token,
       updateNeeded: result.data.length !== 0,
     })
 
     response.send(result)
   } catch (e) {
     functions.logger.error({
-      requestedDate: date,
+      requestedToken: token,
       error: e,
     })
 
     const error: DataResponse = {
       error: true,
-      date: '',
+      oldToken: token,
+      token: '',
       data: '',
       message: 'Wystąpił niespodziewany błąd',
     }

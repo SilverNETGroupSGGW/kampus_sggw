@@ -2,13 +2,14 @@ import { app } from './app'
 
 export interface DataResponse {
   error: boolean
-  date: string
+  oldToken: string
+  token: string
   data: string
   message: string
 }
 
-export async function getFileEditDate(
-  givenDate: string,
+export async function getFileUpdate(
+  givenToken: string,
   file: string
 ): Promise<DataResponse> {
   const fileBucket = app
@@ -18,14 +19,16 @@ export async function getFileEditDate(
 
   const metadata = await fileBucket.getMetadata()
 
-  const editDate: string = metadata[0].timeCreated
+  // Wszystkie metadane pliku https://firebase.google.com/docs/storage/web/file-metadata#file_metadata_properties
+  const currentToken: string = metadata[0].md5Hash
 
-  if (editDate !== givenDate) {
+  if (currentToken !== givenToken) {
     const content = await fileBucket.download()
 
     return {
       error: false,
-      date: editDate,
+      oldToken: givenToken,
+      token: currentToken,
       data: content[0].toString(),
       message: 'Update potrzebny',
     }
@@ -33,7 +36,8 @@ export async function getFileEditDate(
 
   return {
     error: false,
-    date: editDate,
+    oldToken: givenToken,
+    token: currentToken,
     data: '',
     message: 'Update zbędny',
   }

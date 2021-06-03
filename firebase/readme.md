@@ -10,6 +10,11 @@ npm i -g firebase-tools
 Może wymagać również Google Cloud SDK 
 > https://cloud.google.com/sdk/docs/install
 
+## Przejście do podprojektu
+```
+cd firebase/functions
+```
+
 ## Logowanie
 ```
 firebase login
@@ -26,7 +31,7 @@ npm run serve
 ```
 
 Endpoint dostępny w:
-> http://localhost:5001/kampus-sggw-2021/us-central1/mapItems?date=2021-05-23T18:42:45.758Z
+> http://localhost:5001/kampus-sggw-2021/us-central1/mapItems?token=mGl0bnenMANgd9CUpeg3Pw==
 
 ## Deploy do firebase
 ```
@@ -41,26 +46,28 @@ firebase deploy
 
 # Użycie
 
-> /mapItems?date=[Data ostatniej aktualizacji]
+> /mapItems?token=[Token aktualizacji]
 
 Przykładowo
-> /mapItems?date=2021-05-23T18:42:45.758Z
+> /mapItems?token=mGl0bnenMANgd9CUpeg3Pw==
 
 Na produkcji
-> https://us-central1-kampus-sggw-2021.cloudfunctions.net/mapItems?date=2021-05-23T18:42:45.758Z
+> https://us-central1-kampus-sggw-2021.cloudfunctions.net/mapItems?token=mGl0bnenMANgd9CUpeg3Pw==
 
 Zwraca
 
 ```
 interface DataResponse {
   error: boolean
-  date: string
+  oldToken: string
+  token: string
   data: string
   message: string
 }
 ```
 
 error = false - wszystko zadziało ok <br />
-date = aktualna data ważności <br />
-data = dane jeżeli query.date == date pusty string w przeciwnym wypadku string z zawartością pliku <br />
+oldToken = stary token, taki jak został odczytany <br />
+token = aktualny token <br />
+data = dane jeżeli query.token == token pusty string w przeciwnym wypadku string z zawartością pliku <br />
 message = info co się zadziało <br />
