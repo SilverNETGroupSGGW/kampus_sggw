@@ -117,7 +117,7 @@ class _SearchBar extends State<SearchBar> {
     var _history = _filteredSearchHistory.map((text) => _historyListTile(text));
     var _suggestion = _searchSuggestions.map(
       (suggestion) =>
-          _suggestionListTile(suggestion.value, suggestion.key.name),
+          _suggestionListTile(suggestion.key.id, suggestion.value, suggestion.key.name),
     );
     _displayedSuggestions.addAll(_history);
     int leftForDisplaying = 6 - _history.length;
@@ -130,7 +130,7 @@ class _SearchBar extends State<SearchBar> {
     );
   }
 
-  ListTile _suggestionListTile(String text, String query) {
+  ListTile _suggestionListTile(int id, String text, String query) {
     var subtitle = Text(
       query,
       maxLines: 1,
@@ -139,7 +139,7 @@ class _SearchBar extends State<SearchBar> {
     if (text == query) {
       subtitle = null;
     }
-    return _listTile(text, Icon(Icons.pin_drop), subtitle: subtitle);
+    return _listTile(id, text, Icon(Icons.pin_drop), subtitle: subtitle);
   }
 
   ListTile _historyListTile(String text) {
@@ -155,11 +155,11 @@ class _SearchBar extends State<SearchBar> {
         );
       },
     );
-    return _listTile(text, Icon(Icons.history),
+    return _listTile(0, text, Icon(Icons.history),
         trailingButton: removeIconButton);
   }
 
-  ListTile _listTile(String text, Icon leadingIcon,
+  ListTile _listTile(int mapItemID, String text, Icon leadingIcon,
       {Text subtitle, IconButton trailingButton}) {
     return ListTile(
       title: Text(
@@ -170,7 +170,7 @@ class _SearchBar extends State<SearchBar> {
       subtitle: subtitle,
       leading: leadingIcon,
       trailing: trailingButton,
-      onTap: () => _onSubmitted(text),
+      onTap: () => _onSubmittedWithMapItemID(mapItemID),
     );
   }
 
@@ -187,6 +187,14 @@ class _SearchBar extends State<SearchBar> {
     setState(() {
       widget.filtrationService.searchWithQueryEvent
           .trigger(param: SearchEventParam(query: query, isFinal: true));
+    });
+    _controller.close();
+  }
+
+  void _onSubmittedWithMapItemID(int mapItemID) {
+    setState(() {
+      widget.filtrationService.searchWithIDEvent
+          .trigger(param: SearchEventParam(id: mapItemID, isFinal: true));
     });
     _controller.close();
   }
