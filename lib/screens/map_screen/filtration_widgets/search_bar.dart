@@ -198,12 +198,14 @@ class _SearchBar extends State<SearchBar> {
   void _addToSearchHistory(MapItem item) {
     widget.searchHistory.addItem(item);
     widget.searchHistory.save();
+    widget.searchHistory.updateMapItems();
     _updateFilteredSearchHistory();
   }
 
   void _deleteFromSearchHistory(item) {
     widget.searchHistory.deleteItem(item);
     widget.searchHistory.save();
+    widget.searchHistory.updateMapItems();
     _updateFilteredSearchHistory();
   }
 }
