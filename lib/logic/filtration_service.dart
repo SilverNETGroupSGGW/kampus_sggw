@@ -10,7 +10,7 @@ class FiltrationService {
   final MapItems mapItems;
   StreamService _filterByFunctionEvent;
   StreamService _searchWithQueryEvent;
-  StreamService _searchWithIDEvent;
+  StreamService _searchWithMapItemEvent;
   StreamService _filterMarkersEvent;
   StreamService _unfilterMarkersEvent;
   StreamService _searchWithNameEvent;
@@ -18,7 +18,7 @@ class FiltrationService {
   StreamService _manageSearchHistoryEvent;
   StreamSubscription _filterByFunctionListener;
   StreamSubscription _searchWithQueryListener;
-  StreamSubscription _searchWithIDListener;
+  StreamSubscription _searchWithMapItemListener;
   StreamSubscription _searchWithNameListener;
   final Function onNoItemFound;
   FiltrationService({this.mapItems, this.onNoItemFound}) {
@@ -28,7 +28,7 @@ class FiltrationService {
 
   StreamService get filterByFunctionEvent => _filterByFunctionEvent;
   StreamService get searchWithQueryEvent => _searchWithQueryEvent;
-  StreamService get searchWithIDEvent => _searchWithIDEvent;
+  StreamService get searchWithMapItemEvent => _searchWithMapItemEvent;
   StreamService get filterMarkersEvent => _filterMarkersEvent;
   StreamService get unfilterMarkersEvent => _unfilterMarkersEvent;
   StreamService get searchWithNameEvent => _searchWithNameEvent;
@@ -40,8 +40,8 @@ class FiltrationService {
         .listen((filterEventParam) => _filterItemsByFunction(filterEventParam));
     _searchWithQueryListener = _searchWithQueryEvent
         .listen((searchEventParam) => _filterItemsByQuery(searchEventParam));
-    _searchWithIDListener = _searchWithIDEvent
-        .listen((searchEventParam) => _filterItemsByID(searchEventParam));
+    _searchWithMapItemListener = _searchWithMapItemEvent
+        .listen((mapItem) => _triggerInteractiveMap(mapItem.name, [mapItem]));
     _searchWithNameListener = _searchWithNameEvent
         .listen((mapItem) => _triggerInteractiveMap(mapItem.name, [mapItem]));
   }
@@ -49,16 +49,6 @@ class FiltrationService {
   void _filterItemsByFunction(FilterByFunctionEventParam filterEventParam) {
     List<MapItem> filteredMapItems = _getFilteredItems(filterEventParam);
     _triggerInteractiveMap(filterEventParam.filterName, filteredMapItems);
-  }
-
-  void _filterItemsByID(SearchEventParam searchEventParam) {
-    MapItem searchedItem = mapItems.findItemByID(searchEventParam.id);
-    if (searchedItem != null) {
-      _triggerInteractiveMap(searchedItem.name, [searchedItem]);
-      //add to history
-    } else {
-      onNoItemFound();
-    }
   }
 
   void _filterItemsByQuery(SearchEventParam searchEventParam) {
@@ -106,7 +96,7 @@ class FiltrationService {
   void _initializeStreamServices() {
     _filterByFunctionEvent = StreamService();
     _searchWithQueryEvent = StreamService();
-    _searchWithIDEvent = StreamService();
+    _searchWithMapItemEvent = StreamService();
     _filterMarkersEvent = StreamService();
     _unfilterMarkersEvent = StreamService();
     _searchWithNameEvent = StreamService();
@@ -117,11 +107,11 @@ class FiltrationService {
   void dispose() {
     _filterByFunctionListener.cancel();
     _searchWithQueryListener.cancel();
-    _searchWithIDListener.cancel();
+    _searchWithMapItemListener.cancel();
     _searchWithNameListener.cancel();
     _filterByFunctionEvent.dispose();
     _searchWithQueryEvent.dispose();
-    _searchWithIDEvent.dispose();
+    _searchWithMapItemEvent.dispose();
     _filterMarkersEvent.dispose();
     _unfilterMarkersEvent.dispose();
     _searchWithNameEvent.dispose();

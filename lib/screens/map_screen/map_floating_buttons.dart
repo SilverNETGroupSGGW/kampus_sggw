@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/update_markers_event_param.dart';
 import 'package:kampus_sggw/logic/filtration_service.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
-import 'package:kampus_sggw/logic/visited_items.dart';
+import 'package:kampus_sggw/logic/visit_history.dart';
 import 'filtration_widgets/search_bar.dart';
 
 class MapFloatingButtons extends StatefulWidget {
   final SearchHistory searchHistory;
-  final VisitedItems visitedItems;
+  final VisitHistory visitHistory;
   final Function onRecenterButtonPressed;
   final FiltrationService filtrationService;
   //final StreamService filterButtonNotifier;
@@ -19,7 +19,7 @@ class MapFloatingButtons extends StatefulWidget {
   const MapFloatingButtons({
     Key key,
     @required this.searchHistory,
-    @required this.visitedItems,
+    @required this.visitHistory,
     @required this.onRecenterButtonPressed,
     @required this.filtrationService,
     //@required this.filterButtonNotifier,
@@ -101,7 +101,7 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
         height: MediaQuery.of(context).size.height * 0.6,
         child: SearchBar(
           searchHistory: widget.searchHistory,
-          visitedItems: widget.visitedItems,
+          visitHistory: widget.visitHistory,
           filtrationService: widget.filtrationService,
         ),
       ),

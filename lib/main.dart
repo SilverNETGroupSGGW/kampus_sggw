@@ -3,26 +3,31 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
-import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/screens/map_screen/map_screen.dart';
 import 'package:kampus_sggw/themes/dark_theme.dart';
 import 'package:kampus_sggw/themes/light_theme.dart';
 import 'package:kampus_sggw/translations/codegen_loader.g.dart';
 
+import 'logic/visit_history.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   Map<String, dynamic> mapItemsMap = jsonDecode(await MapItems.getJsonSting());
   final mapItems = MapItems.fromJson(mapItemsMap);
+  mapItems.generateFuzzyStringSetForMapItems();
+
   Map<String, dynamic> searchHistoryMap =
       jsonDecode(await SearchHistory.getJsonSting());
   final searchHistory = SearchHistory.fromJson(searchHistoryMap);
-  Map<String, dynamic> visitedItemsMap =
-      jsonDecode(await VisitedItems.getJsonSting());
-  final visitedItems = VisitedItems.fromJson(visitedItemsMap);
-  visitedItems.mapItems = mapItems;
-  mapItems.generateFuzzyStringSetForMapItems();
+  searchHistory.mapItems = mapItems;
+  searchHistory.updateMapItems();
+
+  Map<String, dynamic> visitHistoryMap =
+      jsonDecode(await VisitHistory.getJsonSting());
+  final visitHistory = VisitHistory.fromJson(visitHistoryMap);
+  visitHistory.mapItems = mapItems;
 
   runApp(
     EasyLocalization(
@@ -34,7 +39,7 @@ Future<void> main() async {
         child: CampusSGGW(
           mapItems: mapItems,
           searchHistory: searchHistory,
-          visitedItems: visitedItems,
+          visitHistory: visitHistory,
         )),
   );
 }
@@ -42,12 +47,12 @@ Future<void> main() async {
 class CampusSGGW extends StatefulWidget {
   final MapItems mapItems;
   final SearchHistory searchHistory;
-  final VisitedItems visitedItems;
+  final VisitHistory visitHistory;
   const CampusSGGW({
     Key key,
     this.mapItems,
     this.searchHistory,
-    this.visitedItems,
+    this.visitHistory,
   }) : super(key: key);
 
   @override
@@ -72,7 +77,7 @@ class _CampusSGGWState extends State<CampusSGGW> {
       home: MapScreen(
         mapItems: widget.mapItems,
         searchHistory: widget.searchHistory,
-        visitedItems: widget.visitedItems,
+        visitHistory: widget.visitHistory,
       ),
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,

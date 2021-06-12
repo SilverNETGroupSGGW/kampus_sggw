@@ -1,19 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'search_history.dart';
+part of 'visit_history.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-SearchHistory _$SearchHistoryFromJson(Map<String, dynamic> json) {
-  return SearchHistory(
+VisitHistory _$VisitHistoryFromJson(Map<String, dynamic> json) {
+  return VisitHistory(
     buffer: json['buffer'] as int ?? 6,
     itemsIds: (json['itemsIds'] as List)?.map((e) => e as int)?.toList() ?? [],
   );
 }
 
-Map<String, dynamic> _$SearchHistoryToJson(SearchHistory instance) =>
+Map<String, dynamic> _$VisitHistoryToJson(VisitHistory instance) =>
     <String, dynamic>{
       'buffer': instance.buffer,
       'itemsIds': instance.itemsIds,

@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/search_event_param.dart';
 import 'package:kampus_sggw/logic/filtration_service.dart';
 import 'package:kampus_sggw/logic/key_value.dart';
-import 'package:kampus_sggw/logic/visited_items.dart';
+import 'package:kampus_sggw/logic/visit_history.dart';
+import 'package:kampus_sggw/models/map_item.dart';
+import 'package:kampus_sggw/models/map_items.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
 import 'search_help_panel.dart';
@@ -13,12 +15,12 @@ import 'package:kampus_sggw/translations/locale_keys.g.dart';
 
 class SearchBar extends StatefulWidget {
   final SearchHistory searchHistory;
-  final VisitedItems visitedItems;
+  final VisitHistory visitHistory;
   final FiltrationService filtrationService;
   const SearchBar({
     Key key,
     @required this.searchHistory,
-    @required this.visitedItems,
+    @required this.visitHistory,
     @required this.filtrationService,
   }) : super(key: key);
   @override
@@ -26,7 +28,7 @@ class SearchBar extends StatefulWidget {
 }
 
 class _SearchBar extends State<SearchBar> {
-  Set<String> _filteredSearchHistory;
+  List<MapItem> _filteredSearchHistory;
   List<KeyValue> _searchSuggestions;
   String _selectedTerm;
   FloatingSearchBarController _controller;
@@ -37,7 +39,7 @@ class _SearchBar extends State<SearchBar> {
   void initState() {
     super.initState();
     _controller = FloatingSearchBarController();
-    _filteredSearchHistory = widget.searchHistory.filterSearchTerms();
+    _filteredSearchHistory = widget.searchHistory.filterSearchHistory();
     _searchSuggestions = [];
     _searchSuggestionListener = widget.filtrationService.searchSuggestionEvent
         .listen((eventParam) => _searchSuggestions = eventParam);
@@ -68,7 +70,7 @@ class _SearchBar extends State<SearchBar> {
               right: 12.0,
             ),
             child: SearchHelpPanel(
-              visitedItems: widget.visitedItems,
+              visitHistory: widget.visitHistory,
               onFilterButtonPressed: (eventParam) => widget
                   .filtrationService.filterByFunctionEvent
                   .trigger(param: eventParam),
@@ -96,7 +98,7 @@ class _SearchBar extends State<SearchBar> {
   }
 
   void _updateFilteredSearchHistory({query}) => _filteredSearchHistory =
-      widget.searchHistory.filterSearchTerms(query: query);
+      widget.searchHistory.filterSearchHistory(query: query);
 
   ClipRRect _suggestionPanel() {
     return ClipRRect(
@@ -114,10 +116,9 @@ class _SearchBar extends State<SearchBar> {
 
   Column _suggestionColumn() {
     List<Widget> _displayedSuggestions = [];
-    var _history = _filteredSearchHistory.map((text) => _historyListTile(text));
+    var _history = _filteredSearchHistory.map((item) => _historyListTile(item));
     var _suggestion = _searchSuggestions.map(
-      (suggestion) =>
-          _suggestionListTile(suggestion.key.id, suggestion.value, suggestion.key.name),
+      (suggestion) => _suggestionListTile(suggestion.key, suggestion.value),
     );
     _displayedSuggestions.addAll(_history);
     int leftForDisplaying = 6 - _history.length;
@@ -130,47 +131,42 @@ class _SearchBar extends State<SearchBar> {
     );
   }
 
-  ListTile _suggestionListTile(int id, String text, String query) {
-    var subtitle = Text(
-      query,
-      maxLines: 1,
-      overflow: TextOverflow.ellipsis,
-    );
-    if (text == query) {
-      subtitle = null;
-    }
-    return _listTile(id, text, Icon(Icons.pin_drop), subtitle: subtitle);
-  }
-
-  ListTile _historyListTile(String text) {
-    var removeIconButton = IconButton(
-      icon: Icon(Icons.clear),
-      onPressed: () {
-        setState(
-          () {
-            widget.searchHistory.deleteSearchTerm(text);
-            widget.searchHistory.save();
-            _updateFilteredSearchHistory();
-          },
-        );
-      },
-    );
-    return _listTile(0, text, Icon(Icons.history),
-        trailingButton: removeIconButton);
-  }
-
-  ListTile _listTile(int mapItemID, String text, Icon leadingIcon,
-      {Text subtitle, IconButton trailingButton}) {
+  ListTile _suggestionListTile(MapItem item, String query) {
     return ListTile(
       title: Text(
-        text,
+        query,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
-      subtitle: subtitle,
-      leading: leadingIcon,
-      trailing: trailingButton,
-      onTap: () => _onSubmittedWithMapItemID(mapItemID),
+      subtitle: Text(
+        item.name,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      leading: Icon(Icons.pin_drop),
+      onTap: () => _onSubmittedWithMapItem(item),
+    );
+  }
+
+  ListTile _historyListTile(MapItem item) {
+    return ListTile(
+      title: Text(
+        item.name,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+      leading: Icon(Icons.history),
+      trailing: IconButton(
+        icon: Icon(Icons.clear),
+        onPressed: () {
+          setState(
+            () {
+              _deleteFromSearchHistory(item);
+            },
+          );
+        },
+      ),
+      onTap: () => _onSubmittedWithMapItem(item),
     );
   }
 
@@ -191,16 +187,23 @@ class _SearchBar extends State<SearchBar> {
     _controller.close();
   }
 
-  void _onSubmittedWithMapItemID(int mapItemID) {
+  void _onSubmittedWithMapItem(MapItem mapItem) {
     setState(() {
-      widget.filtrationService.searchWithIDEvent
-          .trigger(param: SearchEventParam(id: mapItemID, isFinal: true));
+      _addToSearchHistory(mapItem);
+      widget.filtrationService.searchWithMapItemEvent.trigger(param: mapItem);
     });
     _controller.close();
   }
 
-  void _addToSearchHistory(String query) {
-    widget.searchHistory.addSearchTerm(query);
+  void _addToSearchHistory(MapItem item) {
+    widget.searchHistory.addItem(item);
     widget.searchHistory.save();
+    _updateFilteredSearchHistory();
+  }
+
+  void _deleteFromSearchHistory(item) {
+    widget.searchHistory.deleteItem(item);
+    widget.searchHistory.save();
+    _updateFilteredSearchHistory();
   }
 }
