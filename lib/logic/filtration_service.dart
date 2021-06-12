@@ -13,13 +13,11 @@ class FiltrationService {
   StreamService _searchWithMapItemEvent;
   StreamService _filterMarkersEvent;
   StreamService _unfilterMarkersEvent;
-  StreamService _searchWithNameEvent;
   StreamService _searchSuggestionEvent;
   StreamService _manageSearchHistoryEvent;
   StreamSubscription _filterByFunctionListener;
   StreamSubscription _searchWithQueryListener;
   StreamSubscription _searchWithMapItemListener;
-  StreamSubscription _searchWithNameListener;
   final Function onNoItemFound;
   FiltrationService({this.mapItems, this.onNoItemFound}) {
     _initializeStreamServices();
@@ -31,7 +29,6 @@ class FiltrationService {
   StreamService get searchWithMapItemEvent => _searchWithMapItemEvent;
   StreamService get filterMarkersEvent => _filterMarkersEvent;
   StreamService get unfilterMarkersEvent => _unfilterMarkersEvent;
-  StreamService get searchWithNameEvent => _searchWithNameEvent;
   StreamService get searchSuggestionEvent => _searchSuggestionEvent;
   StreamService get manageSearchHistoryEvent => _manageSearchHistoryEvent;
 
@@ -41,8 +38,6 @@ class FiltrationService {
     _searchWithQueryListener = _searchWithQueryEvent
         .listen((searchEventParam) => _filterItemsByQuery(searchEventParam));
     _searchWithMapItemListener = _searchWithMapItemEvent
-        .listen((mapItem) => _triggerInteractiveMap(mapItem.name, [mapItem]));
-    _searchWithNameListener = _searchWithNameEvent
         .listen((mapItem) => _triggerInteractiveMap(mapItem.name, [mapItem]));
   }
 
@@ -99,7 +94,6 @@ class FiltrationService {
     _searchWithMapItemEvent = StreamService();
     _filterMarkersEvent = StreamService();
     _unfilterMarkersEvent = StreamService();
-    _searchWithNameEvent = StreamService();
     _searchSuggestionEvent = StreamService();
     _manageSearchHistoryEvent = StreamService();
   }
@@ -108,13 +102,11 @@ class FiltrationService {
     _filterByFunctionListener.cancel();
     _searchWithQueryListener.cancel();
     _searchWithMapItemListener.cancel();
-    _searchWithNameListener.cancel();
     _filterByFunctionEvent.dispose();
     _searchWithQueryEvent.dispose();
     _searchWithMapItemEvent.dispose();
     _filterMarkersEvent.dispose();
     _unfilterMarkersEvent.dispose();
-    _searchWithNameEvent.dispose();
     _manageSearchHistoryEvent.dispose();
   }
 }

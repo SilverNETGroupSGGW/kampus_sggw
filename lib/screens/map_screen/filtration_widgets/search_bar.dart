@@ -75,7 +75,7 @@ class _SearchBar extends State<SearchBar> {
                   .filtrationService.filterByFunctionEvent
                   .trigger(param: eventParam),
               onItemTilePressed: (eventParam) => widget
-                  .filtrationService.searchWithNameEvent
+                  .filtrationService.searchWithMapItemEvent
                   .trigger(param: eventParam),
             ),
           ),
