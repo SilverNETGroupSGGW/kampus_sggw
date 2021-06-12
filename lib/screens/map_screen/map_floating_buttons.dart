@@ -12,9 +12,6 @@ class MapFloatingButtons extends StatefulWidget {
   final VisitHistory visitHistory;
   final Function onRecenterButtonPressed;
   final FiltrationService filtrationService;
-  //final StreamService filterButtonNotifier;
-  //final StreamService searchBarNotifier;
-  //final StreamService filtrationNotifier;
 
   const MapFloatingButtons({
     Key key,
@@ -22,9 +19,6 @@ class MapFloatingButtons extends StatefulWidget {
     @required this.visitHistory,
     @required this.onRecenterButtonPressed,
     @required this.filtrationService,
-    //@required this.filterButtonNotifier,
-    //@required this.searchBarNotifier,
-    //@required this.filtrationNotifier,
   }) : super(key: key);
 
   @override
@@ -68,19 +62,25 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
     );
   }
 
-  TextButton _unfilterButton(String filterName) {
-    return TextButton.icon(
-      label: Text(filterName),
-      icon: Icon(Icons.clear),
+  FloatingActionButton _unfilterButton(String filterName) {
+    return FloatingActionButton.extended(
       onPressed: () {
         widget.filtrationService.unfilterMarkersEvent.trigger();
         _replaceUnfilterButtonWithFilterButton();
       },
-      style: TextButton.styleFrom(
-        backgroundColor: Colors.green,
-        primary: Colors.white,
-        textStyle: TextStyle(fontFamily: 'SGGWSans', fontSize: 20),
+      label: Container(
+        constraints: BoxConstraints(maxWidth: 200),
+        child: Text(
+          filterName,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontFamily: 'SGGWSans',
+            fontSize: 20,
+          ),
+        ),
       ),
+      icon: const Icon(Icons.clear),
+      backgroundColor: Colors.green,
     );
   }
 
