@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/logic/visited_items.dart';
+import 'package:kampus_sggw/logic/visit_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 
 class RecentlyVisitedList extends StatefulWidget {
-  final VisitedItems visitedItems;
+  final VisitHistory visitHistory;
   final Function onItemTilePressed;
 
   const RecentlyVisitedList({
     Key key,
-    @required this.visitedItems,
+    @required this.visitHistory,
     @required this.onItemTilePressed,
   }) : super(key: key);
 
@@ -22,7 +22,7 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
   @override
   void initState() {
     super.initState();
-    _visitedItems = widget.visitedItems.filterVisitedItems();
+    _visitedItems = widget.visitHistory.updateMapItems();
   }
 
   @override
@@ -51,7 +51,7 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
           icon: const Icon(Icons.clear),
           onPressed: () {
             setState(() {
-              widget.visitedItems.deleteItem(item.id);
+              widget.visitHistory.deleteItem(item);
               _updateRecentlyVisited();
             });
           }),
@@ -77,12 +77,12 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
 
   void _onTapFunc(MapItem item) {
     setState(() {
-      widget.visitedItems.addItem(item.id);
+      widget.visitHistory.addItem(item);
       _updateRecentlyVisited();
       widget.onItemTilePressed(item);
     });
   }
 
   void _updateRecentlyVisited() =>
-      _visitedItems = widget.visitedItems.filterVisitedItems();
+      _visitedItems = widget.visitHistory.updateMapItems();
 }
