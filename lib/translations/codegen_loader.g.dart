@@ -37,7 +37,13 @@ class CodegenLoader extends AssetLoader{
   "faculties": "Wydziały",
   "ground": "Piętro",
   "website": "Strona internetowa",
-  "close": "Zamknij"
+  "close": "Zamknij",
+    "language": "Język",
+    "settings": "Ustawienia",
+    "dark_mode": "Tryb ciemny",
+    "polish": "Polski",
+    "english": "Angielski",
+    "campus_rules": "Regulamin Kampusu"
 };
 static const Map<String,dynamic> en = {
   "map_screen_title": "SGGW Campus",
@@ -62,7 +68,13 @@ static const Map<String,dynamic> en = {
   "faculties": "Faculties",
   "ground": "Ground",
   "website": "Website",
-  "close": "Close"
+  "close": "Close",
+  "language": "Language",
+  "settings": "Settings",
+  "dark_mode": "Dark mode",
+  "polish": "Polish",
+  "english": "English",
+  "campus_rules": "Campus Rules"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"pl": pl, "en": en};
 }
