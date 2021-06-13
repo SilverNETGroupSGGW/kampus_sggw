@@ -7,10 +7,20 @@
         "lon": 21.04684395469378
       },
       "name": "Budynek 1",
-      "description": "Centrum informatyczne",
+      "description": "",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19"
+      "lastModified": "2021-06-13",
+      "categories": [
+        {
+        "name": "offices",
+        "subCategories": [
+          {
+            "name":"Centrum Informatyczne"
+          }
+        ]
+        }
+      ]
     },
     {
       "id": 2,
@@ -19,11 +29,24 @@
         "lon": 21.046544757179074
       },
       "name": "Budynek 2",
-      "description": "Centrum Innowacji i Transferu Technologii, Wydawnictwo SGGW",
-      "url": "http://cobis.sggw.pl/",
+      "description": "",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19"
+      "lastModified": "2021-06-13",
+      "categories":[
+        {
+          "name":"offices",
+          "subCategories":[
+            {
+              "name":"Centrum Innowacji i Transferu Technologii",
+              "url":"http://cobis.sggw.pl/"
+            },
+            {
+              "name":"Wydawnictwo SGGW"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 3,
@@ -279,10 +302,35 @@
         "lon": 21.04972317490107
       },
       "name": "Budynek 8",
-      "description": "Administracja Uczelni, Biuro Spraw Studenckich, Biuro Nauki, Biuro Współpracy Międzynarodowej, Biuro Prasowe, Biuro Międzynarodowych Projektów Badawczych",
+      "description": "",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19"
+      "lastModified": "2021-06-13",
+      "categories":[
+        {
+          "name":"offices",
+          "subCategories":[
+            {
+              "name":"Administracja Uczelni"
+            },
+            {
+              "name":"Biuro Spraw Studenckich"
+            },
+            {
+              "name":"Biuro Nauki"
+            },
+            {
+              "name":"Biuro Współpracy Międzynarodowej"
+            },
+            {
+              "name":"Biuro Prasowe"
+            },
+            {
+              "name":"Biuro Międzynarodowych Projektów Badawczych"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 9,
@@ -303,10 +351,10 @@
         "lon": 21.04786574512511
       },
       "name": "Budynek 10",
-      "description": "Administracja Uczelni, Biuro Spraw Osobowych, Biuro Promocji, Biuro Karier i Monitorowania Losów Absolwentów, Agendy Studenckie, Sekcja Zamówień Publicznych, Uniwersytet Trzeciego Wieku",
+      "description": "",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-29",
+      "lastModified": "2021-06-13",
       "categories": [
         {
           "name": "faculties",
@@ -315,6 +363,32 @@
               "name": "UO",
               "url": "https://uo.sggw.pl/pl/",
               "description": "Uniwersytet Otwarty SGGW"
+            }
+          ]
+        },
+        {
+          "name":"offices",
+          "subCategories":[
+            {
+              "name":"Administracja Uczelni"
+            },
+            {
+              "name":"Biuro Spraw Osobowych"
+            },
+            {
+              "name":"Biuro Promocji"
+            },
+            {
+              "name":"Biuro Karier i Monitorowania Losów Absolwentów"
+            },
+            {
+              "name":"Agendy Studenckie"
+            },
+            {
+              "name":"Sekcja Zamówień Publicznych"
+            },
+            {
+              "name":"Uniwersytet Trzeciego Wieku"
             }
           ]
         }
@@ -339,10 +413,23 @@
         "lon": 21.050455498232783
       },
       "name": "Budynek 12",
-      "description": "Rektorat SGGW, Kanclerz",
+      "description": "",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-18"
+      "lastModified": "2021-06-13",
+      "categories":[
+        {
+          "name":"offices",
+          "subCategories":[
+            {
+              "name":"Rektorat SGGW"
+            },
+            {
+              "name":"Kanclerz"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 13,
@@ -363,10 +450,20 @@
         "lon": 21.051030751803392
       },
       "name": "Budynek 15",
-      "description": "Administracja Uczelni",
+      "description": "",
       "type": "administrationBuilding",
       "minScale": 1.0,
-      "lastModified": "2021-05-19"
+      "lastModified": "2021-06-13",
+      "categories":[
+        {
+          "name":"offices",
+          "subCategories":[
+            {
+              "name":"Administracja Uczelni"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 16,
