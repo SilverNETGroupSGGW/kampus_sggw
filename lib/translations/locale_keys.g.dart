@@ -24,6 +24,7 @@ abstract class  LocaleKeys {
   static const faculties = 'faculties';
   static const floor = 'floor';
   static const website = 'website';
+  static const offices = 'offices';
   static const close = 'close';
 
 }

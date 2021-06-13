@@ -20,8 +20,8 @@ class _CategoryItemState extends State<CategoryItem> {
     return _buildTiles(widget.category);
   }
 
-  Widget _buildTiles(Category root, {bool isFacultyOrInstitute = false}) {
-    if (isFacultyOrInstitute) {
+  Widget _buildTiles(Category root, {bool isFacultyInstituteorOffice = false}) {
+    if (isFacultyInstituteorOffice) {
       return ListTile(
         leading: Icon(Icons.info_outline),
         title: Text(root.name),
@@ -37,8 +37,9 @@ class _CategoryItemState extends State<CategoryItem> {
         title: _tileTitle(root.name),
         children: root.subCategories.map<Widget>((sub) {
           return _buildTiles(sub,
-              isFacultyOrInstitute:
-                  root.name == 'faculties' || root.name == 'institutes');
+              isFacultyInstituteorOffice: root.name == 'faculties' ||
+                  root.name == 'institutes' ||
+                  root.name == 'offices');
         }).toList(),
       );
     }
@@ -53,6 +54,8 @@ class _CategoryItemState extends State<CategoryItem> {
       return Icon(Icons.science);
     } else if (name == 'institutes') {
       return Icon(Icons.book);
+    } else if (name == 'offices') {
+      return Icon(Icons.corporate_fare);
     } else {
       return null;
     }
@@ -63,6 +66,8 @@ class _CategoryItemState extends State<CategoryItem> {
       return Text(LocaleKeys.faculties.tr());
     } else if (name == 'institutes') {
       return Text(LocaleKeys.institutes.tr());
+    } else if (name == 'offices') {
+      return Text(LocaleKeys.offices.tr());
     } else {
       return Text(name);
     }
