@@ -11,6 +11,7 @@ class SettingsCard extends StatefulWidget {
 class _SettingsCardState extends State<SettingsCard>{
   bool darkMode = true;
   String language = 'pl';
+  var _languages = ['pl', 'en'];
 
   @override
   Widget build(BuildContext context) {
@@ -59,35 +60,21 @@ class _SettingsCardState extends State<SettingsCard>{
               style: Theme.of(context).textTheme.subtitle1,
             ),
             subtitle: Column(
-              children: <Widget>[
-                RadioListTile(
-                    title: Text(
-                      LocaleKeys.polish.tr(),
-                      style: Theme.of(context).textTheme.subtitle2,
-                    ),
-                    value: 'pl',
-                    groupValue: language,
-                    onChanged: (value) {
-                      setState(() {
-                        language = value;
-                        context.locale = Locale(value);
-                      });
-                    },
-                ),
-                RadioListTile(
-                  title: Text(
-                    LocaleKeys.english.tr(),
-                    style: Theme.of(context).textTheme.subtitle2,
-                  ),
-                  value: 'en',
-                  groupValue: language,
-                  onChanged: (value) {
+              children: [
+                DropdownButton<String>(
+                  items: _languages.map((String dropDownStringItem) {
+                    return DropdownMenuItem<String>(
+                      value: dropDownStringItem,
+                      child: Text(dropDownStringItem.tr()),
+                    );
+                  }).toList(),
+                  onChanged: (String newValueSelected){
                     setState(() {
-                      language = value;
-                      context.locale = Locale(value);
+                      context.locale = Locale(newValueSelected);
                     });
                   },
-                ),
+                  value: context.locale.toString(),
+                )
               ],
             ),
           ),

@@ -43,7 +43,9 @@ class CodegenLoader extends AssetLoader{
     "dark_mode": "Tryb ciemny",
     "polish": "Polski",
     "english": "Angielski",
-    "campus_rules": "Regulamin Kampusu"
+    "campus_rules": "Regulamin Kampusu",
+    "pl": "Polski",
+    "en": "Angielski"
 };
 static const Map<String,dynamic> en = {
   "map_screen_title": "SGGW Campus",
@@ -74,7 +76,9 @@ static const Map<String,dynamic> en = {
   "dark_mode": "Dark mode",
   "polish": "Polish",
   "english": "English",
-  "campus_rules": "Campus Rules"
+  "campus_rules": "Campus Rules",
+  "pl": "Polish",
+  "en": "English"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"pl": pl, "en": en};
 }
