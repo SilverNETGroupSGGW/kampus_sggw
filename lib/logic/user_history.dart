@@ -18,8 +18,6 @@ class UserHistory {
   factory UserHistory.fromJson(Map<String, dynamic> json) =>
       _$UserHistoryFromJson(json);
 
-  //Map<String, dynamic> toJson() => _$UserHistoryToJson(this);
-
   @protected
   List<MapItem> updateMapItems() =>
       mapItems.getItems(itemsIds).reversed.toList();
@@ -37,9 +35,7 @@ class UserHistory {
   }
 
   void _putAtFirstPosition(MapItem mapItem) {
-    //if (itemsIds.contains(mapItem.id)) {
       deleteItem(mapItem);
-    //}
   }
 
   void deleteItem(MapItem mapItem) {
