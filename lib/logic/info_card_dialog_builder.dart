@@ -47,7 +47,7 @@ class InfoCardDialogBuilder {
       );
     }
 
-    if (mapItem.description != null) {
+    if (mapItem.description != null && mapItem.description.isNotEmpty) {
       mapItemDescription = Text(
         mapItem.description,
         textAlign: TextAlign.center,
