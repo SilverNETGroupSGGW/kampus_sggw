@@ -21,6 +21,7 @@ dependencies:
   permission_handler: ^7.1.0
   fuzzy: ^0.3.0
   http: ^0.13.3
+  get_storage: ^2.0.2
 
 dev_dependencies:
   flutter_test:

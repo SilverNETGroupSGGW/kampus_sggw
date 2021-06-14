@@ -1,6 +1,6 @@
 import 'package:kampus_sggw/logic/key_value.dart';
 import 'package:kampus_sggw/models/map_item.dart';
-import 'package:flutter/services.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/models/service.dart';
 import 'package:fuzzy/fuzzy.dart';
@@ -8,6 +8,8 @@ part 'map_items.g.dart';
 
 @JsonSerializable()
 class MapItems {
+  static final storage = GetStorage();
+
   List<MapItem> mapItems;
   @JsonKey(ignore: true)
   Map<MapItem, Fuzzy> fuzzySetItemMap;
@@ -38,8 +40,8 @@ class MapItems {
   factory MapItems.fromJson(Map<String, dynamic> json) =>
       _$MapItemsFromJson(json);
 
-  static Future<String> getJsonSting() {
-    return rootBundle.loadString('assets/json/map_items.json', cache: false);
+  static String getJsonSting() {
+    return storage.read('map_items_content');
   }
 
   void generateFuzzyStringSetForMapItems() {
