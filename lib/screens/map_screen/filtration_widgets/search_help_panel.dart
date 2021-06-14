@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/logic/visited_items.dart';
+import 'package:kampus_sggw/logic/visit_history.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -7,12 +7,12 @@ import 'recently_visited_list.dart';
 import 'filter_buttons_row.dart';
 
 class SearchHelpPanel extends StatelessWidget {
-  final VisitedItems visitedItems;
+  final VisitHistory visitHistory;
   final Function onFilterButtonPressed;
   final Function onItemTilePressed;
   const SearchHelpPanel({
     Key key,
-    @required this.visitedItems,
+    @required this.visitHistory,
     @required this.onFilterButtonPressed,
     @required this.onItemTilePressed,
   }) : super(key: key);
@@ -35,7 +35,7 @@ class SearchHelpPanel extends StatelessWidget {
             text: LocaleKeys.recent_searches.tr(),
           ),
           RecentlyVisitedList(
-            visitedItems: visitedItems,
+            visitHistory: visitHistory,
             onItemTilePressed: onItemTilePressed,
           ),
         ],
