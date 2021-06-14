@@ -1,21 +1,41 @@
 import 'package:json_annotation/json_annotation.dart';
-
+part 'campus_rules.g.dart';
 @JsonSerializable()
-class campusRules {
+class CampusRules {
   String name;
   String lang;
-  List<campusRule> campusRulesList;
+  List<CampusRule> campusRulesList;
+  CampusRules(
+      this.name,
+      this.lang,
+      this.campusRulesList,
+      );
+  factory CampusRules.fromJson(Map<String, dynamic> json) =>
+      _$CampusRulesFromJson(json);
 }
 
 @JsonSerializable()
-class campusRule {
+class CampusRule {
   int ruleNumber;
   String rule;
-  List<campusSubRule> subRulesList;
+  List<CampusSubRule> subRulesList;
+  CampusRule(
+      this.ruleNumber,
+      this.rule,
+      this.subRulesList,
+      );
+  factory CampusRule.fromJson(Map<String, dynamic> json) =>
+      _$CampusRuleFromJson(json);
 }
 
 @JsonSerializable()
-class campusSubRule {
+class CampusSubRule {
   int subRuleNumber;
   String subRule;
+  CampusSubRule(
+      this.subRuleNumber,
+      this.subRule,
+      );
+  factory CampusSubRule.fromJson(Map<String, dynamic> json) =>
+      _$CampusSubRuleFromJson(json);
 }

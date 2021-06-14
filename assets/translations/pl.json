@@ -23,5 +23,12 @@
     "faculties": "Wydziały",
     "ground": "Piętro",
     "website": "Strona internetowa",
-    "close": "Zamknij"
+    "close": "Zamknij",
+
+    "settings": "Ustawienia",
+    "dark_mode": "Tryb ciemny",
+    "language": "Język",
+    "pl": "Polski",
+    "en": "Angielski",
+    "campus_rules": "Regulamin Kampusu"
 }

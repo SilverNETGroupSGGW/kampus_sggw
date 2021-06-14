@@ -24,10 +24,11 @@ abstract class  LocaleKeys {
   static const ground = 'ground';
   static const website = 'website';
   static const close = 'close';
-  static const language = 'language';
   static const settings = 'settings';
   static const dark_mode = 'dark_mode';
-  static const polish = 'polish';
-  static const english = 'english';
+  static const language = 'language';
+  static const pl = 'pl';
+  static const en = 'en';
   static const campus_rules = 'campus_rules';
+
 }

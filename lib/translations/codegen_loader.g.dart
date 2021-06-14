@@ -14,40 +14,7 @@ class CodegenLoader extends AssetLoader{
     return Future.value(mapLocales[locale.toString()]);
   }
 
-  static const Map<String,dynamic> pl = {
-  "map_screen_title": "Kampus SGGW",
-  "drawer_settings": "Ustawienia",
-  "drawer_campus_rules": "Regulamin kampusu",
-  "search_bar_title": "Szukaj miejsca lub adresu",
-  "find_nearby": "Szukaj w pobliżu",
-  "recent": "Ostatnio odwiedzone",
-  "recent_searches": "Ostatnio odwiedzone",
-  "food": "Restauracje",
-  "bus": "Transport publiczny",
-  "parking": "Parkingi",
-  "park": "Parki i pomniki",
-  "store": "Sklepy",
-  "copier": "Copy and print",
-  "no_results_found": "No search results found",
-  "other_institutions": "Pozostałe instytucje",
-  "building_plans": "Mapy pięter",
-  "photo": "Zdjęcie",
-  "gallery": "Galeria",
-  "departaments": "Katedry",
-  "faculties": "Wydziały",
-  "ground": "Piętro",
-  "website": "Strona internetowa",
-  "close": "Zamknij",
-    "language": "Język",
-    "settings": "Ustawienia",
-    "dark_mode": "Tryb ciemny",
-    "polish": "Polski",
-    "english": "Angielski",
-    "campus_rules": "Regulamin Kampusu",
-    "pl": "Polski",
-    "en": "Angielski"
-};
-static const Map<String,dynamic> en = {
+  static const Map<String,dynamic> en = {
   "map_screen_title": "SGGW Campus",
   "drawer_settings": "Settings",
   "drawer_campus_rules": "Campus rules",
@@ -71,14 +38,43 @@ static const Map<String,dynamic> en = {
   "ground": "Ground",
   "website": "Website",
   "close": "Close",
-  "language": "Language",
   "settings": "Settings",
-  "dark_mode": "Dark mode",
-  "polish": "Polish",
-  "english": "English",
-  "campus_rules": "Campus Rules",
+  "dark_mode": "Dark Mode",
+  "language": "Language",
   "pl": "Polish",
-  "en": "English"
+  "en": "English",
+  "campus_rules": "Kampus Rules"
 };
-static const Map<String, Map<String,dynamic>> mapLocales = {"pl": pl, "en": en};
+static const Map<String,dynamic> pl = {
+  "map_screen_title": "Kampus SGGW",
+  "drawer_settings": "Ustawienia",
+  "drawer_campus_rules": "Regulamin kampusu",
+  "search_bar_title": "Szukaj miejsca lub adresu",
+  "find_nearby": "Szukaj w pobliżu",
+  "recent": "Ostatnio odwiedzone",
+  "recent_searches": "Ostatnio odwiedzone",
+  "food": "Restauracje",
+  "bus": "Transport publiczny",
+  "parking": "Parkingi",
+  "park": "Parki i pomniki",
+  "store": "Sklepy",
+  "copier": "Copy and print",
+  "no_results_found": "No search results found",
+  "other_institutions": "Pozostałe instytucje",
+  "building_plans": "Mapy pięter",
+  "photo": "Zdjęcie",
+  "gallery": "Galeria",
+  "departaments": "Katedry",
+  "faculties": "Wydziały",
+  "ground": "Piętro",
+  "website": "Strona internetowa",
+  "close": "Zamknij",
+  "settings": "Ustawienia",
+  "dark_mode": "Tryb ciemny",
+  "language": "Język",
+  "pl": "Polski",
+  "en": "Angielski",
+  "campus_rules": "Regulamin Kampusu"
+};
+static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "pl": pl};
 }
