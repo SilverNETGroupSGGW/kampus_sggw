@@ -175,7 +175,8 @@ class InfoCardDialog extends StatelessWidget {
   }
 
   Widget _subcategoriesDisplay(BuildContext context) {
-    if (mapItemType != MapItemType.facultyBuilding) {
+    if (mapItemType != MapItemType.facultyBuilding &&
+        mapItemType != MapItemType.administrationBuilding) {
       return Center();
     }
 
