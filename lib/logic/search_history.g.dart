@@ -8,13 +8,13 @@ part of 'search_history.dart';
 
 SearchHistory _$SearchHistoryFromJson(Map<String, dynamic> json) {
   return SearchHistory(
-    json['buffer'] as int ?? 6,
-    (json['searchHistory'] as List)?.map((e) => e as String)?.toList() ?? [],
+    buffer: json['buffer'] as int ?? 6,
+    itemsIds: (json['itemsIds'] as List)?.map((e) => e as int)?.toList() ?? [],
   );
 }
 
 Map<String, dynamic> _$SearchHistoryToJson(SearchHistory instance) =>
     <String, dynamic>{
       'buffer': instance.buffer,
-      'searchHistory': instance.searchHistory,
+      'itemsIds': instance.itemsIds,
     };

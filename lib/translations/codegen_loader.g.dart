@@ -58,15 +58,16 @@ static const Map<String,dynamic> pl = {
   "parking": "Parkingi",
   "park": "Parki i pomniki",
   "store": "Sklepy",
-  "copier": "Copy and print",
-  "no_results_found": "No search results found",
+  "copier": "Ksero",
+  "no_results_found": "Nie znaleziono wyników wyszukiwania",
   "other_institutions": "Pozostałe instytucje",
-  "building_plans": "Mapy pięter",
+  "floor_plans": "Mapy pięter",
   "photo": "Zdjęcie",
   "gallery": "Galeria",
-  "departaments": "Katedry",
+  "departments": "Katedry",
+  "institutes": "Instytuty",
   "faculties": "Wydziały",
-  "ground": "Piętro",
+  "floor": "Piętro",
   "website": "Strona internetowa",
   "close": "Zamknij",
   "settings": "Ustawienia",
@@ -75,6 +76,8 @@ static const Map<String,dynamic> pl = {
   "pl": "Polski",
   "en": "Angielski",
   "campus_rules": "Regulamin Kampusu"
+  "offices": "Biura",
+  "close": "Zamknij"
 };
-static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "pl": pl};
+static const Map<String, Map<String,dynamic>> mapLocales = {"pl": pl, "en": en};
 }

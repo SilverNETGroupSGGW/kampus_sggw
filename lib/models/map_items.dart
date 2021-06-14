@@ -1,13 +1,16 @@
+import 'package:kampus_sggw/logic/key_value.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/models/service.dart';
-import 'package:string_similarity/string_similarity.dart';
+import 'package:fuzzy/fuzzy.dart';
 part 'map_items.g.dart';
 
 @JsonSerializable()
 class MapItems {
   List<MapItem> mapItems;
+  @JsonKey(ignore: true)
+  Map<MapItem, Fuzzy> fuzzySetItemMap;
   MapItems(
     this.mapItems,
   );
@@ -39,6 +42,12 @@ class MapItems {
     return rootBundle.loadString('assets/json/map_items.json');
   }
 
+  void generateFuzzyStringSetForMapItems() {
+    mapItems.forEach((item) {
+      item.generateFuzzySet();
+    });
+  }
+
   List<MapItem> getItems(List<int> itemsIds) {
     List<MapItem> tmp = [];
     for (var id in itemsIds) {
@@ -48,26 +57,41 @@ class MapItems {
   }
 
   MapItem findItemByQuery(String query) {
-    query = query.toLowerCase();
-    return mapItems.firstWhere((item) => item.name.toLowerCase() == query,
-        orElse: () => null);
+    List<KeyValue> similarItems = findItemsByQuery(query);
+    return similarItems.length > 0 ? similarItems[0].key : null;
   }
 
-  List<MapItem> findItemsByQuery(String query) {
-    query = query.toLowerCase();
-    Map<MapItem, double> similarityMap = <MapItem, double>{};
+  MapItem findItemByID(int id) {
+    return mapItems.firstWhere((element) => element.id==id);
+  }
 
+  List<KeyValue> findItemsByQuery(String query) {
+    List<KeyValue> similarityList =
+        _getSimilarityMapForEachItem(query.toLowerCase());
+    return _getMostSimilarMapItems(similarityList);
+  }
+
+  List<KeyValue> _getSimilarityMapForEachItem(String query) {
+    List<KeyValue> similarityList = [];
     mapItems.forEach(
       (item) {
-        var similarity = item.name.similarityTo(query);
-
-        if (similarity > 0) {
-          similarityMap[item] = similarity;
+        var similarity = item.searchingSet.search(query);
+        if (similarity.length > 0) {
+          similarityList.add(
+            KeyValue(
+              key: item,
+              value: similarity[0].item,
+              similarity: similarity[0].score,
+            ),
+          );
         }
       },
     );
-    List<MapItem> items = (similarityMap.keys.toList());
-    items.sort((a, b) => similarityMap[a].compareTo(similarityMap[b]));
-    return items;
+    return similarityList;
+  }
+
+  List<KeyValue> _getMostSimilarMapItems(List<KeyValue> similarityList) {
+    similarityList.sort((a, b) => a.similarity.compareTo(b.similarity));
+    return similarityList.take(6).toList();
   }
 }

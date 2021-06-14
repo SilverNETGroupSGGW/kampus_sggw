@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'gallery_button.dart';
 import 'service_button_row.dart';
 
@@ -11,10 +12,11 @@ class InfoCardDialog extends StatelessWidget {
   final ServiceButtonsRow servicesRow;
   final String photoPath;
   final MapItemType mapItemType;
-  final Text buildingDescription;
-  final List<Image> buildingGallery;
+  final Text mapItemDescription;
+  final List<Image> mapItemGallery;
   final List<Widget> otherCategories;
   final Widget facultyTile;
+  final String mapItemWebsite;
 
   InfoCardDialog({
     this.header,
@@ -22,10 +24,11 @@ class InfoCardDialog extends StatelessWidget {
     this.servicesRow,
     this.photoPath,
     this.mapItemType,
-    this.buildingDescription,
-    this.buildingGallery,
+    this.mapItemDescription,
+    this.mapItemGallery,
     this.otherCategories,
     this.facultyTile,
+    this.mapItemWebsite,
   });
 
   @override
@@ -48,6 +51,7 @@ class InfoCardDialog extends StatelessWidget {
 
     children.add(_mapItemImage());
     children.add(_mapItemDescription());
+    children.add(_mapItemUrlWidget());
     children.add(_subcategoriesDisplay(context));
     children.add(_divider());
 
@@ -86,15 +90,19 @@ class InfoCardDialog extends StatelessWidget {
   }
 
   Widget _mapItemImage() {
+    if (photoPath == null || photoPath == "") {
+      return Center();
+    }
+
     Widget coverImage;
-    if (buildingGallery.isEmpty) {
+    if (mapItemGallery.isEmpty) {
       coverImage = Center();
     } else {
       coverImage = Align(
         alignment: FractionalOffset.bottomRight,
         child: Padding(
           padding: EdgeInsets.only(right: 5),
-          child: GalleryButton(buildingGallery),
+          child: GalleryButton(mapItemGallery),
         ),
       );
     }
@@ -112,20 +120,63 @@ class InfoCardDialog extends StatelessWidget {
   }
 
   Widget _mapItemDescription() {
-    if (buildingDescription == null) {
+    if (mapItemDescription == null) {
       return Center();
     }
 
     return Container(
-      child: buildingDescription,
-      height: 60.0,
+      child: mapItemDescription,
       width: 350.0,
       padding: EdgeInsets.all(20),
     );
   }
 
+  Widget _mapItemUrlWidget() {
+    Future<void> _goToMapItemURL() async {
+      if (await canLaunch(mapItemWebsite)) {
+        await launch(mapItemWebsite);
+      } else {
+        throw 'Could not launch ' + mapItemWebsite;
+      }
+    }
+
+    if (mapItemWebsite == null) {
+      return Center();
+    }
+    return Column(
+      children: [
+        Text(
+          LocaleKeys.website.tr(),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 16,
+            fontFamily: 'SGGWSans',
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 5, bottom: 10),
+          child: GestureDetector(
+            onTap: _goToMapItemURL,
+            child: Text(
+              mapItemWebsite,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.blue,
+                fontWeight: FontWeight.w500,
+                fontSize: 16,
+                fontFamily: 'SGGWSans',
+              ),
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
   Widget _subcategoriesDisplay(BuildContext context) {
-    if (mapItemType != MapItemType.facultyBuilding) {
+    if (mapItemType != MapItemType.facultyBuilding &&
+        mapItemType != MapItemType.administrationBuilding) {
       return Center();
     }
 

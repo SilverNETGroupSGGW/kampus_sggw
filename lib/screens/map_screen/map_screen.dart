@@ -5,8 +5,8 @@ import 'package:kampus_sggw/global_widgets/side_drawer.dart';
 import 'package:kampus_sggw/logic/filtration_service.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:kampus_sggw/logic/stream_service.dart';
-import 'package:kampus_sggw/logic/visited_items.dart';
 import 'package:kampus_sggw/logic/info_card_dialog_builder.dart';
+import 'package:kampus_sggw/logic/visit_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
@@ -17,13 +17,13 @@ import 'map_floating_buttons.dart';
 class MapScreen extends StatefulWidget {
   final MapItems mapItems;
   final SearchHistory searchHistory;
-  final VisitedItems visitedItems;
+  final VisitHistory visitHistory;
 
   MapScreen({
     Key key,
     this.mapItems,
     this.searchHistory,
-    this.visitedItems,
+    this.visitHistory,
   }) : super(key: key);
 
   @override
@@ -51,8 +51,8 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   void _addItemToRecentlyVisited(MapItem mapItem) {
-    widget.visitedItems.addItem(mapItem.id);
-    widget.visitedItems.save();
+    widget.visitHistory.addItem(mapItem);
+    widget.visitHistory.save();
   }
 
   void _showAlertDialogNoItemFound() {
@@ -77,6 +77,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(
           LocaleKeys.map_screen_title.tr(),
@@ -100,7 +101,7 @@ class _MapScreenState extends State<MapScreen> {
       ),
       floatingActionButton: MapFloatingButtons(
         searchHistory: widget.searchHistory,
-        visitedItems: widget.visitedItems,
+        visitHistory: widget.visitHistory,
         onRecenterButtonPressed: () => _recenterMap.trigger(),
         filtrationService: _filtrationService,
       ),
@@ -110,7 +111,7 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   void dispose() {
-    widget.visitedItems.save();
+    widget.visitHistory.save();
     _visitItemListener.cancel();
     _recenterMap.dispose();
     _visitItem.dispose();

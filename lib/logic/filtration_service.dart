@@ -10,14 +10,14 @@ class FiltrationService {
   final MapItems mapItems;
   StreamService _filterByFunctionEvent;
   StreamService _searchWithQueryEvent;
+  StreamService _searchWithMapItemEvent;
   StreamService _filterMarkersEvent;
   StreamService _unfilterMarkersEvent;
-  StreamService _searchWithNameEvent;
   StreamService _searchSuggestionEvent;
   StreamService _manageSearchHistoryEvent;
   StreamSubscription _filterByFunctionListener;
   StreamSubscription _searchWithQueryListener;
-  StreamSubscription _searchWithNameListener;
+  StreamSubscription _searchWithMapItemListener;
   final Function onNoItemFound;
   FiltrationService({this.mapItems, this.onNoItemFound}) {
     _initializeStreamServices();
@@ -26,9 +26,9 @@ class FiltrationService {
 
   StreamService get filterByFunctionEvent => _filterByFunctionEvent;
   StreamService get searchWithQueryEvent => _searchWithQueryEvent;
+  StreamService get searchWithMapItemEvent => _searchWithMapItemEvent;
   StreamService get filterMarkersEvent => _filterMarkersEvent;
   StreamService get unfilterMarkersEvent => _unfilterMarkersEvent;
-  StreamService get searchWithNameEvent => _searchWithNameEvent;
   StreamService get searchSuggestionEvent => _searchSuggestionEvent;
   StreamService get manageSearchHistoryEvent => _manageSearchHistoryEvent;
 
@@ -37,7 +37,7 @@ class FiltrationService {
         .listen((filterEventParam) => _filterItemsByFunction(filterEventParam));
     _searchWithQueryListener = _searchWithQueryEvent
         .listen((searchEventParam) => _filterItemsByQuery(searchEventParam));
-    _searchWithNameListener = _searchWithNameEvent
+    _searchWithMapItemListener = _searchWithMapItemEvent
         .listen((mapItem) => _triggerInteractiveMap(mapItem.name, [mapItem]));
   }
 
@@ -54,18 +54,14 @@ class FiltrationService {
     }
   }
 
-  void _suggestSearches(String query) {
-    List<MapItem> suggestedItems = mapItems.findItemsByQuery(query);
-    // TODO : reduce number of suggested items to 6!
-    Set<String> suggestedItemsNames = suggestedItems.map((e) => e.name).toSet();
-    _searchSuggestionEvent.trigger(param: suggestedItemsNames);
-  }
+  void _suggestSearches(String query) =>
+      _searchSuggestionEvent.trigger(param: mapItems.findItemsByQuery(query));
 
   void _finalQuerySearch(String query) {
     MapItem queriedItem = mapItems.findItemByQuery(query);
     if (queriedItem != null) {
-      _manageSearchHistoryEvent.trigger(param: query);
-      _triggerInteractiveMap(query, [queriedItem]);
+      _manageSearchHistoryEvent.trigger(param: queriedItem.name);
+      _triggerInteractiveMap(queriedItem.name, [queriedItem]);
     } else {
       onNoItemFound();
     }
@@ -95,9 +91,9 @@ class FiltrationService {
   void _initializeStreamServices() {
     _filterByFunctionEvent = StreamService();
     _searchWithQueryEvent = StreamService();
+    _searchWithMapItemEvent = StreamService();
     _filterMarkersEvent = StreamService();
     _unfilterMarkersEvent = StreamService();
-    _searchWithNameEvent = StreamService();
     _searchSuggestionEvent = StreamService();
     _manageSearchHistoryEvent = StreamService();
   }
@@ -105,12 +101,12 @@ class FiltrationService {
   void dispose() {
     _filterByFunctionListener.cancel();
     _searchWithQueryListener.cancel();
-    _searchWithNameListener.cancel();
+    _searchWithMapItemListener.cancel();
     _filterByFunctionEvent.dispose();
     _searchWithQueryEvent.dispose();
+    _searchWithMapItemEvent.dispose();
     _filterMarkersEvent.dispose();
     _unfilterMarkersEvent.dispose();
-    _searchWithNameEvent.dispose();
     _manageSearchHistoryEvent.dispose();
   }
 }

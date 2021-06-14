@@ -53,18 +53,78 @@ class _InteractiveMapState extends State<InteractiveMap> {
   StreamSubscription _shouldRecenter;
   StreamSubscription _shouldFilterMarkers;
   StreamSubscription _shouldUnfilterMarkers;
+  BitmapDescriptor facultyMarker;
+  BitmapDescriptor sportMarker;
+  BitmapDescriptor otherMarker;
+  BitmapDescriptor hotelMarker;
+  BitmapDescriptor administrationMarker;
+  BitmapDescriptor storeMarker;
+  BitmapDescriptor foodMarker;
+  BitmapDescriptor libraryMarker;
+  BitmapDescriptor parkingMarker;
+  BitmapDescriptor transportMarker;
+  BitmapDescriptor financeMarker;
 
   @override
   initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      facultyMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/facultyMarker.png');
+
+      sportMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/sportMarker.png');
+
+      administrationMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/administrationMarker.png');
+
+      hotelMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/hotelMarker.png');
+
+      storeMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/storeMarker.png');
+
+      foodMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/foodMarker.png');
+
+      libraryMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/libraryMarker.png');
+
+      parkingMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/parkingMarker.png');
+
+      transportMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/transportMarker.png');
+
+      financeMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/financeMarker.png');
+
+      otherMarker = await BitmapDescriptor.fromAssetImage(
+          ImageConfiguration(size: Size(30, 45)),
+          'assets/images/icons/otherMarker.png');
+
+      setState(() {});
+
+      tryRequestLocation();
+      _setMarkers(markers, widget.mapItems.mapItems);
+      _currentMarkerSet = markers.values.toSet();
+      _shouldRecenter = widget.shouldRecenter.listen((_) => _goToTheCampus());
+      _shouldFilterMarkers = widget.shouldFilterMarkers.listen(
+          (filterService) => _updateMarkers(filterService.filteredMapItems));
+      _shouldUnfilterMarkers =
+          widget.shouldUnfilterMarkers.listen((_) => _updateMarkersToDefault());
+    });
+
     super.initState();
-    tryRequestLocation();
-    _setMarkers(markers, widget.mapItems.mapItems);
-    _currentMarkerSet = markers.values.toSet();
-    _shouldRecenter = widget.shouldRecenter.listen((_) => _goToTheCampus());
-    _shouldFilterMarkers = widget.shouldFilterMarkers
-        .listen((filterService) => _updateMarkers(filterService.filteredMapItems));
-    _shouldUnfilterMarkers =
-        widget.shouldUnfilterMarkers.listen((_) => _updateMarkersToDefault());
   }
 
   @override
@@ -85,6 +145,7 @@ class _InteractiveMapState extends State<InteractiveMap> {
   Marker _getMarkerFromMapItem(MapItem mapItem) {
     MarkerId markerId = MarkerId(mapItem.name);
     Marker marker = Marker(
+      icon: _iconType(mapItem.type),
       markerId: markerId,
       position: LatLng(
         mapItem.geoLocation.lat,
@@ -95,6 +156,30 @@ class _InteractiveMapState extends State<InteractiveMap> {
       },
     );
     return marker;
+  }
+
+  BitmapDescriptor _iconType(MapItemType type) {
+    if (type == MapItemType.facultyBuilding) return facultyMarker;
+
+    if (type == MapItemType.administrationBuilding) return administrationMarker;
+
+    if (type == MapItemType.dormitories) return hotelMarker;
+
+    if (type == MapItemType.sportsFacility) return sportMarker;
+
+    if (type == MapItemType.finance) return financeMarker;
+
+    if (type == MapItemType.food) return foodMarker;
+
+    if (type == MapItemType.library) return libraryMarker;
+
+    if (type == MapItemType.parking) return parkingMarker;
+
+    if (type == MapItemType.store) return storeMarker;
+
+    if (type == MapItemType.transport) return transportMarker;
+
+    return otherMarker;
   }
 
   _onPinPressed(MapItem mapItem) {

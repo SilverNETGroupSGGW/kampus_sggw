@@ -1,14 +1,1156 @@
 {
   "mapItems": [
     {
+      "id": 1,
+      "geoLocation": {
+        "lat": 52.164439254713336,
+        "lon": 21.04684395469378
+      },
+      "name": "Budynek 1",
+      "description": "Centrum informatyczne",
+      "type": "administrationBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-19"
+    },
+    {
+      "id": 2,
+      "geoLocation": {
+        "lat": 52.16474476886445,
+        "lon": 21.046544757179074
+      },
+      "name": "Budynek 2",
+      "description": "Centrum Innowacji i Transferu Technologii, Wydawnictwo SGGW",
+      "url": "http://cobis.sggw.pl/",
+      "type": "administrationBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-19"
+    },
+    {
+      "id": 3,
+      "geoLocation": {
+        "lat": 52.165081476459584,
+        "lon": 21.047062503937646
+      },
+      "name": "Budynek 3",
+      "description": "Budynek WNE, Centrum Innowacji i Transferu Wiedzy w Agrobiznesie",
+      "url": "http://innowacje.sggw.pl/",
+      "type": "facultyBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-27",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WNE",
+              "url": "http://www.wne.sggw.pl/",
+              "description": "Wydział Nauk Ekonomicznych"
+            }
+          ]
+        },
+        {
+          "name": "institutes",
+          "subCategories": [
+            {
+              "name": "IEIF",
+              "description": "Instytut Ekonomii i Finansów",
+              "url": "https://www.ieif.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Logistyki"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "geoLocation": {
+        "lat": 52.16538641118835,
+        "lon": 21.047743704629244
+      },
+      "name": "Budynek 4",
+      "description": "Budynek WSiP",
+      "type": "facultyBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-27",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WSiP",
+              "url": "https://wsip.sggw.pl",
+              "description": "Wydział Socjologii i Pedagogiki"
+            }
+          ]
+        },
+        {
+          "name": "institutes",
+          "subCategories": [
+            {
+              "name": "INSIP",
+              "description": "Instytut Nauk Socjologicznych i Pedagogiki",
+              "url": "https://insip.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Socjologii"
+                    },
+                    {
+                      "name": "Katedra Pedagogiki"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "geoLocation": {
+        "lat": 52.165194152862945,
+        "lon": 21.04838811410134
+      },
+      "name": "Budynek 5",
+      "description": "Budynek WNE",
+      "type": "facultyBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-27",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WNE",
+              "url": "http://www.wne.sggw.pl/",
+              "description": "Wydział Nauk Ekonomicznych"
+            }
+          ]
+        },
+        {
+          "name": "institutes",
+          "subCategories": [
+            {
+              "name": "IEIF",
+              "description": "Instytut Ekonomii i Finansów",
+              "url": "https://www.ieif.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Ekonomii i Polityki Gospodarczej"
+                    },
+                    {
+                      "name": "Katedra Ekonomii Międzynarodowej i Agrobiznesu"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "geoLocation": {
+        "lat": 52.164502916676014,
+        "lon": 21.04782417089825
+      },
+      "name": "Budynek 6",
+      "description": "Budynek WNE",
+      "type": "facultyBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-27",
+      "categories":[
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WNE",
+              "url": "http://www.wne.sggw.pl/",
+              "description": "Wydział Nauk Ekonomicznych"
+            }
+          ]
+        },
+        {
+          "name":"institutes",
+          "subCategories":[
+            {
+              "name": "IEIF",
+              "description": "Instytut Ekonomii i Finansów",
+              "url": "https://www.ieif.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Polityki Rozwoju i Marketingu"
+                    },
+                    {
+                      "name": "Katedra Turystyki, Komunikowania Społecznego i Doradztwa"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "geoLocation": {
+        "lat": 52.16465921586108,
+        "lon": 21.049020436140445
+      },
+      "name": "Budynek 7",
+      "description": "Budynek WNE",
+      "type": "facultyBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-27",
+      "services": [
+        {
+          "name": "Drukarnia/ksero",
+          "type": "copier"
+        }
+      ],
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WNE",
+              "url": "http://www.wne.sggw.pl/",
+              "description": "Wydział Nauk Ekonomicznych",
+              "services": [
+                {
+                  "name": "Dziekanat WNE",
+                  "type": "deanery",
+                  "description": "Pokoje 7A, 7B, 7C, 9A, 9B, 10, 11",
+                  "url": "https://www.we.sggw.pl/student/dziekanaty/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name":"institutes",
+          "subCategories":[
+            {
+              "name": "IEIF",
+              "description": "Instytut Ekonomii i Finansów",
+              "url": "https://www.ieif.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Finansów"
+                    },
+                    {
+                      "name": "Katedra Ekonomiki i Organizacji Przedsiębiorstw"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "geoLocation": {
+        "lat": 52.163963268925144,
+        "lon": 21.04972317490107
+      },
+      "name": "Budynek 8",
+      "description": "Administracja Uczelni, Biuro Spraw Studenckich, Biuro Nauki, Biuro Współpracy Międzynarodowej, Biuro Prasowe, Biuro Międzynarodowych Projektów Badawczych",
+      "type": "administrationBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-19"
+    },
+    {
+      "id": 9,
+      "geoLocation": {
+        "lat": 52.16334242787381,
+        "lon": 21.049033927584134
+      },
+      "name": "Aula Kryształowa",
+      "description": "Budynek 9",
+      "type": "facultyBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18"
+    },
+    {
+      "id": 10,
+      "geoLocation": {
+        "lat": 52.1633783689352,
+        "lon": 21.04786574512511
+      },
+      "name": "Budynek 10",
+      "description": "Administracja Uczelni, Biuro Spraw Osobowych, Biuro Promocji, Biuro Karier i Monitorowania Losów Absolwentów, Agendy Studenckie, Sekcja Zamówień Publicznych, Uniwersytet Trzeciego Wieku",
+      "type": "administrationBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "UO",
+              "url": "https://uo.sggw.pl/pl/",
+              "description": "Uniwersytet Otwarty SGGW"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "geoLocation": {
+        "lat": 52.163951184878584,
+        "lon": 21.04738705127446
+      },
+      "name": "Budynek 11",
+      "description": "Bank, Kwestura",
+      "type": "finance",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18"
+    },
+    {
+      "id": 12,
+      "geoLocation": {
+        "lat": 52.16469155378769,
+        "lon": 21.050455498232783
+      },
+      "name": "Budynek 12",
+      "description": "Rektorat SGGW, Kanclerz",
+      "type": "administrationBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18"
+    },
+    {
+      "id": 13,
+      "geoLocation": {
+        "lat": 52.163707683081306,
+        "lon": 21.050605702019055
+      },
+      "name": "Budynek 13",
+      "description": "Pracownie Sztuki Wydziału Ogrodnictwa, Biotechnologii i Architektury Krajobrazu",
+      "type": "facultyBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-18"
+    },
+    {
+      "id": 15,
+      "geoLocation": {
+        "lat": 52.163177641994714,
+        "lon": 21.051030751803392
+      },
+      "name": "Budynek 15",
+      "description": "Administracja Uczelni",
+      "type": "administrationBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-19"
+    },
+    {
+      "id": 16,
+      "geoLocation": {
+        "lat": 52.16138225684824,
+        "lon": 21.053045222584878
+      },
+      "name": "Budynek 16",
+      "description": "Hala Maszyn Wydziału Technologii Drewna",
+      "type": "facultyBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-19"
+    },
+    {
+      "id": 17,
+      "geoLocation": {
+        "lat": 52.16104659951015,
+        "lon": 21.052170822428536
+      },
+      "name": "Budynek 17",
+      "description": "Budynek WIP",
+      "type": "facultyBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-27",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WIP",
+              "url": "http://wip.sggw.pl/pl/",
+              "description": "Wydział Inżynierii Produkcji"
+            }
+          ]
+        },
+        {
+          "name":"institutes",
+          "subCategories":[
+            {
+              "name": "IIM",
+              "description": "Instytut Inżynierii Mechanicznej",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Inżynierii Produkcji"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "geoLocation": {
+        "lat": 52.160607279462305,
+        "lon": 21.05234784822003
+      },
+      "name": "Budynek 18",
+      "description": "Budynek WIP",
+      "type": "facultyBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-27",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WIP",
+              "url": "http://wip.sggw.pl/pl/",
+              "description": "Wydział Inżynierii Produkcji"
+            }
+          ]
+        },
+        {
+          "name":"institutes",
+          "subCategories":[
+            {
+              "name": "IIM",
+              "description": "Instytut Inżynierii Mechanicznej",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Inżynierii Biosystemów"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "geoLocation": {
+        "lat": 52.16019592717151,
+        "lon": 21.052583882608587
+      },
+      "name": "Budynek 19",
+      "description": "Budynek WIP",
+      "type": "facultyBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-27",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WIP",
+              "url": "http://wip.sggw.pl/pl/",
+              "description": "Wydział Inżynierii Produkcji"
+            }
+          ]
+        },
+        {
+          "name":"institutes",
+          "subCategories":[
+            {
+              "name": "IIM",
+              "description": "Instytut Inżynierii Mechanicznej",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Podstaw Inżynierii i Energetyki"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "geoLocation": {
+        "lat": 52.1606895494588,
+        "lon": 21.053715774840466
+      },
+      "name": "Budynek 20",
+      "description": "Hala Maszyn Wydziału Inżynierii Produkcji, Stacja Kontroli Pojazdów",
+      "type": "facultyBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-19"
+    },
+    {
+      "id": 21,
+      "geoLocation": {
+        "lat": 52.16016301882074,
+        "lon": 21.051779219903015
+      },
+      "name": "Budynek 21",
+      "description": "Budynek WIP",
+      "type": "facultyBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-05-19",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WIP",
+              "url": "http://wip.sggw.pl/pl/",
+              "description": "Wydział Inżynierii Produkcji"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "geoLocation": {
+        "lat": 52.16001,
+        "lon": 21.04837
+      },
+      "name": "Budynek 22",
+      "description": "Klinika Małych Zwierząt",
+      "type": "facultyBuilding",
+      "url": "http://www.klinikawet.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WMW",
+              "url": "http://wmw.sggw.pl",
+              "description": "Wydział Medycyny Weterynaryjnej"
+            }
+          ]
+        },
+        {
+          "name": "institutes",
+          "subCategories":[
+            {
+              "name": "IMW",
+              "description": "Instytut Medycyny Weterynaryjnej",
+              "url": "http://wmw.sggw.pl/instytut/pelnomocnicy-dziekana/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Patologii i Diagnostyki Weterynaryjnej"
+                    },
+                    {
+                      "name": "Katedra Chorób Małych Zwierząt"
+                    },
+                    {
+                      "name": "Samodzielny Zakład Epidemiologii i Ekonomiki Weterynaryjnej"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "geoLocation": {
+        "lat": 52.15837,
+        "lon": 21.04734
+      },
+      "name": "Budynek 23",
+      "description": "Budynek WMW i WHBiOZ",
+      "type": "facultyBuilding",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29",
+      "services": [
+        {
+          "name": "Bufet",
+          "type": "canteen",
+          "description": "Bufet"
+        }
+      ],
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WMW",
+              "url": "http://wmw.sggw.pl",
+              "description": "Wydział Medycyny Weterynaryjnej"
+            },
+            {
+              "name": "WHBiOZ",
+              "url": "https://animal.sggw.pl",
+              "description": "Wydział Hodowli, Bioinżynierii i Ochrony Zwierząt",
+              "services": [
+                {
+                  "name": "Dziekanat WHBiOZ",
+                  "type": "deanery",
+                  "description": "Pokój 69",
+                  "url": "http://animal.sggw.pl/wydzial/dziekanat/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "institutes",
+          "subCategories":[
+            {
+              "name": "IB",
+              "description": "Instytut Biologii",
+              "url": "http://ib.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Nanobiotechnologii"
+                    },
+                    {
+                      "name": "Samodzielna Pracownia Biologii Nowotworu"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "IMW",
+              "description": "Instytut Medycyny Weterynaryjnej",
+              "url": "http://wmw.sggw.pl/instytut/pelnomocnicy-dziekana/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Nauk Przedklinicznych"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "INoZ",
+              "description": "Instytut Nauk o Zwierzętach",
+              "url": "http://animal.sggw.pl/wydzial-2/wladze/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Biologii Środowiska Zwierząt"
+                    },
+                    {
+                      "name": "Katedra Genetyki i Ochrony Zwierząt"
+                    },
+                    {
+                      "name": "Katedra Hodowli Zwierząt"
+                    },
+                    {
+                      "name": "Samodzielny Zakład Ichtiobiologii i Biotechnologii w Akwakulturze"
+                    },
+                    {
+                      "name": "Samodzielna Pracownia Żywienia Zwierząt"
+                    },
+                    {
+                      "name": "Samodzielna Pracownia Pszczelnictwa"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "geoLocation": {
+        "lat": 52.15940,
+        "lon": 21.04674
+      },
+      "name": "Budynek 24",
+      "description": "Budynek WMW",
+      "type": "facultyBuilding",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29",
+      "services": [
+        {
+          "name": "Bufet",
+          "type": "canteen",
+          "description": "Bufet"
+        }
+      ],
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WMW",
+              "url": "http://wmw.sggw.pl",
+              "description": "Wydział Medycyny Weterynaryjnej",
+              "services": [
+                {
+                  "name": "Dziekanat WMW",
+                  "type": "deanery",
+                  "description": "Pokój 79",
+                  "url": "http://wmw.sggw.pl/category/dziekanat/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "institutes",
+          "subCategories":[
+            {
+              "name": "IMW",
+              "description": "Instytut Medycyny Weterynaryjnej",
+              "url": "http://wmw.sggw.pl/instytut/pelnomocnicy-dziekana/",
+              "services": [
+                {
+                  "name": "Biblioteka przy IMW",
+                  "type": "library",
+                  "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/weterynaria"
+                }
+              ],
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Nauk Morfologicznych"
+                    },
+                    {
+                      "name": "Katedra Higieny Żywności i Ochrony Zdrowia Publicznego"
+                    },
+                    {
+                      "name": "Katedra Nauk Fizjologicznych"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "geoLocation": {
+        "lat": 52.15820,
+        "lon": 21.04514
+      },
+      "name": "Budynek 25",
+      "description": "Zwierzętarnia",
+      "type": "facultyBuilding",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WHBiOZ",
+              "url": "https://animal.sggw.pl",
+              "description": "Wydział Hodowli, Bioinżynierii i Ochrony Zwierząt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "geoLocation": {
+        "lat": 52.15820,
+        "lon": 21.04514
+      },
+      "name": "Budynek 26",
+      "description": "Hala Sportowa",
+      "type": "sportsFacility",
+      "url": "http://obiektysportowe.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 27,
+      "geoLocation": {
+        "lat": 52.15770,
+        "lon": 21.04541
+      },
+      "name": "Budynek 27",
+      "description": "Basen SGGW",
+      "type": "sportsFacility",
+      "url": "http://obiektysportowe.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29",
+      "services": [
+        {
+          "name": "Bufet",
+          "type": "canteen",
+          "description": "Bufet"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "geoLocation": {
+        "lat": 52.15732,
+        "lon": 21.04505
+      },
+      "name": "Budynek 28 SPNJO",
+      "description": "Centrum Językowo-Sportowe (SPNJO)",
+      "type": "facultyBuilding",
+      "url": "http://jezyki.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "SPNJO",
+              "description": "Studium Praktycznej Nauki Języków Obcych",
+              "url": "http://jezyki.sggw.pl/",
+              "services": [
+                {
+                  "name": "Sekretariat SPNJO",
+                  "type": "deanery",
+                  "description": "Pokój 208",
+                  "url": "http://jezyki.sggw.pl/"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "geoLocation": {
+        "lat": 52.15871,
+        "lon": 21.04435
+      },
+      "name": "Budynek 30",
+      "description": "Budynek administracyjny",
+      "type": "administrationBuilding",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 31,
+      "geoLocation": {
+        "lat": 52.15906,
+        "lon": 21.04401
+      },
+      "name": "Budynek 31",
+      "description": "Budynek administracyjny",
+      "type": "administrationBuilding",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 32,
+      "geoLocation": {
+        "lat": 52.16010,
+        "lon": 21.04476
+      },
+      "name": "Budynek 32",
+      "description": "Budynek WŻC i WTŻ",
+      "type": "facultyBuilding",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-04-23",
+      "services": [
+        {
+          "name": "Bufet",
+          "type": "canteen",
+          "description": "Bufet"
+        }
+      ],
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WŻC",
+              "description": "Wydział Żywienia Człowieka",
+              "url": "http://wzcz.sggw.pl/",
+              "services": [
+                {
+                  "name": "Dziekanat WŻC",
+                  "type": "deanery",
+                  "description": "Pokój 071 i 072",
+                  "url": "http://wzcz.sggw.pl/student/zywienie-czlowieka-i-ocena-zywnosci/dziekanaty/"
+                }
+              ]
+            },
+            {
+              "name": "WTŻ",
+              "description": "Wydział Technologii Żywności",
+              "url": "http://wnoz.sggw.pl/",
+              "services": [
+                {
+                  "name": "Dziekanat WTŻ",
+                  "type": "deanery",
+                  "description": "Pokój 018, 50, 51 i 52",
+                  "url": "http://wnoz.sggw.pl/dziekanat/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "institutes",
+          "subCategories":[
+            {
+              "name": "INoŻC",
+              "description": "Instytut Nauk o Żywieniu Człowieka",
+              "url": "http://inzcz.sggw.pl/",
+              "services": [
+                {
+                  "name": "Biblioteka przy INoŻC",
+                  "type": "library",
+                  "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/zywienie"
+                },
+                {
+                  "name": "Poradnia Dietetyczno-Żywieniowa",
+                  "type": "medicine",
+                  "url": "https://poradnia-dietetyczna.portal-tst.sggw.edu.pl/"
+                }
+              ],
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Żywienia Człowieka"
+                    },
+                    {
+                      "name": "Katedra Dietetyki"
+                    },
+                    {
+                      "name": "Katedra Technologii Gastronomicznej i Higieny Żywności"
+                    },
+                    {
+                      "name": "Katedra Żywności Funkcjonalnej i Ekologicznej"
+                    },
+                    {
+                      "name": "katedra Badań Rynku Żywności i Konsumpcji"
+                    },
+                    {
+                      "name": "Katedra Techniki i Projektowania Żywności"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "INoŻ",
+              "description": "Instytut Nauk o Żywności",
+              "url": "http://wnoz.sggw.pl/wladze-instytut/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Biotechnologii i Mikrobiologii Żywnosci"
+                    },
+                    {
+                      "name": "Katedra Chemii"
+                    },
+                    {
+                      "name": "Katedra Inżynierii Żywności i Organizacji Produkcji"
+                    },
+                    {
+                      "name": "Katedra Technologii i Oceny Żywności"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "geoLocation": {
+        "lat": 52.16085,
+        "lon": 21.04656
+      },
+      "name": "Budynek 33",
+      "description": "Budynek WBiIŚ",
+      "type": "facultyBuilding",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29",
+      "services": [
+        {
+          "name": "Bufet",
+          "type": "canteen",
+          "description": "Bufet"
+        }
+      ],
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WBiIŚ",
+              "description": "Wydział Budownictwa i Inżynierii Środowiska",
+              "url": "http://wbis.sggw.pl/",
+              "services": [
+                {
+                  "name": "Dziekanat WBIiŚ",
+                  "type": "deanery",
+                  "description": "Pokój 13, 143 i 145",
+                  "url": "http://wbis.sggw.pl/student/dziekanat/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "institutes",
+          "subCategories":[
+            {
+              "name": "IIL",
+              "description": "Instytut Inżynierii Lądowej",
+              "url": "http://wbis.sggw.pl/instytuty/instytut-inzynierii-ladowej/",
+              "services": [
+                {
+                  "name": "Biblioteka przy IIL",
+                  "type": "library",
+                  "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/budownictwo"
+                }
+              ],
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Mechaniki i Konstrukcji Budowlanych"
+                    },
+                    {
+                      "name": "Katedra Geotechniki"
+                    },
+                    {
+                      "name": "Katedra Hydrotechniki, Technologii i Organizacji Robót"
+                    },
+                    {
+                      "name": "Katedra Rewitalizacji i Architektury"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "IIŚ",
+              "description": "Instytut Inżynierii Środowiska",
+              "url": "http://wbis.sggw.pl/instytuty/instytut-inzynierii-srodowiska/",
+              "services": [
+                {
+                  "name": "Biblioteka przy IIŚ",
+                  "type": "library",
+                  "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/budownictwo"
+                }
+              ],
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Hydrologii, Meteorologii i Gospodarki Wodnej"
+                    },
+                    {
+                      "name": "Katedra Hydrauliki i Inżynierii Sanitarnej"
+                    },
+                    {
+                      "name": "Katedra Kształtowania Środowiska"
+                    },
+                    {
+                      "name": "Katedra Inżynierii Wodnej i Geologii Stosowanej"
+                    },
+                    {
+                      "name": "Katedra Teledetekcji i Badań Środowiska"
+                    },
+                    {
+                      "name": "Katedra Sztuki Krajobrazu"
+                    },
+                    {
+                      "name": "Katedra Architektury Krajobrazu"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": 34,
       "geoLocation": {
-        "lat": 52.16200969489112,
-        "lon": 21.046338709693675
+        "lat": 52.16200,
+        "lon": 21.04634
       },
       "name": "Budynek 34",
       "description": "Budynek WZIM, WL, WTD",
-      "url": "http://www.sggw.pl/",
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
@@ -19,18 +1161,14 @@
       ],
       "services": [
         {
-          "name": "Ksero na parterze",
+          "name": "Ksero",
           "type": "copier",
-          "description": "Super xero, nie to co w innych budynkach"
+          "description": "Ksero samoobsługowe, położone na poziomie -1"
         },
         {
-          "name": "Stołówka",
+          "name": "Bufet",
           "type": "canteen",
-          "description": "Super stołówka"
-        },
-        {
-          "name": "Automat z kawą",
-          "type": "vendingMachine"
+          "description": "Bufet"
         }
       ],
       "categories": [
@@ -43,40 +1181,10 @@
               "url": "http://wzim.sggw.pl/",
               "services": [
                 {
-                  "name": "Automat z jedzeniem",
-                  "type": "vendingMachine",
-                  "description": "Automat z jedzeniem"
-                },
-                {
                   "name": "Dziekanat WZIM",
-                  "type": "deanery"
-                },
-                {
-                  "name": "Aula III",
-                  "type": "lectureHall"
-                },
-                {
-                  "name": "Aula IV",
-                  "type": "lectureHall"
-                }
-              ],
-              "subCategories": [
-                {
-                  "name": "departaments",
-                  "subCategories": [
-                    {
-                      "name": "Katedra Zastosowań Informatyki"
-                    },
-                    {
-                      "name": "Katedra Informatyki"
-                    },
-                    {
-                      "name": "Katedra Ekonometrii i Statystyki"
-                    },
-                    {
-                      "name": "Katedra Zastosowań Matematyki"
-                    }
-                  ]
+                  "type": "deanery",
+                  "description": "Pokój 3/35 i 3/36B",
+                  "url": "http://student.wzim.sggw.pl/"
                 }
               ]
             },
@@ -86,33 +1194,136 @@
               "url": "http://wl.sggw.pl/",
               "services": [
                 {
-                  "name": "Automat z jedzeniem",
-                  "type": "vendingMachine",
-                  "description": "Automat z jedzeniem"
-                },
-                {
                   "name": "Dziekanat WL",
-                  "type": "deanery"
+                  "type": "deanery",
+                  "description": "Pokój 0/7, 0/8 i 0/9",
+                  "url": "http://wl.sggw.pl/dziekanat"
                 }
-              ],
+              ]
+            },
+            {
+              "name": "WTD",
+              "description": "Wydział Technologii Drewna",
+              "url": "http://wtd.sggw.pl/",
+              "services": [
+                {
+                  "name": "Dziekanat WTD",
+                  "type": "deanery",
+                  "description": "Pokój 1/19 i 1/20",
+                  "url": "http://wtd.sggw.pl/Content/dziekana"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "institutes",
+          "subCategories": [
+            {
+              "name": "IIT",
+              "description": "Instytut Informatyki Technicznej",
+              "url": "https://www.iit.sggw.pl/",
               "subCategories": [
                 {
-                  "name": "departaments",
+                  "name": "departments",
                   "subCategories": [
                     {
-                      "name": "Instytut Nauk Leśnych"
+                      "name": "Katedra Systemów Informatycznych"
+                    },
+                    {
+                      "name": "Katedra Sztucznej Inteligencji"
+                    },
+                    {
+                      "name": "Katedra Zastosowań Matematyki"
+                    },
+                    {
+                      "name": "Laboratorium Komputerowe"
                     }
                   ]
                 }
               ]
             },
             {
-              "name": "WTD",
-              "description": "Wydział technologii drewna",
-              "services": [
+              "name": "IEiF",
+              "description": "Instytut Ekonomii i Finansów",
+              "url": "https://www.ieif.sggw.pl/",
+              "subCategories": [
                 {
-                  "name": "Dziekanat WTD",
-                  "type": "deanery"
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Ekonometrii i Statystyki"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "INL",
+              "description": "Instytut Nauk Leśnych",
+              "url": "http://wl.sggw.pl/science",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Hodowli Lasu"
+                    },
+                    {
+                      "name": "Katedra Ochrony Lasu"
+                    },
+                    {
+                      "name": "Katedra Urządzania Lasu, Dendrometrii i Ekonomiki Leśnictwa"
+                    },
+                    {
+                      "name": "Katedra Użytkowania Lasu"
+                    },
+                    {
+                      "name": "Samodzielny Zakład Botaniki Leśnej"
+                    },
+                    {
+                      "name": "Samodzielny Zakład Geomatyki i Gospodarki Przestrzennej"
+                    },
+                    {
+                      "name": "Samodzielny Zakład Zoologii Leśnej i Łowiectwa"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "INDiM",
+              "description": "Instytut Nauk Drzewnych i Meblarstwa",
+              "url": "http://www.indm.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Mechanicznej Obróbki Drewna"
+                    },
+                    {
+                      "name": "Katedra Nauki o Drewnie i Ochrony Drewna"
+                    },
+                    {
+                      "name": "Katedra Technologii i Przedsiębiorczości w Przemyśle Drzewnym"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "IB",
+              "description": "Instytut Biologii",
+              "url": "http://ib.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Fizyki i Biofizyki"
+                    }
+                  ]
                 }
               ]
             }
@@ -121,29 +1332,810 @@
       ]
     },
     {
-      "id": 32,
+      "id": 35,
       "geoLocation": {
-        "lat": 52.16010,
-        "lon": 21.04476
+        "lat": 52.16032,
+        "lon": 21.04260
       },
-      "name": "Budynek 32",
+      "name": "Budynek 35",
+      "description": "Budynek WOiB",
       "type": "facultyBuilding",
       "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
-      "lastModified": "2021-04-23",
+      "lastModified": "2021-05-29",
+      "services": [
+        {
+          "name": "Bufet",
+          "type": "canteen",
+          "description": "Bufet"
+        }
+      ],
       "categories": [
         {
           "name": "faculties",
           "subCategories": [
             {
-              "name": "Wydział Nauk o Żywności"
+              "name": "WOiB",
+              "description": "Wydział Ogrodnictwa i Bioinżynierii",
+              "url": "http://wobiak.sggw.pl/",
+              "services": [
+                {
+                  "name": "Dziekanat WOiB",
+                  "type": "deanery",
+                  "description": "Pokój 2",
+                  "url": "http://wobiak.sggw.pl/wydzial/kontakt/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "institutes",
+          "subCategories": [
+            {
+              "name": "INO",
+              "description": "Instytut Nauk Ogrodniczych",
+              "url": "http://sggw.ovh/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Ochrony Środowiska i Dendrologii"
+                    },
+                    {
+                      "name": "Samodzielny Zakład Roślin Ozdobnych"
+                    },
+                    {
+                      "name": "Katedra Roślin Warzywniczych i Leczniczych"
+                    },
+                    {
+                      "name": "Katedra Sadownictwa i Ekonomiki Ogrodnictwa"
+                    }
+                  ]
+                }
+              ]
             },
             {
-              "name": "Wydział Nauk o Żywieniu Człowieka i Konsumpcji"
+              "name": "INSIP",
+              "description": "Instytut Nauk Socjologicznych i Pedagogiki",
+              "url": "https://insip.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Pedagogiki"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
       ]
+    },
+    {
+      "id": 37,
+      "geoLocation": {
+        "lat": 52.16190,
+        "lon": 21.04295
+      },
+      "name": "Budynek 37",
+      "description": "Budynek WOiB i WRiB",
+      "type": "facultyBuilding",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29",
+      "services": [
+        {
+          "name": "Bufet",
+          "type": "canteen",
+          "description": "Bufet"
+        }
+      ],
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WOiB",
+              "description": "Wydział Ogrodnictwa i Bioinżynierii",
+              "url": "http://wobiak.sggw.pl/",
+              "services": [
+                {
+                  "name": "Dziekanat WOiB",
+                  "type": "deanery",
+                  "description": "Pokój 0/63 i 0/65",
+                  "url": "http://wobiak.sggw.pl/wydzial/kontakt/"
+                }
+              ]
+            },
+            {
+              "name": "WRiB",
+              "description": "Wydział Rolnictwa i Biologii",
+              "url": "http://wrib.sggw.pl/",
+              "services": [
+                {
+                  "name": "Dziekanat WRiB",
+                  "type": "deanery",
+                  "description": "Pokój 0/9, 0/10, 0/109 i 0/110",
+                  "url": "http://wrib.sggw.pl/2015-01-03-16-11-33/dziekanat"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "institutes",
+          "subCategories":[
+            {
+              "name": "IB",
+              "description": "Instytut Biologii",
+              "url": "http://ib.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Biochemii i Mikrobiologii"
+                    },
+                    {
+                      "name": "Katedra Botaniki"
+                    },
+                    {
+                      "name": "Katedra Fizjologii Roślin"
+                    },
+                    {
+                      "name": "Katedra Genetyki, Hodowli i Biotechnologii Roślin"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "INO",
+              "description": "Instytut Nauk Ogrodniczych",
+              "url": "http://sggw.ovh/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Ochrony Roślin"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "IR",
+              "description": "Instytut Rolnictwa",
+              "url": "https://ir.sggw.pl/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Agronomii"
+                    },
+                    {
+                      "name": "Katedra Biometrii"
+                    },
+                    {
+                      "name": "Katedra Gleboznawstwa"
+                    },
+                    {
+                      "name": "Samodzielny Zakład Chemii Rolniczej"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "geoLocation": {
+        "lat": 52.16290,
+        "lon": 21.03912
+      },
+      "name": "Dom studencki 'Limba'",
+      "description": "Dom studencki 'Limba', Administracja Domów i Stołówek Studenckich",
+      "type": "dormitories",
+      "url": "http://adiss.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 39,
+      "geoLocation": {
+        "lat": 52.16361,
+        "lon": 21.03911
+      },
+      "name": "Hotel 'Ikar'",
+      "description": "Hotel 'Ikar'",
+      "type": "dormitories",
+      "url": "http://adiss.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 40,
+      "geoLocation": {
+        "lat": 52.16402,
+        "lon": 21.04067
+      },
+      "name": "Dom studencki 'Hilton'",
+      "description": "Dom studencki 'Hilton'",
+      "type": "dormitories",
+      "url": "http://adiss.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 41,
+      "geoLocation": {
+        "lat": 52.16364,
+        "lon": 21.04121
+      },
+      "name": "Dom studencki 'Grand'",
+      "description": "Dom studencki 'Grand'",
+      "type": "dormitories",
+      "url": "http://adiss.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 42,
+      "geoLocation": {
+        "lat": 52.16405,
+        "lon": 21.04153
+      },
+      "name": "Dom studencki 'Eden'",
+      "description": "Dom studencki 'Eden'",
+      "type": "dormitories",
+      "url": "http://adiss.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 43,
+      "geoLocation": {
+        "lat": 52.16367,
+        "lon": 21.04204
+      },
+      "name": "Dom studencki 'Feniks'",
+      "description": "Dom studencki 'Feniks'",
+      "type": "dormitories",
+      "url": "http://adiss.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 44,
+      "geoLocation": {
+        "lat": 52.16406,
+        "lon": 21.04237
+      },
+      "name": "Dom studencki 'Bazyliszek'",
+      "description": "Dom studencki 'Bazyliszek'",
+      "type": "dormitories",
+      "url": "http://adiss.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 45,
+      "geoLocation": {
+        "lat": 52.16369,
+        "lon": 21.04290
+      },
+      "name": "Dom studencki 'Adara'",
+      "description": "Dom studencki 'Adara'",
+      "type": "dormitories",
+      "url": "http://adiss.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 46,
+      "geoLocation": {
+        "lat": 52.16411,
+        "lon": 21.04322
+      },
+      "name": "Dom studencki 'Cezar'",
+      "description": "Dom studencki 'Cezar'",
+      "type": "dormitories",
+      "url": "http://adiss.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 47,
+      "geoLocation": {
+        "lat": 52.16372,
+        "lon": 21.04373
+      },
+      "name": "Dom studencki 'Dendryt'",
+      "description": "Dom studencki 'Dendryt'",
+      "type": "dormitories",
+      "url": "http://adiss.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 48,
+      "geoLocation": {
+        "lat": 52.16416,
+        "lon": 21.04476
+      },
+      "name": "Biblioteka Główna SGGW",
+      "description": "Biblioteka Główna SGGW",
+      "type": "library",
+      "url": "http://www.bg.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 49,
+      "geoLocation": {
+        "lat": 52.15902,
+        "lon": 21.04907
+      },
+      "name": "Centrum Wodne SGGW",
+      "description": "Centrum Wodne SGGW",
+      "type": "facultyBuilding",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WBiIŚ",
+              "description": "Wydział Budownictwa i Inżynierii Środowiska",
+              "url": "http://wbis.sggw.pl/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "geoLocation": {
+        "lat": 52.16265575726116,
+        "lon": 21.052768955050894
+      },
+      "name": "Byliniarnia SGGW",
+      "description": "Ogród Bylinowy",
+      "type": "monument",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 53,
+      "geoLocation": {
+        "lat": 52.16442,
+        "lon": 21.04555
+      },
+      "name": "Pomnik Władysława Grabskiego",
+      "description": "Pomnik Władysława Grabskiego",
+      "type": "monument",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 54,
+      "geoLocation": {
+        "lat": 52.16235,
+        "lon": 21.04600
+      },
+      "name": "Pomnik Stanisława Wawrzyńca Staszica",
+      "description": "Pomnik Stanisława Wawrzyńca Staszica",
+      "type": "monument",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 55,
+      "geoLocation": {
+        "lat": 52.16361,
+        "lon": 21.04487
+      },
+      "name": "Dąb Jana Pawła II",
+      "description": "Dąb Jana Pawła II",
+      "type": "monument",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 70,
+      "geoLocation": {
+        "lat": 52.14976,
+        "lon": 21.06280
+      },
+      "name": "Klinika Koni Wolica",
+      "description": "Klinika Koni Wolica",
+      "type": "facultyBuilding",
+      "url": "http://www.klinikakoni.sggw.pl/",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "WMW",
+              "url": "http://wmw.sggw.pl",
+              "description": "Wydział Medycyny Weterynaryjnej"
+            }
+          ]
+        },
+        {
+          "name":"institutes",
+          "subCategories":[
+            {
+              "name": "IMW",
+              "description": "Instytut Medycyny Weterynaryjnej",
+              "url": "http://wmw.sggw.pl/instytut/pelnomocnicy-dziekana/",
+              "subCategories": [
+                {
+                  "name": "departments",
+                  "subCategories": [
+                    {
+                      "name": "Katedra Chorób Dużych Zwierząt i Klinika"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "geoLocation": {
+        "lat": 52.16141,
+        "lon": 21.04977
+      },
+      "name": "Parking",
+      "description": "Parking bezpłatny niestrzeżony",
+      "type": "parking",
+      "url": "https://www.sggw.edu.pl/strona-glowna/informacje-praktyczne/kampus/dojazd-mapa-rekomendacje-jak-dojechac/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 72,
+      "geoLocation": {
+        "lat": 52.16239,
+        "lon": 21.04399
+      },
+      "name": "Parking",
+      "description": "Parking podziemny płatny strzeżony",
+      "type": "parking",
+      "url": "https://www.sggw.edu.pl/strona-glowna/informacje-praktyczne/kampus/dojazd-mapa-rekomendacje-jak-dojechac/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 73,
+      "geoLocation": {
+        "lat": 52.15792,
+        "lon": 21.04605
+      },
+      "name": "Parking",
+      "description": "Parking płatny niestrzeżony (przy Basenie SGGW)",
+      "type": "parking",
+      "url": "https://www.sggw.edu.pl/strona-glowna/informacje-praktyczne/kampus/dojazd-mapa-rekomendacje-jak-dojechac/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 74,
+      "geoLocation": {
+        "lat": 52.16346,
+        "lon": 21.04097
+      },
+      "name": "Niepubliczne Przedszkole SGGW",
+      "description": "Niepubliczne Przedszkole SGGW",
+      "type": "kindergarten",
+      "url": "https://przedszkole.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 75,
+      "geoLocation": {
+        "lat": 52.16318,
+        "lon": 21.03872
+      },
+      "name": "NZOZ SGGW",
+      "description": "Niepubliczny Zakład Opieki Zdrowotnej SGGW",
+      "type": "medicine",
+      "url": "https://www.sggw.edu.pl/strona-glowna/wspolpraca/uslugi/niepubliczny-zaklad-opieki-zdrowotnej/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 75,
+      "geoLocation": {
+        "lat": 52.16330,
+        "lon": 21.03998
+      },
+      "name": "Boiska",
+      "description": "Boiska",
+      "type": "sportsFacility",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 76,
+      "geoLocation": {
+        "lat": 52.15979,
+        "lon": 21.04320
+      },
+      "name": "Szklarnie",
+      "description": "Szklarnie przy Katedrze Roślin Ozdobnych",
+      "type": "facultyBuilding",
+      "url": "http://kro.sggw.pl/pl/oferta",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 77,
+      "geoLocation": {
+        "lat": 52.16350,
+        "lon": 21.04269
+      },
+      "name": "Orkiestra Reprezentacyjna SGGW",
+      "description": "Orkiestra Reprezentacyjna SGGW w przybudówkce DS Adara",
+      "type": "facultyBuilding",
+      "url": "http://orkiestra.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 78,
+      "geoLocation": {
+        "lat": 52.16349,
+        "lon": 21.04184
+      },
+      "name": "Centrum Samorządowca SGGW",
+      "description": "Centrum Samorządowca SGGW w przybudówkce DS Feniks",
+      "type": "facultyBuilding",
+      "url": "https://www.facebook.com/RussSGGW/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 98,
+      "geoLocation": {
+        "lat": 52.15736,
+        "lon": 21.04447
+      },
+      "name": "Budynek 28 SWFiS",
+      "description": "Centrum Językowo-Sportowe (SWFiS)",
+      "type": "sportsFacility",
+      "url": "http://swfs.sggw.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29",
+      "categories": [
+        {
+          "name": "faculties",
+          "subCategories": [
+            {
+              "name": "SWFiS",
+              "description": "Studium Wychowania Fizycznego i Sportu",
+              "url": "http://swfs.sggw.pl/",
+              "services": [
+                {
+                  "name": "Sekretariat SWFiS",
+                  "type": "deanery",
+                  "description": "Pokój 103",
+                  "url": "http://swfs.sggw.pl/"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "geoLocation": {
+        "lat": 52.16353,
+        "lon": 21.04398
+      },
+      "name": "Sklep spożywczy 'Szopik'",
+      "description": "Sklep spożywczy 'Szopik' w przyziemiu DS Dendryt",
+      "type": "store",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 101,
+      "geoLocation": {
+        "lat": 52.16432,
+        "lon": 21.04540
+      },
+      "name": "Księgarnia PWN",
+      "description": "Księgarnia PWN w budynku BG",
+      "type": "store",
+      "url": "http://warszawa.ksiegarnienaukowe.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 102,
+      "geoLocation": {
+        "lat": 52.16301,
+        "lon": 21.03886
+      },
+      "name": "Sklep Firmowy 'Mlekovita'",
+      "description": "Sklep Firmowy 'Mlekovita'",
+      "type": "store",
+      "url": "https://www.mlekovita.com.pl/pl/nasze-sklepy",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 103,
+      "geoLocation": {
+        "lat": 52.16247,
+        "lon": 21.03957
+      },
+      "name": "Drukarnia 'Polimax'",
+      "description": "Drukarnia 'Polimax'",
+      "type": "store",
+      "url": "https://polimax.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 200,
+      "geoLocation": {
+        "lat": 52.16261,
+        "lon": 21.03950
+      },
+      "name": "Dziekanat 161",
+      "description": "Pub Dziekanat 161",
+      "type": "food",
+      "url": "https://www.facebook.com/Dziekanat161/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 201,
+      "geoLocation": {
+        "lat": 52.16242,
+        "lon": 21.03935
+      },
+      "name": "Pizzeria Limba",
+      "description": "Pizzeria Limba",
+      "type": "food",
+      "url": "https://www.catering-gastro.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 202,
+      "geoLocation": {
+        "lat": 52.16355,
+        "lon": 21.04356
+      },
+      "name": "Stołówka Dendryt",
+      "description": "Stołówka przy DS Dendryt",
+      "type": "food",
+      "url": "https://www.catering-gastro.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 400,
+      "geoLocation": {
+        "lat": 52.16346,
+        "lon": 21.04391
+      },
+      "name": "Bankomat Euronet",
+      "description": "Bankomat Euronet przy DS Dendryt",
+      "type": "finance",
+      "url": "https://www.euronetpolska.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 401,
+      "geoLocation": {
+        "lat": 52.16397,
+        "lon": 21.04733
+      },
+      "name": "Bankomat Pekao S.A.",
+      "description": "Bankomat Pekao S.A.",
+      "type": "finance",
+      "url": "https://www.pekao.com.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 402,
+      "geoLocation": {
+        "lat": 52.16389,
+        "lon": 21.04739
+      },
+      "name": "Bank Pekao S.A.",
+      "description": "Bank Pekao S.A.",
+      "type": "finance",
+      "url": "https://www.pekao.com.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 403,
+      "geoLocation": {
+        "lat": 52.16402,
+        "lon": 21.04230
+      },
+      "name": "Bankomat Euronet",
+      "description": "Bankomat Euronet przy DS Adara",
+      "type": "finance",
+      "url": "https://www.euronetpolska.pl/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
+    },
+    {
+      "id": 500,
+      "geoLocation": {
+        "lat": 52.16305,
+        "lon": 21.03878
+      },
+      "name": "Apteka 'Pod Limbą'",
+      "description": "Apteka 'Pod Limbą'",
+      "type": "medicine",
+      "url": "http://www.tanilek.com/",
+      "photoPath": "assets/images/map_objects/wzim.jpg",
+      "minScale": 1.0,
+      "lastModified": "2021-05-29"
     }
   ]
 }

@@ -1,42 +1,36 @@
 import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kampus_sggw/logic/user_history.dart';
+import 'package:kampus_sggw/models/map_item.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 part 'search_history.g.dart';
 
 @JsonSerializable()
-class SearchHistory {
-  @JsonKey(defaultValue: 6)
-  final int buffer;
-  @JsonKey(defaultValue: <String>[])
-  List<String> searchHistory;
+class SearchHistory extends UserHistory {
+  @JsonKey(ignore: true)
+  List<MapItem> _searchedItems;
 
-  SearchHistory(this.buffer, this.searchHistory);
+  SearchHistory({int buffer, List<int> itemsIds})
+      : super(buffer: buffer, itemsIds: itemsIds);
+
   factory SearchHistory.fromJson(Map<String, dynamic> json) =>
       _$SearchHistoryFromJson(json);
+
   Map<String, dynamic> toJson() => _$SearchHistoryToJson(this);
 
-  Set<String> filterSearchTerms({String query}) {
+  List<MapItem> filterSearchHistory({String query}) {
     if (query != null && query.isNotEmpty) {
-      return searchHistory.reversed
-          .where((term) => term.startsWith(query))
-          .toSet();
+      return _getItemsWhichNameStartsWith(query);
     } else {
-      return searchHistory.reversed.toSet();
+      return _searchedItems;
     }
   }
 
-  void addSearchTerm(String term) {
-    if (searchHistory.contains(term)) {
-      deleteSearchTerm(term);
-    }
-    searchHistory.add(term);
-    if (searchHistory.length > buffer) {
-      searchHistory.removeRange(0, 1);
-    }
+  @override
+  List<MapItem> updateMapItems() {
+    _searchedItems = super.updateMapItems();
+    return _searchedItems;
   }
-
-  void deleteSearchTerm(String term) =>
-      searchHistory.removeWhere((t) => t == term);
 
   void save() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
@@ -47,5 +41,9 @@ class SearchHistory {
   static Future<String> getJsonSting() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     return sharedPreferences.getString('searchHistory') ?? "{}";
+  }
+
+  List<MapItem> _getItemsWhichNameStartsWith(String query) {
+    return _searchedItems.where((item) => item.name.startsWith(query)).toList();
   }
 }

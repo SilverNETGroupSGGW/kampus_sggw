@@ -19,13 +19,22 @@ dependencies:
   google_maps_flutter: ^2.0.3
   google_maps_flutter_web: ^0.3.0
   permission_handler: ^7.1.0
-  string_similarity: ^2.0.0
+  fuzzy: ^0.3.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^1.10.9
   json_serializable: ^3.5.1
+  flutter_launcher_icons: ^0.9.0
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path_android: "assets/icon/icon_full.png"
+  image_path_ios: "assets/icon/icon_full.png"
+  adaptive_icon_foreground: "assets/icon/icon_adaptive_foreground.png"
+  adaptive_icon_background: "#003228"
 
 flutter:
   uses-material-design: true
@@ -33,7 +42,7 @@ flutter:
     - assets/translations/
     - assets/images/map_objects/wzim.jpg
     - assets/json/map_items.json
-    - assets/images/floors/floor_1.jpg
+    - assets/images/icons/
   fonts:
     - family: SGGWMastro
       fonts:
