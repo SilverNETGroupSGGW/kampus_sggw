@@ -75,9 +75,8 @@ static const Map<String,dynamic> pl = {
   "language": "Język",
   "pl": "Polski",
   "en": "Angielski",
-  "campus_rules": "Regulamin Kampusu"
+  "campus_rules": "Regulamin Kampusu",
   "offices": "Biura",
-  "close": "Zamknij"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"pl": pl, "en": en};
 }
