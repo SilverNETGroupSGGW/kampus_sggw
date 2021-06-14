@@ -55,7 +55,7 @@
         "lon": 21.047062503937646
       },
       "name": "Budynek 3",
-      "description": "Budynek WNE, Centrum Innowacji i Transferu Wiedzy w Agrobiznesie",
+      "description": "Budynek WNE",
       "url": "http://innowacje.sggw.pl/",
       "type": "facultyBuilding",
       "minScale": 1.0,
@@ -88,6 +88,14 @@
                   ]
                 }
               ]
+            }
+          ]
+        },
+        {
+          "name":"offices",
+          "subCategories":[
+            {
+              "name": "Centrum Innowacji i Transferu Wiedzy w Agrobiznesie"
             }
           ]
         }
