@@ -38,6 +38,7 @@ class CodegenLoader extends AssetLoader{
   "faculties": "Wydziały",
   "floor": "Piętro",
   "website": "Strona internetowa",
+  "offices": "Biura",
   "close": "Zamknij"
 };
 static const Map<String,dynamic> en = {
@@ -64,6 +65,7 @@ static const Map<String,dynamic> en = {
   "faculties": "Faculties",
   "floor": "Floor",
   "website": "Website",
+  "offices": "Offices",
   "close": "Close"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"pl": pl, "en": en};

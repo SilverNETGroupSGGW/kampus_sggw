@@ -63,6 +63,10 @@ class MapItems {
     return similarItems.length > 0 ? similarItems[0].key : null;
   }
 
+  MapItem findItemByID(int id) {
+    return mapItems.firstWhere((element) => element.id==id);
+  }
+
   List<KeyValue> findItemsByQuery(String query) {
     List<KeyValue> similarityList =
         _getSimilarityMapForEachItem(query.toLowerCase());
