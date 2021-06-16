@@ -42,6 +42,7 @@ flutter:
     - assets/translations/
     - assets/images/map_objects/wzim.jpg
     - assets/json/map_items.json
+    - assets/json/campus_rules_pl.json
     - assets/images/icons/
   fonts:
     - family: SGGWMastro

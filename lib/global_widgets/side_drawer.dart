@@ -44,7 +44,6 @@ class SideDrawer extends StatelessWidget {
               );
             },
           ),
-
         ],
       ),
     );

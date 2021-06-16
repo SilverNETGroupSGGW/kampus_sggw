@@ -1,5 +1,7 @@
+import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'campus_rules.g.dart';
+
 @JsonSerializable()
 class CampusRules {
   String name;
@@ -12,6 +14,10 @@ class CampusRules {
       );
   factory CampusRules.fromJson(Map<String, dynamic> json) =>
       _$CampusRulesFromJson(json);
+
+  static Future<String> getJsonSting() {
+    return rootBundle.loadString('assets/json/campus_rules_pl.json');
+  }
 }
 
 @JsonSerializable()
