@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/models/campus_rules.dart';
@@ -14,15 +13,15 @@ class RulesCard extends StatefulWidget {
 class _RulesCardState extends State<RulesCard> with TickerProviderStateMixin{
 
   CampusRules rulesListPL;
-  CampusRules rulesListEn;
+  CampusRules rulesListEN;
   AnimationController controller;
 
   @override
   initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) async
     {
-      rulesListPL = await this.loadFromJson();
-      print(rulesListPL);
+      rulesListPL = await this.loadFromJsonPL();
+      rulesListEN = await this.loadFromJsonEN();
     });
 
     controller = AnimationController(
@@ -42,19 +41,21 @@ class _RulesCardState extends State<RulesCard> with TickerProviderStateMixin{
     super.dispose();
   }
 
-  Future<CampusRules> loadFromJson() async {
-
-    Map<String, dynamic> campusRulesMap = jsonDecode(await CampusRules.getJsonSting());
+  Future<CampusRules> loadFromJsonPL() async {
+    Map<String, dynamic> campusRulesMap = jsonDecode(await CampusRules.getJsonStingPL());
     final campusRules = CampusRules.fromJson(campusRulesMap);
+    return campusRules;
+  }
 
+  Future<CampusRules> loadFromJsonEN() async {
+    Map<String, dynamic> campusRulesMap = jsonDecode(await CampusRules.getJsonStingEN());
+    final campusRules = CampusRules.fromJson(campusRulesMap);
     return campusRules;
   }
 
   @override
   Widget build(BuildContext context) {
-    // If rulesListPL has not initialized yet
-    if (rulesListPL == null) {
-      // Display your loading screen instead
+    if (rulesListPL == null || rulesListEN == null) {
       return Center(
         child: CircularProgressIndicator(
           value: controller.value,
@@ -79,11 +80,18 @@ class _RulesCardState extends State<RulesCard> with TickerProviderStateMixin{
               ),
             ),
           ),
-          for (CampusRule campusRule in rulesListPL.campusRulesList)
-            SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
-              child: buildListTitle(context, campusRule),
-            ),
+          if (context.locale.toString() == 'pl')
+            for (CampusRule campusRule in rulesListPL.campusRulesList)
+              SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: buildListTitle(context, campusRule),
+              ),
+          if (context.locale.toString() == 'en')
+            for (CampusRule campusRule in rulesListEN.campusRulesList)
+              SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: buildListTitle(context, campusRule),
+              ),
         ],
       ),
     );

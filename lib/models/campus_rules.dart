@@ -15,8 +15,11 @@ class CampusRules {
   factory CampusRules.fromJson(Map<String, dynamic> json) =>
       _$CampusRulesFromJson(json);
 
-  static Future<String> getJsonSting() {
+  static Future<String> getJsonStingPL() {
     return rootBundle.loadString('assets/json/campus_rules_pl.json');
+  }
+  static Future<String> getJsonStingEN() {
+    return rootBundle.loadString('assets/json/campus_rules_en.json');
   }
 }
 
