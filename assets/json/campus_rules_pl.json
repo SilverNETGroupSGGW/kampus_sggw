@@ -87,28 +87,6 @@
           "subRule": "8) prowadzenia handlu obwoźnego i akwizycji bez zgody Władz Uczelni."
         }
       ]
-    },
-    {
-      "ruleNumber": 4,
-      "rule": "VII. Osoby odpowiedzialne za sprawowanie nadzoru na terenie Kampusu SGGW. a szczególnie pracownicy Straży Akademickiej oraz monitoringu obiektów są uprawnione i zobowiązane do:",
-      "subRulesList": [
-        {
-          "subRuleNumber": 1,
-          "subRule": "1) ograniczania wstępu na teren Kampusu osobom nieupoważnionym, a w przypadku ujawnienia naruszeń postanowień Regulaminu żądania opuszczenia terenu Kampusu;"
-        },
-        {
-          "subRuleNumber": 2,
-          "subRule": "2) zwracania szczególnej uwagi na osoby, które swoim zachowaniem budzą uzasadnione podejrzenia zakłócenia porządku publicznego i reagowania w sytuacjach zagrożenia;"
-        },
-        {
-          "subRuleNumber": 3,
-          "subRule": "3) współdziałania, zgodnie z Prawem o Szkolnictwie Wyższym i Statutem Uczelni, w zakresie bezpieczeństwa z właściwymi terenowo jednostkami Policji. Straży Miejskiej, a w przypadku jakiegokolwiek zagrożenia wezwania grup interwencyjnych czy innych służb miejskich lub ratunkowych (Straż Pożarna. Pogotowie Ratunkowe);"
-        },
-        {
-          "subRuleNumber": 4,
-          "subRule": "4) kontrolowania uprawnień do przebywania na terenie Kampusu SGGW."
-        }
-      ]
     }
   ]
 }

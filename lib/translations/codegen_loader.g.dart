@@ -27,15 +27,16 @@ class CodegenLoader extends AssetLoader{
   "parking": "Car parks",
   "park": "Parks and Monuments",
   "store": "Stores",
-  "copier": "copier",
-  "no_results_found": "no_results_found",
+  "copier": "Copier",
+  "no_results_found": "No search results found",
   "other_institutions": "Other institutions",
-  "building_plans": "Building plans",
+  "floor_plans": "Floor plans",
   "photo": "Photo",
   "gallery": "Gallery",
-  "departaments": "Departaments",
+  "departments": "Departments",
+  "institutes": "Institutes",
   "faculties": "Faculties",
-  "ground": "Ground",
+  "floor": "Floor",
   "website": "Website",
   "close": "Close",
   "settings": "Settings",
@@ -43,7 +44,8 @@ class CodegenLoader extends AssetLoader{
   "language": "Language",
   "pl": "Polish",
   "en": "English",
-  "campus_rules": "Kampus Rules"
+  "campus_rules": "Campus rules",
+  "offices": "Offices"
 };
 static const Map<String,dynamic> pl = {
   "map_screen_title": "Kampus SGGW",
@@ -75,8 +77,8 @@ static const Map<String,dynamic> pl = {
   "language": "Język",
   "pl": "Polski",
   "en": "Angielski",
-  "campus_rules": "Regulamin Kampusu",
-  "offices": "Biura",
+  "campus_rules": "Regulamin kampusu",
+  "offices": "Biura"
 };
-static const Map<String, Map<String,dynamic>> mapLocales = {"pl": pl, "en": en};
+static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "pl": pl};
 }

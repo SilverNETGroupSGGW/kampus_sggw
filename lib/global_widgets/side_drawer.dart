@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:kampus_sggw/screens/map_screen/rules_card.dart';
-import 'package:kampus_sggw/screens/map_screen/settings_card.dart';
+import 'package:kampus_sggw/screens/rules_screen/rules_screen.dart';
+import 'package:kampus_sggw/screens/settings_screen/settings_screen.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 
 class SideDrawer extends StatelessWidget {
