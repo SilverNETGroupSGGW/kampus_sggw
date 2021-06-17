@@ -8,13 +8,19 @@ import 'package:kampus_sggw/screens/map_screen/map_screen.dart';
 import 'package:kampus_sggw/themes/dark_theme.dart';
 import 'package:kampus_sggw/themes/light_theme.dart';
 import 'package:kampus_sggw/translations/codegen_loader.g.dart';
+import 'package:kampus_sggw/updateLocalData.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'logic/visit_history.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  Map<String, dynamic> mapItemsMap = jsonDecode(await MapItems.getJsonSting());
+  await GetStorage.init();
+
+  await checkUpdates();
+
+  Map<String, dynamic> mapItemsMap = jsonDecode(MapItems.getJsonSting());
   final mapItems = MapItems.fromJson(mapItemsMap);
   mapItems.generateFuzzyStringSetForMapItems();
 
