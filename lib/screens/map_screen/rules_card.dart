@@ -31,7 +31,6 @@ class _RulesCardState extends State<RulesCard> with TickerProviderStateMixin{
       setState(() {});
     });
     controller.repeat(reverse: true);
-
     super.initState();
   }
 
@@ -62,7 +61,6 @@ class _RulesCardState extends State<RulesCard> with TickerProviderStateMixin{
         ),
       );
     }
-
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,

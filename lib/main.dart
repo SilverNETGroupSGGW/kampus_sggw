@@ -10,8 +10,14 @@ import 'package:kampus_sggw/themes/light_theme.dart';
 import 'package:kampus_sggw/translations/codegen_loader.g.dart';
 import 'package:kampus_sggw/updateLocalData.dart';
 import 'package:get_storage/get_storage.dart';
-
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'logic/visit_history.dart';
+
+var darkTheme = DarkTheme().theme;
+var lightTheme= LightTheme().theme;
+enum ThemeType { Light, Dark }
+var darkMode = 1;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,6 +41,9 @@ Future<void> main() async {
   final visitHistory = VisitHistory.fromJson(visitHistoryMap);
   visitHistory.mapItems = mapItems;
 
+  final prefs = await SharedPreferences.getInstance();
+  darkMode = prefs.getInt('isDarkModeOn') ?? 1;
+
   runApp(
     EasyLocalization(
         supportedLocales: [Locale('en'), Locale('pl')],
@@ -42,11 +51,15 @@ Future<void> main() async {
         fallbackLocale: Locale('pl'),
         startLocale: Locale('pl'),
         assetLoader: CodegenLoader(),
-        child: CampusSGGW(
-          mapItems: mapItems,
-          searchHistory: searchHistory,
-          visitHistory: visitHistory,
-        )),
+        child: ChangeNotifierProvider<ThemeModel>(
+          create: (context) => ThemeModel(),
+          child: CampusSGGW(
+            mapItems: mapItems,
+            searchHistory: searchHistory,
+            visitHistory: visitHistory,
+          ),
+        ),
+    ),
   );
 }
 
@@ -66,9 +79,6 @@ class CampusSGGW extends StatefulWidget {
 }
 
 class _CampusSGGWState extends State<CampusSGGW> {
-  bool _hasDarkTheme = true;
-  ThemeData _lightTheme = LightTheme().theme;
-  ThemeData _darkTheme = DarkTheme().theme;
 
   @override
   Widget build(BuildContext context) {
@@ -77,9 +87,7 @@ class _CampusSGGWState extends State<CampusSGGW> {
     ]);
     return MaterialApp(
       title: 'Kampus SGGW',
-      theme: _lightTheme,
-      darkTheme: _darkTheme,
-      themeMode: _hasDarkTheme ? ThemeMode.dark : ThemeMode.light,
+      theme: Provider.of<ThemeModel>(context).currentTheme,
       home: MapScreen(
         mapItems: widget.mapItems,
         searchHistory: widget.searchHistory,
@@ -89,5 +97,24 @@ class _CampusSGGWState extends State<CampusSGGW> {
       localizationsDelegates: context.localizationDelegates,
       locale: context.locale,
     );
+  }
+}
+
+class ThemeModel extends ChangeNotifier {
+  ThemeData currentTheme = darkMode == 1 ? darkTheme : lightTheme;
+  ThemeType _themeType = darkMode == 1 ? ThemeType.Dark : ThemeType.Light;
+
+  toggleTheme() {
+    if (_themeType == ThemeType.Dark) {
+      currentTheme = lightTheme;
+      _themeType = ThemeType.Light;
+      return notifyListeners();
+    }
+
+    if (_themeType == ThemeType.Light) {
+      currentTheme = darkTheme;
+      _themeType = ThemeType.Dark;
+      return notifyListeners();
+    }
   }
 }
