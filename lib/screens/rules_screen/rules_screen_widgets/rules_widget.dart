@@ -5,6 +5,7 @@ import 'package:kampus_sggw/models/campus_rules.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'build_list_title_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'link_to_campus_rules_widget.dart';
 
 class RulesWidget extends StatefulWidget {
   final String currentLang;
@@ -64,6 +65,7 @@ class _RulesWidget extends State<RulesWidget> with TickerProviderStateMixin {
             LocaleKeys.campus_rules.tr(),
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headline3
+
         ),
         backgroundColor: Theme.of(context).bannerTheme.backgroundColor,
       ),
@@ -73,8 +75,11 @@ class _RulesWidget extends State<RulesWidget> with TickerProviderStateMixin {
             for (CampusRule campusRule in rulesList.campusRulesList)
               SingleChildScrollView(
                 physics: BouncingScrollPhysics(),
-                child: buildListTitle(context, campusRule),
+                child: BuildListTitle(context, campusRule),
               ),
+            ListTile(
+              title: LinkToCampusRules(widget.currentLang),
+            )
           ]
       ),
     );

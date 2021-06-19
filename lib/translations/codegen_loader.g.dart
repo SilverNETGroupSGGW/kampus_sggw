@@ -45,7 +45,8 @@ class CodegenLoader extends AssetLoader{
   "pl": "Polish",
   "en": "English",
   "campus_rules": "Campus rules",
-  "offices": "Offices"
+  "offices": "Offices",
+  "rules_link": "Full version of campus rules"
 };
 static const Map<String,dynamic> pl = {
   "map_screen_title": "Kampus SGGW",
@@ -78,7 +79,8 @@ static const Map<String,dynamic> pl = {
   "pl": "Polski",
   "en": "Angielski",
   "campus_rules": "Regulamin kampusu",
-  "offices": "Biura"
+  "offices": "Biura",
+  "rules_link": "Pełna wersja regulaminu"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "pl": pl};
 }

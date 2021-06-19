@@ -32,5 +32,6 @@ abstract class  LocaleKeys {
   static const en = 'en';
   static const campus_rules = 'campus_rules';
   static const offices = 'offices';
+  static const rules_link = 'rules_link';
 
 }

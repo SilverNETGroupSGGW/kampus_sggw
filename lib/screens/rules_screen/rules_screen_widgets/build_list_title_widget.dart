@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/models/campus_rules.dart';
 
-Widget buildListTitle(BuildContext context, CampusRule rule) => ExpansionTile(
+Widget BuildListTitle(BuildContext context, CampusRule rule) => ExpansionTile(
   title: Text(
     rule.rule,
     style: Theme.of(context).textTheme.subtitle1,
