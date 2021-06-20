@@ -5,20 +5,21 @@ import 'package:kampus_sggw/screens/settings_screen/settings_screen_widgets/chan
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-class SettingsCard extends StatelessWidget {
+class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
           LocaleKeys.settings.tr(),
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.headline3,
+          style: TextStyle(
+            fontFamily: 'SGGWSans',
+            fontWeight: FontWeight.w600,
+          ),
         ),
-        backgroundColor: Theme.of(context).bannerTheme.backgroundColor,
       ),
       body: ListView(
-        padding: EdgeInsets.zero,
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
         children: [
           ListTile(
             title: Text(

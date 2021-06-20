@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:kampus_sggw/screens/rules_screen/rules_screen.dart';
+import 'package:kampus_sggw/screens/rules_screen/rules_loader.dart';
 import 'package:kampus_sggw/screens/settings_screen/settings_screen.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 
@@ -33,7 +33,7 @@ class SideDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SettingsCard()),
+                MaterialPageRoute(builder: (context) => SettingsScreen()),
               );
             },
           ),
@@ -45,7 +45,7 @@ class SideDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => RulesCard()),
+                MaterialPageRoute(builder: (context) => RulesBuilder()),
               );
             },
           ),
