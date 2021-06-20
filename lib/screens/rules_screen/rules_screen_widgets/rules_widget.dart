@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/global_widgets/clickable_url.dart';
 import 'package:kampus_sggw/models/campus_rules.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'build_list_title_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'link_to_campus_rules_widget.dart';
 
 class RulesWidget extends StatefulWidget {
   final String currentLang;
@@ -76,10 +76,25 @@ class _RulesWidget extends State<RulesWidget> with TickerProviderStateMixin {
               child: buildListTitle(context, campusRule),
             ),
           ListTile(
-            title: LinkToCampusRules(widget.currentLang),
-          )
+            title: ClickableUrl(
+              url: _fullRulesLink(),
+              text: LocaleKeys.rules_link.tr(),
+              includeHeader: false,
+            ),
+          ),
         ],
       ),
     );
+  }
+
+  String _fullRulesLink() {
+    switch (widget.currentLang) {
+      case "pl":
+        return "http://adiss.sggw.pl/wp-content/uploads/2017/06/R_p_K.17.pdf";
+      case "en":
+        return "http://adiss.sggw.pl/wp-content/uploads/2019/10/Reg_EN.pdf";
+      default:
+        return "http://adiss.sggw.pl/regulaminy/";
+    }
   }
 }

@@ -10,6 +10,7 @@ class ChangeLanguageWidget extends StatefulWidget {
 class _ChangeLanguageWidget extends State<ChangeLanguageWidget> {
   String language = 'pl';
   var _languages = ['pl', 'en'];
+  
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
