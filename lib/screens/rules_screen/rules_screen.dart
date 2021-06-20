@@ -14,7 +14,3 @@ class _RulesCardState extends State<RulesCard> with TickerProviderStateMixin{
     return RulesWidget(context.locale.toString());
   }
 }
-
-
-
-

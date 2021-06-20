@@ -14,7 +14,6 @@ class RulesWidget extends StatefulWidget {
 
   @override
   _RulesWidget createState() => _RulesWidget();
-
 }
 
 class _RulesWidget extends State<RulesWidget> with TickerProviderStateMixin {
@@ -23,8 +22,7 @@ class _RulesWidget extends State<RulesWidget> with TickerProviderStateMixin {
 
   @override
   initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) async
-    {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
       rulesList = await this.loadFromJson(widget.currentLang);
     });
 
@@ -32,8 +30,8 @@ class _RulesWidget extends State<RulesWidget> with TickerProviderStateMixin {
       vsync: this,
       duration: const Duration(seconds: 5),
     )..addListener(() {
-      setState(() {});
-    });
+        setState(() {});
+      });
     controller.repeat(reverse: true);
     super.initState();
   }
@@ -45,7 +43,8 @@ class _RulesWidget extends State<RulesWidget> with TickerProviderStateMixin {
   }
 
   Future<CampusRules> loadFromJson(String lang) async {
-    Map<String, dynamic> campusRulesMap = jsonDecode(await CampusRules.getJsonSting(lang));
+    Map<String, dynamic> campusRulesMap =
+        jsonDecode(await CampusRules.getJsonSting(lang));
     final campusRules = CampusRules.fromJson(campusRulesMap);
     return campusRules;
   }
@@ -62,25 +61,24 @@ class _RulesWidget extends State<RulesWidget> with TickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            LocaleKeys.campus_rules.tr(),
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headline3
-
+          LocaleKeys.campus_rules.tr(),
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.headline3,
         ),
         backgroundColor: Theme.of(context).bannerTheme.backgroundColor,
       ),
       body: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            for (CampusRule campusRule in rulesList.campusRulesList)
-              SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                child: BuildListTitle(context, campusRule),
-              ),
-            ListTile(
-              title: LinkToCampusRules(widget.currentLang),
-            )
-          ]
+        padding: EdgeInsets.zero,
+        children: [
+          for (CampusRule campusRule in rulesList.campusRulesList)
+            SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              child: buildListTitle(context, campusRule),
+            ),
+          ListTile(
+            title: LinkToCampusRules(widget.currentLang),
+          )
+        ],
       ),
     );
   }

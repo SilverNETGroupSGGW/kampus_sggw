@@ -11,13 +11,13 @@ class SettingsCard extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            LocaleKeys.settings.tr(),
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headline3
+          LocaleKeys.settings.tr(),
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.headline3,
         ),
         backgroundColor: Theme.of(context).bannerTheme.backgroundColor,
       ),
-      body : ListView(
+      body: ListView(
         padding: EdgeInsets.zero,
         children: [
           ListTile(

@@ -8,15 +8,15 @@ class CampusRules {
   String lang;
   List<CampusRule> campusRulesList;
   CampusRules(
-      this.name,
-      this.lang,
-      this.campusRulesList,
-      );
+    this.name,
+    this.lang,
+    this.campusRulesList,
+  );
   factory CampusRules.fromJson(Map<String, dynamic> json) =>
       _$CampusRulesFromJson(json);
 
   static Future<String> getJsonSting(String lang) {
-    return rootBundle.loadString('assets/json/campus_rules_'+ lang +'.json');
+    return rootBundle.loadString('assets/json/campus_rules_' + lang + '.json');
   }
 }
 
@@ -26,10 +26,10 @@ class CampusRule {
   String rule;
   List<CampusSubRule> subRulesList;
   CampusRule(
-      this.ruleNumber,
-      this.rule,
-      this.subRulesList,
-      );
+    this.ruleNumber,
+    this.rule,
+    this.subRulesList,
+  );
   factory CampusRule.fromJson(Map<String, dynamic> json) =>
       _$CampusRuleFromJson(json);
 }
@@ -39,9 +39,9 @@ class CampusSubRule {
   int subRuleNumber;
   String subRule;
   CampusSubRule(
-      this.subRuleNumber,
-      this.subRule,
-      );
+    this.subRuleNumber,
+    this.subRule,
+  );
   factory CampusSubRule.fromJson(Map<String, dynamic> json) =>
       _$CampusSubRuleFromJson(json);
 }

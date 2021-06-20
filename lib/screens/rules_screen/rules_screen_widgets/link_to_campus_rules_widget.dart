@@ -9,8 +9,15 @@ class LinkToCampusRules extends StatelessWidget {
   final String currentLang;
   LinkToCampusRules(this.currentLang);
 
-  String returnUrl(String lang){
-    return lang == 'pl' ? 'http://adiss.sggw.pl/wp-content/uploads/2017/06/R_p_K.17.pdf' : 'http://adiss.sggw.pl/wp-content/uploads/2019/10/Reg_EN.pdf';
+  String returnUrl(String lang) {
+    switch(lang) {
+      case "pl":
+        return "http://adiss.sggw.pl/wp-content/uploads/2017/06/R_p_K.17.pdf";
+      case "en":
+        return "http://adiss.sggw.pl/wp-content/uploads/2019/10/Reg_EN.pdf";
+      default:
+        return "http://adiss.sggw.pl/regulaminy/";
+    }
   }
 
   @override
