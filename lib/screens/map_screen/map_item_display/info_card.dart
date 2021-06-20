@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:kampus_sggw/global_widgets/clickable_url.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -132,46 +133,11 @@ class InfoCardDialog extends StatelessWidget {
   }
 
   Widget _mapItemUrlWidget() {
-    Future<void> _goToMapItemURL() async {
-      if (await canLaunch(mapItemWebsite)) {
-        await launch(mapItemWebsite);
-      } else {
-        throw 'Could not launch ' + mapItemWebsite;
-      }
-    }
-
     if (mapItemWebsite == null) {
       return Center();
     }
-    return Column(
-      children: [
-        Text(
-          LocaleKeys.website.tr(),
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 16,
-            fontFamily: 'SGGWSans',
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(top: 5, bottom: 10),
-          child: GestureDetector(
-            onTap: _goToMapItemURL,
-            child: Text(
-              mapItemWebsite,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.blue,
-                fontWeight: FontWeight.w500,
-                fontSize: 16,
-                fontFamily: 'SGGWSans',
-              ),
-            ),
-          ),
-        )
-      ],
-    );
+
+    return ClickableUrl(url: mapItemWebsite);
   }
 
   Widget _subcategoriesDisplay(BuildContext context) {

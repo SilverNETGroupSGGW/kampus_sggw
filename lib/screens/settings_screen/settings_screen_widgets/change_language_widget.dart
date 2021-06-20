@@ -10,18 +10,21 @@ class ChangeLanguageWidget extends StatefulWidget {
 class _ChangeLanguageWidget extends State<ChangeLanguageWidget> {
   String language = 'pl';
   var _languages = ['pl', 'en'];
+  
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
-      items: _languages.map((String dropDownStringItem) {
-        return DropdownMenuItem<String>(
-          value: dropDownStringItem,
-          child: Text(dropDownStringItem.tr()),
-        );
-      }).toList(),
-      onChanged: (String newValueSelected){
+      items: _languages.map(
+        (String dropDownStringItem) {
+          return DropdownMenuItem<String>(
+            value: dropDownStringItem,
+            child: Text(dropDownStringItem.tr()),
+          );
+        },
+      ).toList(),
+      onChanged: (String newValueSelected) {
         setState(() {
-          context.locale = Locale(newValueSelected);
+          context.setLocale(Locale(newValueSelected));
         });
       },
       value: context.locale.toString(),

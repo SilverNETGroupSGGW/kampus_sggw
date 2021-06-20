@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:kampus_sggw/global_widgets/clickable_url.dart';
 import 'package:kampus_sggw/models/category.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'service_button_row.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class FacultyCard extends StatelessWidget {
   final Category category;
@@ -72,40 +72,7 @@ class FacultyCard extends StatelessWidget {
       return Center();
     }
 
-    Future<void> _goToFacultyURL() async {
-      if (await canLaunch(category.url)) {
-        await launch(category.url);
-      } else {
-        throw 'Could not launch ' + category.url;
-      }
-    }
-
-    return Column(children: [
-      Divider(
-        color: Colors.grey[800],
-        thickness: 1.5,
-        indent: 12.0,
-        endIndent: 12.0,
-      ),
-      Padding(
-        padding: EdgeInsets.only(top: 5),
-        child: Text(
-          LocaleKeys.website.tr(),
-          textAlign: TextAlign.center,
-        ),
-      ),
-      Padding(
-        padding: EdgeInsets.only(top: 5),
-        child: GestureDetector(
-          onTap: _goToFacultyURL,
-          child: Text(
-            category.url,
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.blue),
-          ),
-        ),
-      ),
-    ]);
+    return ClickableUrl(url: category.url);
   }
 
   Widget _subCategories() {

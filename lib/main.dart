@@ -15,7 +15,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'logic/visit_history.dart';
 
 var darkTheme = DarkTheme().theme;
-var lightTheme= LightTheme().theme;
+var lightTheme = LightTheme().theme;
 enum ThemeType { Light, Dark }
 var darkMode = 1;
 
@@ -46,19 +46,19 @@ Future<void> main() async {
 
   runApp(
     EasyLocalization(
-        supportedLocales: [Locale('en'), Locale('pl')],
-        path: 'assets/translations',
-        fallbackLocale: Locale('pl'),
-        startLocale: Locale('pl'),
-        assetLoader: CodegenLoader(),
-        child: ChangeNotifierProvider<ThemeModel>(
-          create: (context) => ThemeModel(),
-          child: CampusSGGW(
-            mapItems: mapItems,
-            searchHistory: searchHistory,
-            visitHistory: visitHistory,
-          ),
+      supportedLocales: [Locale('en'), Locale('pl')],
+      path: 'assets/translations',
+      fallbackLocale: Locale('pl'),
+      startLocale: Locale('pl'),
+      assetLoader: CodegenLoader(),
+      child: ChangeNotifierProvider<ThemeModel>(
+        create: (context) => ThemeModel(),
+        child: CampusSGGW(
+          mapItems: mapItems,
+          searchHistory: searchHistory,
+          visitHistory: visitHistory,
         ),
+      ),
     ),
   );
 }
@@ -79,7 +79,6 @@ class CampusSGGW extends StatefulWidget {
 }
 
 class _CampusSGGWState extends State<CampusSGGW> {
-
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
@@ -108,13 +107,12 @@ class ThemeModel extends ChangeNotifier {
     if (_themeType == ThemeType.Dark) {
       currentTheme = lightTheme;
       _themeType = ThemeType.Light;
-      return notifyListeners();
     }
-
-    if (_themeType == ThemeType.Light) {
+    else if (_themeType == ThemeType.Light) {
       currentTheme = darkTheme;
       _themeType = ThemeType.Dark;
-      return notifyListeners();
     }
+
+    return notifyListeners();
   }
 }

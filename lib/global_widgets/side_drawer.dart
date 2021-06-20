@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:kampus_sggw/screens/rules_screen/rules_screen.dart';
+import 'package:kampus_sggw/screens/rules_screen/rules_loader.dart';
 import 'package:kampus_sggw/screens/settings_screen/settings_screen.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 
@@ -14,9 +14,14 @@ class SideDrawer extends StatelessWidget {
           Container(
             height: 120.0,
             child: DrawerHeader(
-              child: Text(LocaleKeys.map_screen_title.tr(), style: TextStyle(color: Theme.of(context).bannerTheme.contentTextStyle.color),),
+              child: Text(
+                LocaleKeys.map_screen_title.tr(),
+                style: TextStyle(
+                  color: Theme.of(context).bannerTheme.contentTextStyle.color,
+                ),
+              ),
               decoration: BoxDecoration(
-                color: Theme.of(context).bannerTheme.backgroundColor
+                color: Theme.of(context).bannerTheme.backgroundColor,
               ),
             ),
           ),
@@ -27,8 +32,8 @@ class SideDrawer extends StatelessWidget {
             ),
             onTap: () {
               Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SettingsCard())
+                context,
+                MaterialPageRoute(builder: (context) => SettingsScreen()),
               );
             },
           ),
@@ -40,7 +45,7 @@ class SideDrawer extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => RulesCard()),
+                MaterialPageRoute(builder: (context) => RulesBuilder()),
               );
             },
           ),

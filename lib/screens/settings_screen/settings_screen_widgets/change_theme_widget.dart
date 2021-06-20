@@ -18,12 +18,8 @@ class _ChangeThemeWidget extends State<ChangeThemeWidget> {
     super.initState();
   }
 
-  bool getDarkModeValue(){
-    if (darkMode == 1){
-      return true;
-    }
-    else
-      return false;
+  bool getDarkModeValue() {
+    return darkMode == 1;
   }
 
   void _saveThemeMode() async {
@@ -35,13 +31,13 @@ class _ChangeThemeWidget extends State<ChangeThemeWidget> {
   Widget build(BuildContext context) {
     return Switch(
       value: _switchStatus,
-      onChanged: (value){
+      onChanged: (value) {
         setState(() {
-          {Provider.of<ThemeModel>(context,listen: false).toggleTheme();}
-          if (value == true)
-            darkMode = 1;
-          if (value == false)
-            darkMode = 0;
+          {
+            Provider.of<ThemeModel>(context, listen: false).toggleTheme();
+          }
+          if (value == true) darkMode = 1;
+          if (value == false) darkMode = 0;
           _switchStatus = getDarkModeValue();
           _saveThemeMode();
         });
