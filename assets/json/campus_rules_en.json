@@ -1,0 +1,92 @@
+{
+  "name": "campus_rules",
+  "lang": "en",
+  "campusRulesList": [
+    {
+      "ruleNumber": 1,
+      "rule": "I. The University Campus is a public area from 6:00 a.m. to 10:00 p.m. In the remaining time period, only authorized persons are allowed on the Campus:",
+      "subRulesList": [
+        {
+          "subRuleNumber": 1,
+          "subRule": "1) employees of the University (as well as persons accompanying them) and persons performing work commissioned for the University with individual permits;"
+        },
+        {
+          "subRuleNumber": 2,
+          "subRule": "2) students and doctoral students of SGGW and persons accompanying them;"
+        },
+        {
+          "subRuleNumber": 3,
+          "subRule": "3) residents of student residences. Ikar Student Residence and Guest Rooms;"
+        },
+        {
+          "subRuleNumber": 3,
+          "subRule": "4) persons using Campus service facilities until they are closed."
+        }
+      ]
+    },
+    {
+      "ruleNumber": 2,
+      "rule": "II. Everyone who is on the SGGW Campus is obliged to:",
+      "subRulesList": [
+        {
+          "subRuleNumber": 1,
+          "subRule": "1) adherence to generally accepted standards of conduct in human relations:"
+        },
+        {
+          "subRuleNumber": 2,
+          "subRule": "2) abide by the rules of respecting the common property of the University, respecting greenery, and especially not littering on the Campus;"
+        },
+        {
+          "subRuleNumber": 3,
+          "subRule": "3) the proper use of facilities, installations and equipment in buildings, taking into account their intended use;"
+        },
+        {
+          "subRuleNumber": 4,
+          "subRule": "4) Proper use of vehicular routes, automobile parking areas, and pedestrian walkways;"
+        },
+        {
+          "subRuleNumber": 5,
+          "subRule": "5) taking ordinary and prescribed precautions when keeping dogs and when keeping other animals."
+        }
+      ]
+    },
+    {
+      "ruleNumber": 3,
+      "rule": "III. The following are prohibited on Campus:",
+      "subRulesList": [
+        {
+          "subRuleNumber": 1,
+          "subRule": "1) disturbing public order, aggressive, harassing and indecent behaviour, and destroying School property;"
+        },
+        {
+          "subRuleNumber": 2,
+          "subRule": "2) consuming alcohol (with the exception of consumption facilities located on the SGGW Campus as well as occasional or cyclical events organized on the SGGW Campus, provided that the University Authorities consent to consumption of alcohol during such an event), being under the influence of alcohol or other intoxicants;"
+        },
+        {
+          "subRuleNumber": 3,
+          "subRule": "3) carrying and possessing of weapons (excluding security guards) and other items that may pose a threat to safety, in particular: explosives, pyrotechnic products, narcotics and psychotropic drugs;"
+        },
+        {
+          "subRuleNumber": 4,
+          "subRule": "4) organise bonfires;"
+        },
+        {
+          "subRuleNumber": 5,
+          "subRule": "5) barbecue outside designated areas;"
+        },
+        {
+          "subRuleNumber": 6,
+          "subRule": "6) walking dogs without leashes or muzzles and leaving them unattended;"
+        },
+        {
+          "subRuleNumber": 7,
+          "subRule": "7) parking vehicles outside designated places;"
+        },
+        {
+          "subRuleNumber": 8,
+          "subRule": "8) conducting itinerant trade and canvassing without the consent of the University Authorities."
+        }
+      ]
+    }
+  ]
+}

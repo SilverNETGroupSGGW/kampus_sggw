@@ -25,7 +25,14 @@
     "faculties": "Faculties",
     "floor": "Floor",
     "website": "Website",
-    "offices": "Offices",
+    "close": "Close",
 
-    "close": "Close"
+    "settings": "Settings",
+    "dark_mode": "Dark Mode",
+    "language": "Language",
+    "pl": "Polish",
+    "en": "English",
+    "campus_rules": "Campus rules",
+    "offices": "Offices",
+    "rules_link": "Full version of campus rules"
 }

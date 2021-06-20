@@ -25,7 +25,14 @@
     "faculties": "Wydziały",
     "floor": "Piętro",
     "website": "Strona internetowa",
-    "offices": "Biura",
+    "close": "Zamknij",
 
-    "close": "Zamknij"
+    "settings": "Ustawienia",
+    "dark_mode": "Tryb ciemny",
+    "language": "Język",
+    "pl": "Polski",
+    "en": "Angielski",
+    "campus_rules": "Regulamin kampusu",
+    "offices": "Biura",
+    "rules_link": "Pełna wersja regulaminu"
 }

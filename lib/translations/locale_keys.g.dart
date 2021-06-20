@@ -24,7 +24,14 @@ abstract class  LocaleKeys {
   static const faculties = 'faculties';
   static const floor = 'floor';
   static const website = 'website';
-  static const offices = 'offices';
   static const close = 'close';
+  static const settings = 'settings';
+  static const dark_mode = 'dark_mode';
+  static const language = 'language';
+  static const pl = 'pl';
+  static const en = 'en';
+  static const campus_rules = 'campus_rules';
+  static const offices = 'offices';
+  static const rules_link = 'rules_link';
 
 }

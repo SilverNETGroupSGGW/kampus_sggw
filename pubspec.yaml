@@ -22,6 +22,7 @@ dependencies:
   fuzzy: ^0.3.0
   http: ^0.13.3
   get_storage: ^2.0.2
+  provider: ^4.3.2+2
 
 dev_dependencies:
   flutter_test:
@@ -44,6 +45,8 @@ flutter:
     - assets/translations/
     - assets/images/map_objects/wzim.jpg
     - assets/json/map_items.json
+    - assets/json/campus_rules_pl.json
+    - assets/json/campus_rules_en.json
     - assets/images/icons/
     - assets/metadata.json
   fonts:

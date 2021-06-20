@@ -53,6 +53,7 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
           child: const Icon(Icons.map),
           backgroundColor: Colors.lightGreen,
           onPressed: () => widget.onRecenterButtonPressed(),
+          heroTag: "btn1",
         ),
         Padding(
           padding: EdgeInsets.all(5),

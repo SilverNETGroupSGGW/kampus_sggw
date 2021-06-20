@@ -1,0 +1,92 @@
+{
+  "name": "campus_rules",
+  "lang": "pl",
+  "campusRulesList": [
+    {
+      "ruleNumber": 1,
+      "rule": "I. Kampus Uczelni jest terenem ogólnodostępnym w godz. od 6:00 do 22:00. W pozostałym przedziale czasowym na terenie Kampusu mogą przebywać tylko osob do tego uprawnione:",
+      "subRulesList": [
+        {
+          "subRuleNumber": 1,
+          "subRule": "1) pracownicy Uczelni (a także osoby im towarzyszące) oraz osoby wykonujące prace zlecone na rzecz Uczelni posiadające indywidualne zezwolenia;"
+        },
+        {
+          "subRuleNumber": 2,
+          "subRule": "2) studenci i doktoranci SGGW oraz osoby im towarzyszące;"
+        },
+        {
+          "subRuleNumber": 3,
+          "subRule": "3) mieszkańcy domów studenckich. Domu Asystenckiego i Pokoi Gościnnych Ikar;"
+        },
+        {
+          "subRuleNumber": 3,
+          "subRule": "4) osoby korzystające z obiektów usługowych na terenie Kampusu do czasu ich zamknięcia."
+        }
+      ]
+    },
+    {
+      "ruleNumber": 2,
+      "rule": "II. Każdy kto przebywa na terenie Kampusu SGGW zobowiązany jest do:",
+      "subRulesList": [
+        {
+          "subRuleNumber": 1,
+          "subRule": "1) przestrzegania ogólnie przyjętych norm postępowania w zakresie relacji międzyludzkich:"
+        },
+        {
+          "subRuleNumber": 2,
+          "subRule": "2) przestrzegania zasad poszanowania mienia wspólnego Uczelni, poszanowania zieleni, a zwłaszcza niezaśmiecania Kampusu;"
+        },
+        {
+          "subRuleNumber": 3,
+          "subRule": "3) właściwego korzystania z urządzeń, instalacji oraz wyposażenia budynków z uwzględnieniem ich przeznaczenia;"
+        },
+        {
+          "subRuleNumber": 4,
+          "subRule": "4) właściwego korzystania z dróg transportu samochodowego, parkingów dla samochodów oraz chodników dla pieszych;"
+        },
+        {
+          "subRuleNumber": 5,
+          "subRule": "5) zachowania zwykłych i nakazanych środków ostrożności przy trzymaniu psów oraz przy trzymaniu innych zwierząt."
+        }
+      ]
+    },
+    {
+      "ruleNumber": 3,
+      "rule": "III. Na terenie Kampusu zabrania się:",
+      "subRulesList": [
+        {
+          "subRuleNumber": 1,
+          "subRule": "1) zakłócania porządku publicznego, agresywnego, napastliwego i nieobyczajnego zachowania oraz niszczenia mienia Uczelni;"
+        },
+        {
+          "subRuleNumber": 2,
+          "subRule": "2) spożywania alkoholu (nie dotyczy lokali konsumpcyjnych znajdujących się na terenie Kampusu SGGW oraz wydarzeń okazjonalnych lub cyklicznych organizowanychna terenie Kampusu SGGW, pod warunkiem wyrażenia przez Władze Uczelni zgody na spożywanie alkoholu podczas takiego wydarzenia), przebywania w stanie nietrzeźwym oraz pod wpływem innych środków odurzających;"
+        },
+        {
+          "subRuleNumber": 3,
+          "subRule": "3) wnoszenia i posiadania broni (z wyłączeniem osób pełniących służbę ochrony) i innych przedmiotów mogących stanowić zagrożenie bezpieczeństwa, w szczególności: materiałów wybuchowych, wyrobów pirotechnicznych, środków odurzających lub psychotropowych;"
+        },
+        {
+          "subRuleNumber": 4,
+          "subRule": "4) organizowania ognisk;"
+        },
+        {
+          "subRuleNumber": 5,
+          "subRule": "5) grillowania poza miejscami do tego wyznaczonymi;"
+        },
+        {
+          "subRuleNumber": 6,
+          "subRule": "6) wyprowadzania psów bez smyczy i kagańców oraz pozastawiania ich bez opieki;"
+        },
+        {
+          "subRuleNumber": 7,
+          "subRule": "7) parkowania pojazdów poza wyznaczonymi miejscami;"
+        },
+        {
+          "subRuleNumber": 8,
+          "subRule": "8) prowadzenia handlu obwoźnego i akwizycji bez zgody Władz Uczelni."
+        }
+      ]
+    }
+  ]
+}
