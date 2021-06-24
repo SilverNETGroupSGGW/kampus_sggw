@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
+import 'package:provider/provider.dart';
 part 'user_history.g.dart';
 
 @JsonSerializable()
@@ -10,8 +11,6 @@ class UserHistory {
   int buffer;
   @JsonKey(defaultValue: <int>[])
   List<int> itemsIds;
-  @JsonKey(ignore: true)
-  MapItems mapItems;
 
   UserHistory({this.buffer, this.itemsIds});
 
@@ -19,8 +18,11 @@ class UserHistory {
       _$UserHistoryFromJson(json);
 
   @protected
-  List<MapItem> updateMapItems() =>
-      mapItems.getItems(itemsIds).reversed.toList();
+  List<MapItem> updateMapItems(BuildContext context) {
+    List<MapItem> mapItems =
+        Provider.of<MapItems>(context, listen: false).getItems(itemsIds);
+    return mapItems.reversed.toList();
+  }
 
   void addItem(MapItem mapItem) {
     _putAtFirstPosition(mapItem);
@@ -35,7 +37,7 @@ class UserHistory {
   }
 
   void _putAtFirstPosition(MapItem mapItem) {
-      deleteItem(mapItem);
+    deleteItem(mapItem);
   }
 
   void deleteItem(MapItem mapItem) {

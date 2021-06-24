@@ -22,7 +22,7 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
   @override
   void initState() {
     super.initState();
-    _visitedItems = widget.visitHistory.updateMapItems();
+    _visitedItems = widget.visitHistory.updateMapItems(context);
   }
 
   @override
@@ -84,5 +84,5 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
   }
 
   void _updateRecentlyVisited() =>
-      _visitedItems = widget.visitHistory.updateMapItems();
+      _visitedItems = widget.visitHistory.updateMapItems(context);
 }

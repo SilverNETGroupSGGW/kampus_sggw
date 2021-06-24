@@ -1,3 +1,5 @@
+import 'dart:collection';
+import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/key_value.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:get_storage/get_storage.dart';
@@ -7,19 +9,21 @@ import 'package:fuzzy/fuzzy.dart';
 part 'map_items.g.dart';
 
 @JsonSerializable()
-class MapItems {
+class MapItems extends ChangeNotifier {
   static final storage = GetStorage();
 
-  List<MapItem> mapItems;
+  List<MapItem> _mapItems;
   @JsonKey(ignore: true)
   Map<MapItem, Fuzzy> fuzzySetItemMap;
   MapItems(
-    this.mapItems,
+    this._mapItems,
   );
+
+  UnmodifiableListView<MapItem> get mapItems => UnmodifiableListView(_mapItems);
 
   Set<MapItem> filterItemsByItsServices(List<ServiceType> serviceTypes) {
     Set<MapItem> filteredItems = {};
-    mapItems.forEach((item) {
+    _mapItems.forEach((item) {
       if (item.containsAtLeastOneServiceType(serviceTypes)) {
         filteredItems.add(item);
       }
@@ -29,7 +33,7 @@ class MapItems {
 
   Set<MapItem> filterItemsByItsType(List<MapItemType> itemTypes) {
     Set<MapItem> filteredItems = {};
-    mapItems.forEach((item) {
+    _mapItems.forEach((item) {
       if (itemTypes.contains(item.type)) {
         filteredItems.add(item);
       }
@@ -45,7 +49,7 @@ class MapItems {
   }
 
   void generateFuzzyStringSetForMapItems() {
-    mapItems.forEach((item) {
+    _mapItems.forEach((item) {
       item.generateFuzzySet();
     });
   }
@@ -53,7 +57,7 @@ class MapItems {
   List<MapItem> getItems(List<int> itemsIds) {
     List<MapItem> tmp = [];
     for (var id in itemsIds) {
-      tmp.add(mapItems.firstWhere((element) => element.id == id));
+      tmp.add(_mapItems.firstWhere((element) => element.id == id));
     }
     return tmp;
   }
@@ -64,7 +68,7 @@ class MapItems {
   }
 
   MapItem findItemByID(int id) {
-    return mapItems.firstWhere((element) => element.id==id);
+    return _mapItems.firstWhere((element) => element.id == id);
   }
 
   List<KeyValue> findItemsByQuery(String query) {
@@ -75,7 +79,7 @@ class MapItems {
 
   List<KeyValue> _getSimilarityMapForEachItem(String query) {
     List<KeyValue> similarityList = [];
-    mapItems.forEach(
+    _mapItems.forEach(
       (item) {
         var similarity = item.searchingSet.search(query);
         if (similarity.length > 0) {

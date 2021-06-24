@@ -39,6 +39,7 @@ class _SearchBar extends State<SearchBar> {
   void initState() {
     super.initState();
     _controller = FloatingSearchBarController();
+    widget.searchHistory.updateMapItems(context);
     _filteredSearchHistory = widget.searchHistory.filterSearchHistory();
     _searchSuggestions = [];
     _searchSuggestionListener = widget.filtrationService.searchSuggestionEvent
@@ -198,14 +199,14 @@ class _SearchBar extends State<SearchBar> {
   void _addToSearchHistory(MapItem item) {
     widget.searchHistory.addItem(item);
     widget.searchHistory.save();
-    widget.searchHistory.updateMapItems();
+    widget.searchHistory.updateMapItems(context);
     _updateFilteredSearchHistory();
   }
 
   void _deleteFromSearchHistory(item) {
     widget.searchHistory.deleteItem(item);
     widget.searchHistory.save();
-    widget.searchHistory.updateMapItems();
+    widget.searchHistory.updateMapItems(context);
     _updateFilteredSearchHistory();
   }
 }

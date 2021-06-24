@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/logic/user_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
@@ -27,8 +28,8 @@ class SearchHistory extends UserHistory {
   }
 
   @override
-  List<MapItem> updateMapItems() {
-    _searchedItems = super.updateMapItems();
+  List<MapItem> updateMapItems(BuildContext context) {
+    _searchedItems = super.updateMapItems(context);
     return _searchedItems;
   }
 

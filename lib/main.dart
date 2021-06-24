@@ -33,13 +33,10 @@ Future<void> main() async {
   Map<String, dynamic> searchHistoryMap =
       jsonDecode(await SearchHistory.getJsonSting());
   final searchHistory = SearchHistory.fromJson(searchHistoryMap);
-  searchHistory.mapItems = mapItems;
-  searchHistory.updateMapItems();
 
   Map<String, dynamic> visitHistoryMap =
       jsonDecode(await VisitHistory.getJsonSting());
   final visitHistory = VisitHistory.fromJson(visitHistoryMap);
-  visitHistory.mapItems = mapItems;
 
   final prefs = await SharedPreferences.getInstance();
   darkMode = prefs.getInt('isDarkModeOn') ?? 1;
@@ -51,8 +48,15 @@ Future<void> main() async {
       fallbackLocale: Locale('pl'),
       startLocale: Locale('pl'),
       assetLoader: CodegenLoader(),
-      child: ChangeNotifierProvider<ThemeModel>(
-        create: (context) => ThemeModel(),
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<ThemeModel>(
+            create: (context) => ThemeModel(),
+          ),
+          ChangeNotifierProvider<MapItems>(
+            create: (context) => mapItems,
+          ),
+        ],
         child: CampusSGGW(
           mapItems: mapItems,
           searchHistory: searchHistory,
@@ -107,8 +111,7 @@ class ThemeModel extends ChangeNotifier {
     if (_themeType == ThemeType.Dark) {
       currentTheme = lightTheme;
       _themeType = ThemeType.Light;
-    }
-    else if (_themeType == ThemeType.Light) {
+    } else if (_themeType == ThemeType.Light) {
       currentTheme = darkTheme;
       _themeType = ThemeType.Dark;
     }
