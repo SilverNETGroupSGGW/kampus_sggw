@@ -10,18 +10,19 @@ import 'package:kampus_sggw/logic/visit_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
+import 'package:provider/provider.dart';
 import 'filtration_widgets/no_item_found_alert_dialog.dart';
 import 'interactive_map.dart';
 import 'map_floating_buttons.dart';
 
 class MapScreen extends StatefulWidget {
-  final MapItems mapItems;
+  //final MapItems mapItems;
   final SearchHistory searchHistory;
   final VisitHistory visitHistory;
 
   MapScreen({
     Key key,
-    this.mapItems,
+    //this.mapItems,
     this.searchHistory,
     this.visitHistory,
   }) : super(key: key);
@@ -32,6 +33,7 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   static MapItem _selectedMapItem;
+
   StreamService _recenterMap = StreamService();
   StreamService _visitItem = StreamService();
   FiltrationService _filtrationService;
@@ -46,7 +48,7 @@ class _MapScreenState extends State<MapScreen> {
     return DialogRoute<void>(
       context: context,
       builder: (BuildContext context) =>
-        InfoCardDialogBuilder().fromMapItem(_selectedMapItem),
+          InfoCardDialogBuilder().fromMapItem(_selectedMapItem),
     );
   }
 
@@ -69,7 +71,9 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     super.initState();
     _filtrationService = FiltrationService(
-        mapItems: widget.mapItems, onNoItemFound: _showAlertDialogNoItemFound);
+      mapItems: Provider.of<MapItems>(context, listen: false),
+      onNoItemFound: _showAlertDialogNoItemFound,
+    );
     _visitItemListener =
         _visitItem.listen((mapItem) => _addItemToRecentlyVisited(mapItem));
   }
@@ -90,7 +94,7 @@ class _MapScreenState extends State<MapScreen> {
       body: Stack(
         children: [
           InteractiveMap(
-            mapItems: widget.mapItems,
+            //mapItems: widget.mapItems,
             showCard: showInfoCard,
             onItemVisit: (mapItem) => _visitItem.trigger(param: mapItem),
             shouldRecenter: _recenterMap,

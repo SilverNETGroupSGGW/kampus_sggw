@@ -7,7 +7,7 @@ import 'package:kampus_sggw/models/map_items.dart';
 import 'event_parameters/filter_by_function_event_param.dart';
 
 class FiltrationService {
-  final MapItems mapItems;
+  MapItems _mapItems;
   StreamService _filterByFunctionEvent;
   StreamService _searchWithQueryEvent;
   StreamService _searchWithMapItemEvent;
@@ -19,7 +19,8 @@ class FiltrationService {
   StreamSubscription _searchWithQueryListener;
   StreamSubscription _searchWithMapItemListener;
   final Function onNoItemFound;
-  FiltrationService({this.mapItems, this.onNoItemFound}) {
+  FiltrationService({mapItems, this.onNoItemFound}) {
+    _mapItems = mapItems;
     _initializeStreamServices();
     _initializeListeners();
   }
@@ -55,10 +56,10 @@ class FiltrationService {
   }
 
   void _suggestSearches(String query) =>
-      _searchSuggestionEvent.trigger(param: mapItems.findItemsByQuery(query));
+      _searchSuggestionEvent.trigger(param: _mapItems.findItemsByQuery(query));
 
   void _finalQuerySearch(String query) {
-    MapItem queriedItem = mapItems.findItemByQuery(query);
+    MapItem queriedItem = _mapItems.findItemByQuery(query);
     if (queriedItem != null) {
       _manageSearchHistoryEvent.trigger(param: queriedItem.name);
       _triggerInteractiveMap(queriedItem.name, [queriedItem]);
@@ -79,11 +80,11 @@ class FiltrationService {
     Set<MapItem> itemsFilteredByServices = {};
     if (filterByFunction.mapItemTypes != null) {
       itemsFilteredByType =
-          mapItems.filterItemsByItsType(filterByFunction.mapItemTypes);
+          _mapItems.filterItemsByItsType(filterByFunction.mapItemTypes);
     }
     if (filterByFunction.serviceTypes != null) {
       itemsFilteredByServices =
-          mapItems.filterItemsByItsServices(filterByFunction.serviceTypes);
+          _mapItems.filterItemsByItsServices(filterByFunction.serviceTypes);
     }
     return itemsFilteredByType.union(itemsFilteredByServices).toList();
   }

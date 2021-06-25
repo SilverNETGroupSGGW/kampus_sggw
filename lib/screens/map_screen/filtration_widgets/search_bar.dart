@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/search_event_param.dart';
@@ -10,6 +9,7 @@ import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
+import 'package:provider/provider.dart';
 import 'search_help_panel.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 
@@ -39,7 +39,9 @@ class _SearchBar extends State<SearchBar> {
   void initState() {
     super.initState();
     _controller = FloatingSearchBarController();
-    widget.searchHistory.updateMapItems(context);
+    widget.searchHistory.updateMapItems(
+      Provider.of<MapItems>(context, listen: false),
+    );
     _filteredSearchHistory = widget.searchHistory.filterSearchHistory();
     _searchSuggestions = [];
     _searchSuggestionListener = widget.filtrationService.searchSuggestionEvent
@@ -199,14 +201,18 @@ class _SearchBar extends State<SearchBar> {
   void _addToSearchHistory(MapItem item) {
     widget.searchHistory.addItem(item);
     widget.searchHistory.save();
-    widget.searchHistory.updateMapItems(context);
+    widget.searchHistory.updateMapItems(
+      Provider.of<MapItems>(context, listen: false),
+    );
     _updateFilteredSearchHistory();
   }
 
   void _deleteFromSearchHistory(item) {
     widget.searchHistory.deleteItem(item);
     widget.searchHistory.save();
-    widget.searchHistory.updateMapItems(context);
+    widget.searchHistory.updateMapItems(
+      Provider.of<MapItems>(context, listen: false),
+    );
     _updateFilteredSearchHistory();
   }
 }

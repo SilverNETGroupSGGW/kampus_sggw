@@ -8,6 +8,7 @@ import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/models/map_settings.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';
+import 'package:provider/provider.dart';
 
 class InteractiveMap extends StatefulWidget {
   final TransformationController transController = TransformationController();
@@ -30,10 +31,10 @@ class InteractiveMap extends StatefulWidget {
     ),
     minMaxZoomPreference: MinMaxZoomPreference(15, 19),
   );
-  final MapItems mapItems;
+  //final MapItems mapItems;
 
   InteractiveMap({
-    @required this.mapItems,
+    //@required this.mapItems,
     @required this.showCard,
     @required this.onItemVisit,
     @required this.shouldRecenter,
@@ -45,7 +46,8 @@ class InteractiveMap extends StatefulWidget {
   _InteractiveMapState createState() => _InteractiveMapState();
 }
 
-class _InteractiveMapState extends State<InteractiveMap> {
+class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
+  MapItems _mapItems;
   Completer<GoogleMapController> _controller = Completer();
   Map markers = <MarkerId, Marker>{};
   GoogleMap _googleMap;
@@ -67,6 +69,7 @@ class _InteractiveMapState extends State<InteractiveMap> {
 
   @override
   initState() {
+    _mapItems = Provider.of<MapItems>(context, listen: false);
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       facultyMarker = await BitmapDescriptor.fromAssetImage(
           ImageConfiguration(size: Size(30, 45)),
@@ -115,7 +118,8 @@ class _InteractiveMapState extends State<InteractiveMap> {
       setState(() {});
 
       tryRequestLocation();
-      _setMarkers(markers, widget.mapItems.mapItems);
+      //_setMarkers(markers, widget.mapItems.mapItems);
+      _setMarkers(markers, _mapItems.mapItems);
       _currentMarkerSet = markers.values.toSet();
       _shouldRecenter = widget.shouldRecenter.listen((_) => _goToTheCampus());
       _shouldFilterMarkers = widget.shouldFilterMarkers.listen(

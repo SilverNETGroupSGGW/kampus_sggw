@@ -53,12 +53,10 @@ Future<void> main() async {
           ChangeNotifierProvider<ThemeModel>(
             create: (context) => ThemeModel(),
           ),
-          ChangeNotifierProvider<MapItems>(
-            create: (context) => mapItems,
-          ),
+          ChangeNotifierProvider.value(value: mapItems),
         ],
         child: CampusSGGW(
-          mapItems: mapItems,
+          //mapItems: mapItems,
           searchHistory: searchHistory,
           visitHistory: visitHistory,
         ),
@@ -68,12 +66,12 @@ Future<void> main() async {
 }
 
 class CampusSGGW extends StatefulWidget {
-  final MapItems mapItems;
+  //final MapItems mapItems;
   final SearchHistory searchHistory;
   final VisitHistory visitHistory;
   const CampusSGGW({
     Key key,
-    this.mapItems,
+    //this.mapItems,
     this.searchHistory,
     this.visitHistory,
   }) : super(key: key);
@@ -92,7 +90,7 @@ class _CampusSGGWState extends State<CampusSGGW> {
       title: 'Kampus SGGW',
       theme: Provider.of<ThemeModel>(context).currentTheme,
       home: MapScreen(
-        mapItems: widget.mapItems,
+        //mapItems: widget.mapItems,
         searchHistory: widget.searchHistory,
         visitHistory: widget.visitHistory,
       ),

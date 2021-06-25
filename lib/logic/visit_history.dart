@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/logic/user_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
+import 'package:kampus_sggw/models/map_items.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 part 'visit_history.g.dart';
 
@@ -16,8 +16,8 @@ class VisitHistory extends UserHistory {
   Map<String, dynamic> toJson() => _$VisitHistoryToJson(this);
 
   @override
-  List<MapItem> updateMapItems(BuildContext context) =>
-      super.updateMapItems(context);
+  List<MapItem> updateMapItems(MapItems mapItems) =>
+      super.updateMapItems(mapItems);
 
   void save() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();

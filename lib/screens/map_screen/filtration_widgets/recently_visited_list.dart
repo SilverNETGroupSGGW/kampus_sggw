@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/visit_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
+import 'package:kampus_sggw/models/map_items.dart';
+import 'package:provider/provider.dart';
 
 class RecentlyVisitedList extends StatefulWidget {
   final VisitHistory visitHistory;
@@ -22,7 +24,9 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
   @override
   void initState() {
     super.initState();
-    _visitedItems = widget.visitHistory.updateMapItems(context);
+    _visitedItems = widget.visitHistory.updateMapItems(
+      Provider.of<MapItems>(context, listen: false),
+    );
   }
 
   @override
@@ -84,5 +88,7 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
   }
 
   void _updateRecentlyVisited() =>
-      _visitedItems = widget.visitHistory.updateMapItems(context);
+      _visitedItems = widget.visitHistory.updateMapItems(
+        Provider.of<MapItems>(context, listen: false),
+      );
 }

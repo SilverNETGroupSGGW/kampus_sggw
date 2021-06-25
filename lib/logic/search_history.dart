@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/logic/user_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
+import 'package:kampus_sggw/models/map_items.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 part 'search_history.g.dart';
 
@@ -28,8 +28,8 @@ class SearchHistory extends UserHistory {
   }
 
   @override
-  List<MapItem> updateMapItems(BuildContext context) {
-    _searchedItems = super.updateMapItems(context);
+  List<MapItem> updateMapItems(MapItems mapItems) {
+    _searchedItems = super.updateMapItems(mapItems);
     return _searchedItems;
   }
 
