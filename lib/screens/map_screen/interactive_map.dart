@@ -31,10 +31,8 @@ class InteractiveMap extends StatefulWidget {
     ),
     minMaxZoomPreference: MinMaxZoomPreference(15, 19),
   );
-  //final MapItems mapItems;
 
   InteractiveMap({
-    //@required this.mapItems,
     @required this.showCard,
     @required this.onItemVisit,
     @required this.shouldRecenter,
@@ -118,7 +116,6 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
       setState(() {});
 
       tryRequestLocation();
-      //_setMarkers(markers, widget.mapItems.mapItems);
       _setMarkers(markers, _mapItems.mapItems);
       _currentMarkerSet = markers.values.toSet();
       _shouldRecenter = widget.shouldRecenter.listen((_) => _goToTheCampus());

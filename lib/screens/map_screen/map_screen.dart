@@ -16,13 +16,11 @@ import 'interactive_map.dart';
 import 'map_floating_buttons.dart';
 
 class MapScreen extends StatefulWidget {
-  //final MapItems mapItems;
   final SearchHistory searchHistory;
   final VisitHistory visitHistory;
 
   MapScreen({
     Key key,
-    //this.mapItems,
     this.searchHistory,
     this.visitHistory,
   }) : super(key: key);
@@ -94,7 +92,6 @@ class _MapScreenState extends State<MapScreen> {
       body: Stack(
         children: [
           InteractiveMap(
-            //mapItems: widget.mapItems,
             showCard: showInfoCard,
             onItemVisit: (mapItem) => _visitItem.trigger(param: mapItem),
             shouldRecenter: _recenterMap,
