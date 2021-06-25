@@ -189,24 +189,21 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
   }
 
   void tryRequestLocation() {
-    // Check the current platform
-    bool isMobile;
-    try {
-      isMobile = Platform.isAndroid || Platform.isIOS;
-    } catch (e) {
-      isMobile = false;
+    if (_isPlatformMobile()) {
+      _requestLocationPermission();
     }
-
-    // If the code isn't running on a mobile device, we can't ask for permissions
-    if (!isMobile) return;
-
-    // Ask the user for location permission
-    // The popup won't show up if permission was already granted
-    requestLocationPermission();
   }
 
-  Future<void> requestLocationPermission() async {
+  Future<void> _requestLocationPermission() async {
     await Permission.location.request();
+  }
+
+  bool _isPlatformMobile() {
+    try {
+      return Platform.isAndroid || Platform.isIOS;
+    } catch (e) {
+      return false;
+    }
   }
 
   @override
