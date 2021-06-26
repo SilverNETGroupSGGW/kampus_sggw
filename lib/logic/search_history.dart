@@ -54,17 +54,6 @@ class SearchHistory extends UserHistory {
     return SearchHistory.fromJson(map);
   }
 
-  // void save() async {
-  //   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-  //   String jsonString = jsonEncode(this.toJson());
-  //   await sharedPreferences.setString('searchHistory', jsonString);
-  // }
-
-  // static Future<String> getJsonSting() async {
-  //   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-  //   return sharedPreferences.getString('searchHistory') ?? "{}";
-  // }
-
   List<MapItem> _getItemsWhichNameStartsWith(String query) {
     return _searchedItems.where((item) => item.name.startsWith(query)).toList();
   }

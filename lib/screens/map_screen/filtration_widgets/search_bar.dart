@@ -5,23 +5,17 @@ import 'package:kampus_sggw/logic/event_parameters/search_event_param.dart';
 import 'package:kampus_sggw/logic/filtration_service.dart';
 import 'package:kampus_sggw/logic/key_value.dart';
 import 'package:kampus_sggw/logic/search_history.dart';
-//import 'package:kampus_sggw/logic/visit_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
-//import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:provider/provider.dart';
 import 'search_help_panel.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 
 class SearchBar extends StatefulWidget {
-  //final SearchHistory searchHistory;
-  //final VisitHistory visitHistory;
   final FiltrationService filtrationService;
   const SearchBar({
     Key key,
-    //@required this.searchHistory,
-    //@required this.visitHistory,
     @required this.filtrationService,
   }) : super(key: key);
   @override
@@ -76,7 +70,6 @@ class _SearchBar extends State<SearchBar> {
               right: 12.0,
             ),
             child: SearchHelpPanel(
-              //visitHistory: widget.visitHistory,
               onFilterButtonPressed: (eventParam) => widget
                   .filtrationService.filterByFunctionEvent
                   .trigger(param: eventParam),

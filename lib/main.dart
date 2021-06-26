@@ -30,14 +30,8 @@ Future<void> main() async {
   final mapItems = MapItems.fromJson(mapItemsMap);
   mapItems.generateFuzzyStringSetForMapItems();
 
-  // Map<String, dynamic> searchHistoryMap =
-  //     jsonDecode(await SearchHistory.getJsonSting());
-  //final searchHistory = SearchHistory.fromJson(searchHistoryMap);
   final searchHistory = await SearchHistory.loadFromJSON();
 
-  // Map<String, dynamic> visitHistoryMap =
-  //     jsonDecode(await VisitHistory.getJsonSting());
-  //final visitHistory = VisitHistory.fromJson(visitHistoryMap);
   final visitHistory = await VisitHistory.loadFromJSON();
 
   final prefs = await SharedPreferences.getInstance();
@@ -59,22 +53,15 @@ Future<void> main() async {
           ChangeNotifierProvider.value(value: searchHistory),
           ChangeNotifierProvider.value(value: visitHistory),
         ],
-        child: CampusSGGW(
-            //searchHistory: searchHistory,
-            //visitHistory: visitHistory,
-            ),
+        child: CampusSGGW(),
       ),
     ),
   );
 }
 
 class CampusSGGW extends StatefulWidget {
-  //final SearchHistory searchHistory;
-  //final VisitHistory visitHistory;
   const CampusSGGW({
     Key key,
-    //this.searchHistory,
-    //this.visitHistory,
   }) : super(key: key);
 
   @override
@@ -90,10 +77,7 @@ class _CampusSGGWState extends State<CampusSGGW> {
     return MaterialApp(
       title: 'Kampus SGGW',
       theme: Provider.of<ThemeModel>(context).currentTheme,
-      home: MapScreen(
-          //searchHistory: widget.searchHistory,
-          //visitHistory: widget.visitHistory,
-          ),
+      home: MapScreen(),
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
       locale: context.locale,

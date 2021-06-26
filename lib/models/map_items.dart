@@ -1,4 +1,4 @@
-import 'dart:collection';
+//import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/key_value.dart';
 import 'package:kampus_sggw/models/map_item.dart';
@@ -12,18 +12,18 @@ part 'map_items.g.dart';
 class MapItems extends ChangeNotifier {
   static final storage = GetStorage();
 
-  List<MapItem> _mapItems;
+  List<MapItem> mapItems;
   @JsonKey(ignore: true)
   Map<MapItem, Fuzzy> fuzzySetItemMap;
   MapItems(
-    this._mapItems,
+    this.mapItems,
   );
 
-  UnmodifiableListView<MapItem> get mapItems => UnmodifiableListView(_mapItems);
+  //UnmodifiableListView<MapItem> get mapItems => UnmodifiableListView(_mapItems);
 
   Set<MapItem> filterItemsByItsServices(List<ServiceType> serviceTypes) {
     Set<MapItem> filteredItems = {};
-    _mapItems.forEach((item) {
+    mapItems.forEach((item) {
       if (item.containsAtLeastOneServiceType(serviceTypes)) {
         filteredItems.add(item);
       }
@@ -33,7 +33,7 @@ class MapItems extends ChangeNotifier {
 
   Set<MapItem> filterItemsByItsType(List<MapItemType> itemTypes) {
     Set<MapItem> filteredItems = {};
-    _mapItems.forEach((item) {
+    mapItems.forEach((item) {
       if (itemTypes.contains(item.type)) {
         filteredItems.add(item);
       }
@@ -49,7 +49,7 @@ class MapItems extends ChangeNotifier {
   }
 
   void generateFuzzyStringSetForMapItems() {
-    _mapItems.forEach((item) {
+    mapItems.forEach((item) {
       item.generateFuzzySet();
     });
   }
@@ -57,7 +57,7 @@ class MapItems extends ChangeNotifier {
   List<MapItem> getItems(List<int> itemsIds) {
     List<MapItem> tmp = [];
     for (var id in itemsIds) {
-      tmp.add(_mapItems.firstWhere((element) => element.id == id));
+      tmp.add(mapItems.firstWhere((element) => element.id == id));
     }
     return tmp;
   }
@@ -68,7 +68,7 @@ class MapItems extends ChangeNotifier {
   }
 
   MapItem findItemByID(int id) {
-    return _mapItems.firstWhere((element) => element.id == id);
+    return mapItems.firstWhere((element) => element.id == id);
   }
 
   List<KeyValue> findItemsByQuery(String query) {
@@ -79,7 +79,7 @@ class MapItems extends ChangeNotifier {
 
   List<KeyValue> _getSimilarityMapForEachItem(String query) {
     List<KeyValue> similarityList = [];
-    _mapItems.forEach(
+    mapItems.forEach(
       (item) {
         var similarity = item.searchingSet.search(query);
         if (similarity.length > 0) {

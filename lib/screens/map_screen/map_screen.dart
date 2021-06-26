@@ -1,12 +1,9 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
 import 'package:kampus_sggw/logic/filtration_service.dart';
-//import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:kampus_sggw/logic/stream_service.dart';
 import 'package:kampus_sggw/logic/info_card_dialog_builder.dart';
-//import 'package:kampus_sggw/logic/visit_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
@@ -16,15 +13,6 @@ import 'interactive_map.dart';
 import 'map_floating_buttons.dart';
 
 class MapScreen extends StatefulWidget {
-  //final SearchHistory searchHistory;
-  //final VisitHistory visitHistory;
-
-  MapScreen({
-    Key key,
-    //this.searchHistory,
-    //this.visitHistory,
-  }) : super(key: key);
-
   @override
   _MapScreenState createState() => _MapScreenState();
 }
@@ -35,7 +23,6 @@ class _MapScreenState extends State<MapScreen> {
   StreamService _recenterMap = StreamService();
   StreamService _visitItem = StreamService();
   FiltrationService _filtrationService;
-  //StreamSubscription _visitItemListener;
 
   showInfoCard(MapItem mapItem) {
     _selectedMapItem = mapItem;
@@ -49,11 +36,6 @@ class _MapScreenState extends State<MapScreen> {
           InfoCardDialogBuilder().fromMapItem(_selectedMapItem),
     );
   }
-
-  // void _addItemToRecentlyVisited(MapItem mapItem) {
-  //   widget.visitHistory.addItem(mapItem);
-  //   widget.visitHistory.save();
-  // }
 
   void _showAlertDialogNoItemFound() {
     Navigator.pop(context);
@@ -72,8 +54,6 @@ class _MapScreenState extends State<MapScreen> {
       mapItems: Provider.of<MapItems>(context, listen: false),
       onNoItemFound: _showAlertDialogNoItemFound,
     );
-    //_visitItemListener =
-    //_visitItem.listen((mapItem) => _addItemToRecentlyVisited(mapItem));
   }
 
   @override
@@ -93,7 +73,6 @@ class _MapScreenState extends State<MapScreen> {
         children: [
           InteractiveMap(
             showCard: showInfoCard,
-            //onItemVisit: (mapItem) => _visitItem.trigger(param: mapItem),
             shouldRecenter: _recenterMap,
             shouldFilterMarkers: _filtrationService.filterMarkersEvent,
             shouldUnfilterMarkers: _filtrationService.unfilterMarkersEvent,
@@ -101,8 +80,6 @@ class _MapScreenState extends State<MapScreen> {
         ],
       ),
       floatingActionButton: MapFloatingButtons(
-        //searchHistory: widget.searchHistory,
-        //visitHistory: widget.visitHistory,
         onRecenterButtonPressed: () => _recenterMap.trigger(),
         filtrationService: _filtrationService,
       ),
@@ -112,8 +89,6 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   void dispose() {
-    //widget.visitHistory.save();
-    //_visitItemListener.cancel();
     _recenterMap.dispose();
     _visitItem.dispose();
     _filtrationService.dispose();

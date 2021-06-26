@@ -5,12 +5,10 @@ import 'package:kampus_sggw/models/map_items.dart';
 import 'package:provider/provider.dart';
 
 class RecentlyVisitedList extends StatefulWidget {
-  //final VisitHistory visitHistory;
   final Function onItemTilePressed;
 
   const RecentlyVisitedList({
     Key key,
-    //@required this.visitHistory,
     @required this.onItemTilePressed,
   }) : super(key: key);
 

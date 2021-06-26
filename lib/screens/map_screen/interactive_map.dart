@@ -14,7 +14,6 @@ import 'package:provider/provider.dart';
 class InteractiveMap extends StatefulWidget {
   final TransformationController transController = TransformationController();
   final Function showCard;
-  //final Function onItemVisit;
   final StreamService shouldRecenter;
   final StreamService shouldFilterMarkers;
   final StreamService shouldUnfilterMarkers;
@@ -35,7 +34,6 @@ class InteractiveMap extends StatefulWidget {
 
   InteractiveMap({
     @required this.showCard,
-    //@required this.onItemVisit,
     @required this.shouldRecenter,
     @required this.shouldFilterMarkers,
     @required this.shouldUnfilterMarkers,
@@ -185,7 +183,6 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
   }
 
   _onPinPressed(MapItem mapItem) {
-    //widget.onItemVisit(mapItem);
     Provider.of<VisitHistory>(context, listen: false).addItem(mapItem);
     widget.showCard(mapItem);
   }
