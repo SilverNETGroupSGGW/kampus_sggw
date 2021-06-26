@@ -12,6 +12,7 @@ import 'package:kampus_sggw/updateLocalData.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'logic/theme_model.dart';
 import 'logic/visit_history.dart';
 
 var darkTheme = DarkTheme().theme;
@@ -26,9 +27,10 @@ Future<void> main() async {
 
   await checkUpdates();
 
-  Map<String, dynamic> mapItemsMap = jsonDecode(MapItems.getJsonSting());
-  final mapItems = MapItems.fromJson(mapItemsMap);
-  mapItems.generateFuzzyStringSetForMapItems();
+  //Map<String, dynamic> mapItemsMap = jsonDecode(MapItems.getJsonSting());
+  //final mapItems = MapItems.fromJson(mapItemsMap);
+  final mapItems = await MapItems.load();
+  //mapItems.generateFuzzyStringSetForMapItems();
 
   final searchHistory = await SearchHistory.loadFromJSON();
 
@@ -85,19 +87,19 @@ class _CampusSGGWState extends State<CampusSGGW> {
   }
 }
 
-class ThemeModel extends ChangeNotifier {
-  ThemeData currentTheme = darkMode == 1 ? darkTheme : lightTheme;
-  ThemeType _themeType = darkMode == 1 ? ThemeType.Dark : ThemeType.Light;
+// class ThemeModel extends ChangeNotifier {
+//   ThemeData currentTheme = darkMode == 1 ? darkTheme : lightTheme;
+//   ThemeType _themeType = darkMode == 1 ? ThemeType.Dark : ThemeType.Light;
 
-  toggleTheme() {
-    if (_themeType == ThemeType.Dark) {
-      currentTheme = lightTheme;
-      _themeType = ThemeType.Light;
-    } else if (_themeType == ThemeType.Light) {
-      currentTheme = darkTheme;
-      _themeType = ThemeType.Dark;
-    }
+//   toggleTheme() {
+//     if (_themeType == ThemeType.Dark) {
+//       currentTheme = lightTheme;
+//       _themeType = ThemeType.Light;
+//     } else if (_themeType == ThemeType.Light) {
+//       currentTheme = darkTheme;
+//       _themeType = ThemeType.Dark;
+//     }
 
-    return notifyListeners();
-  }
-}
+//     return notifyListeners();
+//   }
+// }

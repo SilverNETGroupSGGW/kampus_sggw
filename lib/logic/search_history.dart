@@ -1,11 +1,13 @@
 import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kampus_sggw/logic/JSON_services/loadable_JSON.dart';
+import 'package:kampus_sggw/logic/JSON_services/storable_JSON.dart';
 import 'package:kampus_sggw/logic/user_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 part 'search_history.g.dart';
 
 @JsonSerializable()
-class SearchHistory extends UserHistory {
+class SearchHistory extends UserHistory with StorableJSON, LoadableJSON {
   SearchHistory({int buffer, List<int> itemsIds})
       : super(buffer: buffer, itemsIds: itemsIds);
 
@@ -39,7 +41,7 @@ class SearchHistory extends UserHistory {
   }
 
   static Future<SearchHistory> loadFromJSON() async {
-    String jsonString = await UserHistory.getJSONString('searchHistory');
+    String jsonString = await LoadableJSON.getJSONString('searchHistory');
     Map<String, dynamic> map = jsonDecode(jsonString);
     return SearchHistory.fromJson(map);
   }

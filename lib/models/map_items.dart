@@ -1,4 +1,5 @@
 //import 'dart:collection';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/key_value.dart';
 import 'package:kampus_sggw/models/map_item.dart';
@@ -20,6 +21,13 @@ class MapItems extends ChangeNotifier {
   );
 
   //UnmodifiableListView<MapItem> get mapItems => UnmodifiableListView(_mapItems);
+
+  static Future<MapItems> load() async {
+    Map<String, dynamic> mapItemsMap = jsonDecode(MapItems.getJsonString());
+    MapItems mapItems = MapItems.fromJson(mapItemsMap);
+    mapItems.generateFuzzyStringSetForMapItems();
+    return mapItems;
+  }
 
   Set<MapItem> filterItemsByItsServices(List<ServiceType> serviceTypes) {
     Set<MapItem> filteredItems = {};
@@ -44,7 +52,7 @@ class MapItems extends ChangeNotifier {
   factory MapItems.fromJson(Map<String, dynamic> json) =>
       _$MapItemsFromJson(json);
 
-  static String getJsonSting() {
+  static String getJsonString() {
     return storage.read('map_items_content');
   }
 

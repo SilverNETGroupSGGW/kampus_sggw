@@ -4,28 +4,25 @@ import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:provider/provider.dart';
 
-class RecentlyVisitedList extends StatefulWidget {
+class VisitHistoryList extends StatefulWidget {
   final Function onItemTilePressed;
 
-  const RecentlyVisitedList({
+  const VisitHistoryList({
     Key key,
     @required this.onItemTilePressed,
   }) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _RecentlyVisitedList();
+  State<StatefulWidget> createState() => _VisitHistoryList();
 }
 
-class _RecentlyVisitedList extends State<RecentlyVisitedList> {
+class _VisitHistoryList extends State<VisitHistoryList> {
   VisitHistory _visitHistory;
 
   @override
   void initState() {
     super.initState();
-    _visitHistory = Provider.of<VisitHistory>(context, listen: false);
-    _visitHistory.loadMapItems(
-      Provider.of<MapItems>(context, listen: false),
-    );
+    _visitHistory = _initializeVisitHistory();
   }
 
   @override
@@ -42,7 +39,7 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
 
   ListTile _recentlyVisitedItemCard(MapItem item) {
     return ListTile(
-      onTap: () => _onTapFunc(item),
+      onTap: () => _showItemOnMap(item),
       leading: _mapItemIcon(item.type),
       title: Text(
         item.name,
@@ -77,10 +74,17 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
     return Icon(Icons.info_outline);
   }
 
-  void _onTapFunc(MapItem item) {
-    setState(() {
-      _visitHistory.addItem(item);
-      widget.onItemTilePressed(item);
-    });
+  void _showItemOnMap(MapItem item) {
+    _visitHistory.addItem(item);
+    widget.onItemTilePressed(item);
+  }
+
+  VisitHistory _initializeVisitHistory() {
+    VisitHistory visitHistory =
+        Provider.of<VisitHistory>(context, listen: false);
+    visitHistory.loadMapItems(
+      Provider.of<MapItems>(context, listen: false),
+    );
+    return visitHistory;
   }
 }
