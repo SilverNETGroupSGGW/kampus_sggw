@@ -17,14 +17,13 @@ class RecentlyVisitedList extends StatefulWidget {
 }
 
 class _RecentlyVisitedList extends State<RecentlyVisitedList> {
-  List<MapItem> _visitedItems;
   VisitHistory _visitHistory;
 
   @override
   void initState() {
     super.initState();
     _visitHistory = Provider.of<VisitHistory>(context, listen: false);
-    _visitedItems = _visitHistory.updateMapItems(
+    _visitHistory.loadMapItems(
       Provider.of<MapItems>(context, listen: false),
     );
   }
@@ -34,7 +33,7 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
     return Expanded(
       child: ListView(
         physics: NeverScrollableScrollPhysics(),
-        children: _visitedItems
+        children: _visitHistory.storedMapItems
             .map((item) => Card(child: _recentlyVisitedItemCard(item)))
             .toList(),
       ),
@@ -56,7 +55,6 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
           onPressed: () {
             setState(() {
               _visitHistory.deleteItem(item);
-              _updateRecentlyVisited();
             });
           }),
     );
@@ -82,12 +80,7 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
   void _onTapFunc(MapItem item) {
     setState(() {
       _visitHistory.addItem(item);
-      _updateRecentlyVisited();
       widget.onItemTilePressed(item);
     });
   }
-
-  void _updateRecentlyVisited() => _visitedItems = _visitHistory.updateMapItems(
-        Provider.of<MapItems>(context, listen: false),
-      );
 }

@@ -36,10 +36,10 @@ class _SearchBar extends State<SearchBar> {
     super.initState();
     _controller = FloatingSearchBarController();
     _searchHistory = Provider.of<SearchHistory>(context, listen: false);
-    _searchHistory.updateMapItems(
+    _searchHistory.loadMapItems(
       Provider.of<MapItems>(context, listen: false),
     );
-    _filteredSearchHistory = _searchHistory.filterSearchHistory();
+    _filteredSearchHistory = _searchHistory.storedMapItems;
     _searchSuggestions = [];
     _searchSuggestionListener = widget.filtrationService.searchSuggestionEvent
         .listen((eventParam) => _searchSuggestions = eventParam);
@@ -196,17 +196,11 @@ class _SearchBar extends State<SearchBar> {
 
   void _addToSearchHistory(MapItem item) {
     _searchHistory.addItem(item);
-    _searchHistory.updateMapItems(
-      Provider.of<MapItems>(context, listen: false),
-    );
     _updateFilteredSearchHistory();
   }
 
   void _deleteFromSearchHistory(item) {
     _searchHistory.deleteItem(item);
-    _searchHistory.updateMapItems(
-      Provider.of<MapItems>(context, listen: false),
-    );
     _updateFilteredSearchHistory();
   }
 }

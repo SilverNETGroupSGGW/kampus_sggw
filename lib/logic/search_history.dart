@@ -2,14 +2,10 @@ import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/logic/user_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
-import 'package:kampus_sggw/models/map_items.dart';
 part 'search_history.g.dart';
 
 @JsonSerializable()
 class SearchHistory extends UserHistory {
-  @JsonKey(ignore: true)
-  List<MapItem> _searchedItems;
-
   SearchHistory({int buffer, List<int> itemsIds})
       : super(buffer: buffer, itemsIds: itemsIds);
 
@@ -22,14 +18,8 @@ class SearchHistory extends UserHistory {
     if (query != null && query.isNotEmpty) {
       return _getItemsWhichNameStartsWith(query);
     } else {
-      return _searchedItems;
+      return super.storedMapItems;
     }
-  }
-
-  @override
-  List<MapItem> updateMapItems(MapItems mapItems) {
-    _searchedItems = super.updateMapItems(mapItems);
-    return _searchedItems;
   }
 
   void save() async {
@@ -55,6 +45,9 @@ class SearchHistory extends UserHistory {
   }
 
   List<MapItem> _getItemsWhichNameStartsWith(String query) {
-    return _searchedItems.where((item) => item.name.startsWith(query)).toList();
+    return super
+        .storedMapItems
+        .where((item) => item.name.startsWith(query))
+        .toList();
   }
 }

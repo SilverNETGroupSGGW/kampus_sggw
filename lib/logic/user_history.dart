@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -13,6 +14,8 @@ class UserHistory extends ChangeNotifier {
   int buffer;
   @JsonKey(defaultValue: <int>[])
   List<int> itemsIds;
+  @JsonKey(ignore: true)
+  List<MapItem> _storedMapItems;
 
   UserHistory({this.buffer, this.itemsIds});
 
@@ -21,9 +24,12 @@ class UserHistory extends ChangeNotifier {
 
   Map<String, dynamic> toJson() => _$UserHistoryToJson(this);
 
-  @protected
-  List<MapItem> updateMapItems(MapItems mapItems) =>
-      mapItems.getItems(itemsIds).reversed.toList();
+  UnmodifiableListView<MapItem> get storedMapItems =>
+      UnmodifiableListView(_storedMapItems);
+
+  void loadMapItems(MapItems mapItems) {
+    _storedMapItems = mapItems.getItems(itemsIds).reversed.toList();
+  }
 
   @protected
   void addItem(MapItem mapItem) {
@@ -32,19 +38,10 @@ class UserHistory extends ChangeNotifier {
     _trimListToBuffer();
   }
 
-  void _trimListToBuffer() {
-    if (itemsIds.length > buffer) {
-      itemsIds.removeRange(0, 1);
-    }
-  }
-
-  void _putAtFirstPosition(MapItem mapItem) {
-    deleteItem(mapItem);
-  }
-
   @protected
   void deleteItem(MapItem mapItem) {
-    itemsIds.removeWhere((item) => item == mapItem.id);
+    itemsIds.removeWhere((id) => id == mapItem.id);
+    _storedMapItems.removeWhere((item) => item.id == mapItem.id);
   }
 
   @protected
@@ -58,5 +55,15 @@ class UserHistory extends ChangeNotifier {
   static Future<String> getJSONString(String sharedPrefKey) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     return sharedPreferences.getString(sharedPrefKey) ?? "{}";
+  }
+
+  void _trimListToBuffer() {
+    if (itemsIds.length > buffer) {
+      itemsIds.removeRange(0, 1);
+    }
+  }
+
+  void _putAtFirstPosition(MapItem mapItem) {
+    itemsIds.removeWhere((id) => id == mapItem.id);
   }
 }

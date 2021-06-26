@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/logic/user_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
-import 'package:kampus_sggw/models/map_items.dart';
 part 'visit_history.g.dart';
 
 @JsonSerializable()
@@ -13,10 +12,6 @@ class VisitHistory extends UserHistory {
   factory VisitHistory.fromJson(Map<String, dynamic> json) =>
       _$VisitHistoryFromJson(json);
   Map<String, dynamic> toJson() => _$VisitHistoryToJson(this);
-
-  @override
-  List<MapItem> updateMapItems(MapItems mapItems) =>
-      super.updateMapItems(mapItems);
 
   void save() async {
     super.saveToJson('visitHistory');
