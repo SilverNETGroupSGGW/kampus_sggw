@@ -4,23 +4,24 @@ import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/search_event_param.dart';
 import 'package:kampus_sggw/logic/filtration_service.dart';
 import 'package:kampus_sggw/logic/key_value.dart';
-import 'package:kampus_sggw/logic/visit_history.dart';
+import 'package:kampus_sggw/logic/search_history.dart';
+//import 'package:kampus_sggw/logic/visit_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
-import 'package:kampus_sggw/logic/search_history.dart';
+//import 'package:kampus_sggw/logic/search_history.dart';
 import 'package:provider/provider.dart';
 import 'search_help_panel.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 
 class SearchBar extends StatefulWidget {
-  final SearchHistory searchHistory;
-  final VisitHistory visitHistory;
+  //final SearchHistory searchHistory;
+  //final VisitHistory visitHistory;
   final FiltrationService filtrationService;
   const SearchBar({
     Key key,
-    @required this.searchHistory,
-    @required this.visitHistory,
+    //@required this.searchHistory,
+    //@required this.visitHistory,
     @required this.filtrationService,
   }) : super(key: key);
   @override
@@ -28,6 +29,7 @@ class SearchBar extends StatefulWidget {
 }
 
 class _SearchBar extends State<SearchBar> {
+  SearchHistory _searchHistory;
   List<MapItem> _filteredSearchHistory;
   List<KeyValue> _searchSuggestions;
   String _selectedTerm;
@@ -39,10 +41,11 @@ class _SearchBar extends State<SearchBar> {
   void initState() {
     super.initState();
     _controller = FloatingSearchBarController();
-    widget.searchHistory.updateMapItems(
+    _searchHistory = Provider.of<SearchHistory>(context, listen: false);
+    _searchHistory.updateMapItems(
       Provider.of<MapItems>(context, listen: false),
     );
-    _filteredSearchHistory = widget.searchHistory.filterSearchHistory();
+    _filteredSearchHistory = _searchHistory.filterSearchHistory();
     _searchSuggestions = [];
     _searchSuggestionListener = widget.filtrationService.searchSuggestionEvent
         .listen((eventParam) => _searchSuggestions = eventParam);
@@ -52,7 +55,7 @@ class _SearchBar extends State<SearchBar> {
 
   @override
   void dispose() {
-    widget.searchHistory.save();
+    _searchHistory.save();
     _controller.dispose();
     _searchSuggestionListener.cancel();
     _searchHistoryListener.cancel();
@@ -73,7 +76,7 @@ class _SearchBar extends State<SearchBar> {
               right: 12.0,
             ),
             child: SearchHelpPanel(
-              visitHistory: widget.visitHistory,
+              //visitHistory: widget.visitHistory,
               onFilterButtonPressed: (eventParam) => widget
                   .filtrationService.filterByFunctionEvent
                   .trigger(param: eventParam),
@@ -100,8 +103,8 @@ class _SearchBar extends State<SearchBar> {
     );
   }
 
-  void _updateFilteredSearchHistory({query}) => _filteredSearchHistory =
-      widget.searchHistory.filterSearchHistory(query: query);
+  void _updateFilteredSearchHistory({query}) =>
+      _filteredSearchHistory = _searchHistory.filterSearchHistory(query: query);
 
   ClipRRect _suggestionPanel() {
     return ClipRRect(
@@ -199,18 +202,16 @@ class _SearchBar extends State<SearchBar> {
   }
 
   void _addToSearchHistory(MapItem item) {
-    widget.searchHistory.addItem(item);
-    widget.searchHistory.save();
-    widget.searchHistory.updateMapItems(
+    _searchHistory.addItem(item);
+    _searchHistory.updateMapItems(
       Provider.of<MapItems>(context, listen: false),
     );
     _updateFilteredSearchHistory();
   }
 
   void _deleteFromSearchHistory(item) {
-    widget.searchHistory.deleteItem(item);
-    widget.searchHistory.save();
-    widget.searchHistory.updateMapItems(
+    _searchHistory.deleteItem(item);
+    _searchHistory.updateMapItems(
       Provider.of<MapItems>(context, listen: false),
     );
     _updateFilteredSearchHistory();

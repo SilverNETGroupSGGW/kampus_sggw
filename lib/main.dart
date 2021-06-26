@@ -30,13 +30,15 @@ Future<void> main() async {
   final mapItems = MapItems.fromJson(mapItemsMap);
   mapItems.generateFuzzyStringSetForMapItems();
 
-  Map<String, dynamic> searchHistoryMap =
-      jsonDecode(await SearchHistory.getJsonSting());
-  final searchHistory = SearchHistory.fromJson(searchHistoryMap);
+  // Map<String, dynamic> searchHistoryMap =
+  //     jsonDecode(await SearchHistory.getJsonSting());
+  //final searchHistory = SearchHistory.fromJson(searchHistoryMap);
+  final searchHistory = await SearchHistory.loadFromJSON();
 
-  Map<String, dynamic> visitHistoryMap =
-      jsonDecode(await VisitHistory.getJsonSting());
-  final visitHistory = VisitHistory.fromJson(visitHistoryMap);
+  // Map<String, dynamic> visitHistoryMap =
+  //     jsonDecode(await VisitHistory.getJsonSting());
+  //final visitHistory = VisitHistory.fromJson(visitHistoryMap);
+  final visitHistory = await VisitHistory.loadFromJSON();
 
   final prefs = await SharedPreferences.getInstance();
   darkMode = prefs.getInt('isDarkModeOn') ?? 1;
@@ -54,23 +56,25 @@ Future<void> main() async {
             create: (context) => ThemeModel(),
           ),
           ChangeNotifierProvider.value(value: mapItems),
+          ChangeNotifierProvider.value(value: searchHistory),
+          ChangeNotifierProvider.value(value: visitHistory),
         ],
         child: CampusSGGW(
-          searchHistory: searchHistory,
-          visitHistory: visitHistory,
-        ),
+            //searchHistory: searchHistory,
+            //visitHistory: visitHistory,
+            ),
       ),
     ),
   );
 }
 
 class CampusSGGW extends StatefulWidget {
-  final SearchHistory searchHistory;
-  final VisitHistory visitHistory;
+  //final SearchHistory searchHistory;
+  //final VisitHistory visitHistory;
   const CampusSGGW({
     Key key,
-    this.searchHistory,
-    this.visitHistory,
+    //this.searchHistory,
+    //this.visitHistory,
   }) : super(key: key);
 
   @override
@@ -87,9 +91,9 @@ class _CampusSGGWState extends State<CampusSGGW> {
       title: 'Kampus SGGW',
       theme: Provider.of<ThemeModel>(context).currentTheme,
       home: MapScreen(
-        searchHistory: widget.searchHistory,
-        visitHistory: widget.visitHistory,
-      ),
+          //searchHistory: widget.searchHistory,
+          //visitHistory: widget.visitHistory,
+          ),
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
       locale: context.locale,

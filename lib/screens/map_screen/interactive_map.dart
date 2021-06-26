@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kampus_sggw/logic/stream_service.dart';
+import 'package:kampus_sggw/logic/visit_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/models/map_settings.dart';
@@ -13,7 +14,7 @@ import 'package:provider/provider.dart';
 class InteractiveMap extends StatefulWidget {
   final TransformationController transController = TransformationController();
   final Function showCard;
-  final Function onItemVisit;
+  //final Function onItemVisit;
   final StreamService shouldRecenter;
   final StreamService shouldFilterMarkers;
   final StreamService shouldUnfilterMarkers;
@@ -34,7 +35,7 @@ class InteractiveMap extends StatefulWidget {
 
   InteractiveMap({
     @required this.showCard,
-    @required this.onItemVisit,
+    //@required this.onItemVisit,
     @required this.shouldRecenter,
     @required this.shouldFilterMarkers,
     @required this.shouldUnfilterMarkers,
@@ -184,7 +185,8 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
   }
 
   _onPinPressed(MapItem mapItem) {
-    widget.onItemVisit(mapItem);
+    //widget.onItemVisit(mapItem);
+    Provider.of<VisitHistory>(context, listen: false).addItem(mapItem);
     widget.showCard(mapItem);
   }
 

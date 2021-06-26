@@ -3,7 +3,6 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/logic/user_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 part 'search_history.g.dart';
 
 @JsonSerializable()
@@ -34,15 +33,37 @@ class SearchHistory extends UserHistory {
   }
 
   void save() async {
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    String jsonString = jsonEncode(this.toJson());
-    await sharedPreferences.setString('searchHistory', jsonString);
+    super.saveToJson('searchHistory');
   }
 
-  static Future<String> getJsonSting() async {
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    return sharedPreferences.getString('searchHistory') ?? "{}";
+  @override
+  void addItem(MapItem mapItem) {
+    super.addItem(mapItem);
+    save();
   }
+
+  @override
+  void deleteItem(MapItem mapItem) {
+    super.deleteItem(mapItem);
+    save();
+  }
+
+  static Future<SearchHistory> loadFromJSON() async {
+    String jsonString = await UserHistory.getJSONString('searchHistory');
+    Map<String, dynamic> map = jsonDecode(jsonString);
+    return SearchHistory.fromJson(map);
+  }
+
+  // void save() async {
+  //   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  //   String jsonString = jsonEncode(this.toJson());
+  //   await sharedPreferences.setString('searchHistory', jsonString);
+  // }
+
+  // static Future<String> getJsonSting() async {
+  //   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  //   return sharedPreferences.getString('searchHistory') ?? "{}";
+  // }
 
   List<MapItem> _getItemsWhichNameStartsWith(String query) {
     return _searchedItems.where((item) => item.name.startsWith(query)).toList();
