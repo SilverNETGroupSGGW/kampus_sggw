@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/logic/JSON_services/loadable_JSON.dart';
 import 'package:kampus_sggw/logic/JSON_services/storable_JSON.dart';
-import 'package:kampus_sggw/logic/user_history.dart';
+import 'package:kampus_sggw/logic/histories/user_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 part 'visit_history.g.dart';
 

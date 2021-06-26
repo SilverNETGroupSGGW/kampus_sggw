@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/search_event_param.dart';
 import 'package:kampus_sggw/logic/filtration_service.dart';
 import 'package:kampus_sggw/logic/key_value.dart';
-import 'package:kampus_sggw/logic/search_history.dart';
+import 'package:kampus_sggw/logic/histories/search_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';

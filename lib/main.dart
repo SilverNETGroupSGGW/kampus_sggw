@@ -2,7 +2,8 @@ import 'dart:convert';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:kampus_sggw/logic/search_history.dart';
+import 'package:kampus_sggw/logic/histories/search_history.dart';
+import 'package:kampus_sggw/logic/histories/visit_history.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/screens/map_screen/map_screen.dart';
 import 'package:kampus_sggw/themes/dark_theme.dart';
@@ -12,8 +13,6 @@ import 'package:kampus_sggw/updateLocalData.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'logic/theme_model.dart';
-import 'logic/visit_history.dart';
 
 var darkTheme = DarkTheme().theme;
 var lightTheme = LightTheme().theme;
