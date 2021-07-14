@@ -14,11 +14,11 @@ class FiltrationService {
   StreamService _filterMarkersEvent;
   StreamService _unfilterMarkersEvent;
   StreamService _searchSuggestionEvent;
-  StreamService _manageSearchHistoryEvent;
+  //StreamService _manageSearchHistoryEvent;
   StreamSubscription _filterByFunctionListener;
   StreamSubscription _searchWithQueryListener;
   StreamSubscription _searchWithMapItemListener;
-  final Function onNoItemFound;
+  Function onNoItemFound;
   FiltrationService({mapItems, this.onNoItemFound}) {
     _mapItems = mapItems;
     _initializeStreamServices();
@@ -31,7 +31,7 @@ class FiltrationService {
   StreamService get filterMarkersEvent => _filterMarkersEvent;
   StreamService get unfilterMarkersEvent => _unfilterMarkersEvent;
   StreamService get searchSuggestionEvent => _searchSuggestionEvent;
-  StreamService get manageSearchHistoryEvent => _manageSearchHistoryEvent;
+  //StreamService get manageSearchHistoryEvent => _manageSearchHistoryEvent;
 
   void _initializeListeners() {
     _filterByFunctionListener = _filterByFunctionEvent
