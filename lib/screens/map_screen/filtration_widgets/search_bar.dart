@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/search_event_param.dart';
-import 'package:kampus_sggw/logic/filtration_service.dart';
+import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/logic/key_value.dart';
 import 'package:kampus_sggw/logic/histories/search_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
@@ -13,16 +13,17 @@ import 'search_help_panel.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 
 class SearchBar extends StatefulWidget {
-  final FiltrationService filtrationService;
-  const SearchBar({
-    Key key,
-    @required this.filtrationService,
-  }) : super(key: key);
+  //final SearchService filtrationService;
+  //const SearchBar({
+  //Key key,
+  //@required this.filtrationService,
+  //}) : super(key: key);
   @override
   _SearchBar createState() => _SearchBar();
 }
 
 class _SearchBar extends State<SearchBar> {
+  SearchService _searchService;
   SearchHistory _searchHistory;
   List<MapItem> _filteredSearchHistory;
   List<KeyValue> _searchSuggestions;
@@ -35,15 +36,16 @@ class _SearchBar extends State<SearchBar> {
   void initState() {
     super.initState();
     _controller = FloatingSearchBarController();
+    _searchService = Provider.of<SearchService>(context, listen: false);
     _searchHistory = Provider.of<SearchHistory>(context, listen: false);
     _searchHistory.loadMapItems(
       Provider.of<MapItems>(context, listen: false),
     );
     _filteredSearchHistory = _searchHistory.storedMapItems;
     _searchSuggestions = [];
-    _searchSuggestionListener = widget.filtrationService.searchSuggestionEvent
+    _searchSuggestionListener = _searchService.searchSuggestionEvent
         .listen((eventParam) => _searchSuggestions = eventParam);
-    _searchHistoryListener = widget.filtrationService.manageSearchHistoryEvent
+    _searchHistoryListener = _searchService.manageSearchHistoryEvent
         .listen((eventParam) => _addToSearchHistory(eventParam));
   }
 
@@ -70,11 +72,11 @@ class _SearchBar extends State<SearchBar> {
               right: 12.0,
             ),
             child: SearchHelpPanel(
-              onFilterButtonPressed: (eventParam) => widget
-                  .filtrationService.filterByFunctionEvent
-                  .trigger(param: eventParam),
-              onItemTilePressed: (eventParam) => widget
-                  .filtrationService.searchWithMapItemEvent
+              //onFilterButtonPressed: (eventParam) => _searchService
+              //.filterByFunctionEvent
+              //.trigger(param: eventParam),
+              onItemTilePressed: (eventParam) => _searchService
+                  .searchWithMapItemEvent
                   .trigger(param: eventParam),
             ),
           ),
@@ -171,7 +173,7 @@ class _SearchBar extends State<SearchBar> {
 
   void _onQueryChanged(String query) {
     setState(() {
-      widget.filtrationService.searchWithQueryEvent.trigger(
+      _searchService.searchWithQueryEvent.trigger(
         param: SearchEventParam(query: query, isFinal: false),
       );
       _updateFilteredSearchHistory(query: query);
@@ -180,7 +182,7 @@ class _SearchBar extends State<SearchBar> {
 
   void _onSubmitted(String query) {
     setState(() {
-      widget.filtrationService.searchWithQueryEvent
+      _searchService.searchWithQueryEvent
           .trigger(param: SearchEventParam(query: query, isFinal: true));
     });
     _controller.close();
@@ -189,7 +191,7 @@ class _SearchBar extends State<SearchBar> {
   void _onSubmittedWithMapItem(MapItem mapItem) {
     setState(() {
       _addToSearchHistory(mapItem);
-      widget.filtrationService.searchWithMapItemEvent.trigger(param: mapItem);
+      _searchService.searchWithMapItemEvent.trigger(param: mapItem);
     });
     _controller.close();
   }

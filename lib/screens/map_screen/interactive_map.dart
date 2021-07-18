@@ -2,7 +2,8 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:kampus_sggw/logic/stream_service.dart';
+import 'package:kampus_sggw/logic/search_services/markers_service.dart';
+import 'package:kampus_sggw/logic/search_services/stream_service.dart';
 import 'package:kampus_sggw/logic/histories/visit_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
@@ -15,8 +16,8 @@ class InteractiveMap extends StatefulWidget {
   final TransformationController transController = TransformationController();
   final Function showCard;
   final StreamService shouldRecenter;
-  final StreamService shouldFilterMarkers;
-  final StreamService shouldUnfilterMarkers;
+  //final StreamService shouldFilterMarkers;
+  //final StreamService shouldUnfilterMarkers;
   final mapSettings = MapSettings(
     cameraTargetBounds: CameraTargetBounds(
       LatLngBounds(
@@ -35,8 +36,8 @@ class InteractiveMap extends StatefulWidget {
   InteractiveMap({
     @required this.showCard,
     @required this.shouldRecenter,
-    @required this.shouldFilterMarkers,
-    @required this.shouldUnfilterMarkers,
+    //@required this.shouldFilterMarkers,
+    //@required this.shouldUnfilterMarkers,
   });
 
   @override
@@ -50,8 +51,9 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
   GoogleMap _googleMap;
   Set<Marker> _currentMarkerSet = <Marker>{};
   StreamSubscription _shouldRecenter;
-  StreamSubscription _shouldFilterMarkers;
-  StreamSubscription _shouldUnfilterMarkers;
+  //MarkersService _markersService;
+  StreamSubscription _filterMarkers;
+  StreamSubscription _unfilterMarkers;
   BitmapDescriptor facultyMarker;
   BitmapDescriptor sportMarker;
   BitmapDescriptor otherMarker;
@@ -118,10 +120,13 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
       _setMarkers(markers, _mapItems.mapItems);
       _currentMarkerSet = markers.values.toSet();
       _shouldRecenter = widget.shouldRecenter.listen((_) => _goToTheCampus());
-      _shouldFilterMarkers = widget.shouldFilterMarkers.listen(
-          (filterService) => _updateMarkers(filterService.filteredMapItems));
-      _shouldUnfilterMarkers =
-          widget.shouldUnfilterMarkers.listen((_) => _updateMarkersToDefault());
+
+      MarkersService markersService =
+          Provider.of<MarkersService>(context, listen: false);
+      _filterMarkers = markersService.filterEvent
+          .listen((eventParam) => _updateMarkers(eventParam.filteredMapItems));
+      _unfilterMarkers =
+          markersService.unfilterEvent.listen((_) => _updateMarkersToDefault());
     });
 
     super.initState();
@@ -130,8 +135,8 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
   @override
   dispose() {
     _shouldRecenter.cancel();
-    _shouldFilterMarkers.cancel();
-    _shouldUnfilterMarkers.cancel();
+    _filterMarkers.cancel();
+    _unfilterMarkers.cancel();
     super.dispose();
   }
 

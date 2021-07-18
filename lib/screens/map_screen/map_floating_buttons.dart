@@ -1,17 +1,20 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/logic/event_parameters/update_markers_event_param.dart';
-import 'package:kampus_sggw/logic/filtration_service.dart';
+import 'package:kampus_sggw/logic/event_parameters/markers_event_param.dart';
+import 'package:kampus_sggw/logic/search_services/markers_service.dart';
+//import 'package:kampus_sggw/logic/search_services/search_service.dart';
+import 'package:provider/provider.dart';
+//import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'filtration_widgets/search_bar.dart';
 
 class MapFloatingButtons extends StatefulWidget {
   final Function onRecenterButtonPressed;
-  final FiltrationService filtrationService;
+  //final SearchService filtrationService;
 
   const MapFloatingButtons({
     Key key,
     @required this.onRecenterButtonPressed,
-    @required this.filtrationService,
+    //@required this.filtrationService,
   }) : super(key: key);
 
   @override
@@ -21,12 +24,14 @@ class MapFloatingButtons extends StatefulWidget {
 class _MapFloatingButtons extends State<MapFloatingButtons> {
   var _searchButton;
   StreamSubscription _createUnfilterButton;
+  MarkersService _markersService;
 
   @override
   initState() {
     super.initState();
+    _markersService = Provider.of<MarkersService>(context, listen: false);
     _searchButton = _filterButton();
-    _createUnfilterButton = widget.filtrationService.filterMarkersEvent.listen(
+    _createUnfilterButton = _markersService.filterEvent.listen(
         (eventParam) => _replaceFilterButtonWithUnfilterButton(eventParam));
   }
 
@@ -59,7 +64,7 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
   FloatingActionButton _unfilterButton(String filterName) {
     return FloatingActionButton.extended(
       onPressed: () {
-        widget.filtrationService.unfilterMarkersEvent.trigger();
+        _markersService.unfilterEvent.trigger();
         _replaceUnfilterButtonWithFilterButton();
       },
       label: Container(
@@ -82,26 +87,26 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
     return FloatingActionButton(
       child: const Icon(Icons.search),
       backgroundColor: Colors.green,
-      onPressed: () => _onSearchButtonPressed(context),
+      onPressed: () => _onSearchButtonPressed(),
     );
   }
 
-  void _onSearchButtonPressed(BuildContext context) {
+  void _onSearchButtonPressed() {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
+      //builder: (context) => Container(
       builder: (context) => Container(
         height: MediaQuery.of(context).size.height * 0.6,
         child: SearchBar(
-          filtrationService: widget.filtrationService,
-        ),
+            //filtrationService: widget.filtrationService,
+            ),
       ),
     );
   }
 
-  void _replaceFilterButtonWithUnfilterButton(
-      UpdateMarkersEventParam eventParam) {
+  void _replaceFilterButtonWithUnfilterButton(MarkersEventParam eventParam) {
     Navigator.pop(context);
     setState(
       () {

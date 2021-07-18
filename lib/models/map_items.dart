@@ -29,7 +29,7 @@ class MapItems extends ChangeNotifier {
     return mapItems;
   }
 
-  Set<MapItem> filterItemsByItsServices(List<ServiceType> serviceTypes) {
+  Set<MapItem> filterByServices(List<ServiceType> serviceTypes) {
     Set<MapItem> filteredItems = {};
     mapItems.forEach((item) {
       if (item.containsAtLeastOneServiceType(serviceTypes)) {
@@ -39,7 +39,7 @@ class MapItems extends ChangeNotifier {
     return filteredItems;
   }
 
-  Set<MapItem> filterItemsByItsType(List<MapItemType> itemTypes) {
+  Set<MapItem> filterByType(List<MapItemType> itemTypes) {
     Set<MapItem> filteredItems = {};
     mapItems.forEach((item) {
       if (itemTypes.contains(item.type)) {

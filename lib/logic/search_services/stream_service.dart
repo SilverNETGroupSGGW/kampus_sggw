@@ -1,7 +1,11 @@
 import 'dart:async';
 
 class StreamService {
-  StreamController _streamController = StreamController.broadcast();
+  StreamController _streamController;
+
+  StreamService() {
+    _streamController = StreamController.broadcast();
+  }
 
   void dispose() {
     _streamController.close();
