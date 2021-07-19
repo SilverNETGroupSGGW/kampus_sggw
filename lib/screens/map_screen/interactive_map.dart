@@ -41,11 +41,11 @@ class InteractiveMap extends StatefulWidget {
 }
 
 class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
-  MapItems _mapItems;
+  //MapItems _mapItems;
   Completer<GoogleMapController> _controller = Completer();
-  Map markers = <MarkerId, Marker>{};
+  //Map markers = <MarkerId, Marker>{};
   GoogleMap _googleMap;
-  Set<Marker> _currentMarkerSet = <Marker>{};
+  //Set<Marker> _currentMarkerSet = <Marker>{};
   StreamSubscription _shouldRecenter;
   StreamSubscription _filterMarkers;
   StreamSubscription _unfilterMarkers;
@@ -183,6 +183,7 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
   }
 
   _onPinPressed(MapItem mapItem) {
+    //TODO move VisitHistory to main!!!!
     Provider.of<VisitHistory>(context, listen: false).addItem(mapItem);
     widget.showCard(mapItem);
   }
