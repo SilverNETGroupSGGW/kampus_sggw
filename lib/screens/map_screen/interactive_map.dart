@@ -16,8 +16,6 @@ class InteractiveMap extends StatefulWidget {
   final TransformationController transController = TransformationController();
   final Function showCard;
   final StreamService shouldRecenter;
-  //final StreamService shouldFilterMarkers;
-  //final StreamService shouldUnfilterMarkers;
   final mapSettings = MapSettings(
     cameraTargetBounds: CameraTargetBounds(
       LatLngBounds(
@@ -36,8 +34,6 @@ class InteractiveMap extends StatefulWidget {
   InteractiveMap({
     @required this.showCard,
     @required this.shouldRecenter,
-    //@required this.shouldFilterMarkers,
-    //@required this.shouldUnfilterMarkers,
   });
 
   @override
@@ -51,7 +47,6 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
   GoogleMap _googleMap;
   Set<Marker> _currentMarkerSet = <Marker>{};
   StreamSubscription _shouldRecenter;
-  //MarkersService _markersService;
   StreamSubscription _filterMarkers;
   StreamSubscription _unfilterMarkers;
   BitmapDescriptor facultyMarker;

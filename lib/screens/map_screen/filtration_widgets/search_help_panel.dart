@@ -6,11 +6,9 @@ import 'visit_history_list.dart';
 import 'filter_buttons.dart';
 
 class SearchHelpPanel extends StatelessWidget {
-  //final Function onFilterButtonPressed;
   final Function onItemTilePressed;
   const SearchHelpPanel({
     Key key,
-    //@required this.onFilterButtonPressed,
     @required this.onItemTilePressed,
   }) : super(key: key);
   @override
@@ -25,9 +23,7 @@ class SearchHelpPanel extends StatelessWidget {
           Headline(
             text: LocaleKeys.find_nearby.tr(),
           ),
-          FilterButtons(
-              //onButtonPressed: onFilterButtonPressed,
-              ),
+          FilterButtons(),
           Headline(
             text: LocaleKeys.recent_searches.tr(),
           ),

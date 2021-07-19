@@ -13,11 +13,6 @@ import 'search_help_panel.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 
 class SearchBar extends StatefulWidget {
-  //final SearchService filtrationService;
-  //const SearchBar({
-  //Key key,
-  //@required this.filtrationService,
-  //}) : super(key: key);
   @override
   _SearchBar createState() => _SearchBar();
 }
@@ -72,9 +67,6 @@ class _SearchBar extends State<SearchBar> {
               right: 12.0,
             ),
             child: SearchHelpPanel(
-              //onFilterButtonPressed: (eventParam) => _searchService
-              //.filterByFunctionEvent
-              //.trigger(param: eventParam),
               onItemTilePressed: (eventParam) => _searchService
                   .searchWithMapItemEvent
                   .trigger(param: eventParam),

@@ -2,19 +2,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/markers_event_param.dart';
 import 'package:kampus_sggw/logic/search_services/markers_service.dart';
-//import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:provider/provider.dart';
-//import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'filtration_widgets/search_bar.dart';
 
 class MapFloatingButtons extends StatefulWidget {
   final Function onRecenterButtonPressed;
-  //final SearchService filtrationService;
 
   const MapFloatingButtons({
     Key key,
     @required this.onRecenterButtonPressed,
-    //@required this.filtrationService,
   }) : super(key: key);
 
   @override
@@ -96,12 +92,9 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
-      //builder: (context) => Container(
       builder: (context) => Container(
         height: MediaQuery.of(context).size.height * 0.6,
-        child: SearchBar(
-            //filtrationService: widget.filtrationService,
-            ),
+        child: SearchBar(),
       ),
     );
   }
