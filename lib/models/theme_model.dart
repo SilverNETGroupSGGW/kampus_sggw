@@ -23,7 +23,7 @@ class ThemeModel extends ChangeNotifier with StorableJSON, LoadableJSON {
 
   Map<String, dynamic> toJson() => _$ThemeModelToJson(this);
 
-  swithTheme() {
+  void swithTheme() {
     if (themeId == 0) {
       _currentTheme = DarkTheme().theme;
       themeId = 1;
