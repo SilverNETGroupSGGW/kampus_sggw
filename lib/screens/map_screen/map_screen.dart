@@ -12,7 +12,7 @@ import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:provider/provider.dart';
 import 'filtration_widgets/no_item_found_alert_dialog.dart';
 import 'interactive_map.dart';
-import 'map_floating_buttons.dart';
+import 'map_buttons.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -97,14 +97,9 @@ class _MapScreenState extends State<MapScreen> {
             ),
           ],
         ),
-        floatingActionButton: MapFloatingButtons(),
+        floatingActionButton: MapButtons(),
         drawer: SideDrawer(),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
   }
 }
