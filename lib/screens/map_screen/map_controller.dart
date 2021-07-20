@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapController extends ChangeNotifier {
@@ -20,24 +20,20 @@ class MapController extends ChangeNotifier {
     _controller.complete(controller);
   }
 
-  Future<void> recenter() async {
-    //final GoogleMapController controller = await _controller.future;
-    GoogleMapController controller = await _controller.future;
-    controller.animateCamera(
-      CameraUpdate.newCameraPosition(_centralCameraPosition),
-    );
-  }
+  void recenter() => _changeCameraPosition(_centralCameraPosition);
 
-  Future<void> zoomInto(Marker marker) async {
-    GoogleMapController controller = await _controller.future;
-    controller.animateCamera(
-      CameraUpdate.newCameraPosition(
+  void zoomInto(Marker marker) => _changeCameraPosition(
         CameraPosition(
           target: LatLng(marker.position.latitude, marker.position.longitude),
-          //tilt: 0,
+          tilt: 0,
           zoom: 16.5,
         ),
-      ),
+      );
+
+  Future<void> _changeCameraPosition(CameraPosition newPosition) async {
+    GoogleMapController controller = await _controller.future;
+    controller.animateCamera(
+      CameraUpdate.newCameraPosition(newPosition),
     );
   }
 }
