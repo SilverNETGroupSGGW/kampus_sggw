@@ -5,11 +5,13 @@ import 'package:kampus_sggw/logic/event_parameters/markers_event_param.dart';
 import 'package:kampus_sggw/logic/search_services/markers_service.dart';
 
 class SearchButton extends ChangeNotifier {
-  FloatingActionButton button;
+  FloatingActionButton _button;
   Function _onSearchButtonPressed;
   Function _collapseBottomDrawer;
   StreamSubscription _createUnfilterButton;
   MarkersService _markersService;
+
+  FloatingActionButton get button => _button;
 
   SearchButton(onPressed, markersService, collapseBottomDrawer) {
     _collapseBottomDrawer = collapseBottomDrawer;
@@ -17,7 +19,7 @@ class SearchButton extends ChangeNotifier {
     _onSearchButtonPressed = onPressed;
     _createUnfilterButton = _markersService.filterEvent
         .listen((eventParam) => _unfilter(eventParam));
-    button = _searchButton();
+    _button = _searchButton();
   }
 
   FloatingActionButton _searchButton() {
@@ -50,13 +52,13 @@ class SearchButton extends ChangeNotifier {
   void _unfilter(MarkersEventParam eventParam) {
     //Navigator.pop(context);
     _collapseBottomDrawer();
-    button = _unfilterButton(eventParam.filterName);
+    _button = _unfilterButton(eventParam.filterName);
     return notifyListeners();
   }
 
   void _restoreToDefault() {
     _markersService.unfilterEvent.trigger();
-    button = _searchButton();
+    _button = _searchButton();
     return notifyListeners();
   }
 
