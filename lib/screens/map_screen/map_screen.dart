@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
+import 'package:kampus_sggw/logic/search_services/markers_service.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/logic/info_card_dialog_builder.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/logic/map_controller.dart';
+import 'package:kampus_sggw/screens/map_screen/filtration_widgets/search_bar.dart';
+import 'package:kampus_sggw/screens/map_screen/search_button.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:provider/provider.dart';
 import 'filtration_widgets/no_item_found_alert_dialog.dart';
@@ -42,6 +45,18 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
+  void _showBottomDrawer() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => Container(
+        height: MediaQuery.of(context).size.height * 0.6,
+        child: SearchBar(),
+      ),
+    );
+  }
+
   @override
   void initState() {
     super.initState();
@@ -55,6 +70,13 @@ class _MapScreenState extends State<MapScreen> {
       providers: [
         ChangeNotifierProvider(
           create: (_) => MapController(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => SearchButton(
+            _showBottomDrawer,
+            Provider.of<MarkersService>(context, listen: false),
+            () => Navigator.pop(context),
+          ),
         ),
       ],
       child: Scaffold(
