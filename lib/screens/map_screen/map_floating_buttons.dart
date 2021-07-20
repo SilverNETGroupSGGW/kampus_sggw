@@ -7,13 +7,6 @@ import 'filtration_widgets/search_bar.dart';
 import 'map_controller.dart';
 
 class MapFloatingButtons extends StatefulWidget {
-  //final Function onRecenterButtonPressed;
-
-  // const MapFloatingButtons({
-  //   Key key,
-  //   @required this.onRecenterButtonPressed,
-  // }) : super(key: key);
-
   @override
   State<StatefulWidget> createState() => _MapFloatingButtons();
 }
@@ -47,7 +40,6 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
         FloatingActionButton(
           child: const Icon(Icons.map),
           backgroundColor: Colors.lightGreen,
-          //onPressed: () => widget.onRecenterButtonPressed(),
           onPressed: () =>
               Provider.of<MapController>(context, listen: false).recenter(),
           heroTag: "btn1",

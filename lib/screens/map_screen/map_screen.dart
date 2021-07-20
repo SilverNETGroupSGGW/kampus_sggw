@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
-import 'package:kampus_sggw/logic/search_services/stream_service.dart';
 import 'package:kampus_sggw/logic/info_card_dialog_builder.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/screens/map_screen/map_controller.dart';
@@ -19,8 +18,6 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   static MapItem _selectedMapItem;
-
-  //StreamService _recenterMap = StreamService();
 
   showInfoCard(MapItem mapItem) {
     _selectedMapItem = mapItem;
@@ -75,13 +72,10 @@ class _MapScreenState extends State<MapScreen> {
           children: [
             InteractiveMap(
               showCard: showInfoCard,
-              //shouldRecenter: _recenterMap,
             ),
           ],
         ),
-        floatingActionButton: MapFloatingButtons(
-            //onRecenterButtonPressed: () => _recenterMap.trigger(),
-            ),
+        floatingActionButton: MapFloatingButtons(),
         drawer: SideDrawer(),
       ),
     );
@@ -89,7 +83,6 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   void dispose() {
-    //_recenterMap.dispose();
     super.dispose();
   }
 }
