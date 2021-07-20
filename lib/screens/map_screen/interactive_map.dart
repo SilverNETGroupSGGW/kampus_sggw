@@ -7,7 +7,7 @@ import 'package:kampus_sggw/logic/histories/visit_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/models/map_settings.dart';
-import 'package:kampus_sggw/screens/map_screen/map_controller.dart';
+import 'package:kampus_sggw/logic/map_controller.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';
 import 'package:provider/provider.dart';

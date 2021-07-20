@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/markers_event_param.dart';
+import 'package:kampus_sggw/logic/map_controller.dart';
 import 'package:kampus_sggw/logic/search_services/markers_service.dart';
 import 'package:provider/provider.dart';
 import 'filtration_widgets/search_bar.dart';
-import 'map_controller.dart';
 
 class MapFloatingButtons extends StatefulWidget {
   @override
