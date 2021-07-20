@@ -5,6 +5,7 @@ import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/logic/search_services/stream_service.dart';
 import 'package:kampus_sggw/logic/info_card_dialog_builder.dart';
 import 'package:kampus_sggw/models/map_item.dart';
+import 'package:kampus_sggw/screens/map_screen/map_controller.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:provider/provider.dart';
 import 'filtration_widgets/no_item_found_alert_dialog.dart';
@@ -19,7 +20,7 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   static MapItem _selectedMapItem;
 
-  StreamService _recenterMap = StreamService();
+  //StreamService _recenterMap = StreamService();
 
   showInfoCard(MapItem mapItem) {
     _selectedMapItem = mapItem;
@@ -53,35 +54,42 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Text(
-          LocaleKeys.map_screen_title.tr(),
-          style: TextStyle(
-            fontFamily: 'SGGWSans',
-            fontWeight: FontWeight.w600,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => MapController(),
+        ),
+      ],
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          title: Text(
+            LocaleKeys.map_screen_title.tr(),
+            style: TextStyle(
+              fontFamily: 'SGGWSans',
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
+        body: Stack(
+          children: [
+            InteractiveMap(
+              showCard: showInfoCard,
+              //shouldRecenter: _recenterMap,
+            ),
+          ],
+        ),
+        floatingActionButton: MapFloatingButtons(
+            //onRecenterButtonPressed: () => _recenterMap.trigger(),
+            ),
+        drawer: SideDrawer(),
       ),
-      body: Stack(
-        children: [
-          InteractiveMap(
-            showCard: showInfoCard,
-            shouldRecenter: _recenterMap,
-          ),
-        ],
-      ),
-      floatingActionButton: MapFloatingButtons(
-        onRecenterButtonPressed: () => _recenterMap.trigger(),
-      ),
-      drawer: SideDrawer(),
     );
   }
 
   @override
   void dispose() {
-    _recenterMap.dispose();
+    //_recenterMap.dispose();
     super.dispose();
   }
 }

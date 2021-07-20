@@ -4,14 +4,15 @@ import 'package:kampus_sggw/logic/event_parameters/markers_event_param.dart';
 import 'package:kampus_sggw/logic/search_services/markers_service.dart';
 import 'package:provider/provider.dart';
 import 'filtration_widgets/search_bar.dart';
+import 'map_controller.dart';
 
 class MapFloatingButtons extends StatefulWidget {
-  final Function onRecenterButtonPressed;
+  //final Function onRecenterButtonPressed;
 
-  const MapFloatingButtons({
-    Key key,
-    @required this.onRecenterButtonPressed,
-  }) : super(key: key);
+  // const MapFloatingButtons({
+  //   Key key,
+  //   @required this.onRecenterButtonPressed,
+  // }) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _MapFloatingButtons();
@@ -46,7 +47,9 @@ class _MapFloatingButtons extends State<MapFloatingButtons> {
         FloatingActionButton(
           child: const Icon(Icons.map),
           backgroundColor: Colors.lightGreen,
-          onPressed: () => widget.onRecenterButtonPressed(),
+          //onPressed: () => widget.onRecenterButtonPressed(),
+          onPressed: () =>
+              Provider.of<MapController>(context, listen: false).recenter(),
           heroTag: "btn1",
         ),
         Padding(

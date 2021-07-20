@@ -8,6 +8,7 @@ import 'package:kampus_sggw/logic/histories/visit_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/models/map_settings.dart';
+import 'package:kampus_sggw/screens/map_screen/map_controller.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +16,7 @@ import 'package:provider/provider.dart';
 class InteractiveMap extends StatefulWidget {
   final TransformationController transController = TransformationController();
   final Function showCard;
-  final StreamService shouldRecenter;
+  //final StreamService shouldRecenter;
   final mapSettings = MapSettings(
     cameraTargetBounds: CameraTargetBounds(
       LatLngBounds(
@@ -33,7 +34,7 @@ class InteractiveMap extends StatefulWidget {
 
   InteractiveMap({
     @required this.showCard,
-    @required this.shouldRecenter,
+    //@required this.shouldRecenter,
   });
 
   @override
@@ -42,11 +43,11 @@ class InteractiveMap extends StatefulWidget {
 
 class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
   MapItems _mapItems;
-  Completer<GoogleMapController> _controller = Completer();
+  //Completer<GoogleMapController> _controller = Completer();
   Map markers = <MarkerId, Marker>{};
   GoogleMap _googleMap;
   Set<Marker> _currentMarkerSet = <Marker>{};
-  StreamSubscription _shouldRecenter;
+  //StreamSubscription _shouldRecenter;
   StreamSubscription _filterMarkers;
   StreamSubscription _unfilterMarkers;
   BitmapDescriptor facultyMarker;
@@ -114,7 +115,7 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
       tryRequestLocation();
       _setMarkers(markers, _mapItems.mapItems);
       _currentMarkerSet = markers.values.toSet();
-      _shouldRecenter = widget.shouldRecenter.listen((_) => _goToTheCampus());
+      //_shouldRecenter = widget.shouldRecenter.listen((_) => _goToTheCampus());
 
       MarkersService markersService =
           Provider.of<MarkersService>(context, listen: false);
@@ -129,7 +130,7 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
 
   @override
   dispose() {
-    _shouldRecenter.cancel();
+    //_shouldRecenter.cancel();
     _filterMarkers.cancel();
     _unfilterMarkers.cancel();
     super.dispose();
@@ -221,7 +222,9 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
       cameraTargetBounds: widget.mapSettings.cameraTargetBounds,
       initialCameraPosition: widget.mapSettings.initialCameraPosition,
       onMapCreated: (GoogleMapController controller) {
-        _controller.complete(controller);
+        //_controller.complete(controller);
+        Provider.of<MapController>(context, listen: false)
+            .bindWithGoogleMap(controller);
       },
       markers: _currentMarkerSet,
     );
@@ -236,7 +239,9 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
         _currentMarkerSet = filteredMarkers.values.toSet();
       },
     );
-    _zoomInto(_currentMarkerSet.first);
+    Provider.of<MapController>(context, listen: false)
+        .zoomInto(_currentMarkerSet.first);
+    //_zoomInto(_currentMarkerSet.first);
   }
 
   void _updateMarkersToDefault() {
@@ -247,23 +252,23 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
     );
   }
 
-  Future<void> _goToTheCampus() async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(
-      CameraUpdate.newCameraPosition(widget.mapSettings.initialCameraPosition),
-    );
-  }
+  // Future<void> _goToTheCampus() async {
+  //   final GoogleMapController controller = await _controller.future;
+  //   controller.animateCamera(
+  //     CameraUpdate.newCameraPosition(widget.mapSettings.initialCameraPosition),
+  //   );
+  // }
 
-  Future<void> _zoomInto(Marker marker) async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(
-      CameraUpdate.newCameraPosition(
-        CameraPosition(
-          target: LatLng(marker.position.latitude, marker.position.longitude),
-          tilt: 0,
-          zoom: 16.5,
-        ),
-      ),
-    );
-  }
+  // Future<void> _zoomInto(Marker marker) async {
+  //   final GoogleMapController controller = await _controller.future;
+  //   controller.animateCamera(
+  //     CameraUpdate.newCameraPosition(
+  //       CameraPosition(
+  //         target: LatLng(marker.position.latitude, marker.position.longitude),
+  //         tilt: 0,
+  //         zoom: 16.5,
+  //       ),
+  //     ),
+  //   );
+  // }
 }
