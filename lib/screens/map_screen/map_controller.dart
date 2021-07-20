@@ -5,22 +5,23 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapController extends ChangeNotifier {
   Completer<GoogleMapController> _controller;
-  CameraPosition _centralCameraPosition;
 
   MapController() {
     _controller = Completer();
-    _centralCameraPosition = CameraPosition(
-      target: LatLng(52.162012883882326, 21.046311475278525),
-      tilt: 0,
-      zoom: 16,
-    );
   }
 
   void bindWithGoogleMap(GoogleMapController controller) {
     _controller.complete(controller);
   }
 
-  void recenter() => _changeCameraPosition(_centralCameraPosition);
+  void recenter() {
+    CameraPosition central = CameraPosition(
+      target: LatLng(52.162012883882326, 21.046311475278525),
+      tilt: 0,
+      zoom: 16,
+    );
+    _changeCameraPosition(central);
+  }
 
   void zoomInto(Marker marker) => _changeCameraPosition(
         CameraPosition(
