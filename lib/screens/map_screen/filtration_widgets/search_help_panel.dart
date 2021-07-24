@@ -6,11 +6,11 @@ import 'visit_history_list.dart';
 import 'filter_buttons.dart';
 
 class SearchHelpPanel extends StatelessWidget {
-  final Function onItemTilePressed;
-  const SearchHelpPanel({
-    Key key,
-    @required this.onItemTilePressed,
-  }) : super(key: key);
+  // final Function onTap;
+  // const SearchHelpPanel({
+  //   Key key,
+  //   @required this.onTap,
+  // }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final fsb = FloatingSearchBar.of(context);
@@ -28,8 +28,8 @@ class SearchHelpPanel extends StatelessWidget {
             text: LocaleKeys.recent_searches.tr(),
           ),
           VisitHistoryList(
-            onItemTilePressed: onItemTilePressed,
-          ),
+              //onTap: onTap,
+              ),
         ],
       ),
     );
@@ -39,7 +39,10 @@ class SearchHelpPanel extends StatelessWidget {
 class Headline extends StatelessWidget {
   final text;
 
-  const Headline({Key key, this.text}) : super(key: key);
+  const Headline({
+    Key key,
+    this.text,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

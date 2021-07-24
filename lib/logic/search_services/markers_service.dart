@@ -20,6 +20,10 @@ class MarkersService extends ChangeNotifier {
         param: MarkersEventParam(filterName, filteredItems),
       );
 
+  void triggerWithOneItem(MapItem item) => _filter.trigger(
+        param: MarkersEventParam(item.name, [item]),
+      );
+
   @override
   void dispose() {
     _filter.dispose();

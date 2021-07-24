@@ -1,7 +1,7 @@
 //import 'dart:collection';
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/logic/key_value.dart';
+import 'package:kampus_sggw/logic/search_services/suggested_item.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -71,30 +71,30 @@ class MapItems extends ChangeNotifier {
   }
 
   MapItem findItemByQuery(String query) {
-    List<KeyValue> similarItems = findItemsByQuery(query);
-    return similarItems.length > 0 ? similarItems[0].key : null;
+    List<SuggestedItem> similarItems = findItemsByQuery(query);
+    return similarItems.length > 0 ? similarItems[0].mapItem : null;
   }
 
   MapItem findItemByID(int id) {
     return mapItems.firstWhere((element) => element.id == id);
   }
 
-  List<KeyValue> findItemsByQuery(String query) {
-    List<KeyValue> similarityList =
+  List<SuggestedItem> findItemsByQuery(String query) {
+    List<SuggestedItem> similarityList =
         _getSimilarityMapForEachItem(query.toLowerCase());
     return _getMostSimilarMapItems(similarityList);
   }
 
-  List<KeyValue> _getSimilarityMapForEachItem(String query) {
-    List<KeyValue> similarityList = [];
+  List<SuggestedItem> _getSimilarityMapForEachItem(String query) {
+    List<SuggestedItem> similarityList = [];
     mapItems.forEach(
       (item) {
         var similarity = item.searchingSet.search(query);
         if (similarity.length > 0) {
           similarityList.add(
-            KeyValue(
-              key: item,
-              value: similarity[0].item,
+            SuggestedItem(
+              mapItem: item,
+              matchedQuery: similarity[0].item,
               similarity: similarity[0].score,
             ),
           );
@@ -104,7 +104,8 @@ class MapItems extends ChangeNotifier {
     return similarityList;
   }
 
-  List<KeyValue> _getMostSimilarMapItems(List<KeyValue> similarityList) {
+  List<SuggestedItem> _getMostSimilarMapItems(
+      List<SuggestedItem> similarityList) {
     similarityList.sort((a, b) => a.similarity.compareTo(b.similarity));
     return similarityList.take(6).toList();
   }

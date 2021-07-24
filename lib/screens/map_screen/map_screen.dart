@@ -2,15 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
 import 'package:kampus_sggw/logic/search_services/markers_service.dart';
-import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/logic/info_card_dialog_builder.dart';
 import 'package:kampus_sggw/models/map_item.dart';
-import 'package:kampus_sggw/logic/map_controller.dart';
 import 'package:kampus_sggw/screens/map_screen/filtration_widgets/search_bar.dart';
 import 'package:kampus_sggw/screens/map_screen/search_button.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:provider/provider.dart';
-import 'filtration_widgets/no_item_found_alert_dialog.dart';
 import 'interactive_map.dart';
 import 'map_buttons.dart';
 
@@ -35,16 +32,6 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
-  void _showAlertDialogNoItemFound() {
-    Navigator.pop(context);
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return NoItemFoundAlertDialog();
-      },
-    );
-  }
-
   void _showBottomDrawer() {
     showModalBottomSheet(
       context: context,
@@ -58,19 +45,12 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    Provider.of<SearchService>(context, listen: false).onNoItemFound =
-        _showAlertDialogNoItemFound;
-  }
-
-  @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => MapController(),
-        ),
+        //ChangeNotifierProvider(
+        //create: (_) => MapController(),
+        //),
         ChangeNotifierProvider(
           create: (_) => SearchButton(
             _showBottomDrawer,

@@ -13,7 +13,7 @@ import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platf
 import 'package:provider/provider.dart';
 
 class InteractiveMap extends StatefulWidget {
-  final TransformationController transController = TransformationController();
+  //final TransformationController transController = TransformationController();
   final Function showCard;
   final mapSettings = MapSettings(
     cameraTargetBounds: CameraTargetBounds(
@@ -218,6 +218,7 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
         Provider.of<MapController>(context, listen: false)
             .bindWithGoogleMap(controller);
       },
+      //TODO!! if _currentMarkerSet is in setState it can be in separate class accessible by provider
       markers: _currentMarkerSet,
     );
     return _googleMap;
@@ -238,6 +239,7 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
   void _updateMarkersToDefault() {
     setState(
       () {
+        //TODO!! if _currentMarkerSet is in setState it can be in separate class accessible by provider
         _currentMarkerSet = markers.values.toSet();
       },
     );
