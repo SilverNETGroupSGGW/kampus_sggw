@@ -110,7 +110,6 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
       tryRequestLocation();
       _setMarkers(markers, _mapItems.mapItems);
       _currentMarkerSet = markers.values.toSet();
-
       MarkersService markersService =
           Provider.of<MarkersService>(context, listen: false);
       _filterMarkers = markersService.filterEvent
@@ -137,7 +136,7 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
   }
 
   Marker _getMarkerFromMapItem(MapItem mapItem) {
-    MarkerId markerId = MarkerId(mapItem.name);
+    MarkerId markerId = MarkerId(mapItem.name + mapItem.id.toString());
     Marker marker = Marker(
       icon: _iconType(mapItem.type),
       markerId: markerId,
