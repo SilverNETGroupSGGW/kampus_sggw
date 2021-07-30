@@ -5,7 +5,6 @@ import 'package:kampus_sggw/logic/histories/search_history.dart';
 import 'package:kampus_sggw/logic/histories/visit_history.dart';
 import 'package:kampus_sggw/logic/map_controller.dart';
 import 'package:kampus_sggw/logic/search_services/fiter_service.dart';
-import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/logic/search_services/suggestion_service.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/models/theme_model.dart';
@@ -34,9 +33,6 @@ Future<void> main() async {
     mapItems: mapItems,
     markersService: markersService,
   );
-  final searchService = SearchService(
-    markersService: markersService,
-  );
   final suggestionService = SuggestionService(
     mapItems: mapItems,
   );
@@ -57,7 +53,6 @@ Future<void> main() async {
           ChangeNotifierProvider.value(value: markersService),
           ChangeNotifierProvider.value(value: filterService),
           ChangeNotifierProvider.value(value: suggestionService),
-          ChangeNotifierProvider.value(value: searchService),
           ChangeNotifierProvider(
             create: (_) => MapController(),
           ),
