@@ -1,28 +1,26 @@
+import 'dart:collection';
 import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/logic/JSON_services/loadable_JSON.dart';
 import 'package:kampus_sggw/logic/JSON_services/storable_JSON.dart';
 import 'package:kampus_sggw/logic/histories/user_history.dart';
 import 'package:kampus_sggw/models/map_item.dart';
+import 'package:kampus_sggw/models/map_items.dart';
 part 'search_history.g.dart';
 
 @JsonSerializable()
 class SearchHistory extends UserHistory with StorableJSON, LoadableJSON {
+  List<MapItem> _filtered;
   SearchHistory({int buffer, List<int> itemsIds})
       : super(buffer: buffer, itemsIds: itemsIds);
+
+  UnmodifiableListView<MapItem> get filteredHistory =>
+      UnmodifiableListView(_filtered);
 
   factory SearchHistory.fromJson(Map<String, dynamic> json) =>
       _$SearchHistoryFromJson(json);
 
   Map<String, dynamic> toJson() => _$SearchHistoryToJson(this);
-
-  List<MapItem> filterSearchHistory({String query}) {
-    if (query != null && query.isNotEmpty) {
-      return _getItemsWhichNameStartsWith(query);
-    } else {
-      return super.storedMapItems;
-    }
-  }
 
   void save() async {
     super.saveToJson('searchHistory');
@@ -37,7 +35,20 @@ class SearchHistory extends UserHistory with StorableJSON, LoadableJSON {
   @override
   void deleteItem(MapItem mapItem) {
     super.deleteItem(mapItem);
+    _filtered = storedMapItems;
     save();
+    notifyListeners();
+  }
+
+  @override
+  void loadMapItems(MapItems mapItems) {
+    super.loadMapItems(mapItems);
+    _filtered = storedMapItems;
+  }
+
+  void filter(String query) {
+    _filtered = _filterToMuchQuery(query: query);
+    notifyListeners();
   }
 
   static Future<SearchHistory> loadFromJSON() async {
@@ -46,10 +57,15 @@ class SearchHistory extends UserHistory with StorableJSON, LoadableJSON {
     return SearchHistory.fromJson(map);
   }
 
+  List<MapItem> _filterToMuchQuery({String query}) {
+    if (query != null && query.isNotEmpty) {
+      return _getItemsWhichNameStartsWith(query);
+    } else {
+      return storedMapItems;
+    }
+  }
+
   List<MapItem> _getItemsWhichNameStartsWith(String query) {
-    return super
-        .storedMapItems
-        .where((item) => item.name.startsWith(query))
-        .toList();
+    return storedMapItems.where((item) => item.name.startsWith(query)).toList();
   }
 }

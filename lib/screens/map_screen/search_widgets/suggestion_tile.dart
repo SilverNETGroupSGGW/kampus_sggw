@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/logic/search_services/suggested_item.dart';
+import 'package:kampus_sggw/logic/event_parameters/suggested_item.dart';
 
 class SuggestionTile extends StatelessWidget {
   final SuggestedItem item;

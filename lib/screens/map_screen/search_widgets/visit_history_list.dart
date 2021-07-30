@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/histories/visit_history.dart';
-import 'package:kampus_sggw/logic/map_controller.dart';
 import 'package:kampus_sggw/logic/search_bar_controller.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
@@ -8,13 +7,6 @@ import 'package:kampus_sggw/models/map_items.dart';
 import 'package:provider/provider.dart';
 
 class VisitHistoryList extends StatefulWidget {
-  //final Function onTap;
-
-  // const VisitHistoryList({
-  //   Key key,
-  //   @required this.onTap,
-  // }) : super(key: key);
-
   @override
   State<StatefulWidget> createState() => _VisitHistoryList();
 }
@@ -81,8 +73,6 @@ class _VisitHistoryList extends State<VisitHistoryList> {
     _visitHistory.addItem(item);
     Provider.of<SearchService>(context, listen: false).search(item);
     Provider.of<SearchBarController>(context, listen: false).close();
-    //close controller!
-    //widget.onTap(item);
   }
 
   VisitHistory _initializeVisitHistory() {

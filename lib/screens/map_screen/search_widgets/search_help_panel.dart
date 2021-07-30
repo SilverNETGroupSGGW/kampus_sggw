@@ -6,11 +6,6 @@ import 'visit_history_list.dart';
 import 'filter_buttons.dart';
 
 class SearchHelpPanel extends StatelessWidget {
-  // final Function onTap;
-  // const SearchHelpPanel({
-  //   Key key,
-  //   @required this.onTap,
-  // }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final fsb = FloatingSearchBar.of(context);
@@ -27,9 +22,7 @@ class SearchHelpPanel extends StatelessWidget {
           Headline(
             text: LocaleKeys.recent_searches.tr(),
           ),
-          VisitHistoryList(
-              //onTap: onTap,
-              ),
+          VisitHistoryList(),
         ],
       ),
     );

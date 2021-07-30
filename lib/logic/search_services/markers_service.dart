@@ -15,12 +15,12 @@ class MarkersService extends ChangeNotifier {
     _unfilter = StreamService();
   }
 
-  void trigger(String filterName, List<MapItem> filteredItems) =>
+  void filter(String filterName, List<MapItem> filteredItems) =>
       _filter.trigger(
         param: MarkersEventParam(filterName, filteredItems),
       );
 
-  void triggerWithOneItem(MapItem item) => _filter.trigger(
+  void showSearchedItem(MapItem item) => _filter.trigger(
         param: MarkersEventParam(item.name, [item]),
       );
 

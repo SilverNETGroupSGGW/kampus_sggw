@@ -1,7 +1,7 @@
 //import 'dart:collection';
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/logic/search_services/suggested_item.dart';
+import 'package:kampus_sggw/logic/event_parameters/suggested_item.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:json_annotation/json_annotation.dart';

@@ -4,8 +4,8 @@ import 'package:kampus_sggw/global_widgets/side_drawer.dart';
 import 'package:kampus_sggw/logic/search_services/markers_service.dart';
 import 'package:kampus_sggw/logic/info_card_dialog_builder.dart';
 import 'package:kampus_sggw/models/map_item.dart';
-import 'package:kampus_sggw/screens/map_screen/filtration_widgets/search_bar.dart';
 import 'package:kampus_sggw/screens/map_screen/search_button.dart';
+import 'package:kampus_sggw/screens/map_screen/search_widgets/search_bar.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:provider/provider.dart';
 import 'interactive_map.dart';
@@ -38,7 +38,7 @@ class _MapScreenState extends State<MapScreen> {
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (context) => Container(
-        height: MediaQuery.of(context).size.height * 0.6,
+        height: MediaQuery.of(context).size.height * 0.8,
         child: SearchBar(),
       ),
     );
@@ -48,9 +48,6 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        //ChangeNotifierProvider(
-        //create: (_) => MapController(),
-        //),
         ChangeNotifierProvider(
           create: (_) => SearchButton(
             _showBottomDrawer,

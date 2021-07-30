@@ -16,7 +16,7 @@ class FilterService extends ChangeNotifier {
 
   void filterMapItems(FilterByFunctionEventParam eventParam) {
     List<MapItem> filteredItems = _getFilteredItems(eventParam);
-    _markersService.trigger(eventParam.filterName, filteredItems);
+    _markersService.filter(eventParam.filterName, filteredItems);
   }
 
   List<MapItem> _getFilteredItems(FilterByFunctionEventParam eventParam) {
