@@ -50,7 +50,6 @@ class SearchButton extends ChangeNotifier {
   }
 
   void _unfilter(MarkersEventParam eventParam) {
-    //Navigator.pop(context);
     _collapseBottomDrawer();
     _button = _unfilterButton(eventParam.filterName);
     return notifyListeners();

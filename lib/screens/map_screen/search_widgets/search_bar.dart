@@ -21,8 +21,6 @@ class SearchBar extends StatefulWidget {
 
 class _SearchBar extends State<SearchBar> {
   MapItem _firstSuggestion;
-  //SearchHistory _searchHistory;
-  //List<MapItem> _filteredSearchHistory;
   String _selectedTerm;
   SearchHistory _searchHistoryProvider;
   SearchBarController _controllerProvider;
@@ -30,11 +28,6 @@ class _SearchBar extends State<SearchBar> {
   @override
   void initState() {
     super.initState();
-    //_searchHistory = Provider.of<SearchHistory>(context, listen: false);
-    //_searchHistory.loadMapItems(
-    //Provider.of<MapItems>(context, listen: false),
-    //);
-    //_filteredSearchHistory = _searchHistory.storedMapItems;
     Provider.of<SuggestionService>(context, listen: false).resetSuggestions();
     _searchHistoryProvider = Provider.of<SearchHistory>(context, listen: false);
     _searchHistoryProvider.loadMapItems(
@@ -77,9 +70,6 @@ class _SearchBar extends State<SearchBar> {
     );
   }
 
-  //void _updateFilteredSearchHistory({query}) =>
-  //_filteredSearchHistory = _searchHistory.filterSearchHistory(query: query);
-
   ClipRRect _suggestionPanel() {
     return ClipRRect(
       borderRadius: BorderRadius.circular(5),
@@ -96,7 +86,6 @@ class _SearchBar extends State<SearchBar> {
 
   Column _suggestionColumn() {
     List<Widget> displayedSuggestions = [];
-    //var _history = _filteredSearchHistory.map((item) => _historyListTile(item));
     var _searchedItems =
         Provider.of<SearchHistory>(context, listen: true).filteredHistory.map(
               (itemFromHistory) => HistoryTile(
@@ -130,35 +119,10 @@ class _SearchBar extends State<SearchBar> {
     );
   }
 
-  // ListTile _historyListTile(MapItem item) {
-  //   return ListTile(
-  //     title: Text(
-  //       item.name,
-  //       maxLines: 1,
-  //       overflow: TextOverflow.ellipsis,
-  //     ),
-  //     leading: Icon(Icons.history),
-  //     trailing: IconButton(
-  //       icon: Icon(Icons.clear),
-  //       onPressed: () {
-  //         setState(
-  //           () {
-  //             _deleteFromSearchHistory(item);
-  //           },
-  //         );
-  //       },
-  //     ),
-  //     onTap: () => _search(item),
-  //   );
-  // }
-
   void _onQueryChanged(String query) {
-    //setState(() {
     Provider.of<SuggestionService>(context, listen: false)
         .suggestItemsMatchingQuery(query);
     _searchHistoryProvider.filter(query);
-    //_updateFilteredSearchHistory(query: query);
-    //});
   }
 
   void _onSubmitted(String query) {
@@ -169,13 +133,7 @@ class _SearchBar extends State<SearchBar> {
     }
   }
 
-  //void _deleteFromSearchHistory(item) {
-  //_searchHistory.deleteItem(item);
-  //_updateFilteredSearchHistory();
-  //}
-
   void _search(MapItem item) {
-    //_searchHistory.addItem(item);
     _searchHistoryProvider.addItem(item);
     Provider.of<SearchService>(context, listen: false).search(item);
     _controllerProvider.close();
@@ -183,7 +141,6 @@ class _SearchBar extends State<SearchBar> {
 
   void _showAlertNoItemFound() {
     _controllerProvider.close();
-    //Navigator.pop(context);
     showDialog(
       context: context,
       builder: (BuildContext context) {

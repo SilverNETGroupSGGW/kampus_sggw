@@ -40,10 +40,6 @@ Future<void> main() async {
   final suggestionService = SuggestionService(
     mapItems: mapItems,
   );
-  // final searchHistoryService = SearchHistoryService(
-  //   //searchHistory: searchHistory,
-  //   searchHistory: await SearchHistory.loadFromJSON(),
-  // );
 
   runApp(
     EasyLocalization(
@@ -62,7 +58,6 @@ Future<void> main() async {
           ChangeNotifierProvider.value(value: filterService),
           ChangeNotifierProvider.value(value: suggestionService),
           ChangeNotifierProvider.value(value: searchService),
-          //ChangeNotifierProvider.value(value: searchHistoryService),
           ChangeNotifierProvider(
             create: (_) => MapController(),
           ),
