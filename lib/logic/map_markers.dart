@@ -5,7 +5,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kampus_sggw/logic/map_controller.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
-import 'package:kampus_sggw/screens/map_screen/marker_type_enum.dart';
+import 'package:kampus_sggw/logic/marker_type_enum.dart';
 
 class MapMarkers extends ChangeNotifier {
   Set<Marker> _default;

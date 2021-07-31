@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/models/map_item.dart';
-import 'package:kampus_sggw/screens/map_screen/map_markers.dart';
+import 'package:kampus_sggw/logic/map_markers.dart';
 import 'package:kampus_sggw/screens/map_screen/search_button.dart';
 
 class SearchService extends ChangeNotifier {

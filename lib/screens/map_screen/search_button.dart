@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/screens/map_screen/map_markers.dart';
+import 'package:kampus_sggw/logic/map_markers.dart';
 
 class SearchButton extends ChangeNotifier {
   FloatingActionButton _button;
