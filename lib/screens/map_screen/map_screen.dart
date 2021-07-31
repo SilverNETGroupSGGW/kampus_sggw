@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
 import 'package:kampus_sggw/logic/histories/visit_history.dart';
-import 'package:kampus_sggw/logic/search_services/markers_service.dart';
+import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/logic/info_card_dialog_builder.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
@@ -22,7 +21,6 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   static MapItem _selectedMapItem;
-  MapMarkers _markersProvider;
   SearchButton _searchButton;
 
   void showCardFunc(MapItem mapItem) {
@@ -63,7 +61,7 @@ class _MapScreenState extends State<MapScreen> {
       mapMarkers: Provider.of<MapMarkers>(context, listen: false),
       collapseBottomDrawer: () => Navigator.pop(context),
     );
-    Provider.of<MarkersService>(context, listen: false).searchButton =
+    Provider.of<SearchService>(context, listen: false).searchButton =
         _searchButton;
   }
 

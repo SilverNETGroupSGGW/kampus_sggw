@@ -18,7 +18,7 @@ import 'package:kampus_sggw/updateLocalData.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
 
-import 'logic/search_services/markers_service.dart';
+import 'logic/search_services/search_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,13 +35,13 @@ Future<void> main() async {
   final mapMarkers = MapMarkers(
     mapController: mapController,
   );
-  final markersService = MarkersService(
+  final searchService = SearchService(
     mapMarkers: mapMarkers,
   );
   await mapMarkers.initializeIcons();
   final filterService = FilterService(
     mapItems: mapItems,
-    markersService: markersService,
+    markersService: searchService,
   );
   final suggestionService = SuggestionService(
     mapItems: mapItems,
@@ -60,7 +60,7 @@ Future<void> main() async {
           ChangeNotifierProvider.value(value: searchHistory),
           ChangeNotifierProvider.value(value: visitHistory),
           ChangeNotifierProvider.value(value: themeModel),
-          ChangeNotifierProvider.value(value: markersService),
+          ChangeNotifierProvider.value(value: searchService),
           ChangeNotifierProvider.value(value: filterService),
           ChangeNotifierProvider.value(value: suggestionService),
           ChangeNotifierProvider.value(value: mapController),

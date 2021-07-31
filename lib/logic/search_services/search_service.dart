@@ -3,11 +3,11 @@ import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/screens/map_screen/map_markers.dart';
 import 'package:kampus_sggw/screens/map_screen/search_button.dart';
 
-class MarkersService extends ChangeNotifier {
+class SearchService extends ChangeNotifier {
   MapMarkers _mapMarkers;
   SearchButton _searchButton;
 
-  MarkersService({MapMarkers mapMarkers}) {
+  SearchService({MapMarkers mapMarkers}) {
     _mapMarkers = mapMarkers;
   }
 

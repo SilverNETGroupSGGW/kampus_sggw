@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/filtration_event_param.dart';
-import 'package:kampus_sggw/logic/search_services/markers_service.dart';
+import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/models/service.dart';
 
 class FilterService extends ChangeNotifier {
   MapItems _mapItems;
-  MarkersService _markersService;
+  SearchService _searchService;
 
   FilterService({mapItems, markersService}) {
     _mapItems = mapItems;
-    _markersService = markersService;
+    _searchService = markersService;
   }
 
   void filterMapItems(FiltrationEventParam eventParam) {
     List<MapItem> filteredItems = _getFilteredItems(eventParam);
-    _markersService.filter(eventParam.filterName, filteredItems);
+    _searchService.filter(eventParam.filterName, filteredItems);
   }
 
   List<MapItem> _getFilteredItems(FiltrationEventParam eventParam) {
