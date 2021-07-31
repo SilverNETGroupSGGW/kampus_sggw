@@ -38,7 +38,7 @@ Future<void> main() async {
   final markersService = MarkersService(
     mapMarkers: mapMarkers,
   );
-  await mapMarkers.asyncFunc();
+  await mapMarkers.initializeIcons();
   final filterService = FilterService(
     mapItems: mapItems,
     markersService: markersService,

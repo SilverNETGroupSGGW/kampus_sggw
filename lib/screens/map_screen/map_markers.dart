@@ -16,15 +16,11 @@ class MapMarkers extends ChangeNotifier {
   UnmodifiableSetView<Marker> get markers => UnmodifiableSetView(_markers);
 
   MapMarkers({
-    //MapItems mapItems,
-    //TODO what about showing card when one item is looked for
-    //Function showCardFunc,
     MapController mapController,
   }) {
     _controllerProvider = mapController;
     _default = {};
     _bitmapDescriptors = <MarkerTypeEnum, BitmapDescriptor>{};
-    //_initializeDefaultMarkers(mapItems, showCardFunc);
   }
 
   void resetMarkers() {
@@ -32,7 +28,7 @@ class MapMarkers extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> asyncFunc() async {
+  Future<void> initializeIcons() async {
     addBitmapDescriptor(
       MarkerTypeEnum.facultyMarker,
       await BitmapDescriptor.fromAssetImage(
@@ -116,22 +112,18 @@ class MapMarkers extends ChangeNotifier {
 
   void updateMarkers(List<MapItem> filteredItems) {
     _filterMarkers(filteredItems);
-    //Provider.of<MapController>(context, listen: false)
-    //.zoomInto(_currentMarkerSet.first);
     _controllerProvider.zoomInto(_markers.first);
     notifyListeners();
   }
 
   void addBitmapDescriptor(MarkerTypeEnum markerType, BitmapDescriptor icon) {
     _bitmapDescriptors[markerType] = icon;
-    //print(icon);
   }
 
   void initializeDefaultMarkers(MapItems mapItems, Function showCardFunc) {
     mapItems.mapItems.forEach((item) {
       Marker marker = _markerFromMapItem(item, showCardFunc);
       _default.add(marker);
-      //print(marker);
     });
     print("BitmapDescriptors " + _bitmapDescriptors.length.toString());
     _markers = _default;
@@ -164,12 +156,10 @@ class MapMarkers extends ChangeNotifier {
 
   BitmapDescriptor _iconType(MapItemType type) {
     if (type == MapItemType.facultyBuilding) {
-      //print(_bitmapDescriptors[MarkerTypeEnum.facultyMarker]);
       return _bitmapDescriptors[MarkerTypeEnum.facultyMarker];
     }
 
     if (type == MapItemType.administrationBuilding) {
-      //print(_bitmapDescriptors[MarkerTypeEnum.administrationMarker]);
       return _bitmapDescriptors[MarkerTypeEnum.administrationMarker];
     }
 

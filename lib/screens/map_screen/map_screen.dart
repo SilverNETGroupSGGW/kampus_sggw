@@ -10,7 +10,6 @@ import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/screens/map_screen/interactive_map.dart';
 import 'package:kampus_sggw/screens/map_screen/map_buttons.dart';
 import 'package:kampus_sggw/screens/map_screen/map_markers.dart';
-import 'package:kampus_sggw/screens/map_screen/marker_type_enum.dart';
 import 'package:kampus_sggw/screens/map_screen/search_button.dart';
 import 'package:kampus_sggw/screens/map_screen/search_widgets/search_bar.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
@@ -52,185 +51,17 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
-  // void _asyncFunc() async {
-  //   _markersProvider.addBitmapDescriptor(
-  //     MarkerTypeEnum.facultyMarker,
-  //     await BitmapDescriptor.fromAssetImage(
-  //         ImageConfiguration(size: Size(30, 45)),
-  //         'assets/images/icons/facultyMarker.png'),
-  //   );
-
-  //   _markersProvider.addBitmapDescriptor(
-  //     MarkerTypeEnum.sportMarker,
-  //     await BitmapDescriptor.fromAssetImage(
-  //         ImageConfiguration(size: Size(30, 45)),
-  //         'assets/images/icons/sportMarker.png'),
-  //   );
-
-  //   _markersProvider.addBitmapDescriptor(
-  //     MarkerTypeEnum.administrationMarker,
-  //     await BitmapDescriptor.fromAssetImage(
-  //         ImageConfiguration(size: Size(30, 45)),
-  //         'assets/images/icons/administrationMarker.png'),
-  //   );
-
-  //   _markersProvider.addBitmapDescriptor(
-  //     MarkerTypeEnum.hotelMarker,
-  //     await BitmapDescriptor.fromAssetImage(
-  //         ImageConfiguration(size: Size(30, 45)),
-  //         'assets/images/icons/hotelMarker.png'),
-  //   );
-
-  //   _markersProvider.addBitmapDescriptor(
-  //     MarkerTypeEnum.storeMarker,
-  //     await BitmapDescriptor.fromAssetImage(
-  //         ImageConfiguration(size: Size(30, 45)),
-  //         'assets/images/icons/storeMarker.png'),
-  //   );
-
-  //   _markersProvider.addBitmapDescriptor(
-  //     MarkerTypeEnum.foodMarker,
-  //     await BitmapDescriptor.fromAssetImage(
-  //         ImageConfiguration(size: Size(30, 45)),
-  //         'assets/images/icons/foodMarker.png'),
-  //   );
-
-  //   _markersProvider.addBitmapDescriptor(
-  //     MarkerTypeEnum.libraryMarker,
-  //     await BitmapDescriptor.fromAssetImage(
-  //         ImageConfiguration(size: Size(30, 45)),
-  //         'assets/images/icons/libraryMarker.png'),
-  //   );
-
-  //   _markersProvider.addBitmapDescriptor(
-  //     MarkerTypeEnum.parkingMarker,
-  //     await BitmapDescriptor.fromAssetImage(
-  //         ImageConfiguration(size: Size(30, 45)),
-  //         'assets/images/icons/parkingMarker.png'),
-  //   );
-
-  //   _markersProvider.addBitmapDescriptor(
-  //     MarkerTypeEnum.transportMarker,
-  //     await BitmapDescriptor.fromAssetImage(
-  //         ImageConfiguration(size: Size(30, 45)),
-  //         'assets/images/icons/transportMarker.png'),
-  //   );
-
-  //   _markersProvider.addBitmapDescriptor(
-  //     MarkerTypeEnum.financeMarker,
-  //     await BitmapDescriptor.fromAssetImage(
-  //         ImageConfiguration(size: Size(30, 45)),
-  //         'assets/images/icons/financeMarker.png'),
-  //   );
-  //   print("waited");
-
-  //   _markersProvider.addBitmapDescriptor(
-  //     MarkerTypeEnum.otherMarker,
-  //     await BitmapDescriptor.fromAssetImage(
-  //         ImageConfiguration(size: Size(30, 45)),
-  //         'assets/images/icons/otherMarker.png'),
-  //   );
-
-  //   print("waited");
-  // }
-
   @override
   void initState() {
     super.initState();
-    _markersProvider = Provider.of<MapMarkers>(context, listen: false);
-    //WidgetsBinding.instance.addPostFrameCallback(
-
-    //_asyncFunc();
-    //   (_) async {
-    //     _markersProvider.addBitmapDescriptor(
-    //       MarkerTypeEnum.facultyMarker,
-    //       await BitmapDescriptor.fromAssetImage(
-    //           ImageConfiguration(size: Size(30, 45)),
-    //           'assets/images/icons/facultyMarker.png'),
-    //     );
-
-    //     _markersProvider.addBitmapDescriptor(
-    //       MarkerTypeEnum.sportMarker,
-    //       await BitmapDescriptor.fromAssetImage(
-    //           ImageConfiguration(size: Size(30, 45)),
-    //           'assets/images/icons/sportMarker.png'),
-    //     );
-
-    //     _markersProvider.addBitmapDescriptor(
-    //       MarkerTypeEnum.administrationMarker,
-    //       await BitmapDescriptor.fromAssetImage(
-    //           ImageConfiguration(size: Size(30, 45)),
-    //           'assets/images/icons/administrationMarker.png'),
-    //     );
-
-    //     _markersProvider.addBitmapDescriptor(
-    //       MarkerTypeEnum.hotelMarker,
-    //       await BitmapDescriptor.fromAssetImage(
-    //           ImageConfiguration(size: Size(30, 45)),
-    //           'assets/images/icons/hotelMarker.png'),
-    //     );
-
-    //     _markersProvider.addBitmapDescriptor(
-    //       MarkerTypeEnum.storeMarker,
-    //       await BitmapDescriptor.fromAssetImage(
-    //           ImageConfiguration(size: Size(30, 45)),
-    //           'assets/images/icons/storeMarker.png'),
-    //     );
-
-    //     _markersProvider.addBitmapDescriptor(
-    //       MarkerTypeEnum.foodMarker,
-    //       await BitmapDescriptor.fromAssetImage(
-    //           ImageConfiguration(size: Size(30, 45)),
-    //           'assets/images/icons/foodMarker.png'),
-    //     );
-
-    //     _markersProvider.addBitmapDescriptor(
-    //       MarkerTypeEnum.libraryMarker,
-    //       await BitmapDescriptor.fromAssetImage(
-    //           ImageConfiguration(size: Size(30, 45)),
-    //           'assets/images/icons/libraryMarker.png'),
-    //     );
-
-    //     _markersProvider.addBitmapDescriptor(
-    //       MarkerTypeEnum.parkingMarker,
-    //       await BitmapDescriptor.fromAssetImage(
-    //           ImageConfiguration(size: Size(30, 45)),
-    //           'assets/images/icons/parkingMarker.png'),
-    //     );
-
-    //     _markersProvider.addBitmapDescriptor(
-    //       MarkerTypeEnum.transportMarker,
-    //       await BitmapDescriptor.fromAssetImage(
-    //           ImageConfiguration(size: Size(30, 45)),
-    //           'assets/images/icons/transportMarker.png'),
-    //     );
-
-    //     _markersProvider.addBitmapDescriptor(
-    //       MarkerTypeEnum.financeMarker,
-    //       await BitmapDescriptor.fromAssetImage(
-    //           ImageConfiguration(size: Size(30, 45)),
-    //           'assets/images/icons/financeMarker.png'),
-    //     );
-
-    //     _markersProvider.addBitmapDescriptor(
-    //       MarkerTypeEnum.otherMarker,
-    //       await BitmapDescriptor.fromAssetImage(
-    //           ImageConfiguration(size: Size(30, 45)),
-    //           'assets/images/icons/otherMarker.png'),
-    //     );
-    //   },
-    // );
-    //setState(() {});
-    print("not waited");
-    _markersProvider.initializeDefaultMarkers(
+    Provider.of<MapMarkers>(context, listen: false).initializeDefaultMarkers(
       Provider.of<MapItems>(context, listen: false),
       showCardFunc,
     );
     _searchButton = SearchButton(
-      _showBottomDrawer,
-      Provider.of<MarkersService>(context, listen: false),
-      Provider.of<MapMarkers>(context, listen: false),
-      () => Navigator.pop(context),
+      onPressed: _showBottomDrawer,
+      mapMarkers: Provider.of<MapMarkers>(context, listen: false),
+      collapseBottomDrawer: () => Navigator.pop(context),
     );
     Provider.of<MarkersService>(context, listen: false).searchButton =
         _searchButton;
@@ -241,14 +72,6 @@ class _MapScreenState extends State<MapScreen> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: _searchButton),
-        // ChangeNotifierProvider(
-        //   create: (_) => SearchButton(
-        //     _showBottomDrawer,
-        //     Provider.of<MapMarkers>(context, listen: false),
-        //     Provider.of<MarkersService>(context, listen: false),
-        //     () => Navigator.pop(context),
-        //  ),
-        //),
       ],
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -263,9 +86,7 @@ class _MapScreenState extends State<MapScreen> {
         ),
         body: Stack(
           children: [
-            InteractiveMap(
-                //showCard: showInfoCard,
-                ),
+            InteractiveMap(),
           ],
         ),
         floatingActionButton: MapButtons(),
