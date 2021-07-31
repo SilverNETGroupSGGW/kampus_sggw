@@ -22,22 +22,17 @@ class SearchHistory extends UserHistory with StorableJSON, LoadableJSON {
 
   Map<String, dynamic> toJson() => _$SearchHistoryToJson(this);
 
-  void save() async {
-    super.saveToJson('searchHistory');
-  }
-
   @override
   void addItem(MapItem mapItem) {
     super.addItem(mapItem);
-    save();
+    _save();
   }
 
   @override
   void deleteItem(MapItem mapItem) {
     super.deleteItem(mapItem);
-    _filtered = storedMapItems;
-    save();
-    notifyListeners();
+    _resetFiltered();
+    _save();
   }
 
   @override
@@ -55,6 +50,15 @@ class SearchHistory extends UserHistory with StorableJSON, LoadableJSON {
     String jsonString = await LoadableJSON.getJSONString('searchHistory');
     Map<String, dynamic> map = jsonDecode(jsonString);
     return SearchHistory.fromJson(map);
+  }
+
+  void _resetFiltered() {
+    _filtered = storedMapItems;
+    notifyListeners();
+  }
+
+  void _save() async {
+    super.saveToJson('searchHistory');
   }
 
   List<MapItem> _filterToMuchQuery({String query}) {
