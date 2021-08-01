@@ -11,16 +11,15 @@ class SearchService extends ChangeNotifier {
     _mapMarkers = mapMarkers;
   }
 
-  set searchButtonController(SearchButtonController value) {
-    _searchButton = value;
-  }
+  set searchButtonController(SearchButtonController value) =>
+      _searchButton = value;
 
   void filter(String filterName, List<MapItem> filteredItems) {
     _mapMarkers.updateMarkers(filteredItems);
     _searchButton.showUnfilterButton(filterName);
   }
 
-  void showSearchedItem(MapItem item) {
-    filter(item.name, [item]);
-  }
+  void showSearchedItem(MapItem item) => filter(item.name, [item]);
+
+  void resetMarkers() => _mapMarkers.resetMarkers();
 }

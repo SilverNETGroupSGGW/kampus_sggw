@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/logic/map_markers_controller.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 
 class SearchButtonController extends ChangeNotifier {
   FloatingActionButton _button;
   Function _onSearchButtonPressed;
   Function _collapseBottomDrawer;
-  MapMarkersConroller _mapMarkers;
+  SearchService _searchService;
 
   FloatingActionButton get button => _button;
 
   SearchButtonController({
     SearchService searchService,
-    MapMarkersConroller mapMarkers,
     Function onSearchButtonPressed,
     Function collapseBottomDrawerFunc,
   }) {
+    _searchService = searchService;
     searchService.searchButtonController = this;
-    _mapMarkers = mapMarkers;
     _onSearchButtonPressed = onSearchButtonPressed;
     _collapseBottomDrawer = collapseBottomDrawerFunc;
     _button = _searchButton();
@@ -57,7 +55,7 @@ class SearchButtonController extends ChangeNotifier {
   }
 
   void _restoreToDefault() {
-    _mapMarkers.resetMarkers();
+    _searchService.resetMarkers();
     _button = _searchButton();
     return notifyListeners();
   }

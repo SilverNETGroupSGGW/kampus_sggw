@@ -39,8 +39,6 @@ class _MapScreenState extends State<MapScreen> {
         ChangeNotifierProvider(
           create: (context) => SearchButtonController(
             searchService: Provider.of<SearchService>(context, listen: false),
-            mapMarkers:
-                Provider.of<MapMarkersConroller>(context, listen: false),
             onSearchButtonPressed: _showBottomDrawer,
             collapseBottomDrawerFunc: () => Navigator.pop(context),
           ),
