@@ -11,7 +11,7 @@ class SearchService extends ChangeNotifier {
     _mapMarkers = mapMarkers;
   }
 
-  set searchButton(SearchButtonController value) {
+  set searchButtonController(SearchButtonController value) {
     _searchButton = value;
   }
 

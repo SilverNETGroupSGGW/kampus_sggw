@@ -9,9 +9,9 @@ class FilterService extends ChangeNotifier {
   MapItems _mapItems;
   SearchService _searchService;
 
-  FilterService({mapItems, markersService}) {
+  FilterService({mapItems, searchService}) {
     _mapItems = mapItems;
-    _searchService = markersService;
+    _searchService = searchService;
   }
 
   void filterMapItems(FiltrationEventParam eventParam) {

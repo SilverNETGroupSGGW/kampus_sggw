@@ -16,7 +16,7 @@ class SearchButtonController extends ChangeNotifier {
     Function onSearchButtonPressed,
     Function collapseBottomDrawerFunc,
   }) {
-    searchService.searchButton = this;
+    searchService.searchButtonController = this;
     _mapMarkers = mapMarkers;
     _onSearchButtonPressed = onSearchButtonPressed;
     _collapseBottomDrawer = collapseBottomDrawerFunc;

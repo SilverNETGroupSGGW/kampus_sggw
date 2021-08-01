@@ -34,13 +34,12 @@ Future<void> main() async {
     mapController: mapController,
     iconsController: await MapIconsController.loadIcons(),
   );
-  //await markersConroller.initializeIcons();
   final searchService = SearchService(
     mapMarkers: markersConroller,
   );
   final filterService = FilterService(
     mapItems: mapItems,
-    markersService: searchService,
+    searchService: searchService,
   );
   final suggestionService = SuggestionService(
     mapItems: mapItems,
