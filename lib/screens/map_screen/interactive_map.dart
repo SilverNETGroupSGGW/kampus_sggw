@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kampus_sggw/models/map_settings.dart';
 import 'package:kampus_sggw/logic/map_controller.dart';
-import 'package:kampus_sggw/logic/map_markers.dart';
+import 'package:kampus_sggw/logic/map_markers_controller.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';
 import 'package:provider/provider.dart';
@@ -27,7 +27,7 @@ class InteractiveMap extends StatefulWidget {
   _InteractiveMapState createState() => _InteractiveMapState();
 }
 
-class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
+class _InteractiveMapState extends State<InteractiveMap> {
   @override
   void initState() {
     super.initState();
@@ -71,7 +71,7 @@ class _InteractiveMapState extends State<InteractiveMap> with ChangeNotifier {
         Provider.of<MapController>(context, listen: false)
             .bindWithGoogleMap(controller);
       },
-      markers: Provider.of<MapMarkers>(context, listen: true).markers,
+      markers: Provider.of<MapMarkersConroller>(context, listen: true).markers,
     );
   }
 }

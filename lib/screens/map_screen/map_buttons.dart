@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/map_controller.dart';
-import 'package:kampus_sggw/screens/map_screen/search_button.dart';
+import 'package:kampus_sggw/logic/search_button_controller.dart';
 import 'package:provider/provider.dart';
 
 class MapButtons extends StatelessWidget {
@@ -20,7 +20,7 @@ class MapButtons extends StatelessWidget {
         Padding(
           padding: EdgeInsets.all(5),
         ),
-        Provider.of<SearchButton>(context, listen: true).button,
+        Provider.of<SearchButtonController>(context, listen: true).button,
       ],
     );
   }

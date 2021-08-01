@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/models/map_item.dart';
-import 'package:kampus_sggw/logic/map_markers.dart';
-import 'package:kampus_sggw/screens/map_screen/search_button.dart';
+import 'package:kampus_sggw/logic/map_markers_controller.dart';
+import 'package:kampus_sggw/logic/search_button_controller.dart';
 
 class SearchService extends ChangeNotifier {
-  MapMarkers _mapMarkers;
-  SearchButton _searchButton;
+  MapMarkersConroller _mapMarkers;
+  SearchButtonController _searchButton;
 
-  SearchService({MapMarkers mapMarkers}) {
+  SearchService({MapMarkersConroller mapMarkers}) {
     _mapMarkers = mapMarkers;
   }
 
-  set searchButton(SearchButton value) {
+  set searchButton(SearchButtonController value) {
     _searchButton = value;
   }
 
