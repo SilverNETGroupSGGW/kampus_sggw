@@ -14,7 +14,3 @@ MapItems _$MapItemsFromJson(Map<String, dynamic> json) {
         ?.toList(),
   );
 }
-
-Map<String, dynamic> _$MapItemsToJson(MapItems instance) => <String, dynamic>{
-      'mapItems': instance.mapItems,
-    };

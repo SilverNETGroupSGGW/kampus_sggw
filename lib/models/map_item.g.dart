@@ -33,21 +33,6 @@ MapItem _$MapItemFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MapItemToJson(MapItem instance) => <String, dynamic>{
-      'id': instance.id,
-      'geoLocation': instance.geoLocation,
-      'name': instance.name,
-      'description': instance.description,
-      'url': instance.url,
-      'type': _$MapItemTypeEnumMap[instance.type],
-      'photoPath': instance.photoPath,
-      'minScale': instance.minScale,
-      'lastModified': instance.lastModified?.toIso8601String(),
-      'gallery': instance.gallery,
-      'services': instance.services,
-      'categories': instance.categories,
-    };
-
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,
   dynamic source, {
