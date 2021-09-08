@@ -9,8 +9,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
 class FilterButtons extends StatelessWidget {
-  //void _onTapFunc(FilterService service, String filterName,
-  //{mapItemTypes, serviceTypes}) {}
   @override
   Widget build(BuildContext context) {
     FilterService filterService =

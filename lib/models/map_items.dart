@@ -1,4 +1,3 @@
-//import 'dart:collection';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/suggested_item.dart';
@@ -19,8 +18,6 @@ class MapItems extends ChangeNotifier {
   MapItems(
     this.mapItems,
   );
-
-  //UnmodifiableListView<MapItem> get mapItems => UnmodifiableListView(_mapItems);
 
   static Future<MapItems> load() async {
     Map<String, dynamic> mapItemsMap = jsonDecode(MapItems.getJsonString());
