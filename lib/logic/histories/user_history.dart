@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
-//part 'user_history.g.dart';
 
 @JsonSerializable()
 class UserHistory extends ChangeNotifier {
@@ -15,11 +14,6 @@ class UserHistory extends ChangeNotifier {
   List<MapItem> _storedMapItems;
 
   UserHistory({this.buffer, this.itemsIds});
-
-  //factory UserHistory.fromJson(Map<String, dynamic> json) =>
-  //_$UserHistoryFromJson(json);
-
-  //Map<String, dynamic> toJson() => _$UserHistoryToJson(this);
 
   UnmodifiableListView<MapItem> get storedMapItems =>
       UnmodifiableListView(_storedMapItems);
