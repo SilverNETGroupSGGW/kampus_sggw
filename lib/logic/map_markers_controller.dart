@@ -7,7 +7,7 @@ import 'package:kampus_sggw/logic/map_icons_controller.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 
-class MapMarkersConroller extends ChangeNotifier {
+class MapMarkersController extends ChangeNotifier {
   Set<Marker> _default;
   Set<Marker> _markers;
   MapController _controllerProvider;
@@ -15,7 +15,7 @@ class MapMarkersConroller extends ChangeNotifier {
 
   UnmodifiableSetView<Marker> get markers => UnmodifiableSetView(_markers);
 
-  MapMarkersConroller(
+  MapMarkersController(
       {MapController mapController, MapIconsController iconsController}) {
     _controllerProvider = mapController;
     _iconsController = iconsController;

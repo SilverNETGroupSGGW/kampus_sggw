@@ -25,7 +25,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void initState() {
     super.initState();
-    Provider.of<MapMarkersConroller>(context, listen: false)
+    Provider.of<MapMarkersController>(context, listen: false)
         .initializeDefaultMarkers(
       Provider.of<MapItems>(context, listen: false),
       _showCardFunc,

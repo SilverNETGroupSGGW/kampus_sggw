@@ -71,7 +71,7 @@ class _InteractiveMapState extends State<InteractiveMap> {
         Provider.of<MapController>(context, listen: false)
             .bindWithGoogleMap(controller);
       },
-      markers: Provider.of<MapMarkersConroller>(context, listen: true).markers,
+      markers: Provider.of<MapMarkersController>(context, listen: true).markers,
     );
   }
 }

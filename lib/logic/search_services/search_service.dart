@@ -4,10 +4,10 @@ import 'package:kampus_sggw/logic/map_markers_controller.dart';
 import 'package:kampus_sggw/logic/search_button_controller.dart';
 
 class SearchService extends ChangeNotifier {
-  MapMarkersConroller _mapMarkers;
+  MapMarkersController _mapMarkers;
   SearchButtonController _searchButton;
 
-  SearchService({MapMarkersConroller mapMarkers}) {
+  SearchService({MapMarkersController mapMarkers}) {
     _mapMarkers = mapMarkers;
   }
 

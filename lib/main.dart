@@ -30,7 +30,7 @@ Future<void> main() async {
   final visitHistory = await VisitHistory.loadFromJSON();
   final themeModel = await ThemeModel.loadFromJSON();
   final mapController = MapController();
-  final markersConroller = MapMarkersConroller(
+  final markersConroller = MapMarkersController(
     mapController: mapController,
     iconsController: await MapIconsController.loadIcons(),
   );
