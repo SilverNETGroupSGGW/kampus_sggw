@@ -24,7 +24,7 @@ class _ChangeThemeWidget extends State<ChangeThemeWidget> {
     return Switch(
       value: _isModeDarkSwitchValue,
       onChanged: (value) {
-        _theme.swithTheme();
+        _theme.switchTheme();
         _isModeDarkSwitchValue = value;
       },
       activeTrackColor: Colors.white,
