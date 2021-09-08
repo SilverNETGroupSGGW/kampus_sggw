@@ -26,19 +26,19 @@ class FilterService extends ChangeNotifier {
   }
 
   Set<MapItem> _filterByType(FiltrationEventParam eventParam) {
-    List<MapItemType> choosenTypes = eventParam.mapItemTypes;
+    List<MapItemType> chosenTypes = eventParam.mapItemTypes;
     Set<MapItem> filteredItems = {};
-    if (choosenTypes != null) {
-      filteredItems = _mapItems.filterByType(choosenTypes);
+    if (chosenTypes != null) {
+      filteredItems = _mapItems.filterByType(chosenTypes);
     }
     return filteredItems;
   }
 
   Set<MapItem> _filterByServices(FiltrationEventParam eventParam) {
-    List<ServiceType> choosenServices = eventParam.serviceTypes;
+    List<ServiceType> chosenServices = eventParam.serviceTypes;
     Set<MapItem> filteredItems = {};
-    if (choosenServices != null) {
-      filteredItems = _mapItems.filterByServices(choosenServices);
+    if (chosenServices != null) {
+      filteredItems = _mapItems.filterByServices(chosenServices);
     }
     return filteredItems;
   }
