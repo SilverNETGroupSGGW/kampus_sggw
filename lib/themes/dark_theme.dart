@@ -4,7 +4,7 @@ class DarkTheme {
   ThemeData get theme => ThemeData.dark().copyWith(
       primaryColor: Colors.grey[900],
       brightness: Brightness.dark,
-      accentColor: Colors.white,
+      //accentColor: Colors.white,
       focusColor: Colors.grey[800],
       textTheme: TextTheme(
         button: TextStyle(color: Colors.white),
@@ -65,5 +65,6 @@ class DarkTheme {
         backgroundColor: Colors.green[900],
         foregroundColor: Colors.white,
       ),
+      appBarTheme: AppBarTheme(color: Colors.green),
       dividerColor: Colors.white60);
 }
