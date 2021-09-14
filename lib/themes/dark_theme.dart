@@ -4,7 +4,6 @@ class DarkTheme {
   ThemeData get theme => ThemeData.dark().copyWith(
       primaryColor: Colors.grey[900],
       brightness: Brightness.dark,
-      //accentColor: Colors.white,
       focusColor: Colors.grey[800],
       textTheme: TextTheme(
         button: TextStyle(color: Colors.white),
