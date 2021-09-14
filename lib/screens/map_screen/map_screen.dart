@@ -49,10 +49,7 @@ class _MapScreenState extends State<MapScreen> {
         appBar: AppBar(
           title: Text(
             LocaleKeys.map_screen_title.tr(),
-            style: TextStyle(
-              fontFamily: 'SGGWSans',
-              fontWeight: FontWeight.w600,
-            ),
+            style: Theme.of(context).appBarTheme.titleTextStyle,
           ),
         ),
         body: Stack(

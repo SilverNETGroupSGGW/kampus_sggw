@@ -64,6 +64,12 @@ class DarkTheme {
         backgroundColor: Colors.green[900],
         foregroundColor: Colors.white,
       ),
-      appBarTheme: AppBarTheme(color: Colors.green),
+      appBarTheme: AppBarTheme(
+        color: Colors.green,
+        titleTextStyle: TextStyle(
+          fontFamily: 'SGGWSans',
+          fontSize: 22,
+        ),
+      ),
       dividerColor: Colors.white60);
 }

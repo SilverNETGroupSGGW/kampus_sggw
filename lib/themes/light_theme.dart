@@ -63,6 +63,12 @@ class LightTheme {
         bannerTheme: MaterialBannerThemeData(
             backgroundColor: Color.fromRGBO(110, 200, 80, 1),
             contentTextStyle: TextStyle(color: Colors.black)),
-        appBarTheme: AppBarTheme(color: Colors.green),
+        appBarTheme: AppBarTheme(
+          color: Colors.green,
+          titleTextStyle: TextStyle(
+            fontFamily: 'SGGWSans',
+            fontSize: 22,
+          ),
+        ),
       );
 }
