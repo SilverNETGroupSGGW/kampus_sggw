@@ -61,8 +61,12 @@ class LightTheme {
                 foregroundColor:
                     MaterialStateProperty.all<Color>(Colors.green))),
         bannerTheme: MaterialBannerThemeData(
-            backgroundColor: Color.fromRGBO(110, 200, 80, 1),
-            contentTextStyle: TextStyle(color: Colors.black)),
+          backgroundColor: Color.fromRGBO(110, 200, 80, 1),
+          contentTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+          ),
+        ),
         appBarTheme: AppBarTheme(
           color: Colors.green,
           titleTextStyle: TextStyle(

@@ -57,7 +57,10 @@ class DarkTheme {
       ),
       bannerTheme: MaterialBannerThemeData(
         backgroundColor: Color.fromRGBO(50, 118, 57, 1),
-        contentTextStyle: TextStyle(color: Colors.white),
+        contentTextStyle: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+        ),
       ),
       toggleableActiveColor: Colors.black,
       floatingActionButtonTheme: FloatingActionButtonThemeData(

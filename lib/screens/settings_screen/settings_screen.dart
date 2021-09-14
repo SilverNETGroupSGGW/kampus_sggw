@@ -12,10 +12,10 @@ class SettingsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           LocaleKeys.settings.tr(),
-          style: TextStyle(
-            fontFamily: 'SGGWSans',
-            fontWeight: FontWeight.w600,
-          ),
+          //style: TextStyle(
+          //fontFamily: 'SGGWSans',
+          //fontWeight: FontWeight.w600,
+          //),
         ),
       ),
       body: ListView(
