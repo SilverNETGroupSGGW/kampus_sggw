@@ -21,11 +21,3 @@ Category _$CategoryFromJson(Map<String, dynamic> json) {
         ?.toList(),
   );
 }
-
-Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
-      'name': instance.name,
-      'url': instance.url,
-      'description': instance.description,
-      'services': instance.services,
-      'subCategories': instance.subCategories,
-    };

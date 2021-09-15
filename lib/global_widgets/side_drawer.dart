@@ -14,12 +14,8 @@ class SideDrawer extends StatelessWidget {
           Container(
             height: 120.0,
             child: DrawerHeader(
-              child: Text(
-                LocaleKeys.map_screen_title.tr(),
-                style: TextStyle(
-                  color: Theme.of(context).bannerTheme.contentTextStyle.color,
-                ),
-              ),
+              child: Text(LocaleKeys.map_screen_title.tr(),
+                  style: Theme.of(context).bannerTheme.contentTextStyle),
               decoration: BoxDecoration(
                 color: Theme.of(context).bannerTheme.backgroundColor,
               ),

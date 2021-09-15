@@ -1,28 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/logic/visit_history.dart';
+import 'package:kampus_sggw/logic/histories/visit_history.dart';
+import 'package:kampus_sggw/logic/search_bar_controller.dart';
+import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
+import 'package:kampus_sggw/models/map_items.dart';
+import 'package:provider/provider.dart';
 
-class RecentlyVisitedList extends StatefulWidget {
-  final VisitHistory visitHistory;
-  final Function onItemTilePressed;
-
-  const RecentlyVisitedList({
-    Key key,
-    @required this.visitHistory,
-    @required this.onItemTilePressed,
-  }) : super(key: key);
-
+class VisitHistoryList extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _RecentlyVisitedList();
+  State<StatefulWidget> createState() => _VisitHistoryList();
 }
 
-class _RecentlyVisitedList extends State<RecentlyVisitedList> {
-  List<MapItem> _visitedItems;
+class _VisitHistoryList extends State<VisitHistoryList> {
+  VisitHistory _visitHistory;
 
   @override
   void initState() {
     super.initState();
-    _visitedItems = widget.visitHistory.updateMapItems();
+    _visitHistory = _initializeVisitHistory();
   }
 
   @override
@@ -30,7 +25,7 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
     return Expanded(
       child: ListView(
         physics: NeverScrollableScrollPhysics(),
-        children: _visitedItems
+        children: _visitHistory.storedMapItems
             .map((item) => Card(child: _recentlyVisitedItemCard(item)))
             .toList(),
       ),
@@ -39,7 +34,7 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
 
   ListTile _recentlyVisitedItemCard(MapItem item) {
     return ListTile(
-      onTap: () => _onTapFunc(item),
+      onTap: () => _showItemOnMap(item),
       leading: _mapItemIcon(item.type),
       title: Text(
         item.name,
@@ -51,8 +46,7 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
           icon: const Icon(Icons.clear),
           onPressed: () {
             setState(() {
-              widget.visitHistory.deleteItem(item);
-              _updateRecentlyVisited();
+              _visitHistory.deleteItem(item);
             });
           }),
     );
@@ -75,14 +69,18 @@ class _RecentlyVisitedList extends State<RecentlyVisitedList> {
     return Icon(Icons.info_outline);
   }
 
-  void _onTapFunc(MapItem item) {
-    setState(() {
-      widget.visitHistory.addItem(item);
-      _updateRecentlyVisited();
-      widget.onItemTilePressed(item);
-    });
+  void _showItemOnMap(MapItem item) {
+    _visitHistory.addItem(item);
+    Provider.of<SearchService>(context, listen: false).showSearchedItem(item);
+    Provider.of<SearchBarController>(context, listen: false).close();
   }
 
-  void _updateRecentlyVisited() =>
-      _visitedItems = widget.visitHistory.updateMapItems();
+  VisitHistory _initializeVisitHistory() {
+    VisitHistory visitHistory =
+        Provider.of<VisitHistory>(context, listen: false);
+    visitHistory.loadMapItems(
+      Provider.of<MapItems>(context, listen: false),
+    );
+    return visitHistory;
+  }
 }

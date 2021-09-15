@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/screens/settings_screen/settings_screen_widgets/change_language_widget.dart';
 import 'package:kampus_sggw/screens/settings_screen/settings_screen_widgets/change_theme_widget.dart';
@@ -12,10 +11,6 @@ class SettingsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           LocaleKeys.settings.tr(),
-          style: TextStyle(
-            fontFamily: 'SGGWSans',
-            fontWeight: FontWeight.w600,
-          ),
         ),
       ),
       body: ListView(

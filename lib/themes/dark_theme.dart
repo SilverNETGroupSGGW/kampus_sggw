@@ -4,7 +4,6 @@ class DarkTheme {
   ThemeData get theme => ThemeData.dark().copyWith(
       primaryColor: Colors.grey[900],
       brightness: Brightness.dark,
-      accentColor: Colors.white,
       focusColor: Colors.grey[800],
       textTheme: TextTheme(
         button: TextStyle(color: Colors.white),
@@ -58,12 +57,22 @@ class DarkTheme {
       ),
       bannerTheme: MaterialBannerThemeData(
         backgroundColor: Color.fromRGBO(50, 118, 57, 1),
-        contentTextStyle: TextStyle(color: Colors.white),
+        contentTextStyle: TextStyle(
+          color: Colors.white,
+          fontSize: 16,
+        ),
       ),
       toggleableActiveColor: Colors.black,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: Colors.green[900],
         foregroundColor: Colors.white,
+      ),
+      appBarTheme: AppBarTheme(
+        color: Color.fromRGBO(50, 118, 57, 1),
+        titleTextStyle: TextStyle(
+          fontFamily: 'SGGWSans',
+          fontSize: 20,
+        ),
       ),
       dividerColor: Colors.white60);
 }

@@ -12,8 +12,3 @@ Location _$LocationFromJson(Map<String, dynamic> json) {
     (json['lon'] as num)?.toDouble(),
   );
 }
-
-Map<String, dynamic> _$LocationToJson(Location instance) => <String, dynamic>{
-      'lat': instance.lat,
-      'lon': instance.lon,
-    };

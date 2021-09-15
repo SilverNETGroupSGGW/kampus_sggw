@@ -1,23 +1,22 @@
-import 'dart:convert';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:kampus_sggw/logic/search_history.dart';
+import 'package:kampus_sggw/logic/histories/search_history.dart';
+import 'package:kampus_sggw/logic/histories/visit_history.dart';
+import 'package:kampus_sggw/logic/map_controller.dart';
+import 'package:kampus_sggw/logic/map_icons_controller.dart';
+import 'package:kampus_sggw/logic/search_services/fiter_service.dart';
+import 'package:kampus_sggw/logic/search_services/search_service.dart';
+import 'package:kampus_sggw/logic/search_services/suggestion_service.dart';
 import 'package:kampus_sggw/models/map_items.dart';
+import 'package:kampus_sggw/models/theme_model.dart';
+import 'package:kampus_sggw/logic/search_bar_controller.dart';
+import 'package:kampus_sggw/logic/map_markers_controller.dart';
 import 'package:kampus_sggw/screens/map_screen/map_screen.dart';
-import 'package:kampus_sggw/themes/dark_theme.dart';
-import 'package:kampus_sggw/themes/light_theme.dart';
 import 'package:kampus_sggw/translations/codegen_loader.g.dart';
 import 'package:kampus_sggw/updateLocalData.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'logic/visit_history.dart';
-
-var darkTheme = DarkTheme().theme;
-var lightTheme = LightTheme().theme;
-enum ThemeType { Light, Dark }
-var darkMode = 1;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,23 +25,25 @@ Future<void> main() async {
 
   await checkUpdates();
 
-  Map<String, dynamic> mapItemsMap = jsonDecode(MapItems.getJsonSting());
-  final mapItems = MapItems.fromJson(mapItemsMap);
-  mapItems.generateFuzzyStringSetForMapItems();
-
-  Map<String, dynamic> searchHistoryMap =
-      jsonDecode(await SearchHistory.getJsonSting());
-  final searchHistory = SearchHistory.fromJson(searchHistoryMap);
-  searchHistory.mapItems = mapItems;
-  searchHistory.updateMapItems();
-
-  Map<String, dynamic> visitHistoryMap =
-      jsonDecode(await VisitHistory.getJsonSting());
-  final visitHistory = VisitHistory.fromJson(visitHistoryMap);
-  visitHistory.mapItems = mapItems;
-
-  final prefs = await SharedPreferences.getInstance();
-  darkMode = prefs.getInt('isDarkModeOn') ?? 1;
+  final mapItems = await MapItems.load();
+  final searchHistory = await SearchHistory.loadFromJSON();
+  final visitHistory = await VisitHistory.loadFromJSON();
+  final themeModel = await ThemeModel.loadFromJSON();
+  final mapController = MapController();
+  final markersConroller = MapMarkersController(
+    mapController: mapController,
+    iconsController: await MapIconsController.loadIcons(),
+  );
+  final searchService = SearchService(
+    mapMarkers: markersConroller,
+  );
+  final filterService = FilterService(
+    mapItems: mapItems,
+    searchService: searchService,
+  );
+  final suggestionService = SuggestionService(
+    mapItems: mapItems,
+  );
 
   runApp(
     EasyLocalization(
@@ -51,29 +52,28 @@ Future<void> main() async {
       fallbackLocale: Locale('pl'),
       startLocale: Locale('pl'),
       assetLoader: CodegenLoader(),
-      child: ChangeNotifierProvider<ThemeModel>(
-        create: (context) => ThemeModel(),
-        child: CampusSGGW(
-          mapItems: mapItems,
-          searchHistory: searchHistory,
-          visitHistory: visitHistory,
-        ),
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider.value(value: mapItems),
+          ChangeNotifierProvider.value(value: searchHistory),
+          ChangeNotifierProvider.value(value: visitHistory),
+          ChangeNotifierProvider.value(value: themeModel),
+          ChangeNotifierProvider.value(value: searchService),
+          ChangeNotifierProvider.value(value: filterService),
+          ChangeNotifierProvider.value(value: suggestionService),
+          ChangeNotifierProvider.value(value: mapController),
+          ChangeNotifierProvider.value(value: markersConroller),
+          ChangeNotifierProvider(
+            create: (_) => SearchBarController(),
+          ),
+        ],
+        child: CampusSGGW(),
       ),
     ),
   );
 }
 
 class CampusSGGW extends StatefulWidget {
-  final MapItems mapItems;
-  final SearchHistory searchHistory;
-  final VisitHistory visitHistory;
-  const CampusSGGW({
-    Key key,
-    this.mapItems,
-    this.searchHistory,
-    this.visitHistory,
-  }) : super(key: key);
-
   @override
   _CampusSGGWState createState() => _CampusSGGWState();
 }
@@ -87,32 +87,10 @@ class _CampusSGGWState extends State<CampusSGGW> {
     return MaterialApp(
       title: 'Kampus SGGW',
       theme: Provider.of<ThemeModel>(context).currentTheme,
-      home: MapScreen(
-        mapItems: widget.mapItems,
-        searchHistory: widget.searchHistory,
-        visitHistory: widget.visitHistory,
-      ),
+      home: MapScreen(),
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
       locale: context.locale,
     );
-  }
-}
-
-class ThemeModel extends ChangeNotifier {
-  ThemeData currentTheme = darkMode == 1 ? darkTheme : lightTheme;
-  ThemeType _themeType = darkMode == 1 ? ThemeType.Dark : ThemeType.Light;
-
-  toggleTheme() {
-    if (_themeType == ThemeType.Dark) {
-      currentTheme = lightTheme;
-      _themeType = ThemeType.Light;
-    }
-    else if (_themeType == ThemeType.Light) {
-      currentTheme = darkTheme;
-      _themeType = ThemeType.Dark;
-    }
-
-    return notifyListeners();
   }
 }

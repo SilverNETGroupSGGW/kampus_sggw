@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 class LightTheme {
   ThemeData get theme => ThemeData.light().copyWith(
-        primaryColor: Colors.green,
-        accentColor: Colors.green,
         brightness: Brightness.light,
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: Colors.lightGreen,
@@ -63,7 +61,18 @@ class LightTheme {
                 foregroundColor:
                     MaterialStateProperty.all<Color>(Colors.green))),
         bannerTheme: MaterialBannerThemeData(
-            backgroundColor: Color.fromRGBO(110, 200, 80, 1),
-            contentTextStyle: TextStyle(color: Colors.black)),
+          backgroundColor: Color.fromRGBO(110, 200, 80, 1),
+          contentTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+          ),
+        ),
+        appBarTheme: AppBarTheme(
+          color: Color.fromRGBO(110, 200, 80, 1),
+          titleTextStyle: TextStyle(
+            fontFamily: 'SGGWSans',
+            fontSize: 20,
+          ),
+        ),
       );
 }

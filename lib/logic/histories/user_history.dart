@@ -1,31 +1,38 @@
+import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
-part 'user_history.g.dart';
 
 @JsonSerializable()
-class UserHistory {
+class UserHistory extends ChangeNotifier {
   @JsonKey(defaultValue: 6)
   int buffer;
   @JsonKey(defaultValue: <int>[])
   List<int> itemsIds;
   @JsonKey(ignore: true)
-  MapItems mapItems;
+  List<MapItem> _storedMapItems;
 
   UserHistory({this.buffer, this.itemsIds});
 
-  factory UserHistory.fromJson(Map<String, dynamic> json) =>
-      _$UserHistoryFromJson(json);
+  UnmodifiableListView<MapItem> get storedMapItems =>
+      UnmodifiableListView(_storedMapItems);
+
+  void loadMapItems(MapItems mapItems) {
+    _storedMapItems = mapItems.getItems(itemsIds).reversed.toList();
+  }
 
   @protected
-  List<MapItem> updateMapItems() =>
-      mapItems.getItems(itemsIds).reversed.toList();
-
   void addItem(MapItem mapItem) {
     _putAtFirstPosition(mapItem);
     itemsIds.add(mapItem.id);
     _trimListToBuffer();
+  }
+
+  @protected
+  void deleteItem(MapItem mapItem) {
+    itemsIds.removeWhere((id) => id == mapItem.id);
+    _storedMapItems.removeWhere((item) => item.id == mapItem.id);
   }
 
   void _trimListToBuffer() {
@@ -35,10 +42,6 @@ class UserHistory {
   }
 
   void _putAtFirstPosition(MapItem mapItem) {
-      deleteItem(mapItem);
-  }
-
-  void deleteItem(MapItem mapItem) {
-    itemsIds.removeWhere((item) => item == mapItem.id);
+    itemsIds.removeWhere((id) => id == mapItem.id);
   }
 }

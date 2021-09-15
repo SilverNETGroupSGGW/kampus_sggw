@@ -16,14 +16,6 @@ Service _$ServiceFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ServiceToJson(Service instance) => <String, dynamic>{
-      'name': instance.name,
-      'type': _$ServiceTypeEnumMap[instance.type],
-      'description': instance.description,
-      'url': instance.url,
-      'photoPath': instance.photoPath,
-    };
-
 T _$enumDecode<T>(
   Map<T, dynamic> enumValues,
   dynamic source, {

@@ -1,21 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/logic/visit_history.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'recently_visited_list.dart';
-import 'filter_buttons_row.dart';
+import 'visit_history_list.dart';
+import 'filter_buttons.dart';
 
 class SearchHelpPanel extends StatelessWidget {
-  final VisitHistory visitHistory;
-  final Function onFilterButtonPressed;
-  final Function onItemTilePressed;
-  const SearchHelpPanel({
-    Key key,
-    @required this.visitHistory,
-    @required this.onFilterButtonPressed,
-    @required this.onItemTilePressed,
-  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final fsb = FloatingSearchBar.of(context);
@@ -28,16 +18,11 @@ class SearchHelpPanel extends StatelessWidget {
           Headline(
             text: LocaleKeys.find_nearby.tr(),
           ),
-          FilterButtonsRow(
-            onButtonPressed : onFilterButtonPressed,
-          ),
+          FilterButtons(),
           Headline(
             text: LocaleKeys.recent_searches.tr(),
           ),
-          RecentlyVisitedList(
-            visitHistory: visitHistory,
-            onItemTilePressed: onItemTilePressed,
-          ),
+          VisitHistoryList(),
         ],
       ),
     );
@@ -47,7 +32,10 @@ class SearchHelpPanel extends StatelessWidget {
 class Headline extends StatelessWidget {
   final text;
 
-  const Headline({Key key, this.text}) : super(key: key);
+  const Headline({
+    Key key,
+    this.text,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

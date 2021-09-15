@@ -17,13 +17,6 @@ CampusRules _$CampusRulesFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$CampusRulesToJson(CampusRules instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'lang': instance.lang,
-      'campusRulesList': instance.campusRulesList,
-    };
-
 CampusRule _$CampusRuleFromJson(Map<String, dynamic> json) {
   return CampusRule(
     json['ruleNumber'] as int,
@@ -36,22 +29,9 @@ CampusRule _$CampusRuleFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$CampusRuleToJson(CampusRule instance) =>
-    <String, dynamic>{
-      'ruleNumber': instance.ruleNumber,
-      'rule': instance.rule,
-      'subRulesList': instance.subRulesList,
-    };
-
 CampusSubRule _$CampusSubRuleFromJson(Map<String, dynamic> json) {
   return CampusSubRule(
     json['subRuleNumber'] as int,
     json['subRule'] as String,
   );
 }
-
-Map<String, dynamic> _$CampusSubRuleToJson(CampusSubRule instance) =>
-    <String, dynamic>{
-      'subRuleNumber': instance.subRuleNumber,
-      'subRule': instance.subRule,
-    };
