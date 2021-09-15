@@ -68,7 +68,7 @@ class DarkTheme {
         foregroundColor: Colors.white,
       ),
       appBarTheme: AppBarTheme(
-        color: Colors.green,
+        color: Color.fromRGBO(50, 118, 57, 1),
         titleTextStyle: TextStyle(
           fontFamily: 'SGGWSans',
           fontSize: 20,

@@ -68,7 +68,7 @@ class LightTheme {
           ),
         ),
         appBarTheme: AppBarTheme(
-          color: Colors.green,
+          color: Color.fromRGBO(110, 200, 80, 1),
           titleTextStyle: TextStyle(
             fontFamily: 'SGGWSans',
             fontSize: 20,
