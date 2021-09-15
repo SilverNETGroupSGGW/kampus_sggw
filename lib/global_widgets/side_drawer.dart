@@ -24,7 +24,7 @@ class SideDrawer extends StatelessWidget {
           ListTile(
             title: Text(
               LocaleKeys.drawer_settings.tr(),
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.subtitle2,
             ),
             onTap: () {
               Navigator.push(
@@ -36,7 +36,7 @@ class SideDrawer extends StatelessWidget {
           ListTile(
             title: Text(
               LocaleKeys.drawer_campus_rules.tr(),
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.subtitle2,
             ),
             onTap: () {
               Navigator.push(

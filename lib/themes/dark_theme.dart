@@ -59,7 +59,7 @@ class DarkTheme {
         backgroundColor: Color.fromRGBO(50, 118, 57, 1),
         contentTextStyle: TextStyle(
           color: Colors.white,
-          fontSize: 20,
+          fontSize: 16,
         ),
       ),
       toggleableActiveColor: Colors.black,
@@ -71,7 +71,7 @@ class DarkTheme {
         color: Colors.green,
         titleTextStyle: TextStyle(
           fontFamily: 'SGGWSans',
-          fontSize: 22,
+          fontSize: 20,
         ),
       ),
       dividerColor: Colors.white60);

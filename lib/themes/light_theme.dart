@@ -64,14 +64,14 @@ class LightTheme {
           backgroundColor: Color.fromRGBO(110, 200, 80, 1),
           contentTextStyle: TextStyle(
             color: Colors.white,
-            fontSize: 20,
+            fontSize: 16,
           ),
         ),
         appBarTheme: AppBarTheme(
           color: Colors.green,
           titleTextStyle: TextStyle(
             fontFamily: 'SGGWSans',
-            fontSize: 22,
+            fontSize: 20,
           ),
         ),
       );
