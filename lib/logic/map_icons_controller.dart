@@ -1,6 +1,8 @@
 import 'dart:io';
-
+import 'dart:typed_data';
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kampus_sggw/logic/marker_type_enum.dart';
 import 'package:kampus_sggw/models/map_item.dart';
@@ -52,12 +54,22 @@ class MapIconsController {
     return _bitmapDescriptors[MarkerTypeEnum.otherMarker];
   }
 
+  Future<Uint8List> getBytesFromAsset(String path, int width) async {
+    ByteData data = await rootBundle.load(path);
+    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(),
+        targetWidth: width);
+    ui.FrameInfo fi = await codec.getNextFrame();
+    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))
+        .buffer
+        .asUint8List();
+  }
+
   Future<void> _initializeIcons() async {
     Size iconSize = _getIconSize();
     _addBitmapDescriptor(
       MarkerTypeEnum.facultyMarker,
-      await BitmapDescriptor.fromAssetImage(ImageConfiguration(size: iconSize),
-          'assets/images/icons/facultyMarker.png'),
+      BitmapDescriptor.fromBytes(await getBytesFromAsset(
+          'assets/images/icons/facultyMarker.png', 100)),
     );
 
     _addBitmapDescriptor(
