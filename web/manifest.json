@@ -1,6 +1,6 @@
 {
-    "name": "maps_demo",
-    "short_name": "maps_demo",
+    "name": "Kampus SGGW",
+    "short_name": "Kampus SGGW",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
