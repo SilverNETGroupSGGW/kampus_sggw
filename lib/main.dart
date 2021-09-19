@@ -5,7 +5,7 @@ import 'package:kampus_sggw/logic/histories/search_history.dart';
 import 'package:kampus_sggw/logic/histories/visit_history.dart';
 import 'package:kampus_sggw/logic/map_controller.dart';
 import 'package:kampus_sggw/logic/map_icons_controller.dart';
-import 'package:kampus_sggw/logic/search_services/fiter_service.dart';
+import 'package:kampus_sggw/logic/search_services/filter_service.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/logic/search_services/suggestion_service.dart';
 import 'package:kampus_sggw/models/map_items.dart';
@@ -30,12 +30,12 @@ Future<void> main() async {
   final visitHistory = await VisitHistory.loadFromJSON();
   final themeModel = await ThemeModel.loadFromJSON();
   final mapController = MapController();
-  final markersConroller = MapMarkersController(
+  final markersController = MapMarkersController(
     mapController: mapController,
     iconsController: await MapIconsController.loadIcons(),
   );
   final searchService = SearchService(
-    mapMarkers: markersConroller,
+    mapMarkers: markersController,
   );
   final filterService = FilterService(
     mapItems: mapItems,
@@ -62,7 +62,7 @@ Future<void> main() async {
           ChangeNotifierProvider.value(value: filterService),
           ChangeNotifierProvider.value(value: suggestionService),
           ChangeNotifierProvider.value(value: mapController),
-          ChangeNotifierProvider.value(value: markersConroller),
+          ChangeNotifierProvider.value(value: markersController),
           ChangeNotifierProvider(
             create: (_) => SearchBarController(),
           ),

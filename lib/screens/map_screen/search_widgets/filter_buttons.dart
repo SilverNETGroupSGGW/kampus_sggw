@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/filtration_event_param.dart';
-import 'package:kampus_sggw/logic/search_services/fiter_service.dart';
+import 'package:kampus_sggw/logic/search_services/filter_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/service.dart';
 import 'package:kampus_sggw/screens/map_screen/filter_button.dart';
