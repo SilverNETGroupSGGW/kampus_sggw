@@ -10,18 +10,41 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>pl</string>
+	</array>
 	<key>CFBundleName</key>
-	<string>maps_demo</string>
+	<string>Kampus SGGW</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>$(FLUTTER_BUILD_NAME)</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>We do not access your media</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>We do not access bluetooth</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>We do not access bluetooth</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>We do not access your calendars</string>
+	<key>NSContactsUsageDescription</key>
+	<string>We do not access your contacts</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Your location is required for finding your position at campus</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location is required for finding your position at campus</string>
+	<key>NSMotionUsageDescription</key>
+	<string>We do not access your motion data</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>We do not access your speech recognition data</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -41,10 +64,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>CFBundleLocalizations</key>
-	<array>
-		<string>en</string>
-		<string>pl</string>
-	</array>
+	<key>kTCCServiceMediaLibrary</key>
+	<string>We do not access your music</string>
 </dict>
 </plist>

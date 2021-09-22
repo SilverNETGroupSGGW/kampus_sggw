@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kampus_sggw/logic/marker_type_enum.dart';
@@ -17,13 +19,11 @@ class MapIconsController {
   }
 
   BitmapDescriptor mapIcon(MapItemType type) {
-    if (type == MapItemType.facultyBuilding) {
+    if (type == MapItemType.facultyBuilding)
       return _bitmapDescriptors[MarkerTypeEnum.facultyMarker];
-    }
 
-    if (type == MapItemType.administrationBuilding) {
+    if (type == MapItemType.administrationBuilding)
       return _bitmapDescriptors[MarkerTypeEnum.administrationMarker];
-    }
 
     if (type == MapItemType.dormitories)
       return _bitmapDescriptors[MarkerTypeEnum.hotelMarker];
@@ -53,85 +53,123 @@ class MapIconsController {
   }
 
   Future<void> _initializeIcons() async {
+    String dirName = _getIconsDir();
+
     _addBitmapDescriptor(
       MarkerTypeEnum.facultyMarker,
       await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(30, 45)),
-          'assets/images/icons/facultyMarker.png'),
+          ImageConfiguration(
+            size: Size(30, 45),
+          ),
+          dirName + 'facultyMarker.png'),
     );
 
     _addBitmapDescriptor(
       MarkerTypeEnum.sportMarker,
       await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(30, 45)),
-          'assets/images/icons/sportMarker.png'),
+          ImageConfiguration(
+            size: Size(30, 45),
+          ),
+          dirName + 'sportMarker.png'),
     );
 
     _addBitmapDescriptor(
       MarkerTypeEnum.administrationMarker,
       await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(30, 45)),
-          'assets/images/icons/administrationMarker.png'),
+          ImageConfiguration(
+            size: Size(30, 45),
+          ),
+          dirName + 'administrationMarker.png'),
     );
 
     _addBitmapDescriptor(
       MarkerTypeEnum.hotelMarker,
       await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(30, 45)),
-          'assets/images/icons/hotelMarker.png'),
+          ImageConfiguration(
+            size: Size(30, 45),
+          ),
+          dirName + 'hotelMarker.png'),
     );
 
     _addBitmapDescriptor(
       MarkerTypeEnum.storeMarker,
       await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(30, 45)),
-          'assets/images/icons/storeMarker.png'),
+          ImageConfiguration(
+            size: Size(30, 45),
+          ),
+          dirName + 'storeMarker.png'),
     );
 
     _addBitmapDescriptor(
       MarkerTypeEnum.foodMarker,
       await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(30, 45)),
-          'assets/images/icons/foodMarker.png'),
+          ImageConfiguration(
+            size: Size(30, 45),
+          ),
+          dirName + 'foodMarker.png'),
     );
 
     _addBitmapDescriptor(
       MarkerTypeEnum.libraryMarker,
       await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(30, 45)),
-          'assets/images/icons/libraryMarker.png'),
+          ImageConfiguration(
+            size: Size(30, 45),
+          ),
+          dirName + 'libraryMarker.png'),
     );
 
     _addBitmapDescriptor(
       MarkerTypeEnum.parkingMarker,
       await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(30, 45)),
-          'assets/images/icons/parkingMarker.png'),
+          ImageConfiguration(
+            size: Size(30, 45),
+          ),
+          dirName + 'parkingMarker.png'),
     );
 
     _addBitmapDescriptor(
       MarkerTypeEnum.transportMarker,
       await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(30, 45)),
-          'assets/images/icons/transportMarker.png'),
+          ImageConfiguration(
+            size: Size(30, 45),
+          ),
+          dirName + 'transportMarker.png'),
     );
 
     _addBitmapDescriptor(
       MarkerTypeEnum.financeMarker,
       await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(30, 45)),
-          'assets/images/icons/financeMarker.png'),
+          ImageConfiguration(
+            size: Size(30, 45),
+          ),
+          dirName + 'financeMarker.png'),
     );
 
     _addBitmapDescriptor(
       MarkerTypeEnum.otherMarker,
       await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(size: Size(30, 45)),
-          'assets/images/icons/otherMarker.png'),
+          ImageConfiguration(
+            size: Size(30, 45),
+          ),
+          dirName + 'otherMarker.png'),
     );
   }
 
   void _addBitmapDescriptor(MarkerTypeEnum markerType, BitmapDescriptor icon) {
     _bitmapDescriptors[markerType] = icon;
+  }
+
+  String _getIconsDir() =>
+      _isPlatformMobile() ? _getDirBasedOnPlatform() : 'assets/images/icons/';
+
+  String _getDirBasedOnPlatform() =>
+      Platform.isAndroid ? 'assets/images/icons/' : 'assets/images/icons/ios_';
+
+  bool _isPlatformMobile() {
+    try {
+      return Platform.isAndroid || Platform.isIOS;
+    } catch (e) {
+      return false;
+    }
   }
 }
