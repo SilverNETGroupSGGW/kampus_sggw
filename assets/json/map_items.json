@@ -660,7 +660,6 @@
       "description": "Klinika Małych Zwierząt",
       "type": "facultyBuilding",
       "url": "http://www.klinikawet.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29",
       "categories": [
@@ -711,7 +710,6 @@
       "name": "Budynek 23",
       "description": "Budynek WMW i WHBiOZ",
       "type": "facultyBuilding",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29",
       "services": [
@@ -824,7 +822,6 @@
       "name": "Budynek 24",
       "description": "Budynek WMW",
       "type": "facultyBuilding",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29",
       "services": [
@@ -897,7 +894,6 @@
       "name": "Budynek 25",
       "description": "Zwierzętarnia",
       "type": "facultyBuilding",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29",
       "categories": [
@@ -923,7 +919,6 @@
       "description": "Hala Sportowa",
       "type": "sportsFacility",
       "url": "http://obiektysportowe.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -937,7 +932,6 @@
       "description": "Basen SGGW",
       "type": "sportsFacility",
       "url": "http://obiektysportowe.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29",
       "services": [
@@ -958,7 +952,6 @@
       "description": "Centrum Językowo-Sportowe (SPNJO)",
       "type": "facultyBuilding",
       "url": "http://jezyki.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29",
       "categories": [
@@ -991,7 +984,6 @@
       "name": "Budynek 30",
       "description": "Budynek administracyjny",
       "type": "administrationBuilding",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1004,7 +996,6 @@
       "name": "Budynek 31",
       "description": "Budynek administracyjny",
       "type": "administrationBuilding",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1017,7 +1008,6 @@
       "name": "Budynek 32",
       "description": "Budynek WŻC i WTŻ",
       "type": "facultyBuilding",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-04-23",
       "services": [
@@ -1141,7 +1131,6 @@
       "name": "Budynek 33",
       "description": "Budynek WBiIŚ",
       "type": "facultyBuilding",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29",
       "services": [
@@ -1445,7 +1434,6 @@
       "name": "Budynek 35",
       "description": "Budynek WOiB",
       "type": "facultyBuilding",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29",
       "services": [
@@ -1529,7 +1517,6 @@
       "name": "Budynek 37",
       "description": "Budynek WOiB i WRiB",
       "type": "facultyBuilding",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29",
       "services": [
@@ -1651,7 +1638,6 @@
       "description": "Dom studencki 'Limba', Administracja Domów i Stołówek Studenckich",
       "type": "dormitories",
       "url": "http://adiss.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1665,7 +1651,6 @@
       "description": "Hotel 'Ikar'",
       "type": "dormitories",
       "url": "http://adiss.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1679,7 +1664,6 @@
       "description": "Dom studencki 'Hilton'",
       "type": "dormitories",
       "url": "http://adiss.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1693,7 +1677,6 @@
       "description": "Dom studencki 'Grand'",
       "type": "dormitories",
       "url": "http://adiss.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1707,7 +1690,6 @@
       "description": "Dom studencki 'Eden'",
       "type": "dormitories",
       "url": "http://adiss.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1721,7 +1703,6 @@
       "description": "Dom studencki 'Feniks'",
       "type": "dormitories",
       "url": "http://adiss.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1735,7 +1716,6 @@
       "description": "Dom studencki 'Bazyliszek'",
       "type": "dormitories",
       "url": "http://adiss.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1749,7 +1729,6 @@
       "description": "Dom studencki 'Adara'",
       "type": "dormitories",
       "url": "http://adiss.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1763,7 +1742,6 @@
       "description": "Dom studencki 'Cezar'",
       "type": "dormitories",
       "url": "http://adiss.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1777,7 +1755,6 @@
       "description": "Dom studencki 'Dendryt'",
       "type": "dormitories",
       "url": "http://adiss.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1791,7 +1768,6 @@
       "description": "Biblioteka Główna SGGW",
       "type": "library",
       "url": "http://www.bg.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1804,7 +1780,6 @@
       "name": "Centrum Wodne SGGW",
       "description": "Centrum Wodne SGGW",
       "type": "facultyBuilding",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29",
       "categories": [
@@ -1841,7 +1816,6 @@
       "name": "Pomnik Władysława Grabskiego",
       "description": "Pomnik Władysława Grabskiego",
       "type": "monument",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1854,7 +1828,6 @@
       "name": "Pomnik Stanisława Wawrzyńca Staszica",
       "description": "Pomnik Stanisława Wawrzyńca Staszica",
       "type": "monument",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1867,7 +1840,6 @@
       "name": "Dąb Jana Pawła II",
       "description": "Dąb Jana Pawła II",
       "type": "monument",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1926,7 +1898,6 @@
       "description": "Parking bezpłatny niestrzeżony",
       "type": "parking",
       "url": "https://www.sggw.edu.pl/strona-glowna/informacje-praktyczne/kampus/dojazd-mapa-rekomendacje-jak-dojechac/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1940,7 +1911,6 @@
       "description": "Parking podziemny płatny strzeżony",
       "type": "parking",
       "url": "https://www.sggw.edu.pl/strona-glowna/informacje-praktyczne/kampus/dojazd-mapa-rekomendacje-jak-dojechac/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1954,7 +1924,6 @@
       "description": "Parking płatny niestrzeżony (przy Basenie SGGW)",
       "type": "parking",
       "url": "https://www.sggw.edu.pl/strona-glowna/informacje-praktyczne/kampus/dojazd-mapa-rekomendacje-jak-dojechac/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1968,7 +1937,6 @@
       "description": "Niepubliczne Przedszkole SGGW",
       "type": "kindergarten",
       "url": "https://przedszkole.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1982,7 +1950,6 @@
       "description": "Niepubliczny Zakład Opieki Zdrowotnej SGGW",
       "type": "medicine",
       "url": "https://www.sggw.edu.pl/strona-glowna/wspolpraca/uslugi/niepubliczny-zaklad-opieki-zdrowotnej/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -1995,7 +1962,6 @@
       "name": "Boiska",
       "description": "Boiska",
       "type": "sportsFacility",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -2009,7 +1975,6 @@
       "description": "Szklarnie przy Katedrze Roślin Ozdobnych",
       "type": "facultyBuilding",
       "url": "http://kro.sggw.pl/pl/oferta",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -2023,7 +1988,6 @@
       "description": "Orkiestra Reprezentacyjna SGGW w przybudówkce DS Adara",
       "type": "facultyBuilding",
       "url": "http://orkiestra.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -2037,7 +2001,6 @@
       "description": "Centrum Samorządowca SGGW w przybudówkce DS Feniks",
       "type": "facultyBuilding",
       "url": "https://www.facebook.com/RussSGGW/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -2051,7 +2014,6 @@
       "description": "Centrum Językowo-Sportowe (SWFiS)",
       "type": "sportsFacility",
       "url": "http://swfs.sggw.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29",
       "categories": [
@@ -2084,7 +2046,6 @@
       "name": "Sklep spożywczy 'Szopik'",
       "description": "Sklep spożywczy 'Szopik' w przyziemiu DS Dendryt",
       "type": "store",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -2098,7 +2059,6 @@
       "description": "Księgarnia PWN w budynku BG",
       "type": "store",
       "url": "http://warszawa.ksiegarnienaukowe.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -2112,7 +2072,6 @@
       "description": "Sklep Firmowy 'Mlekovita'",
       "type": "store",
       "url": "https://www.mlekovita.com.pl/pl/nasze-sklepy",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -2126,7 +2085,6 @@
       "description": "Drukarnia 'Polimax'",
       "type": "store",
       "url": "https://polimax.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -2140,7 +2098,6 @@
       "description": "Pub Dziekanat 161",
       "type": "food",
       "url": "https://www.facebook.com/Dziekanat161/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -2154,7 +2111,6 @@
       "description": "Pizzeria Limba",
       "type": "food",
       "url": "https://www.catering-gastro.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -2168,7 +2124,6 @@
       "description": "Stołówka przy DS Dendryt",
       "type": "food",
       "url": "https://www.catering-gastro.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -2182,7 +2137,6 @@
       "description": "Bankomat Euronet przy DS Dendryt",
       "type": "finance",
       "url": "https://www.euronetpolska.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -2196,7 +2150,6 @@
       "description": "Bankomat Pekao S.A.",
       "type": "finance",
       "url": "https://www.pekao.com.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -2210,7 +2163,6 @@
       "description": "Bank Pekao S.A.",
       "type": "finance",
       "url": "https://www.pekao.com.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -2224,7 +2176,6 @@
       "description": "Bankomat Euronet przy DS Adara",
       "type": "finance",
       "url": "https://www.euronetpolska.pl/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
@@ -2238,9 +2189,188 @@
       "description": "Apteka 'Pod Limbą'",
       "type": "medicine",
       "url": "http://www.tanilek.com/",
-      "photoPath": "assets/images/map_objects/wzim.jpg",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
+    },
+    {
+      "id": 601,
+      "geoLocation": {
+        "lat": 52.165391,
+        "lon": 21.045432
+      },
+      "name": "SGGW - Biblioteka 02",
+      "description": "Przystanek autobusowy SGGW - Biblioteka 02",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 602,
+      "geoLocation": {
+        "lat": 52.164394,
+        "lon": 21.045880
+      },
+      "name": "SGGW - Biblioteka 01",
+      "description": "Przystanek autobusowy SGGW - Biblioteka 01",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 603,
+      "geoLocation": {
+        "lat": 52.163734,
+        "lon": 21.047021
+      },
+      "name": "SGGW - Rektorat 02",
+      "description": "Przystanek autobusowy SGGW - Rektorat 02",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 604,
+      "geoLocation": {
+        "lat": 52.162505,
+        "lon": 21.047698
+      },
+      "name": "SGGW - Rektorat 01",
+      "description": "Przystanek autobusowy SGGW - Rektorat 01",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 605,
+      "geoLocation": {
+        "lat": 52.161453,
+        "lon": 21.049345
+      },
+      "name": "SGGW - Klinika 02",
+      "description": "Przystanek autobusowy SGGW - Klinika 02",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 606,
+      "geoLocation": {
+        "lat": 52.160398,
+        "lon": 21.049876
+      },
+      "name": "SGGW - Klinika 01",
+      "description": "Przystanek autobusowy SGGW - Klinika 01",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 607,
+      "geoLocation": {
+        "lat": 52.159818,
+        "lon": 21.050966
+      },
+      "name": "Ciszewskiego 04",
+      "description": "Przystanek autobusowy Ciszewskiego 04",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 608,
+      "geoLocation": {
+        "lat": 52.159422,
+        "lon": 21.052143
+      },
+      "name": "Ciszewskiego 02",
+      "description": "Przystanek autobusowy Ciszewskiego 02",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 609,
+      "geoLocation": {
+        "lat": 52.158498,
+        "lon": 21.049817
+      },
+      "name": "Ciszewskiego 06",
+      "description": "Przystanek autobusowy Ciszewskiego 06",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 610,
+      "geoLocation": {
+        "lat": 52.157105,
+        "lon": 21.046136
+      },
+      "name": "Strzeleckiego 03",
+      "description": "Przystanek autobusowy Strzeleckiego 03",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 611,
+      "geoLocation": {
+        "lat": 52.157173,
+        "lon": 21.044005
+      },
+      "name": "Strzeleckiego 02",
+      "description": "Przystanek autobusowy Strzeleckiego 02",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 612,
+      "geoLocation": {
+        "lat": 52.156157,
+        "lon": 21.042817
+      },
+      "name": "Strzeleckiego 04",
+      "description": "Przystanek autobusowy Strzeleckiego 04",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 613,
+      "geoLocation": {
+        "lat": 52.156081,
+        "lon": 21.044948
+      },
+      "name": "Strzeleckiego 01",
+      "description": "Przystanek autobusowy Strzeleckiego 01",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 614,
+      "geoLocation": {
+        "lat": 52.162124,
+        "lon": 21.037998
+      },
+      "name": "Ursynów Północny 01",
+      "description": "Przystanek autobusowy Ursynów Północny 01",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 615,
+      "geoLocation": {
+        "lat": 52.162891,
+        "lon": 21.037920
+      },
+      "name": "Ursynów Północny 02",
+      "description": "Przystanek autobusowy Ursynów Północny 02",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
     }
   ]
 }
