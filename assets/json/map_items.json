@@ -2191,6 +2191,186 @@
       "url": "http://www.tanilek.com/",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
+    },
+    {
+      "id": 601,
+      "geoLocation": {
+        "lat": 52.165391,
+        "lon": 21.045432
+      },
+      "name": "SGGW - Biblioteka 02",
+      "description": "SGGW - Biblioteka 02",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 602,
+      "geoLocation": {
+        "lat": 52.164394,
+        "lon": 21.045880
+      },
+      "name": "SGGW - Biblioteka 01",
+      "description": "SGGW - Biblioteka 01",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 603,
+      "geoLocation": {
+        "lat": 52.163734,
+        "lon": 21.047021
+      },
+      "name": "SGGW - Rektorat 02",
+      "description": "SGGW - Rektorat 02",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 604,
+      "geoLocation": {
+        "lat": 52.162505,
+        "lon": 21.047698
+      },
+      "name": "SGGW - Rektorat 01",
+      "description": "SGGW - Rektorat 01",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 605,
+      "geoLocation": {
+        "lat": 52.161453,
+        "lon": 21.049345
+      },
+      "name": "SGGW - Klinika 02",
+      "description": "SGGW - Klinika 02",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 606,
+      "geoLocation": {
+        "lat": 52.160398,
+        "lon": 21.049876
+      },
+      "name": "SGGW - Klinika 01",
+      "description": "SGGW - Klinika 01",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 607,
+      "geoLocation": {
+        "lat": 52.159818,
+        "lon": 21.050966
+      },
+      "name": "Ciszewskiego 04",
+      "description": "Ciszewskiego 04",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 608,
+      "geoLocation": {
+        "lat": 52.159422,
+        "lon": 21.052143
+      },
+      "name": "Ciszewskiego 02",
+      "description": "Ciszewskiego 02",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 609,
+      "geoLocation": {
+        "lat": 52.158498,
+        "lon": 21.049817
+      },
+      "name": "Ciszewskiego 06",
+      "description": "Ciszewskiego 06",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 610,
+      "geoLocation": {
+        "lat": 52.157105,
+        "lon": 21.046136
+      },
+      "name": "Strzeleckiego 03",
+      "description": "Strzeleckiego 03",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 611,
+      "geoLocation": {
+        "lat": 52.157173,
+        "lon": 21.044005
+      },
+      "name": "Strzeleckiego 02",
+      "description": "Strzeleckiego 02",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 612,
+      "geoLocation": {
+        "lat": 52.156157,
+        "lon": 21.042817
+      },
+      "name": "Strzeleckiego 04",
+      "description": "Strzeleckiego 04",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 613,
+      "geoLocation": {
+        "lat": 52.156081,
+        "lon": 21.044948
+      },
+      "name": "Strzeleckiego 01",
+      "description": "Strzeleckiego 01",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 614,
+      "geoLocation": {
+        "lat": 52.162124,
+        "lon": 21.037998
+      },
+      "name": "Ursynów Północny 01",
+      "description": "Ursynów Północny 01",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
+    },
+    {
+      "id": 615,
+      "geoLocation": {
+        "lat": 52.162891,
+        "lon": 21.037920
+      },
+      "name": "Ursynów Północny 02",
+      "description": "Ursynów Północny 02",
+      "type": "transport",
+      "minScale": 1.0,
+      "lastModified": "2021-10-01"
     }
   ]
 }
