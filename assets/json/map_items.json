@@ -2199,7 +2199,7 @@
         "lon": 21.045432
       },
       "name": "SGGW - Biblioteka 02",
-      "description": "SGGW - Biblioteka 02",
+      "description": "Przystanek autobusowy SGGW - Biblioteka 02",
       "type": "transport",
       "minScale": 1.0,
       "lastModified": "2021-10-01"
@@ -2211,7 +2211,7 @@
         "lon": 21.045880
       },
       "name": "SGGW - Biblioteka 01",
-      "description": "SGGW - Biblioteka 01",
+      "description": "Przystanek autobusowy SGGW - Biblioteka 01",
       "type": "transport",
       "minScale": 1.0,
       "lastModified": "2021-10-01"
@@ -2223,7 +2223,7 @@
         "lon": 21.047021
       },
       "name": "SGGW - Rektorat 02",
-      "description": "SGGW - Rektorat 02",
+      "description": "Przystanek autobusowy SGGW - Rektorat 02",
       "type": "transport",
       "minScale": 1.0,
       "lastModified": "2021-10-01"
@@ -2235,7 +2235,7 @@
         "lon": 21.047698
       },
       "name": "SGGW - Rektorat 01",
-      "description": "SGGW - Rektorat 01",
+      "description": "Przystanek autobusowy SGGW - Rektorat 01",
       "type": "transport",
       "minScale": 1.0,
       "lastModified": "2021-10-01"
@@ -2247,7 +2247,7 @@
         "lon": 21.049345
       },
       "name": "SGGW - Klinika 02",
-      "description": "SGGW - Klinika 02",
+      "description": "Przystanek autobusowy SGGW - Klinika 02",
       "type": "transport",
       "minScale": 1.0,
       "lastModified": "2021-10-01"
@@ -2259,7 +2259,7 @@
         "lon": 21.049876
       },
       "name": "SGGW - Klinika 01",
-      "description": "SGGW - Klinika 01",
+      "description": "Przystanek autobusowy SGGW - Klinika 01",
       "type": "transport",
       "minScale": 1.0,
       "lastModified": "2021-10-01"
@@ -2271,7 +2271,7 @@
         "lon": 21.050966
       },
       "name": "Ciszewskiego 04",
-      "description": "Ciszewskiego 04",
+      "description": "Przystanek autobusowy Ciszewskiego 04",
       "type": "transport",
       "minScale": 1.0,
       "lastModified": "2021-10-01"
@@ -2283,7 +2283,7 @@
         "lon": 21.052143
       },
       "name": "Ciszewskiego 02",
-      "description": "Ciszewskiego 02",
+      "description": "Przystanek autobusowy Ciszewskiego 02",
       "type": "transport",
       "minScale": 1.0,
       "lastModified": "2021-10-01"
@@ -2295,7 +2295,7 @@
         "lon": 21.049817
       },
       "name": "Ciszewskiego 06",
-      "description": "Ciszewskiego 06",
+      "description": "Przystanek autobusowy Ciszewskiego 06",
       "type": "transport",
       "minScale": 1.0,
       "lastModified": "2021-10-01"
@@ -2307,7 +2307,7 @@
         "lon": 21.046136
       },
       "name": "Strzeleckiego 03",
-      "description": "Strzeleckiego 03",
+      "description": "Przystanek autobusowy Strzeleckiego 03",
       "type": "transport",
       "minScale": 1.0,
       "lastModified": "2021-10-01"
@@ -2319,7 +2319,7 @@
         "lon": 21.044005
       },
       "name": "Strzeleckiego 02",
-      "description": "Strzeleckiego 02",
+      "description": "Przystanek autobusowy Strzeleckiego 02",
       "type": "transport",
       "minScale": 1.0,
       "lastModified": "2021-10-01"
@@ -2331,7 +2331,7 @@
         "lon": 21.042817
       },
       "name": "Strzeleckiego 04",
-      "description": "Strzeleckiego 04",
+      "description": "Przystanek autobusowy Strzeleckiego 04",
       "type": "transport",
       "minScale": 1.0,
       "lastModified": "2021-10-01"
@@ -2343,7 +2343,7 @@
         "lon": 21.044948
       },
       "name": "Strzeleckiego 01",
-      "description": "Strzeleckiego 01",
+      "description": "Przystanek autobusowy Strzeleckiego 01",
       "type": "transport",
       "minScale": 1.0,
       "lastModified": "2021-10-01"
@@ -2355,7 +2355,7 @@
         "lon": 21.037998
       },
       "name": "Ursynów Północny 01",
-      "description": "Ursynów Północny 01",
+      "description": "Przystanek autobusowy Ursynów Północny 01",
       "type": "transport",
       "minScale": 1.0,
       "lastModified": "2021-10-01"
@@ -2367,7 +2367,7 @@
         "lon": 21.037920
       },
       "name": "Ursynów Północny 02",
-      "description": "Ursynów Północny 02",
+      "description": "Przystanek autobusowy Ursynów Północny 02",
       "type": "transport",
       "minScale": 1.0,
       "lastModified": "2021-10-01"
