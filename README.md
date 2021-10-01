@@ -1,5 +1,8 @@
 # Kampus SGGW
 
+## Gałęzie main i dev
+Na gałęzi ```main``` mamy wersję aplikacji, która jest aktualnie na App Store i Google Play. Jest to aktualny release. Wszystkie pull requesty wykonujemy do gałęzi ```dev```. Tam znajduje się aktualnie rozwijany kod aplikacji.
+
 ## Jak tłumaczyć apkę
 Tłumaczenia należy dodawać do plików znajdujących się w folderze ```assets/translations```.
 Poradnik odnośnie tworzenia tłumaczeń znaleźć można tutaj: https://pub.dev/packages/easy_localization
