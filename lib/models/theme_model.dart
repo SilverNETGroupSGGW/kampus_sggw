@@ -9,7 +9,7 @@ part 'theme_model.g.dart';
 
 @JsonSerializable()
 class ThemeModel extends ChangeNotifier with StorableJSON, LoadableJSON {
-  @JsonKey(defaultValue: 0)
+  @JsonKey(defaultValue: 1)
   int themeId;
   @JsonKey(ignore: true)
   ThemeData _currentTheme;
@@ -25,18 +25,18 @@ class ThemeModel extends ChangeNotifier with StorableJSON, LoadableJSON {
 
   void switchTheme() {
     if (themeId == 0) {
-      _currentTheme = DarkTheme().theme;
       themeId = 1;
+      _currentTheme = DarkTheme().theme;
     } else {
-      _currentTheme = LightTheme().theme;
       themeId = 0;
+      _currentTheme = LightTheme().theme;
     }
     _save();
 
     return notifyListeners();
   }
 
-  bool isModeDark() => themeId == 1 ? true : false;
+  bool isModeDark() => themeId == 1;
 
   void _save() async {
     super.saveToJson('theme');
