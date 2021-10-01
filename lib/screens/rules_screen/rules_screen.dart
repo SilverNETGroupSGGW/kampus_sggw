@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/global_widgets/clickable_url.dart';
 import 'package:kampus_sggw/models/campus_rules.dart';

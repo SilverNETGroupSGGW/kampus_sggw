@@ -87,6 +87,7 @@ class _CampusSGGWState extends State<CampusSGGW> {
     return MaterialApp(
       title: 'Kampus SGGW',
       theme: Provider.of<ThemeModel>(context).currentTheme,
+      debugShowCheckedModeBanner: false,
       home: MapScreen(),
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
