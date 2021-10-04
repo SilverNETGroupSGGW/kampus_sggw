@@ -1432,7 +1432,7 @@
         "lon": 21.04260
       },
       "name": "Budynek 35",
-      "description": "Budynek WOiB",
+      "description": "Budynek WO",
       "type": "facultyBuilding",
       "minScale": 1.0,
       "lastModified": "2021-05-29",
@@ -1448,15 +1448,15 @@
           "name": "faculties",
           "subCategories": [
             {
-              "name": "WOiB",
-              "description": "Wydział Ogrodnictwa i Bioinżynierii",
-              "url": "http://wobiak.sggw.pl/",
+              "name": "WO",
+              "description": "Wydział Ogrodniczy",
+              "url": "https://wo.sggw.edu.pl/",
               "services": [
                 {
-                  "name": "Dziekanat WOiB",
+                  "name": "Dziekanat WO",
                   "type": "deanery",
                   "description": "Pokój 2",
-                  "url": "http://wobiak.sggw.pl/wydzial/kontakt/"
+                  "url": "https://wo.sggw.edu.pl/kontakt/"
                 }
               ]
             }
@@ -1515,7 +1515,7 @@
         "lon": 21.04295
       },
       "name": "Budynek 37",
-      "description": "Budynek WOiB i WRiB",
+      "description": "Budynek WO i WRiB",
       "type": "facultyBuilding",
       "minScale": 1.0,
       "lastModified": "2021-05-29",
@@ -1531,15 +1531,15 @@
           "name": "faculties",
           "subCategories": [
             {
-              "name": "WOiB",
-              "description": "Wydział Ogrodnictwa i Bioinżynierii",
-              "url": "http://wobiak.sggw.pl/",
+              "name": "WO",
+              "description": "Wydział Ogrodniczy",
+              "url": "https://wo.sggw.edu.pl",
               "services": [
                 {
                   "name": "Dziekanat WOiB",
                   "type": "deanery",
                   "description": "Pokój 0/63 i 0/65",
-                  "url": "http://wobiak.sggw.pl/wydzial/kontakt/"
+                  "url": "https://wo.sggw.edu.pl/kontakt/"
                 }
               ]
             },
