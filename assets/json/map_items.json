@@ -862,7 +862,7 @@
                   "name": "Biblioteka przy IMW",
                   "type": "library",
                   "description": "parter",
-                  "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/weterynaria"
+                  "url": "https://bg.sggw.edu.pl/biblioteki-instytutowe/biblioteka-przy-instytucie-medycyny-weterynaryjnej/"
                 }
               ],
               "subCategories": [
@@ -1062,7 +1062,7 @@
                   "name": "Biblioteka przy INoŻC",
                   "type": "library",
                   "description": "parter, pok. 114",
-                  "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/zywienie"
+                  "url": "https://bg.sggw.edu.pl/biblioteki-instytutowe/biblioteka-przy-instytucie-nauk-o-zywieniu-czlowieka/"
                 },
                 {
                   "name": "Poradnia Dietetyczno-Żywieniowa",
@@ -1170,10 +1170,10 @@
               "url": "http://wbis.sggw.pl/instytuty/instytut-inzynierii-ladowej/",
               "services": [
                 {
-                  "name": "Biblioteka przy IIL",
+                  "name": "Biblioteka przy IIL i IIŚ",
                   "type": "library",
                   "description": "1 piętro, pok. 118",
-                  "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/budownictwo"
+                  "url": "https://bg.sggw.edu.pl/biblioteki-instytutowe/biblioteka-przy-instytucie-inzynierii-ladowej-i-instytucie-inzynierii-srodowiska/"
                 }
               ],
               "subCategories": [
@@ -1202,9 +1202,10 @@
               "url": "http://wbis.sggw.pl/instytuty/instytut-inzynierii-srodowiska/",
               "services": [
                 {
-                  "name": "Biblioteka przy IIŚ",
+                  "name": "Biblioteka przy IIL i IIŚ",
                   "type": "library",
-                  "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/budownictwo"
+                  "description": "1 piętro, pok. 118",
+                  "url": "https://bg.sggw.edu.pl/biblioteki-instytutowe/biblioteka-przy-instytucie-inzynierii-ladowej-i-instytucie-inzynierii-srodowiska/"
                 }
               ],
               "subCategories": [
