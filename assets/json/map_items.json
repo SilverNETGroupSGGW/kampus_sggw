@@ -861,6 +861,7 @@
                 {
                   "name": "Biblioteka przy IMW",
                   "type": "library",
+                  "description": "parter",
                   "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/weterynaria"
                 }
               ],
@@ -1060,6 +1061,7 @@
                 {
                   "name": "Biblioteka przy INoŻC",
                   "type": "library",
+                  "description": "parter, pok. 114",
                   "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/zywienie"
                 },
                 {
@@ -1170,6 +1172,7 @@
                 {
                   "name": "Biblioteka przy IIL",
                   "type": "library",
+                  "description": "1 piętro, pok. 118",
                   "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/budownictwo"
                 }
               ],
@@ -1767,7 +1770,7 @@
       "name": "Biblioteka Główna SGGW",
       "description": "Biblioteka Główna SGGW",
       "type": "library",
-      "url": "http://www.bg.sggw.pl/",
+      "url": "https://bg.sggw.edu.pl/",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },
