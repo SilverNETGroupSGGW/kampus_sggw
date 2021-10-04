@@ -1412,7 +1412,7 @@
             {
               "name": "IB",
               "description": "Instytut Biologii",
-              "url": "http://ib.sggw.pl/",
+              "url": "https://ib.sggw.edu.pl/",
               "subCategories": [
                 {
                   "name": "departments",
@@ -1518,7 +1518,7 @@
         "lon": 21.04295
       },
       "name": "Budynek 37",
-      "description": "Budynek WO i WRiB",
+      "description": "Budynek WO, WRiE i WBiB",
       "type": "facultyBuilding",
       "minScale": 1.0,
       "lastModified": "2021-05-29",
@@ -1547,15 +1547,28 @@
               ]
             },
             {
-              "name": "WRiB",
-              "description": "Wydział Rolnictwa i Biologii",
-              "url": "http://wrib.sggw.pl/",
+              "name": "WRiE",
+              "description": "Wydział Rolnictwa i Ekologii",
+              "url": "https://wrie.sggw.edu.pl",
               "services": [
                 {
-                  "name": "Dziekanat WRiB",
+                  "name": "Dziekanat WRiE",
                   "type": "deanery",
                   "description": "Pokój 0/9, 0/10, 0/109 i 0/110",
-                  "url": "http://wrib.sggw.pl/2015-01-03-16-11-33/dziekanat"
+                  "url": "https://wrie.sggw.edu.pl/wydzial-rolnictwa-i-biologii/studia-na-wydziale/"
+                }
+              ]
+            },
+            {
+              "name": "WBiB",
+              "description": "Wydział Biologii i Biotechnologii",
+              "url": "https://wbib.sggw.edu.pl",
+              "services": [
+                {
+                  "name": "Dziekanat WBiB",
+                  "type": "deanery",
+                  "description": "Pokój 0/63, 0/64, 0/66",
+                  "url": "https://wbib.sggw.edu.pl/kontakt/"
                 }
               ]
             }
@@ -1567,7 +1580,7 @@
             {
               "name": "IB",
               "description": "Instytut Biologii",
-              "url": "http://ib.sggw.pl/",
+              "url": "https://ib.sggw.edu.pl/",
               "subCategories": [
                 {
                   "name": "departments",
