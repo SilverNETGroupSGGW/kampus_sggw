@@ -1653,7 +1653,7 @@
       },
       "name": "Dom studencki 'Limba'",
       "description": "Dom studencki 'Limba', Administracja Domów i Stołówek Studenckich",
-      "type": "dormitories",
+      "type": "dormitory",
       "url": "http://adiss.sggw.pl/",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
@@ -1666,7 +1666,7 @@
       },
       "name": "Hotel 'Ikar'",
       "description": "Hotel 'Ikar'",
-      "type": "dormitories",
+      "type": "dormitory",
       "url": "http://adiss.sggw.pl/",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
@@ -1679,7 +1679,7 @@
       },
       "name": "Dom studencki 'Hilton'",
       "description": "Dom studencki 'Hilton'",
-      "type": "dormitories",
+      "type": "dormitory",
       "url": "http://adiss.sggw.pl/",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
@@ -1692,7 +1692,7 @@
       },
       "name": "Dom studencki 'Grand'",
       "description": "Dom studencki 'Grand'",
-      "type": "dormitories",
+      "type": "dormitory",
       "url": "http://adiss.sggw.pl/",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
@@ -1705,7 +1705,7 @@
       },
       "name": "Dom studencki 'Eden'",
       "description": "Dom studencki 'Eden'",
-      "type": "dormitories",
+      "type": "dormitory",
       "url": "http://adiss.sggw.pl/",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
@@ -1718,7 +1718,7 @@
       },
       "name": "Dom studencki 'Feniks'",
       "description": "Dom studencki 'Feniks'",
-      "type": "dormitories",
+      "type": "dormitory",
       "url": "http://adiss.sggw.pl/",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
@@ -1731,7 +1731,7 @@
       },
       "name": "Dom studencki 'Bazyliszek'",
       "description": "Dom studencki 'Bazyliszek'",
-      "type": "dormitories",
+      "type": "dormitory",
       "url": "http://adiss.sggw.pl/",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
@@ -1744,7 +1744,7 @@
       },
       "name": "Dom studencki 'Adara'",
       "description": "Dom studencki 'Adara'",
-      "type": "dormitories",
+      "type": "dormitory",
       "url": "http://adiss.sggw.pl/",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
@@ -1757,7 +1757,7 @@
       },
       "name": "Dom studencki 'Cezar'",
       "description": "Dom studencki 'Cezar'",
-      "type": "dormitories",
+      "type": "dormitory",
       "url": "http://adiss.sggw.pl/",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
@@ -1770,7 +1770,7 @@
       },
       "name": "Dom studencki 'Dendryt'",
       "description": "Dom studencki 'Dendryt'",
-      "type": "dormitories",
+      "type": "dormitory",
       "url": "http://adiss.sggw.pl/",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
