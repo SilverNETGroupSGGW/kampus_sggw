@@ -1,0 +1,77 @@
+{
+    "mapItemTypes": [
+        {
+            "name": "facultyBuilding",
+            "pinIconPath": "facultyMarker.png",
+            "materialIconID": 62268,
+            "typeCategory": "study"
+        },
+        {
+            "name": "administrationBuilding",
+            "pinIconPath": "administrationMarker.png",
+            "materialIconID": 61321,
+            "typeCategory": "study"
+        },
+        {
+            "name": "sportsFacility",
+            "pinIconPath": "sportMarker.png",
+            "materialIconID": 58866
+        },
+        {
+            "name": "store",
+            "pinIconPath": "storeMarker.png",
+            "materialIconID": 62447,
+            "typeCategory": "store"
+        },
+        {
+            "name": "food",
+            "pinIconPath": "foodMarker.png",
+            "materialIconID": 62230,
+            "typeCategory": "food"
+        },
+        {
+            "name": "library",
+            "pinIconPath": "libraryMarker.png",
+            "materialIconID": 61825
+        },
+        {
+            "name": "parking",
+            "pinIconPath": "parkingMarker.png",
+            "materialIconID": 61829,
+            "typeCategory": "parking"
+        },
+        {
+            "name": "transport",
+            "pinIconPath": "transportMarker.png",
+            "materialIconID": 61380,
+            "typeCategory": "transport"
+        },
+        {
+            "name": "finance",
+            "pinIconPath": "financeMarker.png",
+            "materialIconID": 61090
+        },
+        {
+            "name": "dormitory",
+            "pinIconPath": "hotelMarker.png",
+            "materialIconID": 61710
+        },
+        {
+            "name": "kindergarten",
+            "pinIconPath": "otherMarker.png",
+            "materialIconID": 58173
+        },
+        {
+            "name": "monument",
+            "pinIconPath": "otherMarker.png",
+            "materialIconID": 62044,
+            "typeCategory": "park"
+        },
+        {
+            "name": "medicine",
+            "pinIconPath": "otherMarker.png",
+            "materialIconID": 61886,
+            "typeCategory": "store"
+        }
+    ]
+}
