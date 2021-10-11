@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/filtration_event_param.dart';
 import 'package:kampus_sggw/logic/search_services/filter_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
+import 'package:kampus_sggw/models/map_item_types/map_item_type_category.dart';
 import 'package:kampus_sggw/models/service.dart';
 import 'package:kampus_sggw/screens/map_screen/filter_button.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
@@ -29,7 +30,7 @@ class FilterButtons extends StatelessWidget {
               onTapFunction: () => filterService.filterMapItems(
                 FiltrationEventParam(
                   filterName: LocaleKeys.food.tr(),
-                  mapItemTypes: [MapItemType.food],
+                  category: MapItemTypeCategory.food,
                   serviceTypes: [ServiceType.canteen],
                 ),
               ),
@@ -40,7 +41,7 @@ class FilterButtons extends StatelessWidget {
               onTapFunction: () => filterService.filterMapItems(
                 FiltrationEventParam(
                   filterName: LocaleKeys.bus.tr(),
-                  mapItemTypes: [MapItemType.transport],
+                  category: MapItemTypeCategory.transport,
                 ),
               ),
             ),
@@ -50,7 +51,7 @@ class FilterButtons extends StatelessWidget {
               onTapFunction: () => filterService.filterMapItems(
                 FiltrationEventParam(
                   filterName: LocaleKeys.parking.tr(),
-                  mapItemTypes: [MapItemType.parking],
+                  category: MapItemTypeCategory.parking,
                 ),
               ),
             ),
@@ -60,7 +61,7 @@ class FilterButtons extends StatelessWidget {
               onTapFunction: () => filterService.filterMapItems(
                 FiltrationEventParam(
                   filterName: LocaleKeys.park.tr(),
-                  mapItemTypes: [MapItemType.monument],
+                  category: MapItemTypeCategory.park,
                 ),
               ),
             ),
@@ -70,7 +71,7 @@ class FilterButtons extends StatelessWidget {
               onTapFunction: () => filterService.filterMapItems(
                 FiltrationEventParam(
                   filterName: LocaleKeys.store.tr(),
-                  mapItemTypes: [MapItemType.store, MapItemType.medicine],
+                  category: MapItemTypeCategory.store,
                   serviceTypes: [ServiceType.vendingMachine],
                 ),
               ),
@@ -80,9 +81,8 @@ class FilterButtons extends StatelessWidget {
               icon: Icons.print_rounded,
               onTapFunction: () => filterService.filterMapItems(
                 FiltrationEventParam(
-                  filterName: LocaleKeys.copier.tr(),
-                  serviceTypes: [ServiceType.copier],
-                ),
+                    filterName: LocaleKeys.copier.tr(),
+                    serviceTypes: [ServiceType.copier]),
               ),
             ),
           ],

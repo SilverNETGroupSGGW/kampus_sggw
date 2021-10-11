@@ -35,7 +35,7 @@ class _VisitHistoryList extends State<VisitHistoryList> {
   ListTile _recentlyVisitedItemCard(MapItem item) {
     return ListTile(
       onTap: () => _showItemOnMap(item),
-      leading: _mapItemIcon(item.type),
+      leading: item.materialIcon(),
       title: Text(
         item.name,
         overflow: TextOverflow.ellipsis,
@@ -50,23 +50,6 @@ class _VisitHistoryList extends State<VisitHistoryList> {
             });
           }),
     );
-  }
-
-  Icon _mapItemIcon(MapItemType type) {
-    if (type == MapItemType.facultyBuilding) return Icon(Icons.school_outlined);
-    if (type == MapItemType.administrationBuilding)
-      return Icon(Icons.corporate_fare_outlined);
-    if (type == MapItemType.dormitories) return Icon(Icons.hotel_outlined);
-    if (type == MapItemType.sportsFacility) return Icon(Icons.sports_soccer);
-    if (type == MapItemType.finance) return Icon(Icons.attach_money_outlined);
-    if (type == MapItemType.food) return Icon(Icons.restaurant_outlined);
-    if (type == MapItemType.library) return Icon(Icons.local_library_outlined);
-    if (type == MapItemType.parking) return Icon(Icons.local_parking_outlined);
-    if (type == MapItemType.store) return Icon(Icons.storefront_outlined);
-    if (type == MapItemType.transport)
-      return Icon(Icons.directions_bus_outlined);
-
-    return Icon(Icons.info_outline);
   }
 
   void _showItemOnMap(MapItem item) {

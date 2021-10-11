@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/suggested_item.dart';
 import 'package:kampus_sggw/models/map_item.dart';
+import 'package:kampus_sggw/models/map_item_types/map_item_type_category.dart';
+import 'package:kampus_sggw/models/map_item_types/map_item_types.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/models/service.dart';
@@ -20,9 +22,15 @@ class MapItems extends ChangeNotifier {
   );
 
   static Future<MapItems> load() async {
-    Map<String, dynamic> mapItemsMap = jsonDecode(MapItems.getJsonString());
-    MapItems mapItems = MapItems.fromJson(mapItemsMap);
+    MapItems mapItems = await _loadFromJSON();
+    mapItems.bindWithItemTypes(await MapItemTypes.loadFromJSON());
     mapItems.generateFuzzyStringSetForMapItems();
+    return mapItems;
+  }
+
+  static Future<MapItems> _loadFromJSON() async {
+    Map<String, dynamic> mapItemsMap = jsonDecode(_getJsonString());
+    MapItems mapItems = MapItems.fromJson(mapItemsMap);
     return mapItems;
   }
 
@@ -36,10 +44,10 @@ class MapItems extends ChangeNotifier {
     return filteredItems;
   }
 
-  Set<MapItem> filterByType(List<MapItemType> itemTypes) {
+  Set<MapItem> filterByTypeCategory(MapItemTypeCategory typeCategory) {
     Set<MapItem> filteredItems = {};
     mapItems.forEach((item) {
-      if (itemTypes.contains(item.type)) {
+      if (item.category() == typeCategory) {
         filteredItems.add(item);
       }
     });
@@ -49,13 +57,20 @@ class MapItems extends ChangeNotifier {
   factory MapItems.fromJson(Map<String, dynamic> json) =>
       _$MapItemsFromJson(json);
 
-  static String getJsonString() {
+  static String _getJsonString() {
     return storage.read('map_items_content');
   }
 
   void generateFuzzyStringSetForMapItems() {
     mapItems.forEach((item) {
       item.generateFuzzySet();
+    });
+  }
+
+  void bindWithItemTypes(MapItemTypes mapItemTypes) {
+    print(mapItemTypes.mapItemTypes.length);
+    mapItems.forEach((item) {
+      item.setType(mapItemTypes);
     });
   }
 

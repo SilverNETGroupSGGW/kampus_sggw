@@ -1,25 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:fuzzy/fuzzy.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kampus_sggw/models/category.dart';
 import 'package:kampus_sggw/models/location.dart';
+import 'package:kampus_sggw/models/map_item_types/map_item_type.dart';
+import 'package:kampus_sggw/models/map_item_types/map_item_type_category.dart';
+import 'package:kampus_sggw/models/map_item_types/map_item_types.dart';
 import 'package:kampus_sggw/models/service.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'map_item.g.dart';
-
-enum MapItemType {
-  facultyBuilding,
-  administrationBuilding,
-  sportsFacility,
-  store,
-  food,
-  library,
-  parking,
-  transport,
-  finance,
-  dormitories,
-  kindergarten,
-  monument,
-  medicine,
-}
 
 @JsonSerializable()
 class MapItem {
@@ -28,7 +17,7 @@ class MapItem {
   String name;
   String description;
   String url;
-  MapItemType type;
+  String type;
   String photoPath;
   double minScale;
   DateTime lastModified;
@@ -37,6 +26,8 @@ class MapItem {
   List<Category> categories;
   @JsonKey(ignore: true)
   Fuzzy searchingSet;
+  @JsonKey(ignore: true)
+  MapItemType mapItemType;
 
   MapItem(
     this.id,
@@ -52,6 +43,7 @@ class MapItem {
     this.services,
     this.categories,
   );
+
   factory MapItem.fromJson(Map<String, dynamic> json) =>
       _$MapItemFromJson(json);
 
@@ -66,6 +58,15 @@ class MapItem {
     _addData(strings);
     searchingSet = _getFuse(strings);
   }
+
+  void setType(MapItemTypes mapItemTypes) {
+    print(id);
+    mapItemType = mapItemTypes.getTypeByName(type);
+  }
+
+  BitmapDescriptor pinIcon() => mapItemType.pinIcon;
+  Icon materialIcon() => mapItemType.materialIcon;
+  MapItemTypeCategory category() => mapItemType.typeCategory;
 
   void _addInnerData(List<String> strings) {
     strings.add(name);
