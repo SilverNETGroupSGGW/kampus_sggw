@@ -59,10 +59,8 @@ class MapItem {
     searchingSet = _getFuse(strings);
   }
 
-  void setType(MapItemTypes mapItemTypes) {
-    print(id);
-    mapItemType = mapItemTypes.getTypeByName(type);
-  }
+  void setType(MapItemTypes mapItemTypes) =>
+      mapItemType = mapItemTypes.getTypeByName(type);
 
   BitmapDescriptor pinIcon() => mapItemType.pinIcon;
   Icon materialIcon() => mapItemType.materialIcon;

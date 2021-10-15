@@ -68,7 +68,6 @@ class MapItems extends ChangeNotifier {
   }
 
   void bindWithItemTypes(MapItemTypes mapItemTypes) {
-    print(mapItemTypes.mapItemTypes.length);
     mapItems.forEach((item) {
       item.setType(mapItemTypes);
     });

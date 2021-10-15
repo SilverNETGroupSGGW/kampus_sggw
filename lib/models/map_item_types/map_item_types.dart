@@ -12,14 +12,8 @@ class MapItemTypes {
     this.mapItemTypes,
   );
 
-  MapItemType getTypeByName(String typeName) {
-    print("arg " + typeName);
-
-    MapItemType mitype =
-        mapItemTypes.firstWhere((type) => type.name == typeName);
-    print("found type " + mitype.name);
-    return mitype;
-  }
+  MapItemType getTypeByName(String typeName) =>
+      mapItemTypes.firstWhere((type) => type.name == typeName);
 
   static Future<MapItemTypes> loadFromJSON() async {
     Map<String, dynamic> mapItemTypesMap = jsonDecode(await _getJsonSting());
