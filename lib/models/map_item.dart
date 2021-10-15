@@ -4,8 +4,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kampus_sggw/models/category.dart';
 import 'package:kampus_sggw/models/location.dart';
 import 'package:kampus_sggw/models/map_item_types/map_item_type.dart';
-import 'package:kampus_sggw/models/map_item_types/map_item_type_category.dart';
 import 'package:kampus_sggw/models/map_item_types/map_item_types.dart';
+import 'package:kampus_sggw/models/map_object_application.dart';
 import 'package:kampus_sggw/models/service.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'map_item.g.dart';
@@ -66,7 +66,7 @@ class MapItem {
 
   BitmapDescriptor pinIcon() => mapItemType.pinIcon;
   Icon materialIcon() => mapItemType.materialIcon;
-  MapItemTypeCategory category() => mapItemType.typeCategory;
+  MapObjectApplication metaCategory() => mapItemType.objectApplication;
 
   void _addInnerData(List<String> strings) {
     strings.add(name);

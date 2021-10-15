@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/filtration_event_param.dart';
 import 'package:kampus_sggw/logic/search_services/filter_service.dart';
-import 'package:kampus_sggw/models/map_item.dart';
-import 'package:kampus_sggw/models/map_item_types/map_item_type_category.dart';
+import 'package:kampus_sggw/models/map_object_application.dart';
 import 'package:kampus_sggw/models/service.dart';
 import 'package:kampus_sggw/screens/map_screen/filter_button.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
@@ -30,7 +29,7 @@ class FilterButtons extends StatelessWidget {
               onTapFunction: () => filterService.filterMapItems(
                 FiltrationEventParam(
                   filterName: LocaleKeys.food.tr(),
-                  category: MapItemTypeCategory.food,
+                  objectApplication: MapObjectApplication.food,
                   serviceTypes: [ServiceType.canteen],
                 ),
               ),
@@ -41,7 +40,7 @@ class FilterButtons extends StatelessWidget {
               onTapFunction: () => filterService.filterMapItems(
                 FiltrationEventParam(
                   filterName: LocaleKeys.bus.tr(),
-                  category: MapItemTypeCategory.transport,
+                  objectApplication: MapObjectApplication.transport,
                 ),
               ),
             ),
@@ -51,7 +50,7 @@ class FilterButtons extends StatelessWidget {
               onTapFunction: () => filterService.filterMapItems(
                 FiltrationEventParam(
                   filterName: LocaleKeys.parking.tr(),
-                  category: MapItemTypeCategory.parking,
+                  objectApplication: MapObjectApplication.parking,
                 ),
               ),
             ),
@@ -61,7 +60,7 @@ class FilterButtons extends StatelessWidget {
               onTapFunction: () => filterService.filterMapItems(
                 FiltrationEventParam(
                   filterName: LocaleKeys.park.tr(),
-                  category: MapItemTypeCategory.park,
+                  objectApplication: MapObjectApplication.park,
                 ),
               ),
             ),
@@ -71,7 +70,7 @@ class FilterButtons extends StatelessWidget {
               onTapFunction: () => filterService.filterMapItems(
                 FiltrationEventParam(
                   filterName: LocaleKeys.store.tr(),
-                  category: MapItemTypeCategory.store,
+                  objectApplication: MapObjectApplication.store,
                   serviceTypes: [ServiceType.vendingMachine],
                 ),
               ),

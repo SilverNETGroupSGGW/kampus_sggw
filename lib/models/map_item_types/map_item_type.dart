@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/logic/platform_tools.dart';
-import 'package:kampus_sggw/models/map_item_types/map_item_type_category.dart';
+import 'package:kampus_sggw/models/map_object_application.dart';
 part 'map_item_type.g.dart';
 
 @JsonSerializable()
@@ -10,7 +10,7 @@ class MapItemType {
   String name;
   String pinIconPath;
   int materialIconID;
-  MapItemTypeCategory typeCategory;
+  MapObjectApplication objectApplication;
   @JsonKey(ignore: true)
   BitmapDescriptor pinIcon;
   @JsonKey(ignore: true)
@@ -20,7 +20,7 @@ class MapItemType {
     this.name,
     this.pinIconPath,
     this.materialIconID,
-    this.typeCategory,
+    this.objectApplication,
   ) {
     _initializeTypeAssets();
   }

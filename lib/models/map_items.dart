@@ -2,10 +2,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/suggested_item.dart';
 import 'package:kampus_sggw/models/map_item.dart';
-import 'package:kampus_sggw/models/map_item_types/map_item_type_category.dart';
 import 'package:kampus_sggw/models/map_item_types/map_item_types.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kampus_sggw/models/map_object_application.dart';
 import 'package:kampus_sggw/models/service.dart';
 import 'package:fuzzy/fuzzy.dart';
 part 'map_items.g.dart';
@@ -44,10 +44,10 @@ class MapItems extends ChangeNotifier {
     return filteredItems;
   }
 
-  Set<MapItem> filterByTypeCategory(MapItemTypeCategory typeCategory) {
+  Set<MapItem> filterByTypeCategory(MapObjectApplication objectApplication) {
     Set<MapItem> filteredItems = {};
     mapItems.forEach((item) {
-      if (item.category() == typeCategory) {
+      if (item.metaCategory() == objectApplication) {
         filteredItems.add(item);
       }
     });

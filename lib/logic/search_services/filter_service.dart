@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/filtration_event_param.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
-import 'package:kampus_sggw/models/map_item_types/map_item_type_category.dart';
 import 'package:kampus_sggw/models/map_items.dart';
+import 'package:kampus_sggw/models/map_object_application.dart';
 import 'package:kampus_sggw/models/service.dart';
 
 class FilterService extends ChangeNotifier {
@@ -27,10 +27,10 @@ class FilterService extends ChangeNotifier {
   }
 
   Set<MapItem> _filterByType(FiltrationEventParam eventParam) {
-    MapItemTypeCategory category = eventParam.category;
+    MapObjectApplication objectApplication = eventParam.objectApplication;
     Set<MapItem> filteredItems = {};
-    if (category != null) {
-      filteredItems = _mapItems.filterByTypeCategory(category);
+    if (objectApplication != null) {
+      filteredItems = _mapItems.filterByTypeCategory(objectApplication);
     }
     return filteredItems;
   }

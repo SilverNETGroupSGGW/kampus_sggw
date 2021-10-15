@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/global_widgets/clickable_url.dart';
 import 'package:kampus_sggw/models/map_item_types/map_item_type.dart';
-import 'package:kampus_sggw/models/map_item_types/map_item_type_category.dart';
+import 'package:kampus_sggw/models/map_object_application.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'gallery_button.dart';
 import 'service_button_row.dart';
@@ -141,7 +141,7 @@ class InfoCardDialog extends StatelessWidget {
   }
 
   Widget _subcategoriesDisplay(BuildContext context) {
-    if (mapItemType.typeCategory != MapItemTypeCategory.study) {
+    if (mapItemType.objectApplication != MapObjectApplication.study) {
       return Center();
     }
 

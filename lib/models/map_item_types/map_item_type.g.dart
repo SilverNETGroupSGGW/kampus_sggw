@@ -11,7 +11,7 @@ MapItemType _$MapItemTypeFromJson(Map<String, dynamic> json) {
     json['name'] as String,
     json['pinIconPath'] as String,
     json['materialIconID'] as int,
-    _$enumDecodeNullable(_$MapItemTypeCategoryEnumMap, json['typeCategory']),
+    _$enumDecodeNullable(_$MapObjectApplicationsEnumMap, json['typeCategory']),
   );
 }
 
@@ -47,11 +47,11 @@ T _$enumDecodeNullable<T>(
   return _$enumDecode<T>(enumValues, source, unknownValue: unknownValue);
 }
 
-const _$MapItemTypeCategoryEnumMap = {
-  MapItemTypeCategory.food: 'food',
-  MapItemTypeCategory.transport: 'transport',
-  MapItemTypeCategory.parking: 'parking',
-  MapItemTypeCategory.park: 'park',
-  MapItemTypeCategory.store: 'store',
-  MapItemTypeCategory.study: 'study',
+const _$MapObjectApplicationsEnumMap = {
+  MapObjectApplication.food: 'food',
+  MapObjectApplication.transport: 'transport',
+  MapObjectApplication.parking: 'parking',
+  MapObjectApplication.park: 'park',
+  MapObjectApplication.store: 'store',
+  MapObjectApplication.study: 'study',
 };
