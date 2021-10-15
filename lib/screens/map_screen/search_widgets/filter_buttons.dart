@@ -80,8 +80,9 @@ class FilterButtons extends StatelessWidget {
               icon: Icons.print_rounded,
               onTapFunction: () => filterService.filterMapItems(
                 FiltrationEventParam(
-                    filterName: LocaleKeys.copier.tr(),
-                    serviceTypes: [ServiceType.copier]),
+                  filterName: LocaleKeys.copier.tr(),
+                  serviceTypes: [ServiceType.copier],
+                ),
               ),
             ),
           ],
