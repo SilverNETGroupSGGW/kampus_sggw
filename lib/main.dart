@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:kampus_sggw/logic/histories/search_history.dart';
 import 'package:kampus_sggw/logic/histories/visit_history.dart';
 import 'package:kampus_sggw/logic/map_controller.dart';
-import 'package:kampus_sggw/logic/map_icons_controller.dart';
 import 'package:kampus_sggw/logic/search_services/filter_service.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/logic/search_services/suggestion_service.dart';
@@ -32,7 +31,6 @@ Future<void> main() async {
   final mapController = MapController();
   final markersController = MapMarkersController(
     mapController: mapController,
-    iconsController: await MapIconsController.loadIcons(),
   );
   final searchService = SearchService(
     mapMarkers: markersController,

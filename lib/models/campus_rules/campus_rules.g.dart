@@ -16,22 +16,3 @@ CampusRules _$CampusRulesFromJson(Map<String, dynamic> json) {
         ?.toList(),
   );
 }
-
-CampusRule _$CampusRuleFromJson(Map<String, dynamic> json) {
-  return CampusRule(
-    json['ruleNumber'] as int,
-    json['rule'] as String,
-    (json['subRulesList'] as List)
-        ?.map((e) => e == null
-            ? null
-            : CampusSubRule.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-  );
-}
-
-CampusSubRule _$CampusSubRuleFromJson(Map<String, dynamic> json) {
-  return CampusSubRule(
-    json['subRuleNumber'] as int,
-    json['subRule'] as String,
-  );
-}

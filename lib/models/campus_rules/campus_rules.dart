@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kampus_sggw/models/campus_rules/campus_rule.dart';
 part 'campus_rules.g.dart';
 
 @JsonSerializable()
@@ -18,30 +19,4 @@ class CampusRules {
   static Future<String> getJsonSting(String lang) {
     return rootBundle.loadString('assets/json/campus_rules_' + lang + '.json');
   }
-}
-
-@JsonSerializable()
-class CampusRule {
-  int ruleNumber;
-  String rule;
-  List<CampusSubRule> subRulesList;
-  CampusRule(
-    this.ruleNumber,
-    this.rule,
-    this.subRulesList,
-  );
-  factory CampusRule.fromJson(Map<String, dynamic> json) =>
-      _$CampusRuleFromJson(json);
-}
-
-@JsonSerializable()
-class CampusSubRule {
-  int subRuleNumber;
-  String subRule;
-  CampusSubRule(
-    this.subRuleNumber,
-    this.subRule,
-  );
-  factory CampusSubRule.fromJson(Map<String, dynamic> json) =>
-      _$CampusSubRuleFromJson(json);
 }
