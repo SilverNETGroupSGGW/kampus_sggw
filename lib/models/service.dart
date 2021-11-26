@@ -27,7 +27,5 @@ class Service {
   void setType(ServiceTypes serviceTypes) =>
       serviceType = serviceTypes.getTypeByName(type);
 
-  //int getIconID() => serviceType.materialIconID;
-  //IconData getIconsData() => serviceType.iconData;
-  int getIconColor() => serviceType.colorInHex;
+  int get iconColor => serviceType.colorInHex;
 }
