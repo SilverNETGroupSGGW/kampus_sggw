@@ -8,13 +8,13 @@ import 'package:kampus_sggw/models/types/types_from_json.dart';
 part 'service_types.g.dart';
 
 @JsonSerializable()
-class ServiceTypes extends TypesFromJSON {
+class ServiceTypes extends TypesFromJson {
   ServiceTypes({List<ServiceType> types})
       : super(
           types: types,
         );
 
-  static Future<ServiceTypes> loadFromJSON() async {
+  static Future<ServiceTypes> loadFromJson() async {
     Map<String, dynamic> serviceTypesMap = jsonDecode(await _getJsonSting());
     return ServiceTypes.fromJson(serviceTypesMap);
   }

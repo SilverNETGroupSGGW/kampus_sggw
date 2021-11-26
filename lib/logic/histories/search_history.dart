@@ -9,7 +9,7 @@ import 'package:kampus_sggw/models/map_items.dart';
 part 'search_history.g.dart';
 
 @JsonSerializable()
-class SearchHistory extends UserHistory with StorableJSON, LoadableJSON {
+class SearchHistory extends UserHistory with StorableJson, LoadableJson {
   List<MapItem> _filtered;
   SearchHistory({int buffer, List<int> itemsIds})
       : super(buffer: buffer, itemsIds: itemsIds);
@@ -46,8 +46,8 @@ class SearchHistory extends UserHistory with StorableJSON, LoadableJSON {
     notifyListeners();
   }
 
-  static Future<SearchHistory> loadFromJSON() async {
-    String jsonString = await LoadableJSON.getJSONString('searchHistory');
+  static Future<SearchHistory> loadFromJson() async {
+    String jsonString = await LoadableJson.getJsonString('searchHistory');
     Map<String, dynamic> map = jsonDecode(jsonString);
     return SearchHistory.fromJson(map);
   }

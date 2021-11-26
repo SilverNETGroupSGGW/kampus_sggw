@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/logic/icon_map.dart';
+import 'package:kampus_sggw/logic/maps/icon_map.dart';
 import 'package:kampus_sggw/models/map_object_application.dart';
 
-abstract class TypeFromJSON {
+abstract class TypeFromJson {
   String name;
   String materialIconName;
-  MapObjectApplication objectApplication;
+  ObjectFunctionGroup functionGroup;
   IconData _iconData;
 
-  TypeFromJSON({
+  TypeFromJson({
     this.name,
     this.materialIconName,
-    this.objectApplication,
+    this.functionGroup,
   }) {
     _setIconData();
   }

@@ -2,7 +2,7 @@ import 'dart:collection';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:kampus_sggw/logic/map_controller.dart';
+import 'package:kampus_sggw/logic/controllers/map_controller.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 
@@ -31,9 +31,7 @@ class MapMarkersController extends ChangeNotifier {
   }
 
   void updateMarkers(List<MapItem> filteredItems) {
-    filteredItems.forEach(print);
     _filterMarkers(filteredItems);
-    print(_markers.first);
     _controllerProvider.zoomInto(_markers.first);
     notifyListeners();
   }

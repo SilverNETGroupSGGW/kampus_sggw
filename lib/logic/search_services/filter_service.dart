@@ -14,16 +14,10 @@ class FilterService extends ChangeNotifier {
   }
 
   void filterMapItems(FiltrationEventParam eventParam) {
-    print("ObjectApplication " + eventParam.objectApplication.toString());
     List<MapItem> filteredItems = _getFilteredItems(eventParam);
-    filteredItems
-        .forEach((element) => {print("Filtered items " + element.toString())});
-
     _searchService.filter(eventParam.filterName, filteredItems);
   }
 
-  List<MapItem> _getFilteredItems(FiltrationEventParam eventParam) {
-    print("List<MapItem> _getFilteredItems(FiltrationEventParam eventParam)");
-    return _mapItems.filterByFunction(eventParam.objectApplication).toList();
-  }
+  List<MapItem> _getFilteredItems(FiltrationEventParam eventParam) =>
+      _mapItems.filterByFunction(eventParam.functionGroup).toList();
 }

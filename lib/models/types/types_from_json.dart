@@ -1,11 +1,11 @@
 import 'package:kampus_sggw/models/types/type_from_json.dart';
 
-abstract class TypesFromJSON {
-  List<TypeFromJSON> types;
-  TypesFromJSON({
+abstract class TypesFromJson {
+  List<TypeFromJson> types;
+  TypesFromJson({
     this.types,
   });
 
-  TypeFromJSON getTypeByName(String typeName) =>
+  TypeFromJson getTypeByName(String typeName) =>
       types.firstWhere((type) => type.name == typeName);
 }

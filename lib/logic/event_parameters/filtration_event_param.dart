@@ -2,9 +2,9 @@ import 'package:kampus_sggw/models/map_object_application.dart';
 
 class FiltrationEventParam {
   String filterName;
-  MapObjectApplication objectApplication;
+  ObjectFunctionGroup functionGroup;
   FiltrationEventParam({
     this.filterName,
-    this.objectApplication,
+    this.functionGroup,
   });
 }

@@ -7,19 +7,19 @@ import 'package:kampus_sggw/models/types/type_from_json.dart';
 part 'map_item_type.g.dart';
 
 @JsonSerializable()
-class MapItemType extends TypeFromJSON {
+class MapItemType extends TypeFromJson {
   String pinIconPath;
   BitmapDescriptor _pinIcon;
 
   MapItemType({
     String name,
     String materialIconName,
-    MapObjectApplication objectApplication,
+    ObjectFunctionGroup functionGroup,
     this.pinIconPath,
   }) : super(
           name: name,
           materialIconName: materialIconName,
-          objectApplication: objectApplication,
+          functionGroup: functionGroup,
         ) {
     _initializePin();
   }

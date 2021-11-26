@@ -1,4 +1,4 @@
-enum MapObjectApplication {
+enum ObjectFunctionGroup {
   food,
   transport,
   parking,

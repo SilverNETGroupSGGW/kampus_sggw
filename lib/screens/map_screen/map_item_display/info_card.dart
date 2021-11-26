@@ -141,7 +141,7 @@ class InfoCardDialog extends StatelessWidget {
   }
 
   Widget _subcategoriesDisplay(BuildContext context) {
-    if (mapItemType.objectApplication != MapObjectApplication.study) {
+    if (mapItemType.functionGroup != ObjectFunctionGroup.study) {
       return Center();
     }
 

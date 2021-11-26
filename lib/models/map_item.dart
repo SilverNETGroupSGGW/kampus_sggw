@@ -49,21 +49,13 @@ class MapItem {
   factory MapItem.fromJson(Map<String, dynamic> json) =>
       _$MapItemFromJson(json);
 
-  bool doItemFulfilFunction(MapObjectApplication objectApplication) {
-    print(id.toString() + " " + mapItemType.name);
-    print(id.toString() +
-        " " +
-        mapItemType.objectApplication.toString() +
-        " vs. " +
-        objectApplication.toString());
-    print(_containsServiceFulfillingFunction(objectApplication));
-    return (mapItemType.objectApplication == objectApplication ||
-        _containsServiceFulfillingFunction(objectApplication));
-  }
+  bool doItemFulfilFunction(ObjectFunctionGroup functionGroup) =>
+      (mapItemType.functionGroup == functionGroup ||
+          _containsServiceFulfillingFunction(functionGroup));
 
   BitmapDescriptor pinIcon() => mapItemType.pinIcon;
   IconData iconData() => mapItemType.iconData;
-  MapObjectApplication metaCategory() => mapItemType.objectApplication;
+  ObjectFunctionGroup metaCategory() => mapItemType.functionGroup;
 
   void generateFuzzySet() {
     List<String> strings = [];
@@ -72,7 +64,6 @@ class MapItem {
   }
 
   void initializeTypes(MapItemTypes mapItemTypes, ServiceTypes serviceTypes) {
-    print("czy puste " + serviceTypes.types.isEmpty.toString());
     _setType(mapItemTypes);
     _setServicesType(serviceTypes);
   }
@@ -82,7 +73,6 @@ class MapItem {
 
   void _setServicesType(ServiceTypes serviceTypes) {
     if (services != null) {
-      print("czy puste1 " + serviceTypes.types.isEmpty.toString());
       services.forEach((service) {
         service.setType(serviceTypes);
       });
@@ -92,12 +82,11 @@ class MapItem {
     }
   }
 
-  bool _containsServiceFulfillingFunction(
-      MapObjectApplication objectApplication) {
+  bool _containsServiceFulfillingFunction(ObjectFunctionGroup functionGroup) {
     return services == null
         ? false
-        : services.any((service) =>
-            service.serviceType.objectApplication == objectApplication);
+        : services.any(
+            (service) => service.serviceType.functionGroup == functionGroup);
   }
 
   void _addInnerData(List<String> strings) {

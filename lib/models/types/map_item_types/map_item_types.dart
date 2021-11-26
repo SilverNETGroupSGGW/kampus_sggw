@@ -7,13 +7,13 @@ import 'package:kampus_sggw/models/types/map_item_types/map_item_type.dart';
 part 'map_item_types.g.dart';
 
 @JsonSerializable()
-class MapItemTypes extends TypesFromJSON {
+class MapItemTypes extends TypesFromJson {
   MapItemTypes({List<MapItemType> types})
       : super(
           types: types,
         );
 
-  static Future<MapItemTypes> loadFromJSON() async {
+  static Future<MapItemTypes> loadFromJson() async {
     Map<String, dynamic> mapItemTypesMap = jsonDecode(await _getJsonSting());
     return MapItemTypes.fromJson(mapItemTypesMap);
   }

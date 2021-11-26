@@ -60,7 +60,6 @@ class Category {
 
   void _setServicesTypeFor(List<Service> services, ServiceTypes serviceTypes) {
     if (services != null) {
-      print("czy pusteCat " + serviceTypes.types.isEmpty.toString());
       services.forEach((service) {
         service.setType(serviceTypes);
       });

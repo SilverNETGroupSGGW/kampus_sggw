@@ -30,37 +30,37 @@ class FilterButtons extends StatelessWidget {
               Color(0xFFf29900),
               Icons.restaurant,
               LocaleKeys.food.tr(),
-              MapObjectApplication.food,
+              ObjectFunctionGroup.food,
             ),
             _filterButton(
               Color(0xFF1a73e8),
               Icons.directions_bus_outlined,
               LocaleKeys.bus.tr(),
-              MapObjectApplication.transport,
+              ObjectFunctionGroup.transport,
             ),
             _filterButton(
               Color(0xFF7986CB),
               Icons.local_parking_outlined,
               LocaleKeys.parking.tr(),
-              MapObjectApplication.parking,
+              ObjectFunctionGroup.parking,
             ),
             _filterButton(
               Colors.green,
               Icons.park,
               LocaleKeys.park.tr(),
-              MapObjectApplication.park,
+              ObjectFunctionGroup.park,
             ),
             _filterButton(
               Color(0xFF5491f5),
               Icons.storefront_outlined,
               LocaleKeys.store.tr(),
-              MapObjectApplication.store,
+              ObjectFunctionGroup.store,
             ),
             _filterButton(
               Colors.indigo,
               Icons.print_rounded,
               LocaleKeys.copier.tr(),
-              MapObjectApplication.copier,
+              ObjectFunctionGroup.copier,
             ),
           ],
         ),
@@ -72,18 +72,16 @@ class FilterButtons extends StatelessWidget {
     Color color,
     IconData iconData,
     String filterName,
-    MapObjectApplication objectApplication,
-  ) {
-    print(filterService);
-    return FilterButton(
-      color: color,
-      iconData: iconData,
-      onTapFunction: () => filterService.filterMapItems(
-        FiltrationEventParam(
-          filterName: filterName,
-          objectApplication: objectApplication,
+    ObjectFunctionGroup functionGroup,
+  ) =>
+      FilterButton(
+        color: color,
+        iconData: iconData,
+        onTapFunction: () => filterService.filterMapItems(
+          FiltrationEventParam(
+            filterName: filterName,
+            functionGroup: functionGroup,
+          ),
         ),
-      ),
-    );
-  }
+      );
 }

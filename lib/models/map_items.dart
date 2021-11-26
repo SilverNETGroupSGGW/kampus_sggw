@@ -23,21 +23,19 @@ class MapItems extends ChangeNotifier {
   );
 
   static Future<MapItems> load() async {
-    MapItems mapItems = await _loadFromJSON();
+    MapItems mapItems = await _loadFromJson();
     mapItems.bindWithItemTypes(
-      await MapItemTypes.loadFromJSON(),
-      await ServiceTypes.loadFromJSON(),
+      await MapItemTypes.loadFromJson(),
+      await ServiceTypes.loadFromJson(),
     );
     mapItems.generateFuzzyStringSetForMapItems();
     return mapItems;
   }
 
-  Set<MapItem> filterByFunction(MapObjectApplication objectApplication) {
+  Set<MapItem> filterByFunction(ObjectFunctionGroup functionGroup) {
     Set<MapItem> filteredItems = {};
     mapItems.forEach((item) {
-      print('tu1 ' + item.id.toString());
-      if (item.doItemFulfilFunction(objectApplication)) {
-        print('tu2 ' + item.id.toString());
+      if (item.doItemFulfilFunction(functionGroup)) {
         filteredItems.add(item);
       }
     });
@@ -107,7 +105,7 @@ class MapItems extends ChangeNotifier {
     return similarityList.take(6).toList();
   }
 
-  static Future<MapItems> _loadFromJSON() async {
+  static Future<MapItems> _loadFromJson() async {
     Map<String, dynamic> mapItemsMap = jsonDecode(_getJsonString());
     MapItems mapItems = MapItems.fromJson(mapItemsMap);
     return mapItems;

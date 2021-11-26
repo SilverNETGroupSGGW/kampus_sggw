@@ -10,8 +10,8 @@ ServiceType _$ServiceTypeFromJson(Map<String, dynamic> json) {
   return ServiceType(
     name: json['name'] as String,
     materialIconName: json['materialIconName'] as String,
-    objectApplication: _$enumDecodeNullable(
-        _$MapObjectApplicationsEnumMap, json['functionGroup']),
+    functionGroup: _$enumDecodeNullable(
+        _$ObjectFunctionGroupsEnumMap, json['functionGroup']),
     color: json['color'] as String ?? '0xFF9E9E9E',
   );
 }
@@ -48,12 +48,12 @@ T _$enumDecodeNullable<T>(
   return _$enumDecode<T>(enumValues, source, unknownValue: unknownValue);
 }
 
-const _$MapObjectApplicationsEnumMap = {
-  MapObjectApplication.food: 'food',
-  MapObjectApplication.transport: 'transport',
-  MapObjectApplication.parking: 'parking',
-  MapObjectApplication.park: 'park',
-  MapObjectApplication.store: 'store',
-  MapObjectApplication.study: 'study',
-  MapObjectApplication.copier: 'copier',
+const _$ObjectFunctionGroupsEnumMap = {
+  ObjectFunctionGroup.food: 'food',
+  ObjectFunctionGroup.transport: 'transport',
+  ObjectFunctionGroup.parking: 'parking',
+  ObjectFunctionGroup.park: 'park',
+  ObjectFunctionGroup.store: 'store',
+  ObjectFunctionGroup.study: 'study',
+  ObjectFunctionGroup.copier: 'copier',
 };

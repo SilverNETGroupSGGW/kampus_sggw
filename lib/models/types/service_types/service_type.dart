@@ -5,7 +5,7 @@ import 'package:kampus_sggw/models/types/type_from_json.dart';
 part 'service_type.g.dart';
 
 @JsonSerializable()
-class ServiceType extends TypeFromJSON {
+class ServiceType extends TypeFromJson {
   @JsonKey(defaultValue: '0xFF9E9E9E')
   String color;
   int _colorInHex;
@@ -13,12 +13,12 @@ class ServiceType extends TypeFromJSON {
   ServiceType({
     String name,
     String materialIconName,
-    MapObjectApplication objectApplication,
+    ObjectFunctionGroup functionGroup,
     this.color,
   }) : super(
           name: name,
           materialIconName: materialIconName,
-          objectApplication: objectApplication,
+          functionGroup: functionGroup,
         ) {
     _setColorInHex();
   }
