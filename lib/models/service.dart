@@ -30,5 +30,5 @@ class Service {
 
   //int getIconID() => serviceType.materialIconID;
   //IconData getIconsData() => serviceType.iconData;
-  int getIconColor() => serviceType.colorInInt;
+  int getIconColor() => serviceType.colorInHex;
 }

@@ -5,54 +5,53 @@
             "materialIconName": "print rounded",
             "materialIconID": 983232,
             "functionGroup": "copier",
-            "colorInInt": 4293454582
+            "color": "0xFF3F51B5"
         },
         {
             "name": "canteen",
             "materialIconName": "restaurant",
             "materialIconID": 58674,
             "functionGroup": "food",
-            "colorInInt": 4293454582
+            "color": "0xFFFBC02D"
         },
         {
             "name": "deanery",
             "materialIconName": "event seat",
             "materialIconID": 57922,
-            "colorInInt": 4293874512
+            "color": "0xFFEF5350"
         },
         {
             "name": "vendingMachine",
             "materialIconName": "local drink",
             "materialIconID": 58257,
             "functionGroup": "store",
-            "colorInInt": 4293673082
+            "color": "0xFFEC407A"
         },
         {
             "name": "coffee",
             "materialIconName": "coffee",
             "materialIconID": 57720,
             "functionGroup": "store",
-            "colorInInt": 4288776319
+            "color": "0xFFFF8A65"
         },
         {
             "name": "lectureHall",
             "materialIconName": "account balance",
             "materialIconID": 57408,
-            "colorInInt": 4280191205
+            "color": "0xFF039BE5"
         },
         {
             "name": "library",
             "materialIconName": "local library",
             "materialIconID": 58265,
-            "colorInInt": 428123678
+            "color": "0xFF2E7D32"
         },
         {
             "name": "medicine",
             "materialIconName": "medical services",
             "materialIconID": 58328,
             "functionGroup": "store",
-            "colorInInt": 4291176488
-
+            "color": "0xFFD32F2F"
         }
     ]
 }

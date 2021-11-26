@@ -13,7 +13,7 @@ ServiceType _$ServiceTypeFromJson(Map<String, dynamic> json) {
     materialIconName: json['materialIconName'] as String,
     objectApplication: _$enumDecodeNullable(
         _$MapObjectApplicationsEnumMap, json['functionGroup']),
-    colorInInt: json['colorInInt'] as int,
+    color: json['color'] as String ?? '0xFF9E9E9E',
   );
 }
 

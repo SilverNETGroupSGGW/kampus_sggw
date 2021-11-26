@@ -45,8 +45,11 @@ class _ServiceButtonsRowState extends State<ServiceButtonsRow> {
     //const int iconID = service.getIconID();
     //const IconData iconData =
     //const IconData(iconID, fontFamily: 'MaterialIcons');
+    print(service.name + "!!!!!");
+    print(service.serviceType.name + "!!!!!");
     return FilterButton(
-      color: Color(service.serviceType.colorInInt),
+      //color: Color(service.serviceType.colorInInt),
+      color: Color(service.serviceType.colorInHex),
       iconData: iconMap[service.serviceType.materialIconName],
       onTapFunction: () => showServiceCard(service),
     );
