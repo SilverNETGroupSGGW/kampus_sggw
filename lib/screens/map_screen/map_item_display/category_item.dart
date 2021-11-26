@@ -80,6 +80,7 @@ class _CategoryItemState extends State<CategoryItem> {
 
   static Route<Object> _dialogBuilder(BuildContext context, Object arguments) {
     ServiceButtonsRow categoryServiceRow;
+    //_category.services.forEach((item) => print("123 " + item.name));
     if (_category.services != null && _category.services.isNotEmpty) {
       categoryServiceRow = ServiceButtonsRow(_category.services);
     }

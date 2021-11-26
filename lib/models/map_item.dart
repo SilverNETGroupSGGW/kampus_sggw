@@ -87,6 +87,9 @@ class MapItem {
         service.setType(serviceTypes);
       });
     }
+    if (categories != null) {
+      categories.forEach((category) => category.setServicesType(serviceTypes));
+    }
   }
 
   bool _containsServiceFulfillingFunction(

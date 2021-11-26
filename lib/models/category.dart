@@ -1,5 +1,6 @@
 import 'package:kampus_sggw/models/service.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kampus_sggw/models/types/service_types/service_types.dart';
 part 'category.g.dart';
 
 @JsonSerializable()
@@ -9,13 +10,15 @@ class Category {
   String description;
   List<Service> services;
   List<Category> subCategories;
-  Category(
+
+  Category({
     this.name,
     this.url,
     this.description,
     this.services,
     this.subCategories,
-  );
+  });
+
   factory Category.fromJson(Map<String, dynamic> json) =>
       _$CategoryFromJson(json);
 
@@ -33,6 +36,34 @@ class Category {
           }
         }
       }
+    }
+  }
+
+  void setServicesType(ServiceTypes serviceTypes) {
+    _setServicesTypeFor(services, serviceTypes);
+    if (_subCatExist()) {
+      for (var subCategory in subCategories) {
+        _setServicesTypeFor(subCategory.services, serviceTypes);
+        if (subCategory._subCatExist()) {
+          for (var subSubCat in subCategory.subCategories) {
+            _setServicesTypeFor(subSubCat.services, serviceTypes);
+            if (subSubCat._subCatExist()) {
+              for (var subSubSubCat in subSubCat.subCategories) {
+                _setServicesTypeFor(subSubSubCat.services, serviceTypes);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  void _setServicesTypeFor(List<Service> services, ServiceTypes serviceTypes) {
+    if (services != null) {
+      print("czy pusteCat " + serviceTypes.types.isEmpty.toString());
+      services.forEach((service) {
+        service.setType(serviceTypes);
+      });
     }
   }
 
