@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/logic/icon_map.dart';
 import 'package:kampus_sggw/models/service.dart';
 import 'package:kampus_sggw/screens/map_screen/filter_button.dart';
 import 'service_card.dart';
@@ -39,9 +40,14 @@ class _ServiceButtonsRowState extends State<ServiceButtonsRow> {
   }
 
   FilterButton _createServiceButton(Service service) {
+    // const Icon icon = const Icon(IconData(codePoint));
+    //const Icon icon = const Icon()
+    //const int iconID = service.getIconID();
+    //const IconData iconData =
+    //const IconData(iconID, fontFamily: 'MaterialIcons');
     return FilterButton(
-      color: service.icon.color,
-      icon: service.icon.icon,
+      color: Color(service.serviceType.colorInInt),
+      iconData: iconMap[service.serviceType.materialIconName],
       onTapFunction: () => showServiceCard(service),
     );
   }

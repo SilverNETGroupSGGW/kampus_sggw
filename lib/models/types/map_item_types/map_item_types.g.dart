@@ -8,7 +8,7 @@ part of 'map_item_types.dart';
 
 MapItemTypes _$MapItemTypesFromJson(Map<String, dynamic> json) {
   return MapItemTypes(
-    (json['mapItemTypes'] as List)
+    types: (json['types'] as List)
         ?.map((e) =>
             e == null ? null : MapItemType.fromJson(e as Map<String, dynamic>))
         ?.toList(),

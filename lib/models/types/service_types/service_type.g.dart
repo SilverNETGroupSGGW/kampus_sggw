@@ -1,17 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'map_item_type.dart';
+part of 'service_type.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-MapItemType _$MapItemTypeFromJson(Map<String, dynamic> json) {
-  return MapItemType(
-    json['name'] as String,
-    json['pinIconPath'] as String,
-    json['materialIconID'] as int,
-    _$enumDecodeNullable(_$MapObjectApplicationsEnumMap, json['typeCategory']),
+ServiceType _$ServiceTypeFromJson(Map<String, dynamic> json) {
+  return ServiceType(
+    name: json['name'] as String,
+    materialIconID: json['materialIconID'] as int,
+    materialIconName: json['materialIconName'] as String,
+    objectApplication: _$enumDecodeNullable(
+        _$MapObjectApplicationsEnumMap, json['functionGroup']),
+    colorInInt: json['colorInInt'] as int,
   );
 }
 
@@ -54,4 +56,5 @@ const _$MapObjectApplicationsEnumMap = {
   MapObjectApplication.park: 'park',
   MapObjectApplication.store: 'store',
   MapObjectApplication.study: 'study',
+  MapObjectApplication.copier: 'copier',
 };

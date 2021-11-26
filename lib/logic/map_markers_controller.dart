@@ -31,7 +31,9 @@ class MapMarkersController extends ChangeNotifier {
   }
 
   void updateMarkers(List<MapItem> filteredItems) {
+    filteredItems.forEach(print);
     _filterMarkers(filteredItems);
+    print(_markers.first);
     _controllerProvider.zoomInto(_markers.first);
     notifyListeners();
   }

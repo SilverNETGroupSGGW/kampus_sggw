@@ -1,0 +1,58 @@
+{
+    "types": [
+        {
+            "name": "copier",
+            "materialIconName": "print rounded",
+            "materialIconID": 983232,
+            "functionGroup": "copier",
+            "colorInInt": 4293454582
+        },
+        {
+            "name": "canteen",
+            "materialIconName": "restaurant",
+            "materialIconID": 58674,
+            "functionGroup": "food",
+            "colorInInt": 4293454582
+        },
+        {
+            "name": "deanery",
+            "materialIconName": "event seat",
+            "materialIconID": 57922,
+            "colorInInt": 4293874512
+        },
+        {
+            "name": "vendingMachine",
+            "materialIconName": "local drink",
+            "materialIconID": 58257,
+            "functionGroup": "store",
+            "colorInInt": 4293673082
+        },
+        {
+            "name": "coffee",
+            "materialIconName": "coffee",
+            "materialIconID": 57720,
+            "functionGroup": "store",
+            "colorInInt": 4288776319
+        },
+        {
+            "name": "lectureHall",
+            "materialIconName": "account balance",
+            "materialIconID": 57408,
+            "colorInInt": 4280191205
+        },
+        {
+            "name": "library",
+            "materialIconName": "local library",
+            "materialIconID": 58265,
+            "colorInInt": 428123678
+        },
+        {
+            "name": "medicine",
+            "materialIconName": "medical services",
+            "materialIconID": 58328,
+            "functionGroup": "store",
+            "colorInInt": 4291176488
+
+        }
+    ]
+}

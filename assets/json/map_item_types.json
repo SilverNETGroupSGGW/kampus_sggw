@@ -1,16 +1,16 @@
 {
-    "mapItemTypes": [
+    "types": [
         {
             "name": "facultyBuilding",
             "pinIconPath": "facultyMarker.png",
             "materialIconID": 62268,
-            "typeCategory": "study"
+            "functionGroup": "study"
         },
         {
             "name": "administrationBuilding",
             "pinIconPath": "administrationMarker.png",
             "materialIconID": 61321,
-            "typeCategory": "study"
+            "functionGroup": "study"
         },
         {
             "name": "sportsFacility",
@@ -21,13 +21,13 @@
             "name": "store",
             "pinIconPath": "storeMarker.png",
             "materialIconID": 62447,
-            "typeCategory": "store"
+            "functionGroup": "store"
         },
         {
             "name": "food",
             "pinIconPath": "foodMarker.png",
             "materialIconID": 62230,
-            "typeCategory": "food"
+            "functionGroup": "food"
         },
         {
             "name": "library",
@@ -38,13 +38,13 @@
             "name": "parking",
             "pinIconPath": "parkingMarker.png",
             "materialIconID": 61829,
-            "typeCategory": "parking"
+            "functionGroup": "parking"
         },
         {
             "name": "transport",
             "pinIconPath": "transportMarker.png",
             "materialIconID": 61380,
-            "typeCategory": "transport"
+            "functionGroup": "transport"
         },
         {
             "name": "finance",
@@ -65,13 +65,13 @@
             "name": "monument",
             "pinIconPath": "otherMarker.png",
             "materialIconID": 62044,
-            "typeCategory": "park"
+            "functionGroup": "park"
         },
         {
             "name": "medicine",
             "pinIconPath": "otherMarker.png",
             "materialIconID": 61886,
-            "typeCategory": "store"
+            "functionGroup": "store"
         }
     ]
 }

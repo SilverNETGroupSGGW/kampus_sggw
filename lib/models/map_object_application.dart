@@ -5,4 +5,5 @@ enum MapObjectApplication {
   park,
   store,
   study,
+  copier,
 }

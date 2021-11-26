@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/logic/search_services/filter_service.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:provider/provider.dart';
 import 'visit_history_list.dart';
 import 'filter_buttons.dart';
 
@@ -18,7 +20,9 @@ class SearchHelpPanel extends StatelessWidget {
           Headline(
             text: LocaleKeys.find_nearby.tr(),
           ),
-          FilterButtons(),
+          FilterButtons(
+            filterService: Provider.of<FilterService>(context, listen: false),
+          ),
           Headline(
             text: LocaleKeys.recent_searches.tr(),
           ),

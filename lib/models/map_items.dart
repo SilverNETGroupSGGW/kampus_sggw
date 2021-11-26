@@ -2,12 +2,13 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/suggested_item.dart';
 import 'package:kampus_sggw/models/map_item.dart';
-import 'package:kampus_sggw/models/map_item_types/map_item_types.dart';
+import 'package:kampus_sggw/models/types/map_item_types/map_item_types.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/models/map_object_application.dart';
 import 'package:kampus_sggw/models/service.dart';
 import 'package:fuzzy/fuzzy.dart';
+import 'package:kampus_sggw/models/types/service_types/service_types.dart';
 part 'map_items.g.dart';
 
 @JsonSerializable()
@@ -23,31 +24,20 @@ class MapItems extends ChangeNotifier {
 
   static Future<MapItems> load() async {
     MapItems mapItems = await _loadFromJSON();
-    mapItems.bindWithItemTypes(await MapItemTypes.loadFromJSON());
+    mapItems.bindWithItemTypes(
+      await MapItemTypes.loadFromJSON(),
+      await ServiceTypes.loadFromJSON(),
+    );
     mapItems.generateFuzzyStringSetForMapItems();
     return mapItems;
   }
 
-  static Future<MapItems> _loadFromJSON() async {
-    Map<String, dynamic> mapItemsMap = jsonDecode(_getJsonString());
-    MapItems mapItems = MapItems.fromJson(mapItemsMap);
-    return mapItems;
-  }
-
-  Set<MapItem> filterByServices(List<ServiceType> serviceTypes) {
+  Set<MapItem> filterByFunction(MapObjectApplication objectApplication) {
     Set<MapItem> filteredItems = {};
     mapItems.forEach((item) {
-      if (item.containsAtLeastOneServiceType(serviceTypes)) {
-        filteredItems.add(item);
-      }
-    });
-    return filteredItems;
-  }
-
-  Set<MapItem> filterByTypeCategory(MapObjectApplication objectApplication) {
-    Set<MapItem> filteredItems = {};
-    mapItems.forEach((item) {
-      if (item.metaCategory() == objectApplication) {
+      print('tu1 ' + item.id.toString());
+      if (item.doItemFulfilFunction(objectApplication)) {
+        print('tu2 ' + item.id.toString());
         filteredItems.add(item);
       }
     });
@@ -57,19 +47,15 @@ class MapItems extends ChangeNotifier {
   factory MapItems.fromJson(Map<String, dynamic> json) =>
       _$MapItemsFromJson(json);
 
-  static String _getJsonString() {
-    return storage.read('map_items_content');
-  }
-
   void generateFuzzyStringSetForMapItems() {
     mapItems.forEach((item) {
       item.generateFuzzySet();
     });
   }
 
-  void bindWithItemTypes(MapItemTypes mapItemTypes) {
+  void bindWithItemTypes(MapItemTypes mapItemTypes, ServiceTypes serviceTypes) {
     mapItems.forEach((item) {
-      item.setType(mapItemTypes);
+      item.initializeTypes(mapItemTypes, serviceTypes);
     });
   }
 
@@ -119,5 +105,15 @@ class MapItems extends ChangeNotifier {
       List<SuggestedItem> similarityList) {
     similarityList.sort((a, b) => a.similarity.compareTo(b.similarity));
     return similarityList.take(6).toList();
+  }
+
+  static Future<MapItems> _loadFromJSON() async {
+    Map<String, dynamic> mapItemsMap = jsonDecode(_getJsonString());
+    MapItems mapItems = MapItems.fromJson(mapItemsMap);
+    return mapItems;
+  }
+
+  static String _getJsonString() {
+    return storage.read('map_items_content');
   }
 }
