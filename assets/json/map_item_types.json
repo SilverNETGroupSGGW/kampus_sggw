@@ -3,73 +3,86 @@
         {
             "name": "facultyBuilding",
             "pinIconPath": "facultyMarker.png",
+            "materialIconName": "school outlined",
             "materialIconID": 62268,
             "functionGroup": "study"
         },
         {
             "name": "administrationBuilding",
             "pinIconPath": "administrationMarker.png",
+            "materialIconName": "corporate fare outlined",
             "materialIconID": 61321,
             "functionGroup": "study"
         },
         {
             "name": "sportsFacility",
             "pinIconPath": "sportMarker.png",
+            "materialIconName": "sports soccer",
             "materialIconID": 58866
         },
         {
             "name": "store",
             "pinIconPath": "storeMarker.png",
+            "materialIconName": "storefront outlined",
             "materialIconID": 62447,
             "functionGroup": "store"
         },
         {
             "name": "food",
             "pinIconPath": "foodMarker.png",
+            "materialIconName": "restaurant outlined",
             "materialIconID": 62230,
             "functionGroup": "food"
         },
         {
             "name": "library",
             "pinIconPath": "libraryMarker.png",
+            "materialIconName": "local library outlined",
             "materialIconID": 61825
         },
         {
             "name": "parking",
             "pinIconPath": "parkingMarker.png",
+            "materialIconName": "local parking outlined",
             "materialIconID": 61829,
             "functionGroup": "parking"
         },
         {
             "name": "transport",
             "pinIconPath": "transportMarker.png",
+            "materialIconName": "directions bus outlined",
             "materialIconID": 61380,
             "functionGroup": "transport"
         },
         {
             "name": "finance",
             "pinIconPath": "financeMarker.png",
+            "materialIconName": "attach money outlined",
             "materialIconID": 61090
         },
         {
             "name": "dormitories",
             "pinIconPath": "hotelMarker.png",
+            "materialIconName": "hotel outlined",
             "materialIconID": 61710
         },
         {
             "name": "kindergarten",
             "pinIconPath": "otherMarker.png",
+            "materialIconName": "child friendly outlined",
             "materialIconID": 58173
         },
         {
             "name": "monument",
             "pinIconPath": "otherMarker.png",
+            "materialIconName": "park outlined",
             "materialIconID": 62044,
             "functionGroup": "park"
         },
         {
             "name": "medicine",
             "pinIconPath": "otherMarker.png",
+            "materialIconName": "medical services outlined",
             "materialIconID": 61886,
             "functionGroup": "store"
         }

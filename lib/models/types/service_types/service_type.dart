@@ -9,7 +9,7 @@ part 'service_type.g.dart';
 @JsonSerializable()
 class ServiceType extends TypeFromJSON {
   int colorInInt;
-  String materialIconName;
+  //String materialIconName;
   //@JsonKey(ignore: true)
   //IconData iconData;
 
@@ -22,17 +22,12 @@ class ServiceType extends TypeFromJSON {
   }) : super(
           name: name,
           materialIconID: materialIconID,
+          materialIconName: materialIconName,
           objectApplication: objectApplication,
-        ) {
-    _setIconData();
-  }
+        );
 
   factory ServiceType.fromJson(Map<String, dynamic> json) =>
       _$ServiceTypeFromJson(json);
 
-  void _setIconData() {
-    if (!iconMap.keys.contains(materialIconName)) {
-      materialIconName = "default";
-    }
-  }
+  //void _setIconData() => iconData = iconMap[materialIconName];
 }

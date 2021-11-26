@@ -16,10 +16,12 @@ class MapItemType extends TypeFromJSON {
     String name,
     this.pinIconPath,
     int materialIconID,
+    String materialIconName,
     MapObjectApplication objectApplication,
   }) : super(
           name: name,
           materialIconID: materialIconID,
+          materialIconName: materialIconName,
           objectApplication: objectApplication,
         ) {
     _initializePin();
@@ -41,4 +43,6 @@ class MapItemType extends TypeFromJSON {
         ),
         pinIconPath,
       );
+
+  //void _setIconData() => iconData = iconMap[materialIconName];
 }

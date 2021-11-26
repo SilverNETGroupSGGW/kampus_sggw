@@ -62,7 +62,7 @@ class MapItem {
   }
 
   BitmapDescriptor pinIcon() => mapItemType.pinIcon;
-  int iconID() => mapItemType.materialIconID;
+  IconData iconData() => mapItemType.iconData;
   MapObjectApplication metaCategory() => mapItemType.objectApplication;
 
   void generateFuzzySet() {
