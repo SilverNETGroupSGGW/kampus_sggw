@@ -11,7 +11,7 @@ Map<String, IconData> iconMap = {
   "medical services": Icons.medical_services,
   "school outlined": Icons.school_outlined,
   "corporate fare outlined": Icons.corporate_fare_outlined,
-  "sports soccer": Icons.sports_soccer,
+  "sports soccer outlined": Icons.sports_soccer_outlined,
   "storefront outlined": Icons.storefront_outlined,
   "restaurant outlined": Icons.restaurant_outlined,
   "local library outlined": Icons.local_library_outlined,

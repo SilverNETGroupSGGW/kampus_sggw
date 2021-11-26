@@ -1,17 +1,13 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
+
 class PlatformTools {
-  String getIconsDir() =>
+  static String getIconsDir() =>
       _isPlatformMobile() ? _getDirBasedOnPlatform() : 'assets/images/icons/';
 
-  String _getDirBasedOnPlatform() =>
+  static String _getDirBasedOnPlatform() =>
       Platform.isAndroid ? 'assets/images/icons/' : 'assets/images/icons/ios_';
 
-  bool _isPlatformMobile() {
-    try {
-      return Platform.isAndroid || Platform.isIOS;
-    } catch (e) {
-      return false;
-    }
-  }
+  static bool _isPlatformMobile() => !kIsWeb;
 }

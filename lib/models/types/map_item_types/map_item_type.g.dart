@@ -10,7 +10,6 @@ MapItemType _$MapItemTypeFromJson(Map<String, dynamic> json) {
   return MapItemType(
     name: json['name'] as String,
     pinIconPath: json['pinIconPath'] as String,
-    materialIconID: json['materialIconID'] as int,
     materialIconName: json['materialIconName'] as String,
     objectApplication: _$enumDecodeNullable(
         _$MapObjectApplicationsEnumMap, json['functionGroup']),

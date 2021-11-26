@@ -9,7 +9,6 @@ part of 'service_type.dart';
 ServiceType _$ServiceTypeFromJson(Map<String, dynamic> json) {
   return ServiceType(
     name: json['name'] as String,
-    materialIconID: json['materialIconID'] as int,
     materialIconName: json['materialIconName'] as String,
     objectApplication: _$enumDecodeNullable(
         _$MapObjectApplicationsEnumMap, json['functionGroup']),
