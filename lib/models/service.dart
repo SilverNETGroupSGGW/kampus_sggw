@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/models/types/service_types/service_type.dart';
 import 'package:kampus_sggw/models/types/service_types/service_types.dart';

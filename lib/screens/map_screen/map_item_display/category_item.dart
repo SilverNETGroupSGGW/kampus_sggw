@@ -20,8 +20,8 @@ class _CategoryItemState extends State<CategoryItem> {
     return _buildTiles(widget.category);
   }
 
-  Widget _buildTiles(Category root, {bool isFacultyInstituteorOffice = false}) {
-    if (isFacultyInstituteorOffice) {
+  Widget _buildTiles(Category root, {bool isFacultyInstituteOrOffice = false}) {
+    if (isFacultyInstituteOrOffice) {
       return ListTile(
         leading: Icon(Icons.info_outline),
         title: Text(root.name),
@@ -37,7 +37,7 @@ class _CategoryItemState extends State<CategoryItem> {
         title: _tileTitle(root.name),
         children: root.subCategories.map<Widget>((sub) {
           return _buildTiles(sub,
-              isFacultyInstituteorOffice: root.name == 'faculties' ||
+              isFacultyInstituteOrOffice: root.name == 'faculties' ||
                   root.name == 'institutes' ||
                   root.name == 'offices');
         }).toList(),
