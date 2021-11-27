@@ -1,4 +1,6 @@
+import 'dart:collection';
 import 'dart:convert';
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/suggested_item.dart';
 import 'package:kampus_sggw/models/map_item.dart';
@@ -15,21 +17,21 @@ class MapItems extends ChangeNotifier {
   static final storage = GetStorage();
 
   List<MapItem> mapItems;
-  @JsonKey(ignore: true)
-  Map<MapItem, Fuzzy> fuzzySetItemMap;
   MapItems(
     this.mapItems,
   );
 
   static Future<MapItems> load() async {
     MapItems mapItems = await _loadFromJson();
-    mapItems.bindWithItemTypes(
+    mapItems._bindItemWithTypes(
       await MapItemTypes.loadFromJson(),
       await ServiceTypes.loadFromJson(),
     );
-    mapItems.generateFuzzyStringSetForMapItems();
     return mapItems;
   }
+
+  factory MapItems.fromJson(Map<String, dynamic> json) =>
+      _$MapItemsFromJson(json);
 
   Set<MapItem> filterByFunction(ObjectFunctionGroup functionGroup) {
     Set<MapItem> filteredItems = {};
@@ -39,21 +41,6 @@ class MapItems extends ChangeNotifier {
       }
     });
     return filteredItems;
-  }
-
-  factory MapItems.fromJson(Map<String, dynamic> json) =>
-      _$MapItemsFromJson(json);
-
-  void generateFuzzyStringSetForMapItems() {
-    mapItems.forEach((item) {
-      item.generateFuzzySet();
-    });
-  }
-
-  void bindWithItemTypes(MapItemTypes mapItemTypes, ServiceTypes serviceTypes) {
-    mapItems.forEach((item) {
-      item.initializeTypes(mapItemTypes, serviceTypes);
-    });
   }
 
   List<MapItem> getItems(List<int> itemsIds) {
@@ -104,13 +91,18 @@ class MapItems extends ChangeNotifier {
     return similarityList.take(6).toList();
   }
 
+  void _bindItemWithTypes(
+      MapItemTypes mapItemTypes, ServiceTypes serviceTypes) {
+    for (var mapItem in mapItems) {
+      mapItem.initializeTypes(mapItemTypes, serviceTypes);
+    }
+  }
+
   static Future<MapItems> _loadFromJson() async {
     Map<String, dynamic> mapItemsMap = jsonDecode(_getJsonString());
     MapItems mapItems = MapItems.fromJson(mapItemsMap);
     return mapItems;
   }
 
-  static String _getJsonString() {
-    return storage.read('map_items_content');
-  }
+  static String _getJsonString() => storage.read('map_items_content');
 }

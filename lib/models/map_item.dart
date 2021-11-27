@@ -43,7 +43,9 @@ class MapItem {
     this.gallery,
     this.services,
     this.categories,
-  });
+  }) {
+    _generateFuzzySet();
+  }
 
   BitmapDescriptor get pinIcon => _mapItemType.pinIcon;
   IconData get iconData => _mapItemType.iconData;
@@ -57,7 +59,7 @@ class MapItem {
       (this.functionGroup == functionGroup ||
           _containsServiceFulfillingFunction(functionGroup));
 
-  void generateFuzzySet() =>
+  void _generateFuzzySet() =>
       _searchingSet = _getFuse(_getWordsForComparisonWithSearchQuery());
 
   void initializeTypes(MapItemTypes mapItemTypes, ServiceTypes serviceTypes) {
