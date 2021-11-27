@@ -39,30 +39,29 @@ class Category {
     }
   }
 
-  void setServicesType(ServiceTypes serviceTypes) {
-    _setServicesTypeFor(services, serviceTypes);
+  void setTypesForServices(ServiceTypes serviceTypes) {
+    _setTypeForEachService(serviceTypes);
+    _setTypesForServicesInSubCategories(serviceTypes);
+  }
+
+  void _setTypesForServicesInSubCategories(ServiceTypes serviceTypes) {
     if (_subCatExist()) {
-      for (var subCategory in subCategories) {
-        _setServicesTypeFor(subCategory.services, serviceTypes);
-        if (subCategory._subCatExist()) {
-          for (var subSubCat in subCategory.subCategories) {
-            _setServicesTypeFor(subSubCat.services, serviceTypes);
-            if (subSubCat._subCatExist()) {
-              for (var subSubSubCat in subSubCat.subCategories) {
-                _setServicesTypeFor(subSubSubCat.services, serviceTypes);
-              }
-            }
-          }
-        }
-      }
+      _setTypesForServicesInEachSubCategory(serviceTypes);
     }
   }
 
-  void _setServicesTypeFor(List<Service> services, ServiceTypes serviceTypes) {
+  void _setTypesForServicesInEachSubCategory(ServiceTypes serviceTypes) {
+    for (var subCategory in subCategories) {
+      subCategory._setTypeForEachService(serviceTypes);
+      subCategory._setTypesForServicesInSubCategories(serviceTypes);
+    }
+  }
+
+  void _setTypeForEachService(ServiceTypes serviceTypes) {
     if (services != null) {
-      services.forEach((service) {
+      for (var service in services) {
         service.setType(serviceTypes);
-      });
+      }
     }
   }
 
@@ -73,6 +72,5 @@ class Category {
     }
   }
 
-  bool _subCatExist() =>
-      subCategories != null && subCategories.isNotEmpty ? true : false;
+  bool _subCatExist() => subCategories != null && subCategories.isNotEmpty;
 }

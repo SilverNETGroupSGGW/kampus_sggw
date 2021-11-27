@@ -77,7 +77,8 @@ class MapItem {
       });
     }
     if (categories != null) {
-      categories.forEach((category) => category.setServicesType(serviceTypes));
+      categories
+          .forEach((category) => category.setTypesForServices(serviceTypes));
     }
   }
 
