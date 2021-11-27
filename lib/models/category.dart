@@ -8,7 +8,9 @@ class Category {
   String name;
   String url;
   String description;
+  @JsonKey(defaultValue: <Service>[])
   List<Service> services;
+  @JsonKey(defaultValue: <Category>[])
   List<Category> subCategories;
 
   Category({

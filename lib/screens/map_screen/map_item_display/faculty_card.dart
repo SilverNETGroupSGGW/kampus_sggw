@@ -77,6 +77,7 @@ class FacultyCard extends StatelessWidget {
 
   Widget _subCategories() {
     if (category.subCategories == null ||
+        category.subCategories.isEmpty ||
         category.subCategories[0].name != 'departments') {
       return Center();
     }

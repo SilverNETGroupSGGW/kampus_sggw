@@ -12,7 +12,6 @@ class Service {
   String description;
   String url;
   String photoPath;
-  @JsonKey(ignore: true)
   ServiceType _serviceType;
 
   Service(

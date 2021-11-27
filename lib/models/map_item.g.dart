@@ -21,14 +21,16 @@ MapItem _$MapItemFromJson(Map<String, dynamic> json) {
     lastModified: json['lastModified'] == null
         ? null
         : DateTime.parse(json['lastModified'] as String),
-    gallery: (json['gallery'] as List)?.map((e) => e as String)?.toList(),
+    gallery: (json['gallery'] as List)?.map((e) => e as String)?.toList() ?? [],
     services: (json['services'] as List)
-        ?.map((e) =>
-            e == null ? null : Service.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+            ?.map((e) =>
+                e == null ? null : Service.fromJson(e as Map<String, dynamic>))
+            ?.toList() ??
+        [],
     categories: (json['categories'] as List)
-        ?.map((e) =>
-            e == null ? null : Category.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+            ?.map((e) =>
+                e == null ? null : Category.fromJson(e as Map<String, dynamic>))
+            ?.toList() ??
+        [],
   );
 }

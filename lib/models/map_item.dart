@@ -22,12 +22,13 @@ class MapItem {
   String photoPath;
   double minScale;
   DateTime lastModified;
+  @JsonKey(defaultValue: <String>[])
   List<String> gallery;
+  @JsonKey(defaultValue: <Service>[])
   List<Service> services;
+  @JsonKey(defaultValue: <Category>[])
   List<Category> categories;
-  @JsonKey(ignore: true)
   Fuzzy _searchingSet;
-  @JsonKey(ignore: true)
   MapItemType _mapItemType;
 
   MapItem({

@@ -11,7 +11,6 @@ part 'theme_model.g.dart';
 class ThemeModel extends ChangeNotifier with StorableJson, LoadableJson {
   @JsonKey(defaultValue: 1)
   int themeId;
-  @JsonKey(ignore: true)
   ThemeData _currentTheme;
 
   ThemeData get currentTheme => _currentTheme;
