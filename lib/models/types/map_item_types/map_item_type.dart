@@ -36,9 +36,7 @@ class MapItemType extends TypeFromJson {
 
   Future<BitmapDescriptor> _loadPinIcon(String pinIconPath) async =>
       await BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(
-          size: Size(30, 45),
-        ),
+        ImageConfiguration(size: Size(30, 45)),
         pinIconPath,
       );
 }
