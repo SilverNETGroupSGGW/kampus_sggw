@@ -96,15 +96,15 @@ class MapItem {
       services != null &&
       services.any((service) => service.functionGroup == functionGroup);
 
-  List<String> _getWordsForComparisonWithSearchQuery() {
-    List<String> wordsForComparison = [];
+  Set<String> _getWordsForComparisonWithSearchQuery() {
+    Set<String> wordsForComparison = {};
     wordsForComparison.addAll(_getInnerWords());
     wordsForComparison.addAll(_getWordsForComparisonInCategories());
     return wordsForComparison;
   }
 
-  List<String> _getWordsForComparisonInCategories() {
-    List<String> wordsForComparison = [];
+  Set<String> _getWordsForComparisonInCategories() {
+    Set<String> wordsForComparison = {};
     if (_categoriesExist()) {
       for (var cat in categories) {
         wordsForComparison.addAll(cat.getWordsForComparisonWithSearchQuery());
@@ -118,9 +118,9 @@ class MapItem {
 
   bool _categoriesExist() => categories != null && categories.isNotEmpty;
 
-  Fuzzy _getFuse(List<String> wordsForComparisonWithSearchQuery) {
+  Fuzzy _getFuse(Set<String> wordsForComparisonWithSearchQuery) {
     return Fuzzy(
-      wordsForComparisonWithSearchQuery,
+      wordsForComparisonWithSearchQuery.toList(),
       options: FuzzyOptions(
         findAllMatches: true,
         tokenize: true,

@@ -24,23 +24,17 @@ class Category {
   factory Category.fromJson(Map<String, dynamic> json) =>
       _$CategoryFromJson(json);
 
-  List<String> getWordsForComparisonWithSearchQuery() {
-    List<String> wordsForComparison = [];
-    if (_subCatExist()) {
-      for (var faculties in subCategories) {
-        wordsForComparison.addAll(faculties._getInnerWords());
-        if (faculties._subCatExist()) {
-          for (var subCat in faculties.subCategories) {
-            if (subCat._subCatExist()) {
-              for (var departments in subCat.subCategories) {
-                wordsForComparison.addAll(departments._getInnerWords());
-              }
-            }
-          }
+  Set<String> getWordsForComparisonWithSearchQuery() {
+    Set<String> words = {};
+    for (var faculty in subCategories) {
+      words = faculty._getWordsFromInnerCategory();
+      for (var subCategory in faculty.subCategories) {
+        for (var department in subCategory.subCategories) {
+          words.addAll(department._getWordsFromInnerCategory());
         }
       }
     }
-    return wordsForComparison;
+    return words;
   }
 
   void setTypesForServices(ServiceTypes serviceTypes) {
@@ -49,28 +43,24 @@ class Category {
   }
 
   void _setTypesForServicesInSubCategories(ServiceTypes serviceTypes) {
-    if (_subCatExist()) {
-      _setTypesForServicesInEachSubCategory(serviceTypes);
-    }
-  }
-
-  void _setTypesForServicesInEachSubCategory(ServiceTypes serviceTypes) {
     for (var subCategory in subCategories) {
       subCategory._setTypeForEachService(serviceTypes);
       subCategory._setTypesForServicesInSubCategories(serviceTypes);
     }
   }
 
-  void _setTypeForEachService(ServiceTypes serviceTypes) {
-    if (services != null) {
-      for (var service in services) {
-        service.setType(serviceTypes);
-      }
-    }
+  void _setTypeForEachService(ServiceTypes serviceTypes) =>
+      services.forEach((service) => service.setType(serviceTypes));
+
+  Set<String> _getWordsFromInnerCategory() =>
+      _getInnerWords().union(_getWordsForComparisonFromServices());
+
+  Set<String> _getWordsForComparisonFromServices() {
+    Set<String> words = {};
+    services.forEach(
+        (service) => words.addAll(service.wordsToCompareWithSearchQuery));
+    return words;
   }
 
-  List<String> _getInnerWords() =>
-      description != null ? [name, description] : [name];
-
-  bool _subCatExist() => subCategories != null && subCategories.isNotEmpty;
+  Set<String> _getInnerWords() => {name, description};
 }

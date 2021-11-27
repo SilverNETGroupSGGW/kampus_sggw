@@ -31,4 +31,5 @@ class Service {
   Color get iconColor => Color(_serviceType.colorInHex);
   IconData get iconData => _serviceType.iconData;
   ObjectFunctionGroup get functionGroup => _serviceType.functionGroup;
+  Set<String> get wordsToCompareWithSearchQuery => {name, description};
 }
