@@ -57,9 +57,9 @@ class MapItem {
           _containsServiceFulfillingFunction(functionGroup));
 
   void generateFuzzySet() {
-    List<String> strings = [];
-    _addData(strings);
-    searchingSet = _getFuse(strings);
+    List<String> wordsForComparisonWithSearchQuery = [];
+    _addData(wordsForComparisonWithSearchQuery);
+    searchingSet = _getFuse(wordsForComparisonWithSearchQuery);
   }
 
   void initializeTypes(MapItemTypes mapItemTypes, ServiceTypes serviceTypes) {
@@ -95,27 +95,27 @@ class MapItem {
       services != null &&
       services.any((service) => service.functionGroup == functionGroup);
 
-  void _addInnerData(List<String> strings) {
-    strings.add(name);
+  void _addData(List<String> wordsForComparisonWithSearchQuery) {
+    _addInnerData(wordsForComparisonWithSearchQuery);
+    if (_categoriesExist()) {
+      for (var cat in categories) {
+        cat.addData(wordsForComparisonWithSearchQuery);
+      }
+    }
+  }
+
+  void _addInnerData(List<String> wordsForComparisonWithSearchQuery) {
+    wordsForComparisonWithSearchQuery.add(name);
     if (description != null) {
-      strings.add(description);
+      wordsForComparisonWithSearchQuery.add(description);
     }
   }
 
   bool _categoriesExist() => categories != null && categories.isNotEmpty;
 
-  void _addData(List<String> strings) {
-    _addInnerData(strings);
-    if (_categoriesExist()) {
-      for (var cat in categories) {
-        cat.addData(strings);
-      }
-    }
-  }
-
-  Fuzzy _getFuse(List<String> strings) {
+  Fuzzy _getFuse(List<String> wordsForComparisonWithSearchQuery) {
     return Fuzzy(
-      strings,
+      wordsForComparisonWithSearchQuery,
       options: FuzzyOptions(
         findAllMatches: true,
         tokenize: true,

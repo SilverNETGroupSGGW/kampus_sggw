@@ -22,15 +22,15 @@ class Category {
   factory Category.fromJson(Map<String, dynamic> json) =>
       _$CategoryFromJson(json);
 
-  void addData(List<String> strings) {
+  void addData(List<String> wordsForComparisonWithSearchQuery) {
     if (_subCatExist()) {
       for (var faculties in subCategories) {
-        faculties._addInnerData(strings);
+        faculties._addInnerData(wordsForComparisonWithSearchQuery);
         if (faculties._subCatExist()) {
           for (var subCat in faculties.subCategories) {
             if (subCat._subCatExist()) {
               for (var departments in subCat.subCategories) {
-                departments._addInnerData(strings);
+                departments._addInnerData(wordsForComparisonWithSearchQuery);
               }
             }
           }
