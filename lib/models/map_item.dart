@@ -56,17 +56,14 @@ class MapItem {
   factory MapItem.fromJson(Map<String, dynamic> json) =>
       _$MapItemFromJson(json);
 
-  bool doesItemFulfilFunction(ObjectFunctionGroup functionGroup) =>
-      (this.functionGroup == functionGroup ||
-          _containsServiceFulfillingFunction(functionGroup));
-
-  void _generateFuzzySet() =>
-      _searchingSet = _getFuse(_getWordsForComparisonWithSearchQuery());
-
   void initializeTypes(MapItemTypes mapItemTypes, ServiceTypes serviceTypes) {
     _setTypeForMapItem(mapItemTypes);
     _setTypesForAllServices(serviceTypes);
   }
+
+  bool doesItemFulfilFunction(ObjectFunctionGroup functionGroup) =>
+      (this.functionGroup == functionGroup ||
+          _containsServiceFulfillingFunction(functionGroup));
 
   void _setTypeForMapItem(MapItemTypes mapItemTypes) =>
       _mapItemType = mapItemTypes.types[type];
@@ -76,47 +73,29 @@ class MapItem {
     _setTypesForServicesInCategories(serviceTypes);
   }
 
-  void _setTypesForServices(ServiceTypes serviceTypes) {
-    if (services != null) {
-      for (var service in services) {
-        service.setType(serviceTypes);
-      }
-    }
-  }
+  void _setTypesForServices(ServiceTypes serviceTypes) =>
+      services.forEach((service) => service.setType(serviceTypes));
 
-  void _setTypesForServicesInCategories(ServiceTypes serviceTypes) {
-    if (categories != null) {
-      for (var category in categories) {
-        category.setTypesForServices(serviceTypes);
-      }
-    }
-  }
+  void _setTypesForServicesInCategories(ServiceTypes serviceTypes) => categories
+      .forEach((category) => category.setTypesForServices(serviceTypes));
 
   bool _containsServiceFulfillingFunction(ObjectFunctionGroup functionGroup) =>
-      services != null &&
       services.any((service) => service.functionGroup == functionGroup);
 
-  Set<String> _getWordsForComparisonWithSearchQuery() {
-    Set<String> wordsForComparison = {};
-    wordsForComparison.addAll(_getInnerWords());
-    wordsForComparison.addAll(_getWordsForComparisonInCategories());
-    return wordsForComparison;
-  }
+  void _generateFuzzySet() =>
+      _searchingSet = _getFuse(_getWordsToCompareWithSearchQuery());
+
+  Set<String> _getWordsToCompareWithSearchQuery() =>
+      _getInnerWords().union(_getWordsForComparisonInCategories());
 
   Set<String> _getWordsForComparisonInCategories() {
-    Set<String> wordsForComparison = {};
-    if (_categoriesExist()) {
-      for (var cat in categories) {
-        wordsForComparison.addAll(cat.getWordsForComparisonWithSearchQuery());
-      }
-    }
-    return wordsForComparison;
+    Set<String> words = {};
+    categories.forEach((category) =>
+        words.addAll(category.getWordsForComparisonWithSearchQuery()));
+    return words;
   }
 
-  List<String> _getInnerWords() =>
-      description != null ? [name, description] : [name];
-
-  bool _categoriesExist() => categories != null && categories.isNotEmpty;
+  Set<String> _getInnerWords() => {name, description};
 
   Fuzzy _getFuse(Set<String> wordsForComparisonWithSearchQuery) {
     return Fuzzy(
