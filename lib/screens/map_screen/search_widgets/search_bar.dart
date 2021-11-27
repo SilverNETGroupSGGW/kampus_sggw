@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/histories/search_history.dart';
-import 'package:kampus_sggw/logic/search_bar_controller.dart';
+import 'package:kampus_sggw/logic/controllers/search_bar_controller.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/logic/search_services/suggestion_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';

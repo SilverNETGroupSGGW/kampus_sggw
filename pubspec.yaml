@@ -48,6 +48,7 @@ flutter:
     - assets/json/campus_rules_pl.json
     - assets/json/campus_rules_en.json
     - assets/json/map_item_types.json
+    - assets/json/service_types.json
     - assets/images/icons/
     - assets/metadata.json
   fonts:

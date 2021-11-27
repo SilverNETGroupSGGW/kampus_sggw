@@ -2,20 +2,18 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:kampus_sggw/models/map_item_types/map_item_type.dart';
+import 'package:kampus_sggw/models/types/types_from_json.dart';
+import 'package:kampus_sggw/models/types/map_item_types/map_item_type.dart';
 part 'map_item_types.g.dart';
 
 @JsonSerializable()
-class MapItemTypes {
-  List<MapItemType> mapItemTypes;
-  MapItemTypes(
-    this.mapItemTypes,
-  );
+class MapItemTypes extends TypesFromJson {
+  MapItemTypes({List<MapItemType> typesFromJson})
+      : super(
+          typesFromJson: typesFromJson,
+        );
 
-  MapItemType getTypeByName(String typeName) =>
-      mapItemTypes.firstWhere((type) => type.name == typeName);
-
-  static Future<MapItemTypes> loadFromJSON() async {
+  static Future<MapItemTypes> loadFromJson() async {
     Map<String, dynamic> mapItemTypesMap = jsonDecode(await _getJsonSting());
     return MapItemTypes.fromJson(mapItemTypesMap);
   }

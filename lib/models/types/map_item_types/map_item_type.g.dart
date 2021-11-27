@@ -8,10 +8,11 @@ part of 'map_item_type.dart';
 
 MapItemType _$MapItemTypeFromJson(Map<String, dynamic> json) {
   return MapItemType(
-    json['name'] as String,
-    json['pinIconPath'] as String,
-    json['materialIconID'] as int,
-    _$enumDecodeNullable(_$MapObjectApplicationsEnumMap, json['typeCategory']),
+    name: json['name'] as String,
+    pinIconPath: json['pinIconPath'] as String,
+    materialIconName: json['materialIconName'] as String,
+    functionGroup: _$enumDecodeNullable(
+        _$ObjectFunctionGroupsEnumMap, json['functionGroup']),
   );
 }
 
@@ -47,11 +48,12 @@ T _$enumDecodeNullable<T>(
   return _$enumDecode<T>(enumValues, source, unknownValue: unknownValue);
 }
 
-const _$MapObjectApplicationsEnumMap = {
-  MapObjectApplication.food: 'food',
-  MapObjectApplication.transport: 'transport',
-  MapObjectApplication.parking: 'parking',
-  MapObjectApplication.park: 'park',
-  MapObjectApplication.store: 'store',
-  MapObjectApplication.study: 'study',
+const _$ObjectFunctionGroupsEnumMap = {
+  ObjectFunctionGroup.food: 'food',
+  ObjectFunctionGroup.transport: 'transport',
+  ObjectFunctionGroup.parking: 'parking',
+  ObjectFunctionGroup.park: 'park',
+  ObjectFunctionGroup.store: 'store',
+  ObjectFunctionGroup.study: 'study',
+  ObjectFunctionGroup.copier: 'copier',
 };

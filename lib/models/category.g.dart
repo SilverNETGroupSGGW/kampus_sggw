@@ -8,16 +8,18 @@ part of 'category.dart';
 
 Category _$CategoryFromJson(Map<String, dynamic> json) {
   return Category(
-    json['name'] as String,
-    json['url'] as String,
-    json['description'] as String,
-    (json['services'] as List)
-        ?.map((e) =>
-            e == null ? null : Service.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    (json['subCategories'] as List)
-        ?.map((e) =>
-            e == null ? null : Category.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    name: json['name'] as String,
+    url: json['url'] as String,
+    description: json['description'] as String,
+    services: (json['services'] as List)
+            ?.map((e) =>
+                e == null ? null : Service.fromJson(e as Map<String, dynamic>))
+            ?.toList() ??
+        [],
+    subCategories: (json['subCategories'] as List)
+            ?.map((e) =>
+                e == null ? null : Category.fromJson(e as Map<String, dynamic>))
+            ?.toList() ??
+        [],
   );
 }

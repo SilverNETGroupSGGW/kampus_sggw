@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kampus_sggw/logic/histories/search_history.dart';
 import 'package:kampus_sggw/logic/histories/visit_history.dart';
-import 'package:kampus_sggw/logic/map_controller.dart';
+import 'package:kampus_sggw/logic/controllers/map_controller.dart';
 import 'package:kampus_sggw/logic/search_services/filter_service.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/logic/search_services/suggestion_service.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/models/theme_model.dart';
-import 'package:kampus_sggw/logic/search_bar_controller.dart';
-import 'package:kampus_sggw/logic/map_markers_controller.dart';
+import 'package:kampus_sggw/logic/controllers/search_bar_controller.dart';
+import 'package:kampus_sggw/logic/controllers/map_markers_controller.dart';
 import 'package:kampus_sggw/screens/map_screen/map_screen.dart';
 import 'package:kampus_sggw/translations/codegen_loader.g.dart';
 import 'package:kampus_sggw/updateLocalData.dart';
@@ -25,9 +25,9 @@ Future<void> main() async {
   await checkUpdates();
 
   final mapItems = await MapItems.load();
-  final searchHistory = await SearchHistory.loadFromJSON();
-  final visitHistory = await VisitHistory.loadFromJSON();
-  final themeModel = await ThemeModel.loadFromJSON();
+  final searchHistory = await SearchHistory.loadFromJson();
+  final visitHistory = await VisitHistory.loadFromJson();
+  final themeModel = await ThemeModel.loadFromJson();
   final mapController = MapController();
   final markersController = MapMarkersController(
     mapController: mapController,

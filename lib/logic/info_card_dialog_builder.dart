@@ -68,7 +68,7 @@ class InfoCardDialogBuilder {
       subcategories: description,
       servicesRow: servicesRow,
       photoPath: mapItem.photoPath,
-      mapItemType: mapItem.mapItemType,
+      type: mapItem.functionGroup,
       mapItemDescription: mapItemDescription,
       mapItemGallery: mapItemGallery,
       otherCategories: otherCategories,

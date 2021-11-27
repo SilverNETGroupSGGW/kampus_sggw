@@ -1,0 +1,49 @@
+{
+    "typesFromJson": [
+        {
+            "name": "copier",
+            "materialIconName": "print rounded",
+            "functionGroup": "copier",
+            "color": "0xFF3F51B5"
+        },
+        {
+            "name": "canteen",
+            "materialIconName": "restaurant",
+            "functionGroup": "food",
+            "color": "0xFFFBC02D"
+        },
+        {
+            "name": "deanery",
+            "materialIconName": "event seat",
+            "color": "0xFFEF5350"
+        },
+        {
+            "name": "vendingMachine",
+            "materialIconName": "local drink",
+            "functionGroup": "store",
+            "color": "0xFFEC407A"
+        },
+        {
+            "name": "coffee",
+            "materialIconName": "coffee",
+            "functionGroup": "store",
+            "color": "0xFFFF8A65"
+        },
+        {
+            "name": "lectureHall",
+            "materialIconName": "account balance",
+            "color": "0xFF039BE5"
+        },
+        {
+            "name": "library",
+            "materialIconName": "local library",
+            "color": "0xFF2E7D32"
+        },
+        {
+            "name": "medicine",
+            "materialIconName": "medical services",
+            "functionGroup": "store",
+            "color": "0xFFD32F2F"
+        }
+    ]
+}

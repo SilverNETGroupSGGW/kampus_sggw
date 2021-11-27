@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/histories/visit_history.dart';
-import 'package:kampus_sggw/logic/search_bar_controller.dart';
+import 'package:kampus_sggw/logic/controllers/search_bar_controller.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
@@ -35,7 +35,7 @@ class _VisitHistoryList extends State<VisitHistoryList> {
   ListTile _recentlyVisitedItemCard(MapItem item) {
     return ListTile(
       onTap: () => _showItemOnMap(item),
-      leading: item.materialIcon(),
+      leading: Icon(item.iconData),
       title: Text(
         item.name,
         overflow: TextOverflow.ellipsis,

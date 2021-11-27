@@ -1,13 +1,10 @@
-import 'package:kampus_sggw/models/map_object_application.dart';
-import 'package:kampus_sggw/models/service.dart';
+import 'package:kampus_sggw/logic/object_function_group.dart';
 
 class FiltrationEventParam {
   String filterName;
-  MapObjectApplication objectApplication;
-  List<ServiceType> serviceTypes;
+  ObjectFunctionGroup functionGroup;
   FiltrationEventParam({
     this.filterName,
-    this.objectApplication,
-    this.serviceTypes,
+    this.functionGroup,
   });
 }

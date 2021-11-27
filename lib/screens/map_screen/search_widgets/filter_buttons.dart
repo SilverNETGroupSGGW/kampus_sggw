@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/filtration_event_param.dart';
 import 'package:kampus_sggw/logic/search_services/filter_service.dart';
-import 'package:kampus_sggw/models/map_object_application.dart';
-import 'package:kampus_sggw/models/service.dart';
+import 'package:kampus_sggw/logic/object_function_group.dart';
 import 'package:kampus_sggw/screens/map_screen/filter_button.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:provider/provider.dart';
 
 class FilterButtons extends StatelessWidget {
+  final FilterService filterService;
+
+  const FilterButtons({
+    Key key,
+    @required this.filterService,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    FilterService filterService =
-        Provider.of<FilterService>(context, listen: false);
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Padding(
@@ -23,69 +26,61 @@ class FilterButtons extends StatelessWidget {
         ),
         child: Row(
           children: <Widget>[
-            FilterButton(
-              color: Color(0xFFf29900),
-              icon: Icons.restaurant,
-              onTapFunction: () => filterService.filterMapItems(
-                FiltrationEventParam(
-                  filterName: LocaleKeys.food.tr(),
-                  objectApplication: MapObjectApplication.food,
-                  serviceTypes: [ServiceType.canteen],
-                ),
-              ),
+            _filterButton(
+              Color(0xFFf29900),
+              Icons.restaurant,
+              LocaleKeys.food.tr(),
+              ObjectFunctionGroup.food,
             ),
-            FilterButton(
-              color: Color(0xFF1a73e8),
-              icon: Icons.directions_bus_outlined,
-              onTapFunction: () => filterService.filterMapItems(
-                FiltrationEventParam(
-                  filterName: LocaleKeys.bus.tr(),
-                  objectApplication: MapObjectApplication.transport,
-                ),
-              ),
+            _filterButton(
+              Color(0xFF1a73e8),
+              Icons.directions_bus_outlined,
+              LocaleKeys.bus.tr(),
+              ObjectFunctionGroup.transport,
             ),
-            FilterButton(
-              color: Color(0xFF7986CB),
-              icon: Icons.local_parking_outlined,
-              onTapFunction: () => filterService.filterMapItems(
-                FiltrationEventParam(
-                  filterName: LocaleKeys.parking.tr(),
-                  objectApplication: MapObjectApplication.parking,
-                ),
-              ),
+            _filterButton(
+              Color(0xFF7986CB),
+              Icons.local_parking_outlined,
+              LocaleKeys.parking.tr(),
+              ObjectFunctionGroup.parking,
             ),
-            FilterButton(
-              color: Colors.green,
-              icon: Icons.park,
-              onTapFunction: () => filterService.filterMapItems(
-                FiltrationEventParam(
-                  filterName: LocaleKeys.park.tr(),
-                  objectApplication: MapObjectApplication.park,
-                ),
-              ),
+            _filterButton(
+              Colors.green,
+              Icons.park,
+              LocaleKeys.park.tr(),
+              ObjectFunctionGroup.park,
             ),
-            FilterButton(
-              color: Color(0xFF5491f5),
-              icon: Icons.storefront_outlined,
-              onTapFunction: () => filterService.filterMapItems(
-                FiltrationEventParam(
-                  filterName: LocaleKeys.store.tr(),
-                  objectApplication: MapObjectApplication.store,
-                  serviceTypes: [ServiceType.vendingMachine],
-                ),
-              ),
+            _filterButton(
+              Color(0xFF5491f5),
+              Icons.storefront_outlined,
+              LocaleKeys.store.tr(),
+              ObjectFunctionGroup.store,
             ),
-            FilterButton(
-              color: Colors.indigo,
-              icon: Icons.print_rounded,
-              onTapFunction: () => filterService.filterMapItems(
-                FiltrationEventParam(
-                  filterName: LocaleKeys.copier.tr(),
-                  serviceTypes: [ServiceType.copier],
-                ),
-              ),
+            _filterButton(
+              Colors.indigo,
+              Icons.print_rounded,
+              LocaleKeys.copier.tr(),
+              ObjectFunctionGroup.copier,
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  FilterButton _filterButton(
+    Color color,
+    IconData iconData,
+    String filterName,
+    ObjectFunctionGroup functionGroup,
+  ) {
+    return FilterButton(
+      color: color,
+      iconData: iconData,
+      onTapFunction: () => filterService.filterMapItems(
+        FiltrationEventParam(
+          filterName: filterName,
+          functionGroup: functionGroup,
         ),
       ),
     );
