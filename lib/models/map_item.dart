@@ -84,8 +84,7 @@ class MapItem {
   bool _containsServiceFulfillingFunction(ObjectFunctionGroup functionGroup) {
     return services == null
         ? false
-        : services.any(
-            (service) => service.serviceType.functionGroup == functionGroup);
+        : services.any((service) => service.functionGroup == functionGroup);
   }
 
   void _addInnerData(List<String> strings) {

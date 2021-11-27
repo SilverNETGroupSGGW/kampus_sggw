@@ -40,8 +40,8 @@ class _ServiceButtonsRowState extends State<ServiceButtonsRow> {
   }
 
   FilterButton _createServiceButton(Service service) => FilterButton(
-        color: Color(service.serviceType.colorInHex),
-        iconData: iconMap[service.serviceType.materialIconName],
+        color: service.iconColor,
+        iconData: service.iconData,
         onTapFunction: () => showServiceCard(service),
       );
 }

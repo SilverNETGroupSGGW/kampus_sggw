@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kampus_sggw/models/map_object_application.dart';
 import 'package:kampus_sggw/models/types/service_types/service_type.dart';
 import 'package:kampus_sggw/models/types/service_types/service_types.dart';
 part 'service.g.dart';
@@ -11,7 +13,7 @@ class Service {
   String url;
   String photoPath;
   @JsonKey(ignore: true)
-  ServiceType serviceType;
+  ServiceType _serviceType;
 
   Service(
     this.name,
@@ -25,7 +27,9 @@ class Service {
       _$ServiceFromJson(json);
 
   void setType(ServiceTypes serviceTypes) =>
-      serviceType = serviceTypes.getTypeByName(type);
+      _serviceType = serviceTypes.getTypeByName(type);
 
-  int get iconColor => serviceType.colorInHex;
+  Color get iconColor => Color(_serviceType.colorInHex);
+  IconData get iconData => _serviceType.iconData;
+  ObjectFunctionGroup get functionGroup => _serviceType.functionGroup;
 }
