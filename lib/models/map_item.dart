@@ -68,7 +68,7 @@ class MapItem {
   }
 
   void _setType(MapItemTypes mapItemTypes) =>
-      mapItemType = mapItemTypes.getTypeByName(type);
+      mapItemType = mapItemTypes.types[type];
 
   void _setServicesType(ServiceTypes serviceTypes) {
     if (services != null) {

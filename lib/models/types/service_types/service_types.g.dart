@@ -8,7 +8,7 @@ part of 'service_types.dart';
 
 ServiceTypes _$ServiceTypesFromJson(Map<String, dynamic> json) {
   return ServiceTypes(
-    types: (json['types'] as List)
+    typesFromJson: (json['typesFromJson'] as List)
         ?.map((e) =>
             e == null ? null : ServiceType.fromJson(e as Map<String, dynamic>))
         ?.toList(),

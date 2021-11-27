@@ -1,11 +1,21 @@
+import 'dart:collection';
+
+import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/models/types/type_from_json.dart';
 
 abstract class TypesFromJson {
-  List<TypeFromJson> types;
-  TypesFromJson({
-    this.types,
-  });
+  List<TypeFromJson> typesFromJson;
+  @JsonKey(ignore: true)
+  Map<String, TypeFromJson> _types = new Map<String, TypeFromJson>();
 
-  TypeFromJson getTypeByName(String typeName) =>
-      types.firstWhere((type) => type.name == typeName);
+  TypesFromJson({
+    this.typesFromJson,
+  }) {
+    _mapTypes();
+  }
+
+  UnmodifiableMapView<String, TypeFromJson> get types =>
+      UnmodifiableMapView(_types);
+
+  void _mapTypes() => typesFromJson.forEach((type) => _types[type.name] = type);
 }

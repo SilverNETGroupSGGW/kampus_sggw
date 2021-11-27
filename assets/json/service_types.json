@@ -1,5 +1,5 @@
 {
-    "types": [
+    "typesFromJson": [
         {
             "name": "copier",
             "materialIconName": "print rounded",

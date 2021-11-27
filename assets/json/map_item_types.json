@@ -1,5 +1,5 @@
 {
-    "types": [
+    "typesFromJson": [
         {
             "name": "facultyBuilding",
             "pinIconPath": "facultyMarker.png",

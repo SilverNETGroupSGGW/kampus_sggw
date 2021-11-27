@@ -27,7 +27,7 @@ class Service {
       _$ServiceFromJson(json);
 
   void setType(ServiceTypes serviceTypes) =>
-      _serviceType = serviceTypes.getTypeByName(type);
+      _serviceType = serviceTypes.types[type];
 
   Color get iconColor => Color(_serviceType.colorInHex);
   IconData get iconData => _serviceType.iconData;

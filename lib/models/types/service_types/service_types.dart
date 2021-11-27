@@ -9,9 +9,9 @@ part 'service_types.g.dart';
 
 @JsonSerializable()
 class ServiceTypes extends TypesFromJson {
-  ServiceTypes({List<ServiceType> types})
+  ServiceTypes({List<ServiceType> typesFromJson})
       : super(
-          types: types,
+          typesFromJson: typesFromJson,
         );
 
   static Future<ServiceTypes> loadFromJson() async {
