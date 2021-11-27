@@ -38,9 +38,11 @@ class _ServiceButtonsRowState extends State<ServiceButtonsRow> {
     );
   }
 
-  FilterButton _createServiceButton(Service service) => FilterButton(
-        color: service.iconColor,
-        iconData: service.iconData,
-        onTapFunction: () => showServiceCard(service),
-      );
+  FilterButton _createServiceButton(Service service) {
+    return FilterButton(
+      color: service.iconColor,
+      iconData: service.iconData,
+      onTapFunction: () => showServiceCard(service),
+    );
+  }
 }

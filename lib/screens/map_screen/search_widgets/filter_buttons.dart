@@ -73,15 +73,16 @@ class FilterButtons extends StatelessWidget {
     IconData iconData,
     String filterName,
     ObjectFunctionGroup functionGroup,
-  ) =>
-      FilterButton(
-        color: color,
-        iconData: iconData,
-        onTapFunction: () => filterService.filterMapItems(
-          FiltrationEventParam(
-            filterName: filterName,
-            functionGroup: functionGroup,
-          ),
+  ) {
+    return FilterButton(
+      color: color,
+      iconData: iconData,
+      onTapFunction: () => filterService.filterMapItems(
+        FiltrationEventParam(
+          filterName: filterName,
+          functionGroup: functionGroup,
         ),
-      );
+      ),
+    );
+  }
 }
