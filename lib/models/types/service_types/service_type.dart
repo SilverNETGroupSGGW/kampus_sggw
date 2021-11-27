@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:kampus_sggw/logic/map_object_application.dart';
+import 'package:kampus_sggw/logic/object_function_group.dart';
 import 'package:kampus_sggw/models/types/type_from_json.dart';
 
 part 'service_type.g.dart';

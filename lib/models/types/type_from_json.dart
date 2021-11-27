@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/maps/icon_map.dart';
-import 'package:kampus_sggw/logic/map_object_application.dart';
+import 'package:kampus_sggw/logic/object_function_group.dart';
 
 abstract class TypeFromJson {
   String name;
