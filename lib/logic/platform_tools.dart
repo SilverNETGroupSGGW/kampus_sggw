@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 
-class PlatformTools {
+abstract class PlatformTools {
   static String getIconsDir() =>
       _isPlatformMobile() ? _getDirBasedOnPlatform() : 'assets/images/icons/';
 

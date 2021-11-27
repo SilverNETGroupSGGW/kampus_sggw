@@ -19,7 +19,7 @@ class UserHistory extends ChangeNotifier {
       UnmodifiableListView(_storedMapItems);
 
   void loadMapItems(MapItems mapItems) {
-    _storedMapItems = mapItems.getItems(itemsIds).reversed.toList();
+    _storedMapItems = mapItems.getItemsMappedWithId(itemsIds).reversed.toList();
   }
 
   @protected

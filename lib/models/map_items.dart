@@ -33,13 +33,8 @@ class MapItems extends ChangeNotifier {
       {}..addAll(
           mapItems.where((item) => item.doesItemFulfilFunction(functionGroup)));
 
-  List<MapItem> getItems(List<int> itemsIds) {
-    List<MapItem> tmp = [];
-    for (var id in itemsIds) {
-      tmp.add(mapItems.firstWhere((element) => element.id == id));
-    }
-    return tmp;
-  }
+  List<MapItem> getItemsMappedWithId(List<int> itemsIds) => []..addAll(
+      itemsIds.map((id) => mapItems.firstWhere((item) => item.id == id)));
 
   void _bindItemWithTypes(
           MapItemTypes mapItemTypes, ServiceTypes serviceTypes) =>
