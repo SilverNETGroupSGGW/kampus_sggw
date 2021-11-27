@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/filtration_event_param.dart';
 import 'package:kampus_sggw/logic/search_services/filter_service.dart';
-import 'package:kampus_sggw/models/map_object_application.dart';
+import 'package:kampus_sggw/logic/map_object_application.dart';
 import 'package:kampus_sggw/screens/map_screen/filter_button.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';

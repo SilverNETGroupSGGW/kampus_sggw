@@ -1,4 +1,4 @@
-import 'package:kampus_sggw/models/map_object_application.dart';
+import 'package:kampus_sggw/logic/map_object_application.dart';
 
 class FiltrationEventParam {
   String filterName;

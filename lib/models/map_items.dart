@@ -5,7 +5,7 @@ import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/types/map_item_types/map_item_types.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:kampus_sggw/models/map_object_application.dart';
+import 'package:kampus_sggw/logic/map_object_application.dart';
 import 'package:kampus_sggw/models/types/service_types/service_types.dart';
 part 'map_items.g.dart';
 
