@@ -28,9 +28,9 @@ class MapItem {
   @JsonKey(ignore: true)
   Fuzzy searchingSet;
   @JsonKey(ignore: true)
-  MapItemType mapItemType;
+  MapItemType _mapItemType;
 
-  MapItem(
+  MapItem({
     this.id,
     this.geoLocation,
     this.name,
@@ -43,18 +43,18 @@ class MapItem {
     this.gallery,
     this.services,
     this.categories,
-  );
+  });
+
+  BitmapDescriptor get pinIcon => _mapItemType.pinIcon;
+  IconData get iconData => _mapItemType.iconData;
+  ObjectFunctionGroup get functionGroup => _mapItemType.functionGroup;
 
   factory MapItem.fromJson(Map<String, dynamic> json) =>
       _$MapItemFromJson(json);
 
-  bool doItemFulfilFunction(ObjectFunctionGroup functionGroup) =>
-      (mapItemType.functionGroup == functionGroup ||
+  bool doesItemFulfilFunction(ObjectFunctionGroup functionGroup) =>
+      (this.functionGroup == functionGroup ||
           _containsServiceFulfillingFunction(functionGroup));
-
-  BitmapDescriptor pinIcon() => mapItemType.pinIcon;
-  IconData iconData() => mapItemType.iconData;
-  ObjectFunctionGroup metaCategory() => mapItemType.functionGroup;
 
   void generateFuzzySet() {
     List<String> strings = [];
@@ -63,30 +63,37 @@ class MapItem {
   }
 
   void initializeTypes(MapItemTypes mapItemTypes, ServiceTypes serviceTypes) {
-    _setType(mapItemTypes);
-    _setServicesType(serviceTypes);
+    _setTypeForMapItem(mapItemTypes);
+    _setTypesForAllServices(serviceTypes);
   }
 
-  void _setType(MapItemTypes mapItemTypes) =>
-      mapItemType = mapItemTypes.types[type];
+  void _setTypeForMapItem(MapItemTypes mapItemTypes) =>
+      _mapItemType = mapItemTypes.types[type];
 
-  void _setServicesType(ServiceTypes serviceTypes) {
+  void _setTypesForAllServices(ServiceTypes serviceTypes) {
+    _setTypesForServices(serviceTypes);
+    _setTypesForServicesInCategories(serviceTypes);
+  }
+
+  void _setTypesForServices(ServiceTypes serviceTypes) {
     if (services != null) {
-      services.forEach((service) {
+      for (var service in services) {
         service.setType(serviceTypes);
-      });
-    }
-    if (categories != null) {
-      categories
-          .forEach((category) => category.setTypesForServices(serviceTypes));
+      }
     }
   }
 
-  bool _containsServiceFulfillingFunction(ObjectFunctionGroup functionGroup) {
-    return services == null
-        ? false
-        : services.any((service) => service.functionGroup == functionGroup);
+  void _setTypesForServicesInCategories(ServiceTypes serviceTypes) {
+    if (categories != null) {
+      for (var category in categories) {
+        category.setTypesForServices(serviceTypes);
+      }
+    }
   }
+
+  bool _containsServiceFulfillingFunction(ObjectFunctionGroup functionGroup) =>
+      services != null &&
+      services.any((service) => service.functionGroup == functionGroup);
 
   void _addInnerData(List<String> strings) {
     strings.add(name);
@@ -95,8 +102,7 @@ class MapItem {
     }
   }
 
-  bool _categoriesExist() =>
-      categories != null && categories.isNotEmpty ? true : false;
+  bool _categoriesExist() => categories != null && categories.isNotEmpty;
 
   void _addData(List<String> strings) {
     _addInnerData(strings);

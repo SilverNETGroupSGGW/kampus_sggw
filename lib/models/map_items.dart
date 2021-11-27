@@ -34,7 +34,7 @@ class MapItems extends ChangeNotifier {
   Set<MapItem> filterByFunction(ObjectFunctionGroup functionGroup) {
     Set<MapItem> filteredItems = {};
     mapItems.forEach((item) {
-      if (item.doItemFulfilFunction(functionGroup)) {
+      if (item.doesItemFulfilFunction(functionGroup)) {
         filteredItems.add(item);
       }
     });

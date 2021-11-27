@@ -6,5 +6,6 @@ class Location {
   double lat;
   double lon;
   Location(this.lat, this.lon);
-  factory Location.fromJson(Map<String, dynamic> json) => _$LocationFromJson(json);
+  factory Location.fromJson(Map<String, dynamic> json) =>
+      _$LocationFromJson(json);
 }

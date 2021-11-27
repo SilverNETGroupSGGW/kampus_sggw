@@ -12,7 +12,7 @@ class InfoCardDialog extends StatelessWidget {
   final ListView subcategories;
   final ServiceButtonsRow servicesRow;
   final String photoPath;
-  final MapItemType mapItemType;
+  final ObjectFunctionGroup type;
   final Text mapItemDescription;
   final List<Image> mapItemGallery;
   final List<Widget> otherCategories;
@@ -24,7 +24,7 @@ class InfoCardDialog extends StatelessWidget {
     this.subcategories,
     this.servicesRow,
     this.photoPath,
-    this.mapItemType,
+    this.type,
     this.mapItemDescription,
     this.mapItemGallery,
     this.otherCategories,
@@ -141,7 +141,7 @@ class InfoCardDialog extends StatelessWidget {
   }
 
   Widget _subcategoriesDisplay(BuildContext context) {
-    if (mapItemType.functionGroup != ObjectFunctionGroup.study) {
+    if (type != ObjectFunctionGroup.study) {
       return Center();
     }
 

@@ -48,7 +48,7 @@ class MapMarkersController extends ChangeNotifier {
   Marker _markerFromMapItem(MapItem mapItem, Function showCardFunc) {
     MarkerId markerId = MarkerId(mapItem.name + mapItem.id.toString());
     Marker marker = Marker(
-      icon: mapItem.pinIcon(),
+      icon: mapItem.pinIcon,
       markerId: markerId,
       position: LatLng(
         mapItem.geoLocation.lat,

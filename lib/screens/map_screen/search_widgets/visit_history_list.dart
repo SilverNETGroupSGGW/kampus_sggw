@@ -35,7 +35,7 @@ class _VisitHistoryList extends State<VisitHistoryList> {
   ListTile _recentlyVisitedItemCard(MapItem item) {
     return ListTile(
       onTap: () => _showItemOnMap(item),
-      leading: Icon(item.iconData()),
+      leading: Icon(item.iconData),
       title: Text(
         item.name,
         overflow: TextOverflow.ellipsis,
