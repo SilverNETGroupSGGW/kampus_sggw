@@ -22,21 +22,23 @@ class Category {
   factory Category.fromJson(Map<String, dynamic> json) =>
       _$CategoryFromJson(json);
 
-  void addData(List<String> wordsForComparisonWithSearchQuery) {
+  List<String> getWordsForComparisonWithSearchQuery() {
+    List<String> wordsForComparison = [];
     if (_subCatExist()) {
       for (var faculties in subCategories) {
-        faculties._addInnerData(wordsForComparisonWithSearchQuery);
+        wordsForComparison.addAll(faculties._getInnerWords());
         if (faculties._subCatExist()) {
           for (var subCat in faculties.subCategories) {
             if (subCat._subCatExist()) {
               for (var departments in subCat.subCategories) {
-                departments._addInnerData(wordsForComparisonWithSearchQuery);
+                wordsForComparison.addAll(departments._getInnerWords());
               }
             }
           }
         }
       }
     }
+    return wordsForComparison;
   }
 
   void setTypesForServices(ServiceTypes serviceTypes) {
@@ -65,12 +67,8 @@ class Category {
     }
   }
 
-  void _addInnerData(List<String> strings) {
-    strings.add(name);
-    if (description != null) {
-      strings.add(description);
-    }
-  }
+  List<String> _getInnerWords() =>
+      description != null ? [name, description] : [name];
 
   bool _subCatExist() => subCategories != null && subCategories.isNotEmpty;
 }

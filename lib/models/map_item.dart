@@ -26,7 +26,7 @@ class MapItem {
   List<Service> services;
   List<Category> categories;
   @JsonKey(ignore: true)
-  Fuzzy searchingSet;
+  Fuzzy _searchingSet;
   @JsonKey(ignore: true)
   MapItemType _mapItemType;
 
@@ -48,6 +48,7 @@ class MapItem {
   BitmapDescriptor get pinIcon => _mapItemType.pinIcon;
   IconData get iconData => _mapItemType.iconData;
   ObjectFunctionGroup get functionGroup => _mapItemType.functionGroup;
+  Fuzzy get searchingSet => _searchingSet;
 
   factory MapItem.fromJson(Map<String, dynamic> json) =>
       _$MapItemFromJson(json);
@@ -56,11 +57,8 @@ class MapItem {
       (this.functionGroup == functionGroup ||
           _containsServiceFulfillingFunction(functionGroup));
 
-  void generateFuzzySet() {
-    List<String> wordsForComparisonWithSearchQuery = [];
-    _addData(wordsForComparisonWithSearchQuery);
-    searchingSet = _getFuse(wordsForComparisonWithSearchQuery);
-  }
+  void generateFuzzySet() =>
+      _searchingSet = _getFuse(_getWordsForComparisonWithSearchQuery());
 
   void initializeTypes(MapItemTypes mapItemTypes, ServiceTypes serviceTypes) {
     _setTypeForMapItem(mapItemTypes);
@@ -95,21 +93,25 @@ class MapItem {
       services != null &&
       services.any((service) => service.functionGroup == functionGroup);
 
-  void _addData(List<String> wordsForComparisonWithSearchQuery) {
-    _addInnerData(wordsForComparisonWithSearchQuery);
-    if (_categoriesExist()) {
-      for (var cat in categories) {
-        cat.addData(wordsForComparisonWithSearchQuery);
-      }
-    }
+  List<String> _getWordsForComparisonWithSearchQuery() {
+    List<String> wordsForComparison = [];
+    wordsForComparison.addAll(_getInnerWords());
+    wordsForComparison.addAll(_getWordsForComparisonInCategories());
+    return wordsForComparison;
   }
 
-  void _addInnerData(List<String> wordsForComparisonWithSearchQuery) {
-    wordsForComparisonWithSearchQuery.add(name);
-    if (description != null) {
-      wordsForComparisonWithSearchQuery.add(description);
+  List<String> _getWordsForComparisonInCategories() {
+    List<String> wordsForComparison = [];
+    if (_categoriesExist()) {
+      for (var cat in categories) {
+        wordsForComparison.addAll(cat.getWordsForComparisonWithSearchQuery());
+      }
     }
+    return wordsForComparison;
   }
+
+  List<String> _getInnerWords() =>
+      description != null ? [name, description] : [name];
 
   bool _categoriesExist() => categories != null && categories.isNotEmpty;
 
