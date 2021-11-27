@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/logic/maps/icon_map.dart';
 import 'package:kampus_sggw/models/service.dart';
 import 'package:kampus_sggw/screens/map_screen/filter_button.dart';
 import 'service_card.dart';
