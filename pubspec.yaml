@@ -31,6 +31,9 @@ dev_dependencies:
   json_serializable: ^3.5.1
   flutter_launcher_icons: ^0.9.0
 
+dependency_overrides:
+  meta: 1.6.0
+
 flutter_icons:
   android: true
   ios: true
