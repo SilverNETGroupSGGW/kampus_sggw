@@ -10,7 +10,6 @@ class InfoCardDialogBuilder {
   ListView description;
   ServiceButtonsRow servicesRow;
   String photoPath;
-  MapItemType mapItemType;
   Text mapItemDescription;
   List<Image> mapItemGallery = [];
   List<Widget> otherCategories = [];
@@ -69,7 +68,7 @@ class InfoCardDialogBuilder {
       subcategories: description,
       servicesRow: servicesRow,
       photoPath: mapItem.photoPath,
-      mapItemType: mapItem.type,
+      type: mapItem.functionGroup,
       mapItemDescription: mapItemDescription,
       mapItemGallery: mapItemGallery,
       otherCategories: otherCategories,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/global_widgets/clickable_url.dart';
-import 'package:kampus_sggw/models/map_item.dart';
+import 'package:kampus_sggw/logic/object_function_group.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'gallery_button.dart';
 import 'service_button_row.dart';
@@ -11,7 +11,7 @@ class InfoCardDialog extends StatelessWidget {
   final ListView subcategories;
   final ServiceButtonsRow servicesRow;
   final String photoPath;
-  final MapItemType mapItemType;
+  final ObjectFunctionGroup type;
   final Text mapItemDescription;
   final List<Image> mapItemGallery;
   final List<Widget> otherCategories;
@@ -23,7 +23,7 @@ class InfoCardDialog extends StatelessWidget {
     this.subcategories,
     this.servicesRow,
     this.photoPath,
-    this.mapItemType,
+    this.type,
     this.mapItemDescription,
     this.mapItemGallery,
     this.otherCategories,
@@ -140,8 +140,7 @@ class InfoCardDialog extends StatelessWidget {
   }
 
   Widget _subcategoriesDisplay(BuildContext context) {
-    if (mapItemType != MapItemType.facultyBuilding &&
-        mapItemType != MapItemType.administrationBuilding) {
+    if (type != ObjectFunctionGroup.study) {
       return Center();
     }
 

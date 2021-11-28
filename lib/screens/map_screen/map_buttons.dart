@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/logic/map_controller.dart';
-import 'package:kampus_sggw/logic/search_button_controller.dart';
+import 'package:kampus_sggw/logic/controllers/map_controller.dart';
+import 'package:kampus_sggw/logic/controllers/search_button_controller.dart';
 import 'package:provider/provider.dart';
 
 class MapButtons extends StatelessWidget {

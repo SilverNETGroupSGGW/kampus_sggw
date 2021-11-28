@@ -1,7 +1,7 @@
 name: kampus_sggw
 description: Kampus SGGW remastered
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.1.1+4
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -47,6 +47,8 @@ flutter:
     - assets/json/map_items.json
     - assets/json/campus_rules_pl.json
     - assets/json/campus_rules_en.json
+    - assets/json/map_item_types.json
+    - assets/json/service_types.json
     - assets/images/icons/
     - assets/metadata.json
   fonts:
