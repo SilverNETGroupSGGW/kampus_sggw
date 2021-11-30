@@ -21,9 +21,9 @@ class _ChangeLanguageWidget extends State<ChangeLanguageWidget> {
           );
         },
       ).toList(),
-      onChanged: (String newValueSelected) {
+      onChanged: (String? newValueSelected) {
         setState(() {
-          context.setLocale(Locale(newValueSelected));
+          context.setLocale(Locale(newValueSelected!));
         });
       },
       value: context.locale.toString(),

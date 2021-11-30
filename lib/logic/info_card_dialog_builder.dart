@@ -6,27 +6,27 @@ import 'package:kampus_sggw/screens/map_screen/map_item_display/category_item.da
 import 'package:kampus_sggw/screens/map_screen/map_item_display/service_button_row.dart';
 
 class InfoCardDialogBuilder {
-  String header;
-  ListView description;
-  ServiceButtonsRow servicesRow;
-  String photoPath;
-  Text mapItemDescription;
+  String? header;
+  ListView? description;
+  ServiceButtonsRow? servicesRow;
+  String? photoPath;
+  Text? mapItemDescription;
   List<Image> mapItemGallery = [];
   List<Widget> otherCategories = [];
-  Widget facultyTile;
-  Widget instituteTile;
-  Widget officesTile;
-  String mapItemWebsite;
+  Widget? facultyTile;
+  Widget? instituteTile;
+  Widget? officesTile;
+  String? mapItemWebsite;
 
   InfoCardDialog fromMapItem(MapItem mapItem) {
-    if (mapItem.gallery != null && mapItem.gallery.isNotEmpty) {
-      for (var image in mapItem.gallery) {
+    if (mapItem.gallery != null && mapItem.gallery!.isNotEmpty) {
+      for (var image in mapItem.gallery!) {
         mapItemGallery.add(Image.network(image));
       }
     }
 
-    if (mapItem.categories != null && mapItem.categories.isNotEmpty) {
-      final data = mapItem.categories;
+    if (mapItem.categories != null && mapItem.categories!.isNotEmpty) {
+      final data = mapItem.categories!;
       for (Category category in data) {
         if (category.name == 'faculties') {
           facultyTile = CategoryItem(category);
@@ -35,7 +35,7 @@ class InfoCardDialogBuilder {
         } else if (category.name == 'offices') {
           officesTile = CategoryItem(category);
         } else {
-          for (Category subCategory in category.subCategories)
+          for (Category subCategory in category.subCategories!)
             otherCategories.add(CategoryItem(subCategory));
         }
       }
@@ -46,16 +46,16 @@ class InfoCardDialogBuilder {
       );
     }
 
-    if (mapItem.description != null && mapItem.description.isNotEmpty) {
+    if (mapItem.description != null && mapItem.description!.isNotEmpty) {
       mapItemDescription = Text(
-        mapItem.description,
+        mapItem.description!,
         textAlign: TextAlign.center,
         style: TextStyle(
             fontWeight: FontWeight.w500, fontSize: 16, fontFamily: 'SGGWSans'),
       );
     }
 
-    if (mapItem.services != null && mapItem.services.isNotEmpty) {
+    if (mapItem.services != null && mapItem.services!.isNotEmpty) {
       servicesRow = ServiceButtonsRow(mapItem.services);
     }
 
@@ -81,7 +81,7 @@ class InfoCardDialogBuilder {
     return ListView.builder(
       shrinkWrap: true,
       itemCount: _descriptionItemsCount(),
-      itemBuilder: _descriptionItemsBuilder,
+      itemBuilder: _descriptionItemsBuilder as Widget Function(BuildContext, int),
     );
   }
 
@@ -94,7 +94,7 @@ class InfoCardDialogBuilder {
     return isFaculty + isInstitute + isOffice + hasOtherCategories;
   }
 
-  Widget _descriptionItemsBuilder(BuildContext context, int index) {
+  Widget? _descriptionItemsBuilder(BuildContext context, int index) {
     if (facultyTile != null && index == 0) return facultyTile;
     if (instituteTile != null && index == 1 ||
         facultyTile != null && index == 0) return instituteTile;

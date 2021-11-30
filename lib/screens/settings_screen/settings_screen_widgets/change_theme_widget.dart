@@ -8,8 +8,8 @@ class ChangeThemeWidget extends StatefulWidget {
 }
 
 class _ChangeThemeWidget extends State<ChangeThemeWidget> {
-  bool _isModeDarkSwitchValue;
-  ThemeModel _theme;
+  late bool _isModeDarkSwitchValue;
+  late ThemeModel _theme;
 
   @override
   initState() {

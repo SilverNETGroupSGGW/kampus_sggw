@@ -7,12 +7,12 @@ part 'service.g.dart';
 
 @JsonSerializable()
 class Service {
-  String name;
-  String type;
-  String description;
-  String url;
-  String photoPath;
-  ServiceType _serviceType;
+  String? name;
+  String? type;
+  String? description;
+  String? url;
+  String? photoPath;
+  ServiceType? _serviceType;
 
   Service(
     this.name,
@@ -26,10 +26,10 @@ class Service {
       _$ServiceFromJson(json);
 
   void setType(ServiceTypes serviceTypes) =>
-      _serviceType = serviceTypes.types[type];
+      _serviceType = serviceTypes.types[type] as ServiceType?;
 
-  Color get iconColor => Color(_serviceType.colorInHex);
-  IconData get iconData => _serviceType.iconData;
-  ObjectFunctionGroup get functionGroup => _serviceType.functionGroup;
-  Set<String> get wordsToCompareWithSearchQuery => {name, description};
+  Color get iconColor => Color(_serviceType!.colorInHex!);
+  IconData? get iconData => _serviceType!.iconData;
+  ObjectFunctionGroup? get functionGroup => _serviceType!.functionGroup;
+  Set<String?> get wordsToCompareWithSearchQuery => {name, description};
 }

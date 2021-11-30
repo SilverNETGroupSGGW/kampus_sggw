@@ -20,7 +20,7 @@ class MapButtons extends StatelessWidget {
         Padding(
           padding: EdgeInsets.all(5),
         ),
-        Provider.of<SearchButtonController>(context, listen: true).button,
+        Provider.of<SearchButtonController>(context, listen: true).button!,
       ],
     );
   }

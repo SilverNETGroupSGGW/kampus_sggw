@@ -3,8 +3,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 
 class PhotoCard extends StatelessWidget {
-  final Image image;
-  final String heading;
+  final Image? image;
+  final String? heading;
   PhotoCard({this.image, this.heading});
 
   @override
@@ -13,7 +13,7 @@ class PhotoCard extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: SimpleDialog(
         title: Text(
-          heading,
+          heading!,
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.w600,
@@ -21,7 +21,7 @@ class PhotoCard extends StatelessWidget {
               fontFamily: 'SGGWMastro'),
         ),
         children: [
-          InteractiveViewer(child: image),
+          InteractiveViewer(child: image!),
           Padding(
             padding: const EdgeInsets.only(right: 16.0, left: 16.0),
             child: Align(

@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 
 class SearchButtonController extends ChangeNotifier {
-  FloatingActionButton _button;
-  Function _onSearchButtonPressed;
-  Function _collapseBottomDrawer;
-  SearchService _searchService;
+  FloatingActionButton? _button;
+  Function? _onSearchButtonPressed;
+  Function? _collapseBottomDrawer;
+  late SearchService _searchService;
 
-  FloatingActionButton get button => _button;
+  FloatingActionButton? get button => _button;
 
   SearchButtonController({
-    SearchService searchService,
-    Function onSearchButtonPressed,
-    Function collapseBottomDrawerFunc,
+    required SearchService searchService,
+    Function? onSearchButtonPressed,
+    Function? collapseBottomDrawerFunc,
   }) {
     _searchService = searchService;
     searchService.searchButtonController = this;
@@ -25,7 +25,7 @@ class SearchButtonController extends ChangeNotifier {
     return FloatingActionButton(
       child: const Icon(Icons.search),
       backgroundColor: Colors.green,
-      onPressed: () => _onSearchButtonPressed(),
+      onPressed: () => _onSearchButtonPressed!(),
     );
   }
 
@@ -49,7 +49,7 @@ class SearchButtonController extends ChangeNotifier {
   }
 
   void showUnfilterButton(String filterName) {
-    _collapseBottomDrawer();
+    _collapseBottomDrawer!();
     _button = _unfilterButton(filterName);
     return notifyListeners();
   }

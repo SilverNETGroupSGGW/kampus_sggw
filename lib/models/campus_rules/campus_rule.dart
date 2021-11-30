@@ -4,9 +4,9 @@ part 'campus_rule.g.dart';
 
 @JsonSerializable()
 class CampusRule {
-  int ruleNumber;
-  String rule;
-  List<CampusSubRule> subRulesList;
+  int? ruleNumber;
+  String? rule;
+  List<CampusSubRule>? subRulesList;
   CampusRule(
     this.ruleNumber,
     this.rule,

@@ -10,8 +10,8 @@ class FilterButtons extends StatelessWidget {
   final FilterService filterService;
 
   const FilterButtons({
-    Key key,
-    @required this.filterService,
+    Key? key,
+    required this.filterService,
   }) : super(key: key);
 
   @override

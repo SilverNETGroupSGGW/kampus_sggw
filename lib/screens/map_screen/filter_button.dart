@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class FilterButton extends StatelessWidget {
   final Color color;
-  final IconData iconData;
+  final IconData? iconData;
   final Function onTapFunction;
 
   const FilterButton({
-    Key key,
-    @required this.color,
-    @required this.iconData,
-    @required this.onTapFunction,
+    Key? key,
+    required this.color,
+    required this.iconData,
+    required this.onTapFunction,
   }) : super(key: key);
 
   @override

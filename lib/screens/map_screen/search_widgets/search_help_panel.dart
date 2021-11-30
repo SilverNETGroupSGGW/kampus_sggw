@@ -36,7 +36,7 @@ class Headline extends StatelessWidget {
   final text;
 
   const Headline({
-    Key key,
+    Key? key,
     this.text,
   }) : super(key: key);
 

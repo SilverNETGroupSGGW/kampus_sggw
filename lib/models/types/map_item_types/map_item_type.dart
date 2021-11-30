@@ -8,13 +8,13 @@ part 'map_item_type.g.dart';
 
 @JsonSerializable()
 class MapItemType extends TypeFromJson {
-  String pinIconPath;
-  BitmapDescriptor _pinIcon;
+  String? pinIconPath;
+  BitmapDescriptor? _pinIcon;
 
   MapItemType({
-    String name,
-    String materialIconName,
-    ObjectFunctionGroup functionGroup,
+    String? name,
+    String? materialIconName,
+    ObjectFunctionGroup? functionGroup,
     this.pinIconPath,
   }) : super(
           name: name,
@@ -27,10 +27,10 @@ class MapItemType extends TypeFromJson {
   factory MapItemType.fromJson(Map<String, dynamic> json) =>
       _$MapItemTypeFromJson(json);
 
-  BitmapDescriptor get pinIcon => _pinIcon;
+  BitmapDescriptor? get pinIcon => _pinIcon;
 
   Future<void> _initializePin() async {
-    String fullPinIconPath = PlatformTools.getIconsDir() + pinIconPath;
+    String fullPinIconPath = PlatformTools.getIconsDir() + pinIconPath!;
     _pinIcon = await _loadPinIcon(fullPinIconPath);
   }
 

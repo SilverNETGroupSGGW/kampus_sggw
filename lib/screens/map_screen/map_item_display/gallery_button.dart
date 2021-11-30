@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'gallery_card.dart';
 
 class GalleryButton extends StatefulWidget {
-  final List<Image> images;
+  final List<Image>? images;
 
   GalleryButton(this.images);
 
@@ -11,16 +11,16 @@ class GalleryButton extends StatefulWidget {
 }
 
 class _GalleryButton extends State<GalleryButton> {
-  static List<Image> _selectedImages;
+  static List<Image>? _selectedImages;
 
-  static Route<Object> _dialogBuilder(BuildContext context, Object arguments) {
+  static Route<Object> _dialogBuilder(BuildContext context, Object? arguments) {
     return DialogRoute<void>(
       context: context,
       builder: (BuildContext context) => GalleryCard(images: _selectedImages),
-    );
+    ) as Route<Object>;
   }
 
-  void _showGalleryCard(List<Image> images) {
+  void _showGalleryCard(List<Image>? images) {
     _selectedImages = images;
     Navigator.of(context).restorablePush(_dialogBuilder);
   }
