@@ -1,55 +1,28 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-import 'package:collection/collection.dart' show IterableExtension;
 part of 'map_item_type.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-MapItemType _$MapItemTypeFromJson(Map<String, dynamic> json) {
-  return MapItemType(
-    name: json['name'] as String?,
-    pinIconPath: json['pinIconPath'] as String?,
-    materialIconName: json['materialIconName'] as String?,
-    functionGroup: _$enumDecodeNullable(
-        _$ObjectFunctionGroupsEnumMap, json['functionGroup']),
-  );
-}
+MapItemType _$MapItemTypeFromJson(Map<String, dynamic> json) => MapItemType(
+      name: json['name'] as String?,
+      materialIconName: json['materialIconName'] as String?,
+      functionGroup: $enumDecodeNullable(
+          _$ObjectFunctionGroupEnumMap, json['functionGroup']),
+      pinIconPath: json['pinIconPath'] as String?,
+    );
 
-T? _$enumDecode<T>(
-  Map<T, dynamic> enumValues,
-  dynamic source, {
-  T? unknownValue,
-}) {
-  if (source == null) {
-    throw ArgumentError('A value must be provided. Supported values: '
-        '${enumValues.values.join(', ')}');
-  }
+Map<String, dynamic> _$MapItemTypeToJson(MapItemType instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'materialIconName': instance.materialIconName,
+      'functionGroup': _$ObjectFunctionGroupEnumMap[instance.functionGroup],
+      'pinIconPath': instance.pinIconPath,
+    };
 
-  final value = enumValues.entries
-      .singleWhereOrNull((e) => e.value == source)
-      ?.key;
-
-  if (value == null && unknownValue == null) {
-    throw ArgumentError('`$source` is not one of the supported values: '
-        '${enumValues.values.join(', ')}');
-  }
-  return value ?? unknownValue;
-}
-
-T? _$enumDecodeNullable<T>(
-  Map<T, dynamic> enumValues,
-  dynamic source, {
-  T? unknownValue,
-}) {
-  if (source == null) {
-    return null;
-  }
-  return _$enumDecode<T>(enumValues, source, unknownValue: unknownValue);
-}
-
-const _$ObjectFunctionGroupsEnumMap = {
+const _$ObjectFunctionGroupEnumMap = {
   ObjectFunctionGroup.food: 'food',
   ObjectFunctionGroup.transport: 'transport',
   ObjectFunctionGroup.parking: 'parking',

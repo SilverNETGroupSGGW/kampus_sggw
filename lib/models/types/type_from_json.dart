@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:kampus_sggw/logic/maps/icon_map.dart';
 import 'package:kampus_sggw/logic/object_function_group.dart';
 
+@JsonSerializable()
 abstract class TypeFromJson {
   String? name;
   String? materialIconName;
