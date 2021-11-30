@@ -8,7 +8,7 @@ part of 'theme_model.dart';
 
 ThemeModel _$ThemeModelFromJson(Map<String, dynamic> json) {
   return ThemeModel(
-    themeId: json['themeId'] as int ?? 1,
+    themeId: json['themeId'] as int? ?? 1,
   );
 }
 

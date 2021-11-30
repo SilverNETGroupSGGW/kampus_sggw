@@ -8,10 +8,10 @@ part of 'service.dart';
 
 Service _$ServiceFromJson(Map<String, dynamic> json) {
   return Service(
-    json['name'] as String,
-    json['type'] as String,
-    json['description'] as String,
-    json['url'] as String,
-    json['photoPath'] as String,
+    json['name'] as String?,
+    json['type'] as String?,
+    json['description'] as String?,
+    json['url'] as String?,
+    json['photoPath'] as String?,
   );
 }

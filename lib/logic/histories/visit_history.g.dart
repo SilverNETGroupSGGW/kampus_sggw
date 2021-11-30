@@ -8,8 +8,8 @@ part of 'visit_history.dart';
 
 VisitHistory _$VisitHistoryFromJson(Map<String, dynamic> json) {
   return VisitHistory(
-    buffer: json['buffer'] as int ?? 6,
-    itemsIds: (json['itemsIds'] as List)?.map((e) => e as int)?.toList() ?? [],
+    buffer: json['buffer'] as int? ?? 6,
+    itemsIds: (json['itemsIds'] as List?)?.map((e) => e as int)?.toList() ?? [],
   );
 }
 

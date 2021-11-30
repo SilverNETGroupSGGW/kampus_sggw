@@ -8,7 +8,7 @@ part of 'campus_sub_rule.dart';
 
 CampusSubRule _$CampusSubRuleFromJson(Map<String, dynamic> json) {
   return CampusSubRule(
-    json['subRuleNumber'] as int,
-    json['subRule'] as String,
+    json['subRuleNumber'] as int?,
+    json['subRule'] as String?,
   );
 }
