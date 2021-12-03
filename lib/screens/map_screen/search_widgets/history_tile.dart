@@ -22,6 +22,7 @@ class HistoryTile extends StatelessWidget {
         overflow: TextOverflow.fade,
         softWrap: false,
       ),
+      horizontalTitleGap: 0.0,
       leading: Icon(Icons.history),
       trailing: IconButton(
         icon: Icon(Icons.clear),

@@ -26,6 +26,7 @@ class SuggestionTile extends StatelessWidget {
         overflow: TextOverflow.fade,
         softWrap: false,
       ),
+      horizontalTitleGap: 0.0,
       leading: Icon(Icons.pin_drop),
       onTap: () => onTap!(item!.mapItem),
     );
