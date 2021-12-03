@@ -5,8 +5,8 @@ import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 
 class FilterService extends ChangeNotifier {
-  MapItems _mapItems;
-  SearchService _searchService;
+  MapItems? _mapItems;
+  SearchService? _searchService;
 
   FilterService({mapItems, searchService}) {
     _mapItems = mapItems;
@@ -15,9 +15,9 @@ class FilterService extends ChangeNotifier {
 
   void filterMapItems(FiltrationEventParam eventParam) {
     List<MapItem> filteredItems = _getFilteredItems(eventParam);
-    _searchService.filter(eventParam.filterName, filteredItems);
+    _searchService!.filter(eventParam.filterName!, filteredItems);
   }
 
   List<MapItem> _getFilteredItems(FiltrationEventParam eventParam) =>
-      _mapItems.filterByFunction(eventParam.functionGroup).toList();
+      _mapItems!.filterByFunction(eventParam.functionGroup).toList();
 }

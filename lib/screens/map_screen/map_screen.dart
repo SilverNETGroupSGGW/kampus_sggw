@@ -20,7 +20,7 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  static MapItem _selectedMapItem;
+  static late MapItem _selectedMapItem;
 
   @override
   void initState() {
@@ -69,7 +69,7 @@ class _MapScreenState extends State<MapScreen> {
     Navigator.of(context).restorablePush(_dialogBuilder);
   }
 
-  static Route<Object> _dialogBuilder(BuildContext context, Object arguments) {
+  static Route<void> _dialogBuilder(BuildContext context, Object? arguments) {
     return DialogRoute<void>(
       context: context,
       builder: (BuildContext context) =>

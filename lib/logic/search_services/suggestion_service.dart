@@ -6,8 +6,8 @@ import 'package:kampus_sggw/logic/matching_to_search_query.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 
 class SuggestionService extends ChangeNotifier {
-  MapItems _mapItems;
-  List<SuggestedItem> _current;
+  MapItems? _mapItems;
+  late List<SuggestedItem> _current;
 
   UnmodifiableListView<SuggestedItem> get currentSuggestions =>
       UnmodifiableListView(_current);
@@ -18,7 +18,7 @@ class SuggestionService extends ChangeNotifier {
   }
 
   void suggestItemsMatchingQuery(String query) {
-    _current = MatchingToSearchQuery.findItemsMatchingQuery(_mapItems, query);
+    _current = MatchingToSearchQuery.findItemsMatchingQuery(_mapItems!, query);
     notifyListeners();
   }
 

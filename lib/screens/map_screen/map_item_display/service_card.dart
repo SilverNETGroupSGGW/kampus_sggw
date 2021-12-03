@@ -5,7 +5,7 @@ import 'package:kampus_sggw/models/service.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 
 class ServiceCard extends StatelessWidget {
-  final Service service;
+  final Service? service;
   ServiceCard({this.service});
 
   @override
@@ -14,7 +14,7 @@ class ServiceCard extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: SimpleDialog(
         title: Text(
-          service.name,
+          service!.name!,
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.subtitle1,
         ),
@@ -29,17 +29,17 @@ class ServiceCard extends StatelessWidget {
   List<Widget> _dialogChildren(BuildContext context) {
     List<Widget> widgets = [];
 
-    if (service.photoPath != null) {
+    if (service!.photoPath != null) {
       widgets.add(
         Padding(
           padding: const EdgeInsets.only(bottom: 8.0),
           child: ClipRect(
-            child: Image.asset(service.photoPath),
+            child: Image.asset(service!.photoPath!),
           ),
         ),
       );
     }
-    if (service.description != null) {
+    if (service!.description != null) {
       widgets.add(
         Padding(
           padding: const EdgeInsets.only(
@@ -49,15 +49,15 @@ class ServiceCard extends StatelessWidget {
             top: 5,
           ),
           child: Text(
-            service.description,
+            service!.description!,
             textAlign: TextAlign.center,
           ),
         ),
       );
     }
-    if (service.url != null) {
+    if (service!.url != null) {
       widgets.add(
-        ClickableUrl(url: service.url),
+        ClickableUrl(url: service!.url),
       );
     }
 

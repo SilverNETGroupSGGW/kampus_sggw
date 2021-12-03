@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/event_parameters/suggested_item.dart';
 
 class SuggestionTile extends StatelessWidget {
-  final SuggestedItem item;
-  final Function onTap;
+  final SuggestedItem? item;
+  final Function? onTap;
 
   const SuggestionTile({
-    Key key,
+    Key? key,
     this.item,
     this.onTap,
   }) : super(key: key);
@@ -15,17 +15,17 @@ class SuggestionTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        item.matchedQuery,
+        item!.matchedQuery!,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
       subtitle: Text(
-        item.mapItem.name,
+        item!.mapItem!.name!,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
       leading: Icon(Icons.pin_drop),
-      onTap: () => onTap(item.mapItem),
+      onTap: () => onTap!(item!.mapItem),
     );
   }
 }

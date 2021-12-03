@@ -7,16 +7,16 @@ import 'gallery_button.dart';
 import 'service_button_row.dart';
 
 class InfoCardDialog extends StatelessWidget {
-  final String header;
-  final ListView subcategories;
-  final ServiceButtonsRow servicesRow;
-  final String photoPath;
-  final ObjectFunctionGroup type;
-  final Text mapItemDescription;
-  final List<Image> mapItemGallery;
-  final List<Widget> otherCategories;
-  final Widget facultyTile;
-  final String mapItemWebsite;
+  final String? header;
+  final ListView? subcategories;
+  final ServiceButtonsRow? servicesRow;
+  final String? photoPath;
+  final ObjectFunctionGroup? type;
+  final Text? mapItemDescription;
+  final List<Image>? mapItemGallery;
+  final List<Widget>? otherCategories;
+  final Widget? facultyTile;
+  final String? mapItemWebsite;
 
   InfoCardDialog({
     this.header,
@@ -35,7 +35,7 @@ class InfoCardDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return SimpleDialog(
       title: Text(
-        header,
+        header!,
         style: Theme.of(context).textTheme.headline3,
         textAlign: TextAlign.center,
       ),
@@ -95,7 +95,7 @@ class InfoCardDialog extends StatelessWidget {
     }
 
     Widget coverImage;
-    if (mapItemGallery.isEmpty) {
+    if (mapItemGallery!.isEmpty) {
       coverImage = Center();
     } else {
       coverImage = Align(
@@ -110,7 +110,7 @@ class InfoCardDialog extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(photoPath),
+          image: AssetImage(photoPath!),
           fit: BoxFit.cover,
         ),
       ),

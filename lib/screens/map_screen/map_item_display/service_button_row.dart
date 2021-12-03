@@ -4,7 +4,7 @@ import 'package:kampus_sggw/screens/map_screen/filter_button.dart';
 import 'service_card.dart';
 
 class ServiceButtonsRow extends StatefulWidget {
-  final List<Service> services;
+  final List<Service>? services;
 
   ServiceButtonsRow(this.services);
 
@@ -13,14 +13,14 @@ class ServiceButtonsRow extends StatefulWidget {
 }
 
 class _ServiceButtonsRowState extends State<ServiceButtonsRow> {
-  static Service _selectedService;
+  static Service? _selectedService;
 
   showServiceCard(Service service) {
     _selectedService = service;
     Navigator.of(context).restorablePush(_dialogBuilder);
   }
 
-  static Route<Object> _dialogBuilder(BuildContext context, Object arguments) {
+  static Route<void> _dialogBuilder(BuildContext context, Object? arguments) {
     return DialogRoute<void>(
       context: context,
       builder: (BuildContext context) => ServiceCard(
@@ -32,7 +32,7 @@ class _ServiceButtonsRowState extends State<ServiceButtonsRow> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: widget.services
+      children: widget.services!
           .map((Service service) => _createServiceButton(service))
           .toList(),
     );

@@ -12,7 +12,7 @@ part 'map_items.g.dart';
 class MapItems extends ChangeNotifier {
   static final storage = GetStorage();
 
-  List<MapItem> mapItems;
+  List<MapItem>? mapItems;
   MapItems(
     this.mapItems,
   );
@@ -29,23 +29,23 @@ class MapItems extends ChangeNotifier {
   factory MapItems.fromJson(Map<String, dynamic> json) =>
       _$MapItemsFromJson(json);
 
-  Set<MapItem> filterByFunction(ObjectFunctionGroup functionGroup) =>
+  Set<MapItem> filterByFunction(ObjectFunctionGroup? functionGroup) =>
       {}..addAll(
-          mapItems.where((item) => item.doesItemFulfilFunction(functionGroup)));
+          mapItems!.where((item) => item.doesItemFulfilFunction(functionGroup)));
 
-  List<MapItem> getItemsMappedWithId(List<int> itemsIds) => []..addAll(
-      itemsIds.map((id) => mapItems.firstWhere((item) => item.id == id)));
+  List<MapItem> getItemsMappedWithId(List<int?> itemsIds) => []..addAll(
+      itemsIds.map((id) => mapItems!.firstWhere((item) => item.id == id)));
 
   void _bindItemWithTypes(
           MapItemTypes mapItemTypes, ServiceTypes serviceTypes) =>
-      mapItems
+      mapItems!
           .forEach((item) => item.initializeTypes(mapItemTypes, serviceTypes));
 
   static Future<MapItems> _loadFromJson() async {
-    Map<String, dynamic> mapItemsMap = jsonDecode(_getJsonString());
+    Map<String, dynamic> mapItemsMap = jsonDecode(_getJsonString()!);
     MapItems mapItems = MapItems.fromJson(mapItemsMap);
     return mapItems;
   }
 
-  static String _getJsonString() => storage.read('map_items_content');
+  static String? _getJsonString() => storage.read('map_items_content');
 }

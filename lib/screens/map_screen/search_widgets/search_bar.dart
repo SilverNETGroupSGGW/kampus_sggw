@@ -20,9 +20,9 @@ class SearchBar extends StatefulWidget {
 }
 
 class _SearchBar extends State<SearchBar> {
-  MapItem _firstSuggestion;
-  SearchHistory _searchHistoryProvider;
-  SearchBarController _controllerProvider;
+  MapItem? _firstSuggestion;
+  late SearchHistory _searchHistoryProvider;
+  late SearchBarController _controllerProvider;
 
   @override
   void initState() {
@@ -108,7 +108,7 @@ class _SearchBar extends State<SearchBar> {
     if (_searchedItems.isNotEmpty) {
       _firstSuggestion = _searchedItems.first.item;
     } else if (suggestions.isNotEmpty) {
-      _firstSuggestion = suggestions.first.item.mapItem;
+      _firstSuggestion = suggestions.first.item!.mapItem;
     } else {
       _firstSuggestion = null;
     }
@@ -128,7 +128,7 @@ class _SearchBar extends State<SearchBar> {
     if (_firstSuggestion == null) {
       _showAlertNoItemFound();
     } else {
-      _search(_firstSuggestion);
+      _search(_firstSuggestion!);
     }
   }
 

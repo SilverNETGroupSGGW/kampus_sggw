@@ -64,9 +64,9 @@ class _InteractiveMapState extends State<InteractiveMap> {
       myLocationButtonEnabled: false,
       indoorViewEnabled: false,
       mapToolbarEnabled: false,
-      minMaxZoomPreference: widget.mapSettings.minMaxZoomPreference,
-      cameraTargetBounds: widget.mapSettings.cameraTargetBounds,
-      initialCameraPosition: widget.mapSettings.initialCameraPosition,
+      minMaxZoomPreference: widget.mapSettings.minMaxZoomPreference!,
+      cameraTargetBounds: widget.mapSettings.cameraTargetBounds!,
+      initialCameraPosition: widget.mapSettings.initialCameraPosition!,
       onMapCreated: (GoogleMapController controller) {
         Provider.of<MapController>(context, listen: false)
             .bindWithGoogleMap(controller);

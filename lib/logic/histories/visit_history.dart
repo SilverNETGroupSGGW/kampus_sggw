@@ -8,7 +8,7 @@ part 'visit_history.g.dart';
 
 @JsonSerializable()
 class VisitHistory extends UserHistory with StorableJson, LoadableJson {
-  VisitHistory({int buffer, List<int> itemsIds})
+  VisitHistory({int? buffer, List<int>? itemsIds})
       : super(buffer: buffer, itemsIds: itemsIds);
 
   factory VisitHistory.fromJson(Map<String, dynamic> json) =>
@@ -26,7 +26,7 @@ class VisitHistory extends UserHistory with StorableJson, LoadableJson {
   }
 
   @override
-  void deleteItem(MapItem mapItem) {
+  void deleteItem(MapItem? mapItem) {
     super.deleteItem(mapItem);
     save();
   }

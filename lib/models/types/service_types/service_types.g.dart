@@ -6,11 +6,13 @@ part of 'service_types.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ServiceTypes _$ServiceTypesFromJson(Map<String, dynamic> json) {
-  return ServiceTypes(
-    typesFromJson: (json['typesFromJson'] as List)
-        ?.map((e) =>
-            e == null ? null : ServiceType.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-  );
-}
+ServiceTypes _$ServiceTypesFromJson(Map<String, dynamic> json) => ServiceTypes(
+      typesFromJson: (json['typesFromJson'] as List<dynamic>?)
+          ?.map((e) => ServiceType.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$ServiceTypesToJson(ServiceTypes instance) =>
+    <String, dynamic>{
+      'typesFromJson': instance.typesFromJson,
+    };

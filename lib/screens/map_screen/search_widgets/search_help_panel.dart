@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/search_services/filter_service.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 import 'visit_history_list.dart';
@@ -10,10 +9,9 @@ import 'filter_buttons.dart';
 class SearchHelpPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final fsb = FloatingSearchBar.of(context);
     return Container(
       padding: EdgeInsets.only(
-        top: fsb.height + fsb.margins.vertical + 5,
+        top: 58,
       ),
       child: Column(
         children: [
@@ -37,7 +35,7 @@ class Headline extends StatelessWidget {
   final text;
 
   const Headline({
-    Key key,
+    Key? key,
     this.text,
   }) : super(key: key);
 

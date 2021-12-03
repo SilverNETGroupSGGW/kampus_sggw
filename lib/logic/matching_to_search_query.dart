@@ -9,8 +9,8 @@ abstract class MatchingToSearchQuery {
   static List<SuggestedItem> _getSimilarityForEachItem(
       MapItems items, String query) {
     List<SuggestedItem> similarityList = [];
-    for (var item in items.mapItems) {
-      var similarity = item.searchingSet.search(query);
+    for (var item in items.mapItems!) {
+      var similarity = item.searchingSet!.search(query);
       if (similarity.length > 0) {
         similarityList.add(
           SuggestedItem(
@@ -26,7 +26,7 @@ abstract class MatchingToSearchQuery {
 
   static List<SuggestedItem> _mostSimilarItems(
       List<SuggestedItem> similarityList) {
-    similarityList.sort((a, b) => a.similarity.compareTo(b.similarity));
+    similarityList.sort((a, b) => a.similarity!.compareTo(b.similarity!));
     return similarityList.take(6).toList();
   }
 }
