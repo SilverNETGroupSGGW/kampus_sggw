@@ -21,5 +21,6 @@ Map<String, IconData> iconMap = {
   "hotel outlined": Icons.hotel_outlined,
   "child friendly outlined": Icons.child_friendly_outlined,
   "park outlined": Icons.park_outlined,
+  "medical services outlined": Icons.medical_services_outlined,
   "": Icons.bookmark,
 };
