@@ -49,6 +49,7 @@ Poradnik odnośnie generowania plików dla JsonSerializable jest tutaj: https://
 
 ## Null safety
 Najnowsza wersja kodu jest oparta o mechanizm null safety. Domyślnie, wszystkie typy są nie-nullowalne,. Aby wartość zmiennej danego typu mogła być ```null```, należy wcześniej oznaczyć typ jako nullable poprzez ```?```. Wraz z implementacją null safety dochodzą 4 operatory i słowa kluczowe: ```?```, ```!```, ```late``` i ```late final```.
+
 Zwracajcie na to uwagę w kodzie, wiele oryginalnych typów nie przyjmie już ```null``` jako wartości. Większość argumentów dostanie adnotację ```required```. 
 
 Tłumaczenie zasad null safety w Darcie: https://dart.dev/null-safety/understanding-null-safety
