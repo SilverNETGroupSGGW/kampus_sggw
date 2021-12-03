@@ -38,7 +38,8 @@ class _VisitHistoryList extends State<VisitHistoryList> {
       leading: Icon(item.iconData),
       title: Text(
         item.name!,
-        overflow: TextOverflow.ellipsis,
+        overflow: TextOverflow.fade,
+        softWrap: false,
         style: TextStyle(fontSize: 18),
       ),
       dense: true,
