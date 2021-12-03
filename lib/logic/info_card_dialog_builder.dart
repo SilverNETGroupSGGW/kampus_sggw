@@ -81,7 +81,7 @@ class InfoCardDialogBuilder {
     return ListView.builder(
       shrinkWrap: true,
       itemCount: _descriptionItemsCount(),
-      itemBuilder: _descriptionItemsBuilder as Widget Function(BuildContext, int),
+      itemBuilder: _descriptionItemsBuilder,
     );
   }
 
@@ -94,10 +94,11 @@ class InfoCardDialogBuilder {
     return isFaculty + isInstitute + isOffice + hasOtherCategories;
   }
 
-  Widget? _descriptionItemsBuilder(BuildContext context, int index) {
-    if (facultyTile != null && index == 0) return facultyTile;
+  Widget _descriptionItemsBuilder(BuildContext context, int index) {
+    if (facultyTile != null && index == 0) return facultyTile!;
     if (instituteTile != null && index == 1 ||
-        facultyTile != null && index == 0) return instituteTile;
-    if (facultyTile == null && instituteTile == null) return officesTile;
+        facultyTile != null && index == 0) return instituteTile!;
+    if (facultyTile == null && instituteTile == null) return officesTile!;
+    return new ListTile();
   }
 }

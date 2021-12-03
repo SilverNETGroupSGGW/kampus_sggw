@@ -78,7 +78,7 @@ class _CategoryItemState extends State<CategoryItem> {
     Navigator.of(context).restorablePush(_dialogBuilder);
   }
 
-  static Route<Object> _dialogBuilder(BuildContext context, Object? arguments) {
+  static Route<void> _dialogBuilder(BuildContext context, Object? arguments) {
     ServiceButtonsRow? categoryServiceRow;
     if (_category!.services != null && _category!.services!.isNotEmpty) {
       categoryServiceRow = ServiceButtonsRow(_category!.services);
@@ -89,6 +89,6 @@ class _CategoryItemState extends State<CategoryItem> {
         category: _category,
         servicesRow: categoryServiceRow,
       ),
-    ) as Route<Object>;
+    );
   }
 }

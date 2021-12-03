@@ -13,11 +13,11 @@ class GalleryButton extends StatefulWidget {
 class _GalleryButton extends State<GalleryButton> {
   static List<Image>? _selectedImages;
 
-  static Route<Object> _dialogBuilder(BuildContext context, Object? arguments) {
+  static Route<void> _dialogBuilder(BuildContext context, Object? arguments) {
     return DialogRoute<void>(
       context: context,
       builder: (BuildContext context) => GalleryCard(images: _selectedImages),
-    ) as Route<Object>;
+    );
   }
 
   void _showGalleryCard(List<Image>? images) {

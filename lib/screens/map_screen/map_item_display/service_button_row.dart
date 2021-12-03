@@ -20,13 +20,13 @@ class _ServiceButtonsRowState extends State<ServiceButtonsRow> {
     Navigator.of(context).restorablePush(_dialogBuilder);
   }
 
-  static Route<Object> _dialogBuilder(BuildContext context, Object? arguments) {
+  static Route<void> _dialogBuilder(BuildContext context, Object? arguments) {
     return DialogRoute<void>(
       context: context,
       builder: (BuildContext context) => ServiceCard(
         service: _selectedService,
       ),
-    ) as Route<Object>;
+    );
   }
 
   @override

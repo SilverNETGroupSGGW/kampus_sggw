@@ -69,12 +69,12 @@ class _MapScreenState extends State<MapScreen> {
     Navigator.of(context).restorablePush(_dialogBuilder);
   }
 
-  static Route<Object> _dialogBuilder(BuildContext context, Object? arguments) {
+  static Route<void> _dialogBuilder(BuildContext context, Object? arguments) {
     return DialogRoute<void>(
       context: context,
       builder: (BuildContext context) =>
           InfoCardDialogBuilder().fromMapItem(_selectedMapItem),
-    ) as Route<Object>;
+    );
   }
 
   void _showBottomDrawer() {

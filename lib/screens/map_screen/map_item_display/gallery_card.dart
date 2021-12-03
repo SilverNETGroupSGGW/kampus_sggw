@@ -64,14 +64,14 @@ class PhotoViewer extends StatefulWidget {
 class _PhotoViewer extends State<PhotoViewer> {
   static Image? _selectedImage;
 
-  static Route<Object> _dialogBuilder(BuildContext context, Object? arguments) {
+  static Route<void> _dialogBuilder(BuildContext context, Object? arguments) {
     return DialogRoute<void>(
       context: context,
       builder: (BuildContext context) => PhotoCard(
         heading: LocaleKeys.photo.tr(),
         image: _selectedImage,
       ),
-    ) as Route<Object>;
+    );
   }
 
   void _showGalleryCard(Image image) {
