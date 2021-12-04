@@ -46,3 +46,10 @@ Po każdej modyfikacji modelu np. dodaniu pola czy zmianie typu pola należy w k
 Polecenie spowoduje update lub wygenerowanie pliku <nazwa_klasy>.g.dart. Pliki te są wykorzystywane przez JsonSerializable i są generowane tylko dla klas, które mają adnotacje @JsonSerializable() przed nazwą klasy.
 
 Poradnik odnośnie generowania plików dla JsonSerializable jest tutaj: https://flutter.dev/docs/development/data-and-backend/json#one-time-code-generation
+
+## Null safety
+Najnowsza wersja kodu jest oparta o mechanizm null safety. Domyślnie, wszystkie typy są nie-nullowalne,. Aby wartość zmiennej danego typu mogła być ```null```, należy wcześniej oznaczyć typ jako nullable poprzez ```?```. Wraz z implementacją null safety dochodzą 4 operatory i słowa kluczowe: ```?```, ```!```, ```late``` i ```late final```.
+
+Zwracajcie na to uwagę w kodzie, wiele oryginalnych typów nie przyjmie już ```null``` jako wartości. Większość argumentów dostanie adnotację ```required```. 
+
+Tłumaczenie zasad null safety w Darcie: https://dart.dev/null-safety/understanding-null-safety
