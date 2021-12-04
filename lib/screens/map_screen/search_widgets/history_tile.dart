@@ -19,8 +19,10 @@ class HistoryTile extends StatelessWidget {
       title: Text(
         item!.name!,
         maxLines: 1,
-        overflow: TextOverflow.ellipsis,
+        overflow: TextOverflow.fade,
+        softWrap: false,
       ),
+      horizontalTitleGap: 0.0,
       leading: Icon(Icons.history),
       trailing: IconButton(
         icon: Icon(Icons.clear),

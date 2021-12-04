@@ -17,13 +17,16 @@ class SuggestionTile extends StatelessWidget {
       title: Text(
         item!.matchedQuery!,
         maxLines: 1,
-        overflow: TextOverflow.ellipsis,
+        overflow: TextOverflow.fade,
+        softWrap: false,
       ),
       subtitle: Text(
         item!.mapItem!.name!,
         maxLines: 1,
-        overflow: TextOverflow.ellipsis,
+        overflow: TextOverflow.fade,
+        softWrap: false,
       ),
+      horizontalTitleGap: 0.0,
       leading: Icon(Icons.pin_drop),
       onTap: () => onTap!(item!.mapItem),
     );

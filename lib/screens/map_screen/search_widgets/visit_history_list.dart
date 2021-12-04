@@ -36,9 +36,11 @@ class _VisitHistoryList extends State<VisitHistoryList> {
     return ListTile(
       onTap: () => _showItemOnMap(item),
       leading: Icon(item.iconData),
+      horizontalTitleGap: 0.0,
       title: Text(
         item.name!,
-        overflow: TextOverflow.ellipsis,
+        overflow: TextOverflow.fade,
+        softWrap: false,
         style: TextStyle(fontSize: 18),
       ),
       dense: true,
