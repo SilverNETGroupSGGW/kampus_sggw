@@ -32,16 +32,47 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
+  Future<bool> _showWantYouExit() async {
+    bool wantExit = false;
+    await showDialog(
+        context: context,
+        builder: (BuildContext context) {
+              return AlertDialog(
+            title: Text( LocaleKeys.want_you_exit.tr(),
+                style: Theme.of(context).textTheme.bodyText1,),
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    wantExit = true;
+                    Navigator.pop(context);
+                  },
+                  child: Text(LocaleKeys.close.tr(),
+                    style: Theme.of(context).textTheme.button,)),
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: (Text(LocaleKeys.cancel.tr(),
+                  style: Theme.of(context).textTheme.button,)),
+              )
+            ],
+          );
+        });
+    return wantExit;
+  }
+
+  SearchButtonController searchButtonInformationForClosingAplication;
   @override
   Widget build(BuildContext context) {
+    bool drawerIsClosing = false;
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => SearchButtonController(
+          create: (context) {searchButtonInformationForClosingAplication = SearchButtonController(
             searchService: Provider.of<SearchService>(context, listen: false),
             onSearchButtonPressed: _showBottomDrawer,
             collapseBottomDrawerFunc: () => Navigator.pop(context),
-          ),
+          );
+          return searchButtonInformationForClosingAplication;
+          }
         ),
       ],
       child: Scaffold(
@@ -52,13 +83,29 @@ class _MapScreenState extends State<MapScreen> {
             style: Theme.of(context).appBarTheme.titleTextStyle,
           ),
         ),
-        body: Stack(
-          children: [
-            InteractiveMap(),
-          ],
+        body: WillPopScope(
+          onWillPop: () async {
+            if (drawerIsClosing) {
+              drawerIsClosing = false;
+              return true;
+            }
+            if(searchButtonInformationForClosingAplication.isSearchingElementActive())return false;
+            return await _showWantYouExit();
+          },
+          child: Stack(
+            children: [
+              InteractiveMap(),
+            ],
+          ),
         ),
         floatingActionButton: MapButtons(),
-        drawer: SideDrawer(),
+        drawer: WillPopScope(
+          onWillPop: () async {
+            drawerIsClosing = true;
+            return true;
+          },
+          child: SideDrawer(),
+        ),
       ),
     );
   }

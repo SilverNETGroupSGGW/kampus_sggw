@@ -25,6 +25,8 @@ abstract class  LocaleKeys {
   static const floor = 'floor';
   static const website = 'website';
   static const close = 'close';
+  static const cancel = 'cancel';
+  static const want_you_exit = 'want_you_exit';
   static const settings = 'settings';
   static const dark_mode = 'dark_mode';
   static const language = 'language';
