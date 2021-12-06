@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class LightTheme {
   ThemeData get theme => ThemeData.light().copyWith(
+    primaryColor: Colors.white,
         brightness: Brightness.light,
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: Colors.lightGreen,
