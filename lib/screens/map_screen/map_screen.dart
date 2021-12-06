@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
@@ -32,48 +33,48 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
-  Future<bool> _showWantYouExit() async {
-    bool wantExit = false;
-    await showDialog(
-        context: context,
-        builder: (BuildContext context) {
-              return AlertDialog(
-            title: Text( LocaleKeys.want_you_exit.tr(),
-                style: Theme.of(context).textTheme.bodyText1,),
-            actions: [
-              TextButton(
-                  onPressed: () {
-                    wantExit = true;
-                    Navigator.pop(context);
-                  },
-                  child: Text(LocaleKeys.close.tr(),
-                    style: Theme.of(context).textTheme.button,)),
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: (Text(LocaleKeys.cancel.tr(),
-                  style: Theme.of(context).textTheme.button,)),
-              )
-            ],
-          );
-        });
-    return wantExit;
+  Widget _wantYouExitAlert() {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 500),
+      child: _wantYouExit ? Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Center(
+            child: Padding(
+              padding: EdgeInsets.all(3),
+              child: Container(
+                padding: EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColor.withOpacity(0.9),
+                    borderRadius: BorderRadius.circular(15)
+                ),
+                child: Text(
+                  LocaleKeys.want_you_exit.tr(),
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ) : SizedBox(),);
   }
 
-  SearchButtonController searchButtonInformationForClosingAplication;
+  bool _wantYouExit = false;
+  SearchButtonController _searchButtonInformationForClosingAplication;
+
   @override
   Widget build(BuildContext context) {
     bool drawerIsClosing = false;
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (context) {searchButtonInformationForClosingAplication = SearchButtonController(
+        ChangeNotifierProvider(create: (context) {
+          _searchButtonInformationForClosingAplication = SearchButtonController(
             searchService: Provider.of<SearchService>(context, listen: false),
             onSearchButtonPressed: _showBottomDrawer,
             collapseBottomDrawerFunc: () => Navigator.pop(context),
           );
-          return searchButtonInformationForClosingAplication;
-          }
-        ),
+          return _searchButtonInformationForClosingAplication;
+        }),
       ],
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -89,12 +90,26 @@ class _MapScreenState extends State<MapScreen> {
               drawerIsClosing = false;
               return true;
             }
-            if(searchButtonInformationForClosingAplication.isSearchingElementActive())return false;
-            return await _showWantYouExit();
+            if (_searchButtonInformationForClosingAplication
+                .isSearchingElementActive()) return false;
+            if (_wantYouExit)
+              return true;
+            else {
+              setState(() {
+                _wantYouExit = true;
+              });
+              Future.delayed(Duration(milliseconds: 3000), () {
+                setState(() {
+                  _wantYouExit = false;
+                });
+              });
+              return false;
+            }
           },
           child: Stack(
             children: [
               InteractiveMap(),
+              _wantYouExitAlert(),
             ],
           ),
         ),
