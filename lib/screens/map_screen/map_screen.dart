@@ -47,11 +47,11 @@ class _MapScreenState extends State<MapScreen> {
                     Navigator.pop(context);
                   },
                   child: Text(LocaleKeys.close.tr(),
-                    style: Theme.of(context).textTheme.button,)),
+                    style: Theme.of(context).textTheme.bodyText1,)),
               TextButton(
                 onPressed: () => Navigator.pop(context),
                 child: (Text(LocaleKeys.cancel.tr(),
-                  style: Theme.of(context).textTheme.button,)),
+                  style: Theme.of(context).textTheme.bodyText1,)),
               )
             ],
           );
