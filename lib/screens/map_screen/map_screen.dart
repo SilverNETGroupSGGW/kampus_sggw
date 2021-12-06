@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
@@ -14,6 +13,7 @@ import 'package:kampus_sggw/logic/search_button_controller.dart';
 import 'package:kampus_sggw/screens/map_screen/search_widgets/search_bar.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:provider/provider.dart';
+import 'wantYouExitAlert.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -31,32 +31,6 @@ class _MapScreenState extends State<MapScreen> {
       Provider.of<MapItems>(context, listen: false),
       _showCardFunc,
     );
-  }
-
-  Widget _wantYouExitAlert() {
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 500),
-      child: _wantYouExit ? Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Center(
-            child: Padding(
-              padding: EdgeInsets.all(3),
-              child: Container(
-                padding: EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor.withOpacity(0.9),
-                    borderRadius: BorderRadius.circular(15)
-                ),
-                child: Text(
-                  LocaleKeys.want_you_exit.tr(),
-                  style: Theme.of(context).textTheme.bodyText1,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ) : SizedBox(),);
   }
 
   bool _wantYouExit = false;
@@ -109,7 +83,7 @@ class _MapScreenState extends State<MapScreen> {
           child: Stack(
             children: [
               InteractiveMap(),
-              _wantYouExitAlert(),
+              wantYouExitAlert(wantYouExit: _wantYouExit),
             ],
           ),
         ),
