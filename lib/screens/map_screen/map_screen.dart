@@ -32,17 +32,22 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
+  bool _wantYouExit = false;
+  SearchButtonController _searchButtonInformationForClosingAplication;
+
   @override
   Widget build(BuildContext context) {
+    bool drawerIsClosing = false;
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (context) => SearchButtonController(
+        ChangeNotifierProvider(create: (context) {
+          _searchButtonInformationForClosingAplication = SearchButtonController(
             searchService: Provider.of<SearchService>(context, listen: false),
             onSearchButtonPressed: _showBottomDrawer,
             collapseBottomDrawerFunc: () => Navigator.pop(context),
-          ),
-        ),
+          );
+          return _searchButtonInformationForClosingAplication;
+        }),
       ],
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -52,13 +57,43 @@ class _MapScreenState extends State<MapScreen> {
             style: Theme.of(context).appBarTheme.titleTextStyle,
           ),
         ),
-        body: Stack(
-          children: [
-            InteractiveMap(),
-          ],
+        body: WillPopScope(
+          onWillPop: () async {
+    if (drawerIsClosing) {
+    drawerIsClosing = false;
+    return true;
+    }
+    if (_searchButtonInformationForClosingAplication
+        .isSearchingElementActive()) return false;
+    if (_wantYouExit)
+    return true;
+    else {
+    setState(() {
+    _wantYouExit = true;
+    });
+    Future.delayed(Duration(milliseconds: 3000), () {
+    setState(() {
+    _wantYouExit = false;
+    });
+    });
+    return false;
+    }
+    },
+    child: Stack(
+    children: [
+    InteractiveMap(),
+    wantYouExitAlert(wantYouExit: _wantYouExit),
+    ],
+    ),
         ),
         floatingActionButton: MapButtons(),
-        drawer: SideDrawer(),
+        drawer: WillPopScope(
+          onWillPop: () async {
+            drawerIsClosing = true;
+            return true;
+          },
+          child: SideDrawer(),
+        ),
       ),
     );
   }

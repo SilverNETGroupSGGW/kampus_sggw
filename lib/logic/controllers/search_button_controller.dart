@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 
+bool _isSthSearched = false;
+
 class SearchButtonController extends ChangeNotifier {
   FloatingActionButton _button;
   Function _onSearchButtonPressed;
@@ -30,6 +32,7 @@ class SearchButtonController extends ChangeNotifier {
   }
 
   FloatingActionButton _unfilterButton(String filterName) {
+    _isSthSearched = true;
     return FloatingActionButton.extended(
       onPressed: () => _restoreToDefault(),
       label: Container(
@@ -51,6 +54,7 @@ class SearchButtonController extends ChangeNotifier {
   void showUnfilterButton(String filterName) {
     _collapseBottomDrawer();
     _button = _unfilterButton(filterName);
+    _isSthSearched = false;
     return notifyListeners();
   }
 
@@ -58,5 +62,13 @@ class SearchButtonController extends ChangeNotifier {
     _searchService.resetMarkers();
     _button = _searchButton();
     return notifyListeners();
+  }
+
+  bool isSearchingElementActive() {
+    if (_isSthSearched) {
+      _restoreToDefault();
+      return true;
+    }
+    return false;
   }
 }
