@@ -13,6 +13,7 @@ import 'package:kampus_sggw/logic/controllers/search_button_controller.dart';
 import 'package:kampus_sggw/screens/map_screen/search_widgets/search_bar.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:provider/provider.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -32,7 +33,7 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
-  bool _wantYouExit = false;
+  bool _wantUserExitApplication = false;
   SearchButtonController _searchButtonInformationForClosingAplication;
 
   @override
@@ -59,32 +60,32 @@ class _MapScreenState extends State<MapScreen> {
         ),
         body: WillPopScope(
           onWillPop: () async {
-    if (drawerIsClosing) {
-    drawerIsClosing = false;
-    return true;
-    }
-    if (_searchButtonInformationForClosingAplication
-        .isSearchingElementActive()) return false;
-    if (_wantYouExit)
-    return true;
-    else {
-    setState(() {
-    _wantYouExit = true;
-    });
-    Future.delayed(Duration(milliseconds: 3000), () {
-    setState(() {
-    _wantYouExit = false;
-    });
-    });
-    return false;
-    }
-    },
-    child: Stack(
-    children: [
-    InteractiveMap(),
-    wantYouExitAlert(wantYouExit: _wantYouExit),
-    ],
-    ),
+            if (drawerIsClosing) {
+              drawerIsClosing = false;
+              return true;
+            }
+            if (_searchButtonInformationForClosingAplication
+                .isSearchingElementActiveIfIsThatDeactiveIt()){return false;}
+            if (_wantUserExitApplication){
+              return true;
+            }
+            else {
+                _wantUserExitApplication = true;
+              Fluttertoast.showToast(
+                  msg: LocaleKeys.want_you_exit.tr(),
+                  fontSize: 16.0,
+                   );
+              Future.delayed(Duration(milliseconds: 3000), () {
+                  _wantUserExitApplication = false;
+              });
+              return false;
+            }
+          },
+          child: Stack(
+            children: [
+              InteractiveMap(),
+            ],
+          ),
         ),
         floatingActionButton: MapButtons(),
         drawer: WillPopScope(
