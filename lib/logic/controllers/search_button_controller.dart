@@ -36,7 +36,7 @@ class SearchButtonController extends ChangeNotifier {
         constraints: BoxConstraints(maxWidth: 200),
         child: Text(
           filterName,
-          overflow: TextOverflow.ellipsis,
+          overflow: TextOverflow.fade,
           style: TextStyle(
             fontFamily: 'SGGWSans',
             fontSize: 20,
