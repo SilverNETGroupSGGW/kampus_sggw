@@ -34,7 +34,6 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   bool _wantUserExitApplication = false;
-  SearchButtonController _searchButtonInformationForClosingAplication;
 
   @override
   Widget build(BuildContext context) {
@@ -42,12 +41,11 @@ class _MapScreenState extends State<MapScreen> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) {
-          _searchButtonInformationForClosingAplication = SearchButtonController(
+          return SearchButtonController(
             searchService: Provider.of<SearchService>(context, listen: false),
             onSearchButtonPressed: _showBottomDrawer,
             collapseBottomDrawerFunc: () => Navigator.pop(context),
           );
-          return _searchButtonInformationForClosingAplication;
         }),
       ],
       child: Scaffold(
@@ -58,35 +56,37 @@ class _MapScreenState extends State<MapScreen> {
             style: Theme.of(context).appBarTheme.titleTextStyle,
           ),
         ),
-        body: WillPopScope(
-          onWillPop: () async {
-            if (drawerIsClosing) {
-              drawerIsClosing = false;
-              return true;
-            }
-            if (_searchButtonInformationForClosingAplication
-                .isSearchingElementActiveIfIsThatDeactiveIt()){return false;}
-            if (_wantUserExitApplication){
-              return true;
-            }
-            else {
+        body: Consumer<SearchButtonController>(builder: (context, value, _) {
+          return WillPopScope(
+            onWillPop: () async {
+              if (drawerIsClosing) {
+                drawerIsClosing = false;
+                return true;
+              }
+              if (value.isSearchingElementActiveIfIsThatDeactiveIt()) {
+                return false;
+              }
+              if (_wantUserExitApplication) {
+                return true;
+              } else {
                 _wantUserExitApplication = true;
-              Fluttertoast.showToast(
+                Fluttertoast.showToast(
                   msg: LocaleKeys.want_you_exit.tr(),
                   fontSize: 16.0,
-                   );
-              Future.delayed(Duration(milliseconds: 3000), () {
+                );
+                Future.delayed(Duration(milliseconds: 3000), () {
                   _wantUserExitApplication = false;
-              });
-              return false;
-            }
-          },
-          child: Stack(
-            children: [
-              InteractiveMap(),
-            ],
-          ),
-        ),
+                });
+                return false;
+              }
+            },
+            child: Stack(
+              children: [
+                InteractiveMap(),
+              ],
+            ),
+          );
+        }),
         floatingActionButton: MapButtons(),
         drawer: WillPopScope(
           onWillPop: () async {
