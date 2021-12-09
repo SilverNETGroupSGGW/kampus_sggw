@@ -6,11 +6,9 @@ part of 'theme_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ThemeModel _$ThemeModelFromJson(Map<String, dynamic> json) {
-  return ThemeModel(
-    themeId: json['themeId'] as int ?? 1,
-  );
-}
+ThemeModel _$ThemeModelFromJson(Map<String, dynamic> json) => ThemeModel(
+      themeId: json['themeId'] as int? ?? 1,
+    );
 
 Map<String, dynamic> _$ThemeModelToJson(ThemeModel instance) =>
     <String, dynamic>{

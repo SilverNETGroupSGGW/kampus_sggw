@@ -13,7 +13,7 @@ class CategoryItem extends StatefulWidget {
 }
 
 class _CategoryItemState extends State<CategoryItem> {
-  static Category _category;
+  static Category? _category;
 
   @override
   Widget build(BuildContext context) {
@@ -24,18 +24,18 @@ class _CategoryItemState extends State<CategoryItem> {
     if (isFacultyInstituteOrOffice) {
       return ListTile(
         leading: Icon(Icons.info_outline),
-        title: Text(root.name),
+        title: Text(root.name!),
         onTap: () {
           showFacultyCard(root);
         },
       );
     }
-    if (root.subCategories != null && root.subCategories.isNotEmpty) {
+    if (root.subCategories != null && root.subCategories!.isNotEmpty) {
       return ExpansionTile(
         leading: _tileIcon(root.name),
         key: PageStorageKey<Category>(root),
         title: _tileTitle(root.name),
-        children: root.subCategories.map<Widget>((sub) {
+        children: root.subCategories!.map<Widget>((sub) {
           return _buildTiles(sub,
               isFacultyInstituteOrOffice: root.name == 'faculties' ||
                   root.name == 'institutes' ||
@@ -45,11 +45,11 @@ class _CategoryItemState extends State<CategoryItem> {
     }
     return ListTile(
       leading: Icon(Icons.info_outline),
-      title: Text(root.name),
+      title: Text(root.name!),
     );
   }
 
-  Icon _tileIcon(String name) {
+  Icon? _tileIcon(String? name) {
     if (name == 'faculties') {
       return Icon(Icons.science);
     } else if (name == 'institutes') {
@@ -61,7 +61,7 @@ class _CategoryItemState extends State<CategoryItem> {
     }
   }
 
-  Text _tileTitle(String name) {
+  Text _tileTitle(String? name) {
     if (name == 'faculties') {
       return Text(LocaleKeys.faculties.tr());
     } else if (name == 'institutes') {
@@ -69,7 +69,7 @@ class _CategoryItemState extends State<CategoryItem> {
     } else if (name == 'offices') {
       return Text(LocaleKeys.offices.tr());
     } else {
-      return Text(name);
+      return Text(name!);
     }
   }
 
@@ -78,10 +78,10 @@ class _CategoryItemState extends State<CategoryItem> {
     Navigator.of(context).restorablePush(_dialogBuilder);
   }
 
-  static Route<Object> _dialogBuilder(BuildContext context, Object arguments) {
-    ServiceButtonsRow categoryServiceRow;
-    if (_category.services != null && _category.services.isNotEmpty) {
-      categoryServiceRow = ServiceButtonsRow(_category.services);
+  static Route<void> _dialogBuilder(BuildContext context, Object? arguments) {
+    ServiceButtonsRow? categoryServiceRow;
+    if (_category!.services != null && _category!.services!.isNotEmpty) {
+      categoryServiceRow = ServiceButtonsRow(_category!.services);
     }
     return DialogRoute<void>(
       context: context,

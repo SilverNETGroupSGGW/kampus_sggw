@@ -6,49 +6,23 @@ part of 'service_type.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ServiceType _$ServiceTypeFromJson(Map<String, dynamic> json) {
-  return ServiceType(
-    name: json['name'] as String,
-    materialIconName: json['materialIconName'] as String,
-    functionGroup: _$enumDecodeNullable(
-        _$ObjectFunctionGroupsEnumMap, json['functionGroup']),
-    color: json['color'] as String ?? '0xFF9E9E9E',
-  );
-}
+ServiceType _$ServiceTypeFromJson(Map<String, dynamic> json) => ServiceType(
+      name: json['name'] as String?,
+      materialIconName: json['materialIconName'] as String?,
+      functionGroup: $enumDecodeNullable(
+          _$ObjectFunctionGroupEnumMap, json['functionGroup']),
+      color: json['color'] as String? ?? '0xFF9E9E9E',
+    );
 
-T _$enumDecode<T>(
-  Map<T, dynamic> enumValues,
-  dynamic source, {
-  T unknownValue,
-}) {
-  if (source == null) {
-    throw ArgumentError('A value must be provided. Supported values: '
-        '${enumValues.values.join(', ')}');
-  }
+Map<String, dynamic> _$ServiceTypeToJson(ServiceType instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'materialIconName': instance.materialIconName,
+      'functionGroup': _$ObjectFunctionGroupEnumMap[instance.functionGroup],
+      'color': instance.color,
+    };
 
-  final value = enumValues.entries
-      .singleWhere((e) => e.value == source, orElse: () => null)
-      ?.key;
-
-  if (value == null && unknownValue == null) {
-    throw ArgumentError('`$source` is not one of the supported values: '
-        '${enumValues.values.join(', ')}');
-  }
-  return value ?? unknownValue;
-}
-
-T _$enumDecodeNullable<T>(
-  Map<T, dynamic> enumValues,
-  dynamic source, {
-  T unknownValue,
-}) {
-  if (source == null) {
-    return null;
-  }
-  return _$enumDecode<T>(enumValues, source, unknownValue: unknownValue);
-}
-
-const _$ObjectFunctionGroupsEnumMap = {
+const _$ObjectFunctionGroupEnumMap = {
   ObjectFunctionGroup.food: 'food',
   ObjectFunctionGroup.transport: 'transport',
   ObjectFunctionGroup.parking: 'parking',

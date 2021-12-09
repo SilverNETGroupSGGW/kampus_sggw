@@ -18,12 +18,12 @@ class RulesScreen extends StatefulWidget {
 
 class _RulesScreenState extends State<RulesScreen>
     with TickerProviderStateMixin {
-  CampusRules rulesList;
-  AnimationController controller;
+  CampusRules? rulesList;
+  late AnimationController controller;
 
   @override
   initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
+    WidgetsBinding.instance!.addPostFrameCallback((_) async {
       rulesList = await this.loadFromJson(widget.currentLang);
     });
 
@@ -73,7 +73,7 @@ class _RulesScreenState extends State<RulesScreen>
       body: ListView(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
         children: [
-          for (CampusRule campusRule in rulesList.campusRulesList)
+          for (CampusRule campusRule in rulesList!.campusRulesList!)
             SingleChildScrollView(
               physics: BouncingScrollPhysics(),
               child: buildListTitle(context, campusRule),

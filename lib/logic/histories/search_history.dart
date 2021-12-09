@@ -10,8 +10,8 @@ part 'search_history.g.dart';
 
 @JsonSerializable()
 class SearchHistory extends UserHistory with StorableJson, LoadableJson {
-  List<MapItem> _filtered;
-  SearchHistory({int buffer, List<int> itemsIds})
+  late List<MapItem> _filtered;
+  SearchHistory({int? buffer, List<int>? itemsIds})
       : super(buffer: buffer, itemsIds: itemsIds);
 
   UnmodifiableListView<MapItem> get filteredHistory =>
@@ -29,7 +29,7 @@ class SearchHistory extends UserHistory with StorableJson, LoadableJson {
   }
 
   @override
-  void deleteItem(MapItem mapItem) {
+  void deleteItem(MapItem? mapItem) {
     super.deleteItem(mapItem);
     _resetFiltered();
     _save();
@@ -61,7 +61,7 @@ class SearchHistory extends UserHistory with StorableJson, LoadableJson {
     super.saveToJson('searchHistory');
   }
 
-  List<MapItem> _filterToMuchQuery({String query}) {
+  List<MapItem> _filterToMuchQuery({String? query}) {
     if (query != null && query.isNotEmpty) {
       return _getItemsWhichNameStartsWith(query);
     } else {
@@ -70,6 +70,6 @@ class SearchHistory extends UserHistory with StorableJson, LoadableJson {
   }
 
   List<MapItem> _getItemsWhichNameStartsWith(String query) {
-    return storedMapItems.where((item) => item.name.startsWith(query)).toList();
+    return storedMapItems.where((item) => item.name!.startsWith(query)).toList();
   }
 }

@@ -3,8 +3,8 @@ part 'campus_sub_rule.g.dart';
 
 @JsonSerializable()
 class CampusSubRule {
-  int subRuleNumber;
-  String subRule;
+  int? subRuleNumber;
+  String? subRule;
   CampusSubRule(
     this.subRuleNumber,
     this.subRule,

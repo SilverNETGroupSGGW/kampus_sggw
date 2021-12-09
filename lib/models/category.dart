@@ -5,13 +5,13 @@ part 'category.g.dart';
 
 @JsonSerializable()
 class Category {
-  String name;
-  String url;
-  String description;
+  String? name;
+  String? url;
+  String? description;
   @JsonKey(defaultValue: <Service>[])
-  List<Service> services;
+  List<Service>? services;
   @JsonKey(defaultValue: <Category>[])
-  List<Category> subCategories;
+  List<Category>? subCategories;
 
   Category({
     this.name,
@@ -24,12 +24,12 @@ class Category {
   factory Category.fromJson(Map<String, dynamic> json) =>
       _$CategoryFromJson(json);
 
-  Set<String> getWordsForComparisonWithSearchQuery() {
-    Set<String> words = {};
-    for (var faculty in subCategories) {
+  Set<String?> getWordsForComparisonWithSearchQuery() {
+    Set<String?> words = {};
+    for (var faculty in subCategories!) {
       words = faculty._getWordsFromInnerCategory();
-      for (var subCategory in faculty.subCategories) {
-        for (var department in subCategory.subCategories) {
+      for (var subCategory in faculty.subCategories!) {
+        for (var department in subCategory.subCategories!) {
           words.addAll(department._getWordsFromInnerCategory());
         }
       }
@@ -43,24 +43,24 @@ class Category {
   }
 
   void _setTypesForServicesInSubCategories(ServiceTypes serviceTypes) {
-    for (var subCategory in subCategories) {
+    for (var subCategory in subCategories!) {
       subCategory._setTypeForEachService(serviceTypes);
       subCategory._setTypesForServicesInSubCategories(serviceTypes);
     }
   }
 
   void _setTypeForEachService(ServiceTypes serviceTypes) =>
-      services.forEach((service) => service.setType(serviceTypes));
+      services!.forEach((service) => service.setType(serviceTypes));
 
-  Set<String> _getWordsFromInnerCategory() =>
+  Set<String?> _getWordsFromInnerCategory() =>
       _getInnerWords().union(_getWordsForComparisonFromServices());
 
-  Set<String> _getWordsForComparisonFromServices() {
-    Set<String> words = {};
-    services.forEach(
+  Set<String?> _getWordsForComparisonFromServices() {
+    Set<String?> words = {};
+    services!.forEach(
         (service) => words.addAll(service.wordsToCompareWithSearchQuery));
     return words;
   }
 
-  Set<String> _getInnerWords() => {name, description};
+  Set<String?> _getInnerWords() => {name, description};
 }

@@ -12,7 +12,7 @@ class VisitHistoryList extends StatefulWidget {
 }
 
 class _VisitHistoryList extends State<VisitHistoryList> {
-  VisitHistory _visitHistory;
+  late VisitHistory _visitHistory;
 
   @override
   void initState() {
@@ -36,9 +36,11 @@ class _VisitHistoryList extends State<VisitHistoryList> {
     return ListTile(
       onTap: () => _showItemOnMap(item),
       leading: Icon(item.iconData),
+      horizontalTitleGap: 0.0,
       title: Text(
-        item.name,
-        overflow: TextOverflow.ellipsis,
+        item.name!,
+        overflow: TextOverflow.fade,
+        softWrap: false,
         style: TextStyle(fontSize: 18),
       ),
       dense: true,

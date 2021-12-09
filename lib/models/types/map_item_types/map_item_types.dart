@@ -8,7 +8,7 @@ part 'map_item_types.g.dart';
 
 @JsonSerializable()
 class MapItemTypes extends TypesFromJson {
-  MapItemTypes({List<MapItemType> typesFromJson})
+  MapItemTypes({List<MapItemType>? typesFromJson})
       : super(
           typesFromJson: typesFromJson,
         );

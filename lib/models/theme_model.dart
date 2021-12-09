@@ -10,10 +10,10 @@ part 'theme_model.g.dart';
 @JsonSerializable()
 class ThemeModel extends ChangeNotifier with StorableJson, LoadableJson {
   @JsonKey(defaultValue: 1)
-  int themeId;
-  ThemeData _currentTheme;
+  int? themeId;
+  ThemeData? _currentTheme;
 
-  ThemeData get currentTheme => _currentTheme;
+  ThemeData? get currentTheme => _currentTheme;
 
   ThemeModel({this.themeId});
 

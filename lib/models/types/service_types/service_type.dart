@@ -7,13 +7,13 @@ part 'service_type.g.dart';
 @JsonSerializable()
 class ServiceType extends TypeFromJson {
   @JsonKey(defaultValue: '0xFF9E9E9E')
-  String color;
-  int _colorInHex;
+  String? color;
+  int? _colorInHex;
 
   ServiceType({
-    String name,
-    String materialIconName,
-    ObjectFunctionGroup functionGroup,
+    String? name,
+    String? materialIconName,
+    ObjectFunctionGroup? functionGroup,
     this.color,
   }) : super(
           name: name,
@@ -22,10 +22,10 @@ class ServiceType extends TypeFromJson {
         ) {
     _setColorInHex();
   }
-  int get colorInHex => _colorInHex;
+  int? get colorInHex => _colorInHex;
 
   factory ServiceType.fromJson(Map<String, dynamic> json) =>
       _$ServiceTypeFromJson(json);
 
-  void _setColorInHex() => _colorInHex = int.parse(color);
+  void _setColorInHex() => _colorInHex = int.parse(color!);
 }

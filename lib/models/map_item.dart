@@ -13,23 +13,23 @@ part 'map_item.g.dart';
 
 @JsonSerializable()
 class MapItem {
-  int id;
-  Location geoLocation;
-  String name;
-  String description;
-  String url;
-  String type;
-  String photoPath;
-  double minScale;
-  DateTime lastModified;
+  int? id;
+  Location? geoLocation;
+  String? name;
+  String? description;
+  String? url;
+  String? type;
+  String? photoPath;
+  double? minScale;
+  DateTime? lastModified;
   @JsonKey(defaultValue: <String>[])
-  List<String> gallery;
+  List<String>? gallery;
   @JsonKey(defaultValue: <Service>[])
-  List<Service> services;
+  List<Service>? services;
   @JsonKey(defaultValue: <Category>[])
-  List<Category> categories;
-  Fuzzy _searchingSet;
-  MapItemType _mapItemType;
+  List<Category>? categories;
+  Fuzzy? _searchingSet;
+  MapItemType? _mapItemType;
 
   MapItem({
     this.id,
@@ -48,10 +48,10 @@ class MapItem {
     _generateFuzzySet();
   }
 
-  BitmapDescriptor get pinIcon => _mapItemType.pinIcon;
-  IconData get iconData => _mapItemType.iconData;
-  ObjectFunctionGroup get functionGroup => _mapItemType.functionGroup;
-  Fuzzy get searchingSet => _searchingSet;
+  BitmapDescriptor? get pinIcon => _mapItemType!.pinIcon;
+  IconData? get iconData => _mapItemType!.iconData;
+  ObjectFunctionGroup? get functionGroup => _mapItemType!.functionGroup;
+  Fuzzy? get searchingSet => _searchingSet;
 
   factory MapItem.fromJson(Map<String, dynamic> json) =>
       _$MapItemFromJson(json);
@@ -61,12 +61,12 @@ class MapItem {
     _setTypesForAllServices(serviceTypes);
   }
 
-  bool doesItemFulfilFunction(ObjectFunctionGroup functionGroup) =>
+  bool doesItemFulfilFunction(ObjectFunctionGroup? functionGroup) =>
       (this.functionGroup == functionGroup ||
           _containsServiceFulfillingFunction(functionGroup));
 
   void _setTypeForMapItem(MapItemTypes mapItemTypes) =>
-      _mapItemType = mapItemTypes.types[type];
+      _mapItemType = mapItemTypes.types[type] as MapItemType?;
 
   void _setTypesForAllServices(ServiceTypes serviceTypes) {
     _setTypesForServices(serviceTypes);
@@ -74,30 +74,30 @@ class MapItem {
   }
 
   void _setTypesForServices(ServiceTypes serviceTypes) =>
-      services.forEach((service) => service.setType(serviceTypes));
+      services!.forEach((service) => service.setType(serviceTypes));
 
-  void _setTypesForServicesInCategories(ServiceTypes serviceTypes) => categories
+  void _setTypesForServicesInCategories(ServiceTypes serviceTypes) => categories!
       .forEach((category) => category.setTypesForServices(serviceTypes));
 
-  bool _containsServiceFulfillingFunction(ObjectFunctionGroup functionGroup) =>
-      services.any((service) => service.functionGroup == functionGroup);
+  bool _containsServiceFulfillingFunction(ObjectFunctionGroup? functionGroup) =>
+      services!.any((service) => service.functionGroup == functionGroup);
 
   void _generateFuzzySet() =>
       _searchingSet = _getFuse(_getWordsToCompareWithSearchQuery());
 
-  Set<String> _getWordsToCompareWithSearchQuery() =>
+  Set<String?> _getWordsToCompareWithSearchQuery() =>
       _getInnerWords().union(_getWordsForComparisonInCategories());
 
-  Set<String> _getWordsForComparisonInCategories() {
-    Set<String> words = {};
-    categories.forEach((category) =>
+  Set<String?> _getWordsForComparisonInCategories() {
+    Set<String?> words = {};
+    categories!.forEach((category) =>
         words.addAll(category.getWordsForComparisonWithSearchQuery()));
     return words;
   }
 
-  Set<String> _getInnerWords() => {name, description};
+  Set<String?> _getInnerWords() => {name, description};
 
-  Fuzzy _getFuse(Set<String> wordsForComparisonWithSearchQuery) {
+  Fuzzy _getFuse(Set<String?> wordsForComparisonWithSearchQuery) {
     return Fuzzy(
       wordsForComparisonWithSearchQuery.toList(),
       options: FuzzyOptions(
