@@ -259,7 +259,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
   fluttertoast:
     dependency: "direct main"
     description:
@@ -267,7 +266,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "8.0.8"
-=======
   frontend_server_client:
     dependency: transitive
     description:
@@ -275,7 +273,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
->>>>>>> dev2
   fuzzy:
     dependency: "direct main"
     description:

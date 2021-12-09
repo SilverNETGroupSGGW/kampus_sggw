@@ -2,19 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 
 class SearchButtonController extends ChangeNotifier {
-<<<<<<< HEAD
-  FloatingActionButton _button;
-  Function _onSearchButtonPressed;
-  Function _collapseBottomDrawer;
-  SearchService _searchService;
-  bool _isAnyElementSearchedBySearchButton = false;
-=======
+
   FloatingActionButton? _button;
   Function? _onSearchButtonPressed;
   Function? _collapseBottomDrawer;
   late SearchService _searchService;
->>>>>>> dev2
-
+  bool _isAnyElementSearchedBySearchButton = false;
+  
   FloatingActionButton? get button => _button;
 
   SearchButtonController({

@@ -10,22 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   easy_localization: ^3.0.0
-<<<<<<< HEAD
-  material_floating_search_bar: ^0.2.6
-  cupertino_icons: ^1.0.2
-  url_launcher: ^6.0.3
-  json_annotation: ^3.1.1
-  path_provider: ^2.0.1
-  shared_preferences: ^2.0.5
-  google_maps_flutter: ^2.0.3
-  google_maps_flutter_web: ^0.3.0
-  permission_handler: ^7.1.0
-  fuzzy: ^0.3.0
-  http: ^0.13.3
-  get_storage: ^2.0.2
-  provider: ^5.0.0
   fluttertoast: ^8.0.8
-=======
   material_floating_search_bar: ^0.3.6
   cupertino_icons: ^1.0.4
   url_launcher: ^6.0.16
@@ -40,7 +25,6 @@ dependencies:
   get_storage: ^2.0.3
   provider: ^6.0.1
   collection: ^1.15.0-nullsafety.4
->>>>>>> dev2
 
 dev_dependencies:
   flutter_test:
