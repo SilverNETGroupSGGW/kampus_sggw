@@ -13,6 +13,7 @@ import 'package:kampus_sggw/logic/controllers/search_button_controller.dart';
 import 'package:kampus_sggw/screens/map_screen/search_widgets/search_bar.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:provider/provider.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -32,17 +33,20 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
+  bool _wantUserExitApplication = false;
+
   @override
   Widget build(BuildContext context) {
+    bool drawerIsClosing = false;
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (context) => SearchButtonController(
+        ChangeNotifierProvider(create: (context) {
+          return SearchButtonController(
             searchService: Provider.of<SearchService>(context, listen: false),
             onSearchButtonPressed: _showBottomDrawer,
             collapseBottomDrawerFunc: () => Navigator.pop(context),
-          ),
-        ),
+          );
+        }),
       ],
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -52,13 +56,45 @@ class _MapScreenState extends State<MapScreen> {
             style: Theme.of(context).appBarTheme.titleTextStyle,
           ),
         ),
-        body: Stack(
-          children: [
-            InteractiveMap(),
-          ],
-        ),
+        body: Consumer<SearchButtonController>(builder: (context, value, _) {
+          return WillPopScope(
+            onWillPop: () async {
+              if (drawerIsClosing) {
+                drawerIsClosing = false;
+                return true;
+              }
+              if (value.isSearchingElementActiveIfIsThatDeactiveIt()) {
+                return false;
+              }
+              if (_wantUserExitApplication) {
+                return true;
+              } else {
+                _wantUserExitApplication = true;
+                Fluttertoast.showToast(
+                  msg: LocaleKeys.want_you_exit.tr(),
+                  fontSize: 16.0,
+                );
+                Future.delayed(Duration(milliseconds: 3000), () {
+                  _wantUserExitApplication = false;
+                });
+                return false;
+              }
+            },
+            child: Stack(
+              children: [
+                InteractiveMap(),
+              ],
+            ),
+          );
+        }),
         floatingActionButton: MapButtons(),
-        drawer: SideDrawer(),
+        drawer: WillPopScope(
+          onWillPop: () async {
+            drawerIsClosing = true;
+            return true;
+          },
+          child: SideDrawer(),
+        ),
       ),
     );
   }
