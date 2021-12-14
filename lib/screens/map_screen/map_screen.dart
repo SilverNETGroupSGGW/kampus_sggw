@@ -44,29 +44,30 @@ class _MapScreenState extends State<MapScreen> {
             collapseBottomDrawerFunc: () => Navigator.pop(context),
           ),
         ),
+        ChangeNotifierProvider(
+          create: (context) => ReturnButtonController(),
+        ),
       ],
-      child: Consumer<SearchButtonController>(
-        builder: (context, value, _) {
-          return WillPopScope(
-              onWillPop: () =>
-                  ReturnButtonController.onReturnButtonTap(context),
-              child: Scaffold(
-                resizeToAvoidBottomInset: false,
-                appBar: AppBar(
-                  title: Text(
-                    LocaleKeys.map_screen_title.tr(),
-                    style: Theme.of(context).appBarTheme.titleTextStyle,
-                  ),
-                ),
-                body: Stack(
-                  children: [
-                    InteractiveMap(),
-                  ],
-                ),
-                floatingActionButton: MapButtons(),
-                drawer: SideDrawer(),
-              ));
-        },
+      child: Consumer<ReturnButtonController>(
+        builder: (context, returnButtonController, _) => WillPopScope(
+          onWillPop: () => returnButtonController.onReturnButtonTap(context),
+          child: Scaffold(
+            resizeToAvoidBottomInset: false,
+            appBar: AppBar(
+              title: Text(
+                LocaleKeys.map_screen_title.tr(),
+                style: Theme.of(context).appBarTheme.titleTextStyle,
+              ),
+            ),
+            body: Stack(
+              children: [
+                InteractiveMap(),
+              ],
+            ),
+            floatingActionButton: MapButtons(),
+            drawer: SideDrawer(),
+          ),
+        ),
       ),
     );
   }

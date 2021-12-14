@@ -5,10 +5,10 @@ import 'package:kampus_sggw/logic/controllers/search_button_controller.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:provider/provider.dart';
 
-abstract class ReturnButtonController {
-  static bool _userConfirmsAppExit = false;
+class ReturnButtonController extends ChangeNotifier {
+  bool _userConfirmsAppExit = false;
 
-  static Future<bool> onReturnButtonTap(BuildContext context) async {
+  Future<bool> onReturnButtonTap(BuildContext context) async {
     SearchButtonController searchButtonController =
         Provider.of<SearchButtonController>(context, listen: false);
     if (Navigator.canPop(context)) {
