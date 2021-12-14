@@ -64,7 +64,8 @@ class _MapScreenState extends State<MapScreen> {
                 Navigator.of(context).pop();
                 return false;
               }
-              if (value.isSearchingElementActiveIfIsThatDeactiveIt()) {
+              if (value.areMarkersFiltered) {
+                value.restoreMarkersWithReturnButton();
                 return false;
               }
               if (_wantUserExitApplication) {
