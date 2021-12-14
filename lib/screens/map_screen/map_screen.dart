@@ -22,7 +22,6 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   static late MapItem _selectedMapItem;
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -49,7 +48,6 @@ class _MapScreenState extends State<MapScreen> {
         ),
       ],
       child: Scaffold(
-        key: _scaffoldKey,
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text(
@@ -60,7 +58,7 @@ class _MapScreenState extends State<MapScreen> {
         body: Consumer<SearchButtonController>(builder: (context, value, _) {
           return WillPopScope(
             onWillPop: () async {
-              if (_scaffoldKey.currentState!.isDrawerOpen) {
+              if (Navigator.canPop(context)) {
                 Navigator.of(context).pop();
                 return false;
               }
