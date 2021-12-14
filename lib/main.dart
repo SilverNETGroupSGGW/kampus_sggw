@@ -11,7 +11,7 @@ import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/models/theme_model.dart';
 import 'package:kampus_sggw/logic/controllers/search_bar_controller.dart';
 import 'package:kampus_sggw/logic/controllers/map_markers_controller.dart';
-import 'package:kampus_sggw/screens/map_screen/map_screen.dart';
+import 'package:kampus_sggw/screens/map_screen/app_screen.dart';
 import 'package:kampus_sggw/translations/codegen_loader.g.dart';
 import 'package:kampus_sggw/updateLocalData.dart';
 import 'package:get_storage/get_storage.dart';
@@ -86,7 +86,7 @@ class _CampusSGGWState extends State<CampusSGGW> {
       title: 'Kampus SGGW',
       theme: Provider.of<ThemeModel>(context).currentTheme,
       debugShowCheckedModeBanner: false,
-      home: MapScreen(),
+      home: AppScreen(),
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
       locale: context.locale,
