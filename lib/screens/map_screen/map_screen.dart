@@ -22,6 +22,7 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   static late MapItem _selectedMapItem;
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -37,18 +38,18 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
-    bool drawerIsClosing = false;
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) {
-          return SearchButtonController(
+        ChangeNotifierProvider(
+          create: (context) => SearchButtonController(
             searchService: Provider.of<SearchService>(context, listen: false),
             onSearchButtonPressed: _showBottomDrawer,
             collapseBottomDrawerFunc: () => Navigator.pop(context),
-          );
-        }),
+          ),
+        ),
       ],
       child: Scaffold(
+        key: _scaffoldKey,
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text(
@@ -59,9 +60,9 @@ class _MapScreenState extends State<MapScreen> {
         body: Consumer<SearchButtonController>(builder: (context, value, _) {
           return WillPopScope(
             onWillPop: () async {
-              if (drawerIsClosing) {
-                drawerIsClosing = false;
-                return true;
+              if (_scaffoldKey.currentState!.isDrawerOpen) {
+                Navigator.of(context).pop();
+                return false;
               }
               if (value.isSearchingElementActiveIfIsThatDeactiveIt()) {
                 return false;
@@ -88,13 +89,7 @@ class _MapScreenState extends State<MapScreen> {
           );
         }),
         floatingActionButton: MapButtons(),
-        drawer: WillPopScope(
-          onWillPop: () async {
-            drawerIsClosing = true;
-            return true;
-          },
-          child: SideDrawer(),
-        ),
+        drawer: SideDrawer(),
       ),
     );
   }
