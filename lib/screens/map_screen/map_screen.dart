@@ -45,26 +45,28 @@ class _MapScreenState extends State<MapScreen> {
           ),
         ),
       ],
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: Text(
-            LocaleKeys.map_screen_title.tr(),
-            style: Theme.of(context).appBarTheme.titleTextStyle,
-          ),
-        ),
-        body: Consumer<SearchButtonController>(
-          builder: (context, value, _) => WillPopScope(
-            onWillPop: () => ReturnButtonController.onReturnButtonTap(context),
-            child: Stack(
-              children: [
-                InteractiveMap(),
-              ],
-            ),
-          ),
-        ),
-        floatingActionButton: MapButtons(),
-        drawer: SideDrawer(),
+      child: Consumer<SearchButtonController>(
+        builder: (context, value, _) {
+          return WillPopScope(
+              onWillPop: () =>
+                  ReturnButtonController.onReturnButtonTap(context),
+              child: Scaffold(
+                resizeToAvoidBottomInset: false,
+                appBar: AppBar(
+                  title: Text(
+                    LocaleKeys.map_screen_title.tr(),
+                    style: Theme.of(context).appBarTheme.titleTextStyle,
+                  ),
+                ),
+                body: Stack(
+                  children: [
+                    InteractiveMap(),
+                  ],
+                ),
+                floatingActionButton: MapButtons(),
+                drawer: SideDrawer(),
+              ));
+        },
       ),
     );
   }
