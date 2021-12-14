@@ -14,7 +14,7 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  bool _userConfirmsAppExit = false;
+  bool _doesUserConfirmAppExit = false;
 
   @override
   Widget build(BuildContext context) {
@@ -45,16 +45,16 @@ class _MapScreenState extends State<MapScreen> {
       searchButtonController.restoreMarkersWithReturnButton();
       return false;
     }
-    if (_userConfirmsAppExit) {
+    if (_doesUserConfirmAppExit) {
       return true;
     } else {
-      _userConfirmsAppExit = true;
+      _doesUserConfirmAppExit = true;
       Fluttertoast.showToast(
         msg: LocaleKeys.want_you_exit.tr(),
         fontSize: 16.0,
       );
       Future.delayed(
-          Duration(milliseconds: 3000), () => _userConfirmsAppExit = false);
+          Duration(milliseconds: 3000), () => _doesUserConfirmAppExit = false);
       return false;
     }
   }
