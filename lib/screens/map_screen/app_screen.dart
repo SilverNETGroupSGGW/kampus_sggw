@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kampus_sggw/logic/controllers/return_button_controller.dart';
 import 'package:kampus_sggw/logic/histories/visit_history.dart';
 import 'package:kampus_sggw/logic/controllers/map_markers_controller.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
@@ -39,9 +38,6 @@ class _AppScreenState extends State<AppScreen> {
             onSearchButtonPressed: _showBottomDrawer,
             collapseBottomDrawerFunc: () => Navigator.pop(context),
           ),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => ReturnButtonController(),
         ),
       ],
       child: MapScreen(),
