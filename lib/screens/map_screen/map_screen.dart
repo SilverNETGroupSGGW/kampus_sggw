@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/global_widgets/side_drawer.dart';
+import 'package:kampus_sggw/logic/controllers/return_button_controller.dart';
 import 'package:kampus_sggw/logic/histories/visit_history.dart';
 import 'package:kampus_sggw/logic/controllers/map_markers_controller.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
@@ -13,7 +14,6 @@ import 'package:kampus_sggw/logic/controllers/search_button_controller.dart';
 import 'package:kampus_sggw/screens/map_screen/search_widgets/search_bar.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:provider/provider.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -32,8 +32,6 @@ class _MapScreenState extends State<MapScreen> {
       _showCardFunc,
     );
   }
-
-  bool _wantUserExitApplication = false;
 
   @override
   Widget build(BuildContext context) {
@@ -55,38 +53,16 @@ class _MapScreenState extends State<MapScreen> {
             style: Theme.of(context).appBarTheme.titleTextStyle,
           ),
         ),
-        body: Consumer<SearchButtonController>(builder: (context, value, _) {
-          return WillPopScope(
-            onWillPop: () async {
-              if (Navigator.canPop(context)) {
-                Navigator.of(context).pop();
-                return false;
-              }
-              if (value.areMarkersFiltered) {
-                value.restoreMarkersWithReturnButton();
-                return false;
-              }
-              if (_wantUserExitApplication) {
-                return true;
-              } else {
-                _wantUserExitApplication = true;
-                Fluttertoast.showToast(
-                  msg: LocaleKeys.want_you_exit.tr(),
-                  fontSize: 16.0,
-                );
-                Future.delayed(Duration(milliseconds: 3000), () {
-                  _wantUserExitApplication = false;
-                });
-                return false;
-              }
-            },
+        body: Consumer<SearchButtonController>(
+          builder: (context, value, _) => WillPopScope(
+            onWillPop: () => ReturnButtonController.onReturnButtonTap(context),
             child: Stack(
               children: [
                 InteractiveMap(),
               ],
             ),
-          );
-        }),
+          ),
+        ),
         floatingActionButton: MapButtons(),
         drawer: SideDrawer(),
       ),
