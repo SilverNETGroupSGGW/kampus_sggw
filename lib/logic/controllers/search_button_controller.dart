@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 
 class SearchButtonController extends ChangeNotifier {
-
   FloatingActionButton? _button;
   Function? _onSearchButtonPressed;
   Function? _collapseBottomDrawer;
   late SearchService _searchService;
   bool _isAnyElementSearchedBySearchButton = false;
-  
+
   FloatingActionButton? get button => _button;
 
   SearchButtonController({
@@ -37,12 +36,15 @@ class SearchButtonController extends ChangeNotifier {
       onPressed: () => _restoreToDefault(),
       label: Container(
         constraints: BoxConstraints(maxWidth: 200),
-        child: Text(
-          filterName,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(
-            fontFamily: 'SGGWSans',
-            fontSize: 20,
+        child: Flexible(
+          child: Text(
+            filterName,
+            overflow: TextOverflow.fade,
+            softWrap: false,
+            style: TextStyle(
+              fontFamily: 'SGGWSans',
+              fontSize: 20,
+            ),
           ),
         ),
       ),
@@ -65,10 +67,10 @@ class SearchButtonController extends ChangeNotifier {
   }
 
   bool isSearchingElementActiveIfIsThatDeactiveIt() {
-  if (_isAnyElementSearchedBySearchButton) {
-    _restoreToDefault();
-    return true;
-  }
-  return false;
+    if (_isAnyElementSearchedBySearchButton) {
+      _restoreToDefault();
+      return true;
+    }
+    return false;
   }
 }
