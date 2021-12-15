@@ -37,15 +37,13 @@ class SearchButtonController extends ChangeNotifier {
       onPressed: () => _restoreToDefault(),
       label: Container(
         constraints: BoxConstraints(maxWidth: 200),
-        child: Flexible(
-          child: Text(
-            filterName,
-            overflow: TextOverflow.fade,
-            softWrap: false,
-            style: TextStyle(
-              fontFamily: 'SGGWSans',
-              fontSize: 20,
-            ),
+        child: Text(
+          filterName,
+          overflow: TextOverflow.fade,
+          softWrap: false,
+          style: TextStyle(
+            fontFamily: 'SGGWSans',
+            fontSize: 20,
           ),
         ),
       ),
