@@ -59,10 +59,12 @@ class _MapScreenState extends State<MapScreen> {
     }
   }
 
-  AppBar _appBar() => AppBar(
-        title: Text(
-          LocaleKeys.map_screen_title.tr(),
-          style: Theme.of(context).appBarTheme.titleTextStyle,
-        ),
-      );
+  AppBar _appBar() {
+    return AppBar(
+      title: Text(
+        LocaleKeys.map_screen_title.tr(),
+        style: Theme.of(context).appBarTheme.titleTextStyle,
+      ),
+    );
+  }
 }
