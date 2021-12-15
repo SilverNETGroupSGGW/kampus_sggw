@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   easy_localization: ^3.0.0
+  fluttertoast: ^8.0.8
   material_floating_search_bar: ^0.3.6
   cupertino_icons: ^1.0.4
   url_launcher: ^6.0.16
