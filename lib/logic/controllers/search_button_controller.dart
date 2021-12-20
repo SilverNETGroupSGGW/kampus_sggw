@@ -6,9 +6,10 @@ class SearchButtonController extends ChangeNotifier {
   Function? _onSearchButtonPressed;
   Function? _collapseBottomDrawer;
   late SearchService _searchService;
-  bool _isAnyElementSearchedBySearchButton = false;
+  bool _areMarkersFiltered = false;
 
   FloatingActionButton? get button => _button;
+  bool get areMarkersFiltered => _areMarkersFiltered;
 
   SearchButtonController({
     required SearchService searchService,
@@ -31,20 +32,18 @@ class SearchButtonController extends ChangeNotifier {
   }
 
   FloatingActionButton _unfilterButton(String filterName) {
-    _isAnyElementSearchedBySearchButton = true;
+    _areMarkersFiltered = true;
     return FloatingActionButton.extended(
       onPressed: () => _restoreToDefault(),
       label: Container(
         constraints: BoxConstraints(maxWidth: 200),
-        child: Flexible(
-          child: Text(
-            filterName,
-            overflow: TextOverflow.fade,
-            softWrap: false,
-            style: TextStyle(
-              fontFamily: 'SGGWSans',
-              fontSize: 20,
-            ),
+        child: Text(
+          filterName,
+          overflow: TextOverflow.fade,
+          softWrap: false,
+          style: TextStyle(
+            fontFamily: 'SGGWSans',
+            fontSize: 20,
           ),
         ),
       ),
@@ -59,18 +58,12 @@ class SearchButtonController extends ChangeNotifier {
     return notifyListeners();
   }
 
+  void restoreMarkersWithReturnButton() => _restoreToDefault();
+
   void _restoreToDefault() {
     _searchService.resetMarkers();
     _button = _searchButton();
-    _isAnyElementSearchedBySearchButton = false;
+    _areMarkersFiltered = false;
     return notifyListeners();
-  }
-
-  bool isSearchingElementActiveIfIsThatDeactiveIt() {
-    if (_isAnyElementSearchedBySearchButton) {
-      _restoreToDefault();
-      return true;
-    }
-    return false;
   }
 }
