@@ -9,8 +9,8 @@ Ze względów bezpieczeństwa nie udostępniamy ich publicznie w repozytorium, a
 
 ### Automatyczne dodanie klucza
 W Git Bash należy przejść do katalogu ze sklonowanym repozytorium (katalog z folderem `.git`) i wywołać komendę:
-```
-bash set_map_key.sh -k *otrzymany_klucz*
+``` bash
+bash set_map_key.sh -k otrzymany_klucz
 ```
 Należy sprawdzić czy dodano klucz oraz czy Git Bash lub Git Kraken nie wyśledziły zmian w plikach
 ```
