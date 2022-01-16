@@ -5,8 +5,25 @@ Na gałęzi ```main``` mamy wersję aplikacji, która jest aktualnie na App Stor
 
 ## Klucze API
 Do odpalenia apki potrzebne są klucze API do Google Maps, bez nich nie wyświetli wam się mapka w aplikacji. 
-Ze względów bezpieczeństwa nie udostępniamy ich publicznie w repozytorium, aby je dostać wystarczy poprosić na Discordzie. Po uzyskaniu klucza należy:
+Ze względów bezpieczeństwa nie udostępniamy ich publicznie w repozytorium, aby je dostać wystarczy poprosić na Discordzie. Po uzyskaniu klucza są 2 metody dodania go do kodu.
 
+### Automatyczne dodanie klucza
+W Git Bash należy przejść do katalogu ze sklonowanym repozytorium (katalog z folderem `.git`) i wywołać komendę:
+```
+bash set_map_key.sh -k otrzymany_klucz
+```
+Należy sprawdzić czy dodano klucz oraz czy Git Bash lub Git Kraken nie wyśledziły zmian w plikach
+```
+/android/app/src/main/AndroidManifest.xml
+/ios/Runner/AppDelegate.swift
+/web/index.html
+```
+Jeżeli przy wywoływaniu skryptu zostanie wpisany niepoprawny klucz trzeba wywołać po ponowanie z opcjami -k *poprawny klucz* -r *niepoprawny klucz*.
+```
+bash set_map_key.sh -k poprawny_klucz -r niepoprawny_klucz
+```
+
+### Manualne dodanie klucza
 W katalogu repozytorium odpalić te 3 komendy.
 ```
 git update-index --skip-worktree android/app/src/main/AndroidManifest.xml
