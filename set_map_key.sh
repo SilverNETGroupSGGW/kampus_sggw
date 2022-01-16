@@ -6,14 +6,18 @@ if (($# == 0)); then
   echo "Requieres option -k with google map key as argument" >&2
   exit 1
 fi
-while getopts k: opt; do
+key_alias='MAPS_KEY_HERE'
+while getopts k:r: opt; do
   case $opt in
     k)
       map_key=$OPTARG
       ;;
+    r)
+      key_alias=$OPTARG
+      ;;
   esac
 done
-sed -i -e "s/MAPS_KEY_HERE/$map_key/g" android/app/src/main/AndroidManifest.xml
-sed -i -e "s/MAPS_KEY_HERE/$map_key/g" ios/Runner/AppDelegate.swift
-sed -i -e "s/MAPS_KEY_HERE/$map_key/g" web/index.html
+sed -i -e "s/$key_alias/$map_key/g" android/app/src/main/AndroidManifest.xml
+sed -i -e "s/$key_alias/$map_key/g" ios/Runner/AppDelegate.swift
+sed -i -e "s/$key_alias/$map_key/g" web/index.html
 exit 0
