@@ -15,13 +15,13 @@ class SuggestionTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        item!.matchedQuery!,
+        item!.matchedQuery,
         maxLines: 1,
         overflow: TextOverflow.fade,
         softWrap: false,
       ),
       subtitle: Text(
-        item!.mapItem!.name!,
+        item!.mapItem.name!,
         maxLines: 1,
         overflow: TextOverflow.fade,
         softWrap: false,
