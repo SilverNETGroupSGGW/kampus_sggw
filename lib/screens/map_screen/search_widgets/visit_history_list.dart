@@ -21,13 +21,12 @@ class _VisitHistoryList extends State<VisitHistoryList> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(
-        physics: NeverScrollableScrollPhysics(),
-        children: _visitHistory.storedMapItems
-            .map((item) => Card(child: _recentlyVisitedItemCard(item)))
-            .toList(),
-      ),
+    return ListView(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      children: _visitHistory.storedMapItems
+          .map((item) => Card(child: _recentlyVisitedItemCard(item)))
+          .toList(),
     );
   }
 
