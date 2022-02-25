@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:kampus_sggw/screens/creators_screen/creators_screen.dart';
 import 'package:kampus_sggw/screens/rules_screen/rules_loader.dart';
 import 'package:kampus_sggw/screens/settings_screen/settings_screen.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
@@ -42,6 +43,18 @@ class SideDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => RulesBuilder()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text(
+              'Autorzy',
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CreatorsScreen()),
               );
             },
           ),
