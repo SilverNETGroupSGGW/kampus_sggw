@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/histories/search_history.dart';
-import 'package:kampus_sggw/logic/controllers/search_bar_controller.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/logic/search_services/suggestion_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
@@ -11,7 +10,6 @@ import 'package:kampus_sggw/screens/map_screen/search_widgets/history_tile.dart'
 import 'package:kampus_sggw/screens/map_screen/search_widgets/no_item_found_alert_dialog.dart';
 import 'package:kampus_sggw/screens/map_screen/search_widgets/search_help_panel.dart';
 import 'package:kampus_sggw/screens/map_screen/search_widgets/suggestion_tile.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 
@@ -24,7 +22,6 @@ class _SearchBar extends State<SearchBar> {
   MapItem? _firstSuggestion;
   final _focusNode = FocusNode();
   late SearchHistory _searchHistoryProvider;
-  late SearchBarController _controllerProvider;
   late ThemeModel _themeDataController;
   var _queryController = TextEditingController();
 
@@ -36,8 +33,6 @@ class _SearchBar extends State<SearchBar> {
     _searchHistoryProvider.loadMapItems(
       Provider.of<MapItems>(context, listen: false),
     );
-    _controllerProvider =
-        Provider.of<SearchBarController>(context, listen: false);
     _themeDataController = Provider.of<ThemeModel>(context, listen: false);
     _queryController.addListener(() {
       setState(() {});
@@ -235,7 +230,6 @@ class _SearchBar extends State<SearchBar> {
   void _search(MapItem item) {
     _searchHistoryProvider.addItem(item);
     Provider.of<SearchService>(context, listen: false).showSearchedItem(item);
-    _controllerProvider.close();
   }
 
   void _showAlertNoItemFound() {
@@ -245,6 +239,5 @@ class _SearchBar extends State<SearchBar> {
         return NoItemFoundAlertDialog();
       },
     );
-    _controllerProvider.close();
   }
 }

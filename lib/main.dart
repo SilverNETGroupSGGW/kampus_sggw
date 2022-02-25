@@ -9,7 +9,6 @@ import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/logic/search_services/suggestion_service.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/models/theme_model.dart';
-import 'package:kampus_sggw/logic/controllers/search_bar_controller.dart';
 import 'package:kampus_sggw/logic/controllers/map_markers_controller.dart';
 import 'package:kampus_sggw/screens/map_screen/app_screen.dart';
 import 'package:kampus_sggw/translations/codegen_loader.g.dart';
@@ -61,9 +60,6 @@ Future<void> main() async {
           ChangeNotifierProvider.value(value: suggestionService),
           ChangeNotifierProvider.value(value: mapController),
           ChangeNotifierProvider.value(value: markersController),
-          ChangeNotifierProvider(
-            create: (_) => SearchBarController(),
-          ),
         ],
         child: CampusSGGW(),
       ),

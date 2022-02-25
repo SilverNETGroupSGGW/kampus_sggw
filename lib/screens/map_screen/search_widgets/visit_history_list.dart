@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/histories/visit_history.dart';
-import 'package:kampus_sggw/logic/controllers/search_bar_controller.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
@@ -57,7 +56,6 @@ class _VisitHistoryList extends State<VisitHistoryList> {
   void _showItemOnMap(MapItem item) {
     _visitHistory.addItem(item);
     Provider.of<SearchService>(context, listen: false).showSearchedItem(item);
-    Provider.of<SearchBarController>(context, listen: false).close();
   }
 
   VisitHistory _initializeVisitHistory() {
