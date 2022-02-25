@@ -222,6 +222,7 @@ class _SearchBar extends State<SearchBar> {
 
   void _onSubmitted(String query) {
     if (_firstSuggestion == null) {
+      _queryController.clear();
       _showAlertNoItemFound();
     } else {
       _search(_firstSuggestion!);
