@@ -109,6 +109,7 @@ class _SearchBar extends State<SearchBar> {
           Navigator.pop(context);
         } else {
           _focusNode.unfocus();
+          _queryController.clear();
         }
       },
     );
