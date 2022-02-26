@@ -20,8 +20,9 @@ class _CreatorsScreenState extends State<CreatorsScreen> {
     WidgetsBinding.instance!.addPostFrameCallback((_) async {
       print('wchodzi');
       autors = await this.loadFromJson();
+      setState(() {});
     });
-    print(1);
+    print(2);
     print(autors.name);
     super.initState();
   }
