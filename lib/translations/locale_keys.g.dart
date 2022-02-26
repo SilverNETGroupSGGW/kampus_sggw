@@ -34,5 +34,6 @@ abstract class  LocaleKeys {
   static const campus_rules = 'campus_rules';
   static const offices = 'offices';
   static const rules_link = 'rules_link';
+  static const authors = 'authors';
 
 }

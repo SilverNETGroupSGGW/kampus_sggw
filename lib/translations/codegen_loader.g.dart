@@ -14,42 +14,7 @@ class CodegenLoader extends AssetLoader{
     return Future.value(mapLocales[locale.toString()]);
   }
 
-  static const Map<String,dynamic> en = {
-  "map_screen_title": "SGGW Campus",
-  "drawer_settings": "Settings",
-  "drawer_campus_rules": "Campus rules",
-  "search_bar_title": "Search for a place or address",
-  "find_nearby": "Find Nearby",
-  "recent": "Recent",
-  "recent_searches": "Recent",
-  "food": "Restaurants",
-  "bus": "Public Transport",
-  "parking": "Car parks",
-  "park": "Parks and Monuments",
-  "store": "Stores",
-  "copier": "Copier",
-  "no_results_found": "No search results found",
-  "other_institutions": "Other institutions",
-  "floor_plans": "Floor plans",
-  "photo": "Photo",
-  "gallery": "Gallery",
-  "departments": "Departments",
-  "institutes": "Institutes",
-  "faculties": "Faculties",
-  "floor": "Floor",
-  "website": "Website",
-  "close": "Close",
-  "want_you_exit": "Press BACK again to exit",
-  "settings": "Settings",
-  "dark_mode": "Dark Mode",
-  "language": "Language",
-  "pl": "Polish",
-  "en": "English",
-  "campus_rules": "Campus rules",
-  "offices": "Offices",
-  "rules_link": "Full version of campus rules"
-};
-static const Map<String,dynamic> pl = {
+  static const Map<String,dynamic> pl = {
   "map_screen_title": "Kampus SGGW",
   "drawer_settings": "Ustawienia",
   "drawer_campus_rules": "Regulamin kampusu",
@@ -82,7 +47,44 @@ static const Map<String,dynamic> pl = {
   "en": "Angielski",
   "campus_rules": "Regulamin kampusu",
   "offices": "Biura",
-  "rules_link": "Pełna wersja regulaminu"
+  "rules_link": "Pełna wersja regulaminu",
+  "authors": "Autorzy"
 };
-static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "pl": pl};
+static const Map<String,dynamic> en = {
+  "map_screen_title": "SGGW Campus",
+  "drawer_settings": "Settings",
+  "drawer_campus_rules": "Campus rules",
+  "search_bar_title": "Search for a place or address",
+  "find_nearby": "Find Nearby",
+  "recent": "Recent",
+  "recent_searches": "Recent",
+  "food": "Restaurants",
+  "bus": "Public Transport",
+  "parking": "Car parks",
+  "park": "Parks and Monuments",
+  "store": "Stores",
+  "copier": "Copier",
+  "no_results_found": "No search results found",
+  "other_institutions": "Other institutions",
+  "floor_plans": "Floor plans",
+  "photo": "Photo",
+  "gallery": "Gallery",
+  "departments": "Departments",
+  "institutes": "Institutes",
+  "faculties": "Faculties",
+  "floor": "Floor",
+  "website": "Website",
+  "close": "Close",
+  "want_you_exit": "Press BACK again to exit",
+  "settings": "Settings",
+  "dark_mode": "Dark Mode",
+  "language": "Language",
+  "pl": "Polish",
+  "en": "English",
+  "campus_rules": "Campus rules",
+  "offices": "Offices",
+  "rules_link": "Full version of campus rules",
+  "authors": "Authors"
+};
+static const Map<String, Map<String,dynamic>> mapLocales = {"pl": pl, "en": en};
 }
