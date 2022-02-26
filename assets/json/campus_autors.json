@@ -1,7 +1,7 @@
 {
     "name": "campus_autors",
     "lang": "pl",
-    "campusAutorsList": [
+    "autorsList": [
         {
             "role": "programowanie",
             "name": "Adam Brol"

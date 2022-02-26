@@ -16,10 +16,13 @@ class _CreatorsScreenState extends State<CreatorsScreen> {
 
   @override
   void initState() {
+    print(autors.name);
     WidgetsBinding.instance!.addPostFrameCallback((_) async {
+      print('wchodzi');
       autors = await this.loadFromJson();
     });
-    autors.autorsList!;
+    print(1);
+    print(autors.name);
     super.initState();
   }
 
@@ -50,13 +53,18 @@ class _CreatorsScreenState extends State<CreatorsScreen> {
 
   ListTile autorTile({String? role, String? name}) {
     return ListTile(
-      leading: Icon(Icons.people),
       horizontalTitleGap: 0.0,
       title: Text(
-        '${role}: ${name}',
+        '${name}',
         overflow: TextOverflow.fade,
         softWrap: false,
         style: TextStyle(fontSize: 18),
+      ),
+      subtitle: Text(
+        '${role}',
+        overflow: TextOverflow.fade,
+        softWrap: false,
+        style: TextStyle(fontSize: 12),
       ),
       dense: true,
     );
@@ -66,6 +74,8 @@ class _CreatorsScreenState extends State<CreatorsScreen> {
     print('object');
     Map<String, dynamic> autorsMap = jsonDecode(await Autors.getJsonSting());
     final autors = Autors.fromJson(autorsMap);
+    print('load from json');
+    autors.readAutors();
     return autors;
   }
 }
