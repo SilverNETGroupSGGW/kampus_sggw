@@ -1,17 +1,17 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:json_annotation/json_annotation.dart';
-part 'autor.g.dart';
+part 'author.g.dart';
 
 @JsonSerializable()
-class Autor {
+class Author {
   String role;
   String name;
 
-  Autor(this.role, this.name);
+  Author(this.role, this.name);
 
-  factory Autor.fromJson(Map<String, dynamic> json) => _$AutorFromJson(json);
-  Map<String, dynamic> toJson() => _$AutorToJson(this);
+  factory Author.fromJson(Map<String, dynamic> json) => _$AuthorFromJson(json);
+  Map<String, dynamic> toJson() => _$AuthorToJson(this);
 }
 
 
