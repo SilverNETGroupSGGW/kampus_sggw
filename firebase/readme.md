@@ -31,7 +31,7 @@ npm run serve
 ```
 
 Endpoint dostępny w:
-> http://localhost:5001/kampus-sggw-2021/us-central1/mapItems?token=mGl0bnenMANgd9CUpeg3Pw==
+> http://localhost:5001/kampus-sggw-2021/us-central1/mapItems?token=mGl0bnenMANgd9CUpeg3Pw==&version=1
 
 ## Deploy do firebase
 ```
@@ -46,18 +46,19 @@ firebase deploy
 
 # Użycie
 
-> /mapItems?token=[Token aktualizacji]
+> /mapItems?token=[Token aktualizacji]&version=[Wersja]
 
 Przykładowo
-> /mapItems?token=mGl0bnenMANgd9CUpeg3Pw==
+> /mapItems?token=mGl0bnenMANgd9CUpeg3Pw==&version=1
 
 Na produkcji
-> https://us-central1-kampus-sggw-2021.cloudfunctions.net/mapItems?token=mGl0bnenMANgd9CUpeg3Pw==
+> https://us-central1-kampus-sggw-2021.cloudfunctions.net/mapItems?token=mGl0bnenMANgd9CUpeg3Pw==&version=1
 
 Zwraca
 
 ```
 interface DataResponse {
+  version: number
   error: boolean
   oldToken: string
   token: string
@@ -66,6 +67,7 @@ interface DataResponse {
 }
 ```
 
+version = Wersja zwracanych danych <br />
 error = false - wszystko zadziało ok <br />
 oldToken = stary token, taki jak został odczytany <br />
 token = aktualny token <br />
