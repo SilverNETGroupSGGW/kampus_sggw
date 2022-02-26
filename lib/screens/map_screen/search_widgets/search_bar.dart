@@ -192,10 +192,31 @@ class _SearchBar extends State<SearchBar> {
 
   Widget _panelWithSuggestionOrHelp() {
     if (KeyboardUtils.isOpen(context)) {
-      return _suggestionPanel();
+      return Stack(
+        children: [
+          _searchHelpPanelBackgroud(),
+          _suggestionPanel(),
+        ],
+      );
     } else {
       return SearchHelpPanel();
     }
+  }
+
+  GestureDetector _searchHelpPanelBackgroud() {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      child: IgnorePointer(
+        child: Opacity(
+          opacity: 0.4,
+          child: SearchHelpPanel(),
+        ),
+      ),
+      onTap: () {
+        _focusNode.unfocus();
+        _queryController.clear();
+      },
+    );
   }
 
   void _onQueryChanged(String query) {
