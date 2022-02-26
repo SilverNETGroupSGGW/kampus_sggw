@@ -12,12 +12,11 @@ class CreatorsScreen extends StatefulWidget {
 }
 
 class _CreatorsScreenState extends State<CreatorsScreen> {
-  Authors autors = Authors('asd', 'asd', []);
+  Authors authors = Authors('asd', 'asd', []);
 
   @override
   void initState() {
     WidgetsBinding.instance!.addPostFrameCallback((_) async {
-      print('wchodzi');
       authors = await this.loadFromJson();
       setState(() {});
     });
@@ -27,18 +26,19 @@ class _CreatorsScreenState extends State<CreatorsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Autorzy:',
-            style: TextStyle(
-              fontFamily: 'SGGWSans',
-              fontWeight: FontWeight.w600,
-            ),
+      appBar: AppBar(
+        title: Text(
+          'Autorzy',
+          style: TextStyle(
+            fontFamily: 'SGGWSans',
+            fontWeight: FontWeight.w600,
           ),
         ),
-        body: ListView(
-          children: authorsList(authors),
-        ));
+      ),
+      body: ListView(
+        children: authorsList(authors),
+      ),
+    );
   }
 
   List<Widget> authorsList(Authors authors) {
@@ -53,13 +53,13 @@ class _CreatorsScreenState extends State<CreatorsScreen> {
     return ListTile(
       horizontalTitleGap: 0.0,
       title: Text(
-        '${name}',
+        '$name',
         overflow: TextOverflow.fade,
         softWrap: false,
         style: TextStyle(fontSize: 18),
       ),
       subtitle: Text(
-        '${role}',
+        '$role',
         overflow: TextOverflow.fade,
         softWrap: false,
         style: TextStyle(fontSize: 12),
@@ -71,7 +71,6 @@ class _CreatorsScreenState extends State<CreatorsScreen> {
   Future<Authors> loadFromJson() async {
     Map<String, dynamic> authorsMap = jsonDecode(await Authors.getJsonSting());
     final authors = Authors.fromJson(authorsMap);
-    authors.readAuthors();
     return authors;
   }
 }
