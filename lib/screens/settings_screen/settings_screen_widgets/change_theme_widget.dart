@@ -30,7 +30,7 @@ class _ChangeThemeWidget extends State<ChangeThemeWidget> {
         _isModeDarkSwitchValue = value;
       },
       activeTrackColor: Colors.white,
-      activeColor: Colors.grey,
+      activeColor: Colors.green,
     );
   }
 }
