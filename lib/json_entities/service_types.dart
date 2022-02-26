@@ -13,15 +13,11 @@ class ServiceTypes {
     required this.serviceTypes,
   });
 
-  static Future<ServiceTypes> loadFromJson() async {
-    Map<String, dynamic> mapItemTypesMap = jsonDecode(await _getJsonSting());
+  static Future<ServiceTypes> loadFromJson(jsonString) async {
+    Map<String, dynamic> mapItemTypesMap = jsonDecode(await jsonString);
     return ServiceTypes.fromJson(mapItemTypesMap);
   }
 
   factory ServiceTypes.fromJson(Map<String, dynamic> json) =>
       _$ServiceTypesFromJson(json);
-
-  static Future<String> _getJsonSting() {
-    return rootBundle.loadString('assets/json/service_types.json');
-  }
 }

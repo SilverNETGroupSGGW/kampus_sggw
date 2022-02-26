@@ -2,7 +2,7 @@ import 'package:kampus_sggw/json_entities/map_items.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('jsonEntities', () {
+  group('jsonMapItems', () {
     MapItems mapItems = new MapItems(mapItems: []);
 
     String jsonString = """{
