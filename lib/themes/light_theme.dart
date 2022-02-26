@@ -4,6 +4,7 @@ class LightTheme {
   ThemeData get theme => ThemeData.light().copyWith(
         primaryColor: Colors.grey[400],
         brightness: Brightness.light,
+        backgroundColor: Colors.grey[300],
         focusColor: Colors.white,
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: Colors.lightGreen,
