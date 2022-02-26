@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:kampus_sggw/global_widgets/side_drawer.dart';
+import 'package:kampus_sggw/global_widgets/settings_icon.dart';
 import 'package:kampus_sggw/logic/controllers/search_button_controller.dart';
 import 'package:kampus_sggw/screens/map_screen/interactive_map.dart';
 import 'package:kampus_sggw/screens/map_screen/map_buttons.dart';
@@ -29,7 +29,6 @@ class _MapScreenState extends State<MapScreen> {
           ],
         ),
         floatingActionButton: MapButtons(),
-        drawer: SideDrawer(),
       ),
     );
   }
@@ -65,6 +64,9 @@ class _MapScreenState extends State<MapScreen> {
         LocaleKeys.map_screen_title.tr(),
         style: Theme.of(context).appBarTheme.titleTextStyle,
       ),
+      actions: [
+        SettingsIcon(),
+      ],
     );
   }
 }
