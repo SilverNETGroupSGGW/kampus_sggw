@@ -5,7 +5,6 @@ import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/logic/search_services/suggestion_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
 import 'package:kampus_sggw/models/map_items.dart';
-import 'package:kampus_sggw/models/theme_model.dart';
 import 'package:kampus_sggw/screens/map_screen/search_widgets/history_tile.dart';
 import 'package:kampus_sggw/screens/map_screen/search_widgets/no_item_found_alert_dialog.dart';
 import 'package:kampus_sggw/screens/map_screen/search_widgets/search_help_panel.dart';
@@ -22,7 +21,6 @@ class _SearchBar extends State<SearchBar> {
   MapItem? _firstSuggestion;
   final _focusNode = FocusNode();
   late SearchHistory _searchHistoryProvider;
-  late ThemeModel _themeDataController;
   var _queryController = TextEditingController();
 
   @override
@@ -33,7 +31,6 @@ class _SearchBar extends State<SearchBar> {
     _searchHistoryProvider.loadMapItems(
       Provider.of<MapItems>(context, listen: false),
     );
-    _themeDataController = Provider.of<ThemeModel>(context, listen: false);
     _queryController.addListener(() {
       setState(() {});
     });
@@ -61,11 +58,11 @@ class _SearchBar extends State<SearchBar> {
     return Container(
       margin: EdgeInsets.all(4.0),
       decoration: BoxDecoration(
-        color: _searchBoxColor(),
+        color: Theme.of(context).focusColor,
         borderRadius: BorderRadius.all(Radius.circular(8)),
         boxShadow: [
           BoxShadow(
-            color: _searchBoxShadowColor()!,
+            color: Theme.of(context).primaryColor,
             spreadRadius: 2,
             blurRadius: 5,
             offset: Offset(0, 3),
@@ -82,22 +79,6 @@ class _SearchBar extends State<SearchBar> {
         ],
       ),
     );
-  }
-
-  Color? _searchBoxColor() {
-    if (_themeDataController.isModeDark()) {
-      return Colors.grey[800];
-    } else {
-      return Colors.white;
-    }
-  }
-
-  Color? _searchBoxShadowColor() {
-    if (_themeDataController.isModeDark()) {
-      return Colors.grey[900];
-    } else {
-      return Colors.grey[400];
-    }
   }
 
   IconButton _backArrow() {
@@ -159,7 +140,7 @@ class _SearchBar extends State<SearchBar> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: Material(
-          color: _searchBoxColor(),
+          color: Theme.of(context).focusColor,
           elevation: 4,
           child: Builder(
             builder: (context) {
