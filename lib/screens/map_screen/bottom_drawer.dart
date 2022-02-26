@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/logic/keyboard_utils.dart';
 
 class BottomDrawer {
   final BuildContext context;
@@ -14,7 +15,7 @@ class BottomDrawer {
         return SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.only(
-              bottom: MediaQuery.of(context).viewInsets.bottom,
+              bottom: KeyboardUtils.keyboardHeight(context),
             ),
             child: Container(
               height: _heightOfDrawer(context),
@@ -31,11 +32,13 @@ class BottomDrawer {
   }
 
   double _heightOfDrawer(BuildContext context) {
-    var mediaQuery = MediaQuery.of(context);
-    if (mediaQuery.viewInsets.bottom == 0) {
-      return mediaQuery.size.height * 0.8;
+    var screenHeight = MediaQuery.of(context).size.height;
+    var keyboardHeight = KeyboardUtils.keyboardHeight(context);
+
+    if (KeyboardUtils.isOpen(context)) {
+      return (screenHeight - keyboardHeight) * 0.945;
     } else {
-      return (mediaQuery.size.height - mediaQuery.viewInsets.bottom) * 0.945;
+      return screenHeight * 0.8;
     }
   }
 }

@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/histories/search_history.dart';
+import 'package:kampus_sggw/logic/keyboard_utils.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/logic/search_services/suggestion_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
@@ -86,11 +87,11 @@ class _SearchBar extends State<SearchBar> {
       splashColor: Colors.grey,
       icon: Icon(Icons.arrow_back),
       onPressed: () {
-        if (MediaQuery.of(context).viewInsets.bottom == 0.0) {
-          Navigator.pop(context);
-        } else {
+        if (KeyboardUtils.isOpen(context)) {
           _focusNode.unfocus();
           _queryController.clear();
+        } else {
+          Navigator.pop(context);
         }
       },
     );
@@ -99,21 +100,23 @@ class _SearchBar extends State<SearchBar> {
   IconButton _suffixIconButton() {
     if (_queryController.text.length == 0) {
       return IconButton(
-          onPressed: () {
-            if (MediaQuery.of(context).viewInsets.bottom == 0.0) {
-              _focusNode.requestFocus();
-            } else {
-              _focusNode.unfocus();
-            }
-          },
-          icon: Icon(Icons.search));
+        onPressed: () {
+          if (KeyboardUtils.isOpen(context)) {
+            _focusNode.unfocus();
+          } else {
+            _focusNode.requestFocus();
+          }
+        },
+        icon: Icon(Icons.search),
+      );
     } else {
       return IconButton(
-          onPressed: () {
-            _queryController.clear();
-            _onQueryChanged("");
-          },
-          icon: Icon(Icons.clear));
+        onPressed: () {
+          _queryController.clear();
+          _onQueryChanged("");
+        },
+        icon: Icon(Icons.clear),
+      );
     }
   }
 
@@ -188,7 +191,7 @@ class _SearchBar extends State<SearchBar> {
   }
 
   Widget _panelWithSuggestionOrHelp() {
-    if ((MediaQuery.of(context).viewInsets.bottom > 0.0)) {
+    if (KeyboardUtils.isOpen(context)) {
       return _suggestionPanel();
     } else {
       return SearchHelpPanel();
