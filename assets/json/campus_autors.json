@@ -1,4 +1,6 @@
 {
+    "name": "campus_autors",
+    "lang": "pl",
     "campusAutorsList": [
         {
             "role": "programowanie",
