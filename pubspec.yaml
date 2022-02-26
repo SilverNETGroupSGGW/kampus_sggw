@@ -1,10 +1,10 @@
 name: kampus_sggw
 description: Kampus SGGW remastered
-publish_to: 'none'
+publish_to: "none"
 version: 1.1.1+4
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -45,7 +45,7 @@ flutter:
   assets:
     - assets/translations/
     - assets/images/map_objects/wzim.jpg
-    - assets/json/map_items.json
+    - assets/json/map_items_new.json
     - assets/json/campus_rules_pl.json
     - assets/json/campus_rules_en.json
     - assets/json/map_item_types.json

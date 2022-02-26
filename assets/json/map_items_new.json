@@ -1,0 +1,26 @@
+{
+  "mapItems": [
+    {
+      "id": 1,
+      "geoLocation": {
+        "lat": 52.164439254713336,
+        "lon": 21.04684395469378
+      },
+      "name": "Budynek 1",
+      "description": "",
+      "type": "administrationBuilding",
+      "minScale": 1.0,
+      "lastModified": "2021-06-13",
+      "categories": [
+        {
+          "name": "offices",
+          "subCategories": [
+            {
+              "name": "Centrum Informatyczne"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

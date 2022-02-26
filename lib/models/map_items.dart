@@ -42,6 +42,7 @@ class MapItems extends ChangeNotifier {
           .forEach((item) => item.initializeTypes(mapItemTypes, serviceTypes));
 
   static Future<MapItems> _loadFromJson() async {
+    print(_getJsonString());
     Map<String, dynamic> mapItemsMap = jsonDecode(_getJsonString()!);
     MapItems mapItems = MapItems.fromJson(mapItemsMap);
     return mapItems;

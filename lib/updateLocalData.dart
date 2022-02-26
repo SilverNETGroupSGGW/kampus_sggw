@@ -24,7 +24,7 @@ Future<Status> checkUpdates() async {
     if (assetTokenVersion > cacheTokenVersion || !storage.hasData(itemsContentKey) || !storage.hasData(tokenKey)) {
       storage.write(tokenVersionKey, assetTokenVersion);
       storage.write(tokenKey, metadata[tokenKey]);
-      storage.write(itemsContentKey, await rootBundle.loadString('assets/json/map_items.json', cache: false));
+      storage.write(itemsContentKey, await rootBundle.loadString('assets/json/map_items_new.json', cache: false));
     }
 
     String token = storage.read(tokenKey);
@@ -32,7 +32,7 @@ Future<Status> checkUpdates() async {
     Stopwatch stopwatch = new Stopwatch()..start();
 
     var response = await http.get(Uri.parse(
-        'https://us-central1-kampus-sggw-2021.cloudfunctions.net/mapItems?token=' +
+        'https://us-central1-kampus-sggw-2021.cloudfunctions.net/mapItemsNew?token=' +
             token));
 
     developer.log('Info: czas pobierania aktualizacji z firebase: ' + stopwatch.elapsedMilliseconds.toString() + ' ms');
