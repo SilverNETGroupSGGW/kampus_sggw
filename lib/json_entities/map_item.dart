@@ -21,18 +21,20 @@ class MapItem {
   List<Institute> institutes;
   @JsonKey(defaultValue: <Office>[])
   List<Office> offices;
+  @JsonKey(defaultValue: <String>[])
+  List<String> functionGroup;
 
-  MapItem({
-    required this.id,
-    required this.geoLocation,
-    required this.name,
-    this.description,
-    required this.type,
-    required this.buildingService,
-    required this.faculties,
-    required this.institutes,
-    required this.offices,
-  });
+  MapItem(
+      {required this.id,
+      required this.geoLocation,
+      required this.name,
+      this.description,
+      required this.type,
+      required this.buildingService,
+      required this.faculties,
+      required this.institutes,
+      required this.offices,
+      required this.functionGroup});
 
   factory MapItem.fromJson(Map<String, dynamic> json) =>
       _$MapItemFromJson(json);

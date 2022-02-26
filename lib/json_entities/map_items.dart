@@ -6,21 +6,18 @@ part 'map_items.g.dart';
 
 @JsonSerializable()
 class MapItems {
-  //static final storage = GetStorage();
   List<MapItem> mapItems;
 
   MapItems({
     required this.mapItems,
   });
 
+  static Future<MapItems> loadFromJson(jsonString) async {
+    Map<String, dynamic> mapItemsMap = jsonDecode(await jsonString);
+    MapItems mapItems = MapItems.fromJson(mapItemsMap);
+    return mapItems;
+  }
+
   factory MapItems.fromJson(Map<String, dynamic> json) =>
       _$MapItemsFromJson(json);
-
-  // static Future<MapItems> _loadFromJson() async {
-  //   Map<String, dynamic> mapItemsMap = jsonDecode(_getJsonString()!);
-  //   MapItems mapItems = MapItems.fromJson(mapItemsMap);
-  //   return mapItems;
-  // }
-
-  //static String _getJsonString() => storage.read('map_items_content');
 }

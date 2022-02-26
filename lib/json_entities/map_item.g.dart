@@ -29,6 +29,10 @@ MapItem _$MapItemFromJson(Map<String, dynamic> json) => MapItem(
               ?.map((e) => Office.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
+      functionGroup: (json['functionGroup'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
     );
 
 Map<String, dynamic> _$MapItemToJson(MapItem instance) => <String, dynamic>{
@@ -41,4 +45,5 @@ Map<String, dynamic> _$MapItemToJson(MapItem instance) => <String, dynamic>{
       'faculties': instance.faculties,
       'institutes': instance.institutes,
       'offices': instance.offices,
+      'functionGroup': instance.functionGroup,
     };
