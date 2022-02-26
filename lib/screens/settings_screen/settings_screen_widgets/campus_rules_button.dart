@@ -15,7 +15,11 @@ class CampusRulesButton extends StatelessWidget {
       ),
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => RulesBuilder()));
+          context,
+          MaterialPageRoute(
+            builder: (context) => RulesBuilder(),
+          ),
+        );
       },
     );
   }

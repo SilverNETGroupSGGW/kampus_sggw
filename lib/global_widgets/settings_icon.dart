@@ -8,7 +8,11 @@ class SettingsIcon extends StatelessWidget {
       icon: Icon(Icons.settings),
       onPressed: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => SettingsScreen()));
+          context,
+          MaterialPageRoute(
+            builder: (context) => SettingsScreen(),
+          ),
+        );
       },
     );
   }
