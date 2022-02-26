@@ -6,11 +6,13 @@ export interface DataResponse {
   token: string
   data: string
   message: string
+  version: number
 }
 
 export async function getFileUpdate(
   givenToken: string,
-  file: string
+  file: string,
+  version: number
 ): Promise<DataResponse> {
   const fileBucket = app
     .storage()
@@ -26,6 +28,7 @@ export async function getFileUpdate(
     const content = await fileBucket.download()
 
     return {
+      version,
       error: false,
       oldToken: givenToken,
       token: currentToken,
@@ -35,6 +38,7 @@ export async function getFileUpdate(
   }
 
   return {
+    version,
     error: false,
     oldToken: givenToken,
     token: currentToken,
