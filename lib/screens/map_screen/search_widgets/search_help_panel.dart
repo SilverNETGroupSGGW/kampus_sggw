@@ -11,7 +11,7 @@ class SearchHelpPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(
-        top: 58,
+        top: 12,
       ),
       child: Column(
         children: [
