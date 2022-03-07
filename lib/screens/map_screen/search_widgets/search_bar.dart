@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/logic/histories/search_history.dart';
-import 'package:kampus_sggw/logic/controllers/search_bar_controller.dart';
+import 'package:kampus_sggw/logic/keyboard_utils.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/logic/search_services/suggestion_service.dart';
 import 'package:kampus_sggw/models/map_item.dart';
@@ -10,7 +10,6 @@ import 'package:kampus_sggw/screens/map_screen/search_widgets/history_tile.dart'
 import 'package:kampus_sggw/screens/map_screen/search_widgets/no_item_found_alert_dialog.dart';
 import 'package:kampus_sggw/screens/map_screen/search_widgets/search_help_panel.dart';
 import 'package:kampus_sggw/screens/map_screen/search_widgets/suggestion_tile.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 
@@ -21,8 +20,9 @@ class SearchBar extends StatefulWidget {
 
 class _SearchBar extends State<SearchBar> {
   MapItem? _firstSuggestion;
+  final _focusNode = FocusNode();
   late SearchHistory _searchHistoryProvider;
-  late SearchBarController _controllerProvider;
+  var _queryController = TextEditingController();
 
   @override
   void initState() {
@@ -32,52 +32,124 @@ class _SearchBar extends State<SearchBar> {
     _searchHistoryProvider.loadMapItems(
       Provider.of<MapItems>(context, listen: false),
     );
-    _controllerProvider =
-        Provider.of<SearchBarController>(context, listen: false);
+    _queryController.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _queryController.dispose();
+    _focusNode.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: FloatingSearchBar(
-        controller: _controllerProvider.controller,
-        body: FloatingSearchBarScrollNotifier(
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: 10.0,
-              left: 12.0,
-              right: 12.0,
-            ),
-            child: SearchHelpPanel(),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        _searchBox(),
+        _panelWithSuggestionOrHelp(),
+      ],
+    );
+  }
+
+  Container _searchBox() {
+    return Container(
+      margin: EdgeInsets.all(4.0),
+      decoration: BoxDecoration(
+        color: Theme.of(context).focusColor,
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+        boxShadow: [
+          BoxShadow(
+            color: Theme.of(context).primaryColor,
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: Offset(0, 3),
           ),
-        ),
-        transition: CircularFloatingSearchBarTransition(),
-        physics: NeverScrollableScrollPhysics(),
-        hint: LocaleKeys.search_bar_title.tr(),
-        title: Text(
-          LocaleKeys.search_bar_title.tr(),
-          style: TextStyle(fontSize: 20),
-        ),
-        actions: [
-          FloatingSearchBarAction.searchToClear(),
         ],
-        onQueryChanged: (query) => _onQueryChanged(query),
-        onSubmitted: (_) => _onSubmitted(_),
-        builder: (context, transition) => _suggestionPanel(),
+      ),
+      child: Row(
+        children: <Widget>[
+          _backArrow(),
+          Expanded(
+            child: _textField(),
+          ),
+          _suffixIconButton()
+        ],
       ),
     );
   }
 
-  ClipRRect _suggestionPanel() {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(5),
-      child: Material(
-        elevation: 4,
-        child: Builder(
-          builder: (context) {
-            return _suggestionColumn();
-          },
+  IconButton _backArrow() {
+    return IconButton(
+      splashColor: Colors.grey,
+      icon: Icon(Icons.arrow_back),
+      onPressed: () {
+        if (KeyboardUtils.isOpen(context)) {
+          _focusNode.unfocus();
+          _queryController.clear();
+        } else {
+          Navigator.pop(context);
+        }
+      },
+    );
+  }
+
+  IconButton _suffixIconButton() {
+    if (_queryController.text.length == 0) {
+      return IconButton(
+        onPressed: () {
+          if (KeyboardUtils.isOpen(context)) {
+            _focusNode.unfocus();
+          } else {
+            _focusNode.requestFocus();
+          }
+        },
+        icon: Icon(Icons.search),
+      );
+    } else {
+      return IconButton(
+        onPressed: () {
+          _queryController.clear();
+          _onQueryChanged("");
+        },
+        icon: Icon(Icons.clear),
+      );
+    }
+  }
+
+  TextField _textField() {
+    return TextField(
+      focusNode: _focusNode,
+      cursorColor: Colors.blue,
+      keyboardType: TextInputType.text,
+      textInputAction: TextInputAction.go,
+      controller: _queryController,
+      onChanged: (query) => _onQueryChanged(query),
+      onSubmitted: (_) => _onSubmitted(_),
+      decoration: InputDecoration(
+        border: InputBorder.none,
+        contentPadding: EdgeInsets.symmetric(horizontal: 15),
+        hintText: LocaleKeys.search_bar_title.tr(),
+      ),
+    );
+  }
+
+  Container _suggestionPanel() {
+    return Container(
+      margin: EdgeInsets.all(4.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: Material(
+          color: Theme.of(context).focusColor,
+          elevation: 4,
+          child: Builder(
+            builder: (context) {
+              return _suggestionColumn();
+            },
+          ),
         ),
       ),
     );
@@ -118,6 +190,35 @@ class _SearchBar extends State<SearchBar> {
     );
   }
 
+  Widget _panelWithSuggestionOrHelp() {
+    if (KeyboardUtils.isOpen(context)) {
+      return Stack(
+        children: [
+          _searchHelpPanelBackgroud(),
+          _suggestionPanel(),
+        ],
+      );
+    } else {
+      return SearchHelpPanel();
+    }
+  }
+
+  GestureDetector _searchHelpPanelBackgroud() {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      child: IgnorePointer(
+        child: Opacity(
+          opacity: 0.4,
+          child: SearchHelpPanel(),
+        ),
+      ),
+      onTap: () {
+        _focusNode.unfocus();
+        _queryController.clear();
+      },
+    );
+  }
+
   void _onQueryChanged(String query) {
     Provider.of<SuggestionService>(context, listen: false)
         .suggestItemsMatchingQuery(query);
@@ -126,6 +227,7 @@ class _SearchBar extends State<SearchBar> {
 
   void _onSubmitted(String query) {
     if (_firstSuggestion == null) {
+      _queryController.clear();
       _showAlertNoItemFound();
     } else {
       _search(_firstSuggestion!);
@@ -135,7 +237,6 @@ class _SearchBar extends State<SearchBar> {
   void _search(MapItem item) {
     _searchHistoryProvider.addItem(item);
     Provider.of<SearchService>(context, listen: false).showSearchedItem(item);
-    _controllerProvider.close();
   }
 
   void _showAlertNoItemFound() {
@@ -145,6 +246,5 @@ class _SearchBar extends State<SearchBar> {
         return NoItemFoundAlertDialog();
       },
     );
-    _controllerProvider.close();
   }
 }

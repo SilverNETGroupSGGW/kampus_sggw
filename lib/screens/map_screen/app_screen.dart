@@ -8,6 +8,7 @@ import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/logic/controllers/search_button_controller.dart';
 import 'package:kampus_sggw/screens/map_screen/map_screen.dart';
 import 'package:kampus_sggw/screens/map_screen/search_widgets/search_bar.dart';
+import 'package:kampus_sggw/screens/map_screen/bottom_drawer.dart';
 import 'package:provider/provider.dart';
 
 class AppScreen extends StatefulWidget {
@@ -35,7 +36,12 @@ class _AppScreenState extends State<AppScreen> {
         ChangeNotifierProvider(
           create: (context) => SearchButtonController(
             searchService: Provider.of<SearchService>(context, listen: false),
-            onSearchButtonPressed: _showBottomDrawer,
+            onSearchButtonPressed: BottomDrawer(
+              context: context,
+              children: [
+                SearchBar(),
+              ],
+            ).showBottomDrawer,
             collapseBottomDrawerFunc: () => Navigator.pop(context),
           ),
         ),
@@ -55,18 +61,6 @@ class _AppScreenState extends State<AppScreen> {
       context: context,
       builder: (BuildContext context) =>
           InfoCardDialogBuilder().fromMapItem(_selectedMapItem),
-    );
-  }
-
-  void _showBottomDrawer() {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder: (context) => Container(
-        height: MediaQuery.of(context).size.height * 0.8,
-        child: SearchBar(),
-      ),
     );
   }
 }
