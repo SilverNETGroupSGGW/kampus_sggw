@@ -19,7 +19,7 @@ class _CreatorsScreenState extends State<CreatorsScreen> {
   @override
   void initState() {
     WidgetsBinding.instance!.addPostFrameCallback((_) async {
-      authors = await this.loadFromJson();
+      authors = await this.loadFromJson(context.locale.toString());
       setState(() {});
     });
     super.initState();
@@ -66,8 +66,8 @@ class _CreatorsScreenState extends State<CreatorsScreen> {
     );
   }
 
-  Future<Authors> loadFromJson() async {
-    Map<String, dynamic> authorsMap = jsonDecode(await Authors.getJsonSting());
+  Future<Authors> loadFromJson(String lang) async {
+    Map<String, dynamic> authorsMap = jsonDecode(await Authors.getJsonSting(lang));
     final authors = Authors.fromJson(authorsMap);
     return authors;
   }

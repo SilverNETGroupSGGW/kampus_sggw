@@ -17,7 +17,7 @@ class Authors {
     return _$AuthorsFromJson(json);
   }
 
-  static Future<String> getJsonSting() {
-    return rootBundle.loadString('assets/json/campus_authors.json');
+  static Future<String> getJsonSting(String lang) {
+    return rootBundle.loadString('assets/json/campus_authors_' + lang + '.json');
   }
 }
