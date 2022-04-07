@@ -1,0 +1,50 @@
+{
+    "name": "campus_authors",
+    "lang": "pl",
+    "authorsList": [
+        {
+            "role": "programming",
+            "name": "Adam Brol"
+        },
+        {
+            "role": "programming",
+            "name": "Jakub Ćwikowski"
+        },
+        {
+            "role": "programming",
+            "name": "Kamil Mikołajczuk"
+        },
+        {
+            "role": "programming",
+            "name": "Krzysztof Marzęcki"
+        },
+        {
+            "role": "programming",
+            "name": "Marta Mazurkiewicz"
+        },
+        {
+            "role": "programming",
+            "name": "Wiktor Jaworski"
+        },
+        {
+            "role": "programming",
+            "name": "Sebastian Marciniak"
+        },
+        {
+            "role": "programming",
+            "name": "Jakub Kochański"
+        },
+        {
+            "role": "data entry",
+            "name": "Adrian Szczerba"
+        },
+        {
+            "role": "data entry",
+            "name": "Cezary Kurcewicz"
+        },
+        {
+            "role": "bureaucracy",
+            "name": "Szymon Gawryluk"
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "name": "campus_authors",
+    "lang": "pl",
+    "authorsList": [
+        {
+            "role": "programowanie",
+            "name": "Adam Brol"
+        },
+        {
+            "role": "programowanie",
+            "name": "Jakub Ćwikowski"
+        },
+        {
+            "role": "programowanie",
+            "name": "Kamil Mikołajczuk"
+        },
+        {
+            "role": "programowanie",
+            "name": "Krzysztof Marzęcki"
+        },
+        {
+            "role": "programowanie",
+            "name": "Marta Mazurkiewicz"
+        },
+        {
+            "role": "programowanie",
+            "name": "Wiktor Jaworski"
+        },
+        {
+            "role": "programowanie",
+            "name": "Sebastian Marciniak"
+        },
+        {
+            "role": "programowanie",
+            "name": "Jakub Kochański"
+        },
+        {
+            "role": "uzupełnianie danych",
+            "name": "Adrian Szczerba"
+        },
+        {
+            "role": "uzupełnianie danych",
+            "name": "Cezary Kurcewicz"
+        },
+        {
+            "role": "biurokracja",
+            "name": "Szymon Gawryluk"
+        }
+    ]
+}
