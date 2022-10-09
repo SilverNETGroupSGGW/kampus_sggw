@@ -1,8 +1,9 @@
 name: $(Build.BuildId)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
-  - master
+# - master
 # - develop
+- none
 
 variables:
 - group: silvernet
