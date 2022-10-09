@@ -10,7 +10,8 @@ variables:
 stages:
 - stage: Build
   displayName: Build
-  pool: tmp.macOS
+  pool:
+    vmImage: 'macOS-latest'
   jobs:
   - job: iosbuild
     displayName: Build iOS bundle
