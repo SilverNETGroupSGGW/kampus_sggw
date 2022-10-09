@@ -23,18 +23,18 @@ stages:
         targetType: 'inline'
         script: |
           sed -i "s/$(key_alias)/$(dev_maps_api_key)/" $(Build.SourcesDirectory)/ios/Runner/AppDelegate.swift
-    - task: InstallAppleCertificate@2
-      displayName: install Apple Certificate
-      inputs:
-        certSecureFile: 'ios_distribution.p12'
-        certPwd: $(P12_FILE_PASSWORD)
-        keychain: 'temp'
-    - task: InstallAppleProvisioningProfile@1
-      displayName: install Apple Provisioning Profile
-      inputs:
-        provisioningProfileLocation: 'secureFiles'
-        provProfileSecureFile: 'provisioning.provisioning'
-        removeProfile: true
+    # - task: InstallAppleCertificate@2
+    #   displayName: install Apple Certificate
+    #   inputs:
+    #     certSecureFile: 'ios_distribution.p12'
+    #     certPwd: $(P12_FILE_PASSWORD)
+    #     keychain: 'temp'
+    # - task: InstallAppleProvisioningProfile@1
+    #   displayName: install Apple Provisioning Profile
+    #   inputs:
+    #     provisioningProfileLocation: 'secureFiles'
+    #     provProfileSecureFile: 'provisioning.provisioning'
+    #     removeProfile: true
     - task: FlutterInstall@0
       inputs:
         mode: 'auto'
@@ -46,27 +46,27 @@ stages:
         targetType: 'inline'
         script: |
           flutter doctor -v
-    - task: FlutterBuild@0
-      displayName: build application
-      inputs:
-        target: ipa
-        projectDirectory: '$(Build.SourcesDirectory)'
-        exportOptionsPlist: 'ios/exportOptions.plist'
-    - task: FlutterTest@0
-      displayName: "Run unit tests"
-      inputs:
-        generateCodeCoverageReport: true
-        projectDirectory: '$(Build.SourcesDirectory)'
-    - task: CopyFiles@2
-      displayName: "Copy app to staging directory"
-      inputs:
-        sourceFolder: '$(Agent.BuildDirectory)'
-        contents: '**/ipa/*.ipa'
-        targetFolder: '$(Build.StagingDirectory)'
-        flattenFolders: true
-    - task: PublishBuildArtifacts@1
-      displayName: "Publish IPA file"
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'IPA'
-        publishLocation: 'Container'
+    # - task: FlutterBuild@0
+    #   displayName: build application
+    #   inputs:
+    #     target: ipa
+    #     projectDirectory: '$(Build.SourcesDirectory)'
+    #     exportOptionsPlist: 'ios/exportOptions.plist'
+    # - task: FlutterTest@0
+    #   displayName: "Run unit tests"
+    #   inputs:
+    #     generateCodeCoverageReport: true
+    #     projectDirectory: '$(Build.SourcesDirectory)'
+    # - task: CopyFiles@2
+    #   displayName: "Copy app to staging directory"
+    #   inputs:
+    #     sourceFolder: '$(Agent.BuildDirectory)'
+    #     contents: '**/ipa/*.ipa'
+    #     targetFolder: '$(Build.StagingDirectory)'
+    #     flattenFolders: true
+    # - task: PublishBuildArtifacts@1
+    #   displayName: "Publish IPA file"
+    #   inputs:
+    #     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    #     ArtifactName: 'IPA'
+    #     publishLocation: 'Container'
