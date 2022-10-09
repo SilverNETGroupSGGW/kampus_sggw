@@ -5,8 +5,7 @@ trigger:
 # - develop
 
 variables:
-- group: my-variable-group
-
+- group: silvernet
 
 stages:
 - stage: Build
