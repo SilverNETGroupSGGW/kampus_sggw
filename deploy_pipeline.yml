@@ -20,6 +20,12 @@ stages:
       configuration: 'Release'
       COCOAPODS_DISABLE_STATS: true
     steps:
+    - task: Bash@3
+      displayName: deploy maps api key
+      inputs:
+        targetType: 'inline'
+        script: |
+          sed -i "s/$(key_alias)/$(dev_maps_api_key)/" $(Build.SourcesDirectory)/ios/Runner/AppDelegate.swift
     - task: InstallAppleCertificate@2
       displayName: install Apple Certificate
       inputs:
