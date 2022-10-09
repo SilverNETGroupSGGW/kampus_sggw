@@ -30,7 +30,6 @@ stages:
         provProfileSecureFile: 'provisioning.provisioning'
         removeProfile: true
     - task: FlutterInstall@0
-      displayName: install Flutter SDK
       inputs:
         mode: 'auto'
         channel: 'stable'
