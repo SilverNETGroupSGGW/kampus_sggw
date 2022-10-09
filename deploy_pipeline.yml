@@ -21,13 +21,14 @@ stages:
       displayName: install Apple Certificate
       inputs:
         certSecureFile: 'ios_distribution.p12'
-        certPwd: $(P12_PASSWORD)
-        deleteCert: true
+        certPwd: $(P12_FILE_PASSWORD)
+        keychain: 'temp'
     - task: InstallAppleProvisioningProfile@1
       displayName: install Apple Provisioning Profile
       inputs:
         provisioningProfileLocation: 'secureFiles'
-        provProfileSecureFile: 'myprovisioningprofile.mobileprovision'
+        provProfileSecureFile: 'provisioning.provisioning'
+        removeProfile: true
     - task: FlutterInstall@0
       displayName: install Flutter SDK
       inputs:
