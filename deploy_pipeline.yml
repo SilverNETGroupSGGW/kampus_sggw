@@ -16,11 +16,6 @@ stages:
   jobs:
   - job: iosbuild
     displayName: Build iOS bundle
-    variables:
-      scheme: 'Runner'
-      sdk: 'iphoneos'
-      configuration: 'Release'
-      COCOAPODS_DISABLE_STATS: true
     steps:
     - task: Bash@3
       displayName: deploy maps api key
