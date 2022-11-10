@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:kampus_sggw/logic/Json_services/loadable_Json.dart';
-import 'package:kampus_sggw/logic/Json_services/storable_Json.dart';
+import 'package:kampus_sggw/logic/JSON_services/loadable_JSON.dart';
+import 'package:kampus_sggw/logic/JSON_services/storable_JSON.dart';
 import 'package:kampus_sggw/themes/dark_theme.dart';
 import 'package:kampus_sggw/themes/light_theme.dart';
 part 'theme_model.g.dart';
