@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kampus_sggw/screens/settings_screen/settings_screen_widgets/authors_button.dart';
+import 'package:kampus_sggw/screens/settings_screen/settings_screen_widgets/campus_rules_button.dart';
+import 'package:kampus_sggw/screens/settings_screen/settings_screen_widgets/category_container.dart';
 import 'package:kampus_sggw/screens/settings_screen/settings_screen_widgets/change_language_widget.dart';
 import 'package:kampus_sggw/screens/settings_screen/settings_screen_widgets/change_theme_widget.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
@@ -13,32 +16,20 @@ class SettingsScreen extends StatelessWidget {
           LocaleKeys.settings.tr(),
         ),
       ),
-      body: ListView(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
+      backgroundColor: Theme.of(context).backgroundColor,
+      body: Column(
         children: [
-          ListTile(
-            title: Text(
-              LocaleKeys.dark_mode.tr(),
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.subtitle1,
-            ),
-            subtitle: Column(
-              children: [
-                ChangeThemeWidget(),
-              ],
-            ),
+          CategoryContainer(
+            children: [
+              ChangeThemeWidget(),
+              ChangeLanguageWidget(),
+            ],
           ),
-          ListTile(
-            title: Text(
-              LocaleKeys.language.tr(),
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.subtitle1,
-            ),
-            subtitle: Column(
-              children: [
-                ChangeLanguageWidget(),
-              ],
-            ),
+          CategoryContainer(
+            children: [
+              CampusRulesButton(),
+              AuthorsButton()
+            ],
           ),
         ],
       ),

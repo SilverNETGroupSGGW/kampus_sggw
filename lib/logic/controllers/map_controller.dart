@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapController extends ChangeNotifier {
-  Completer<GoogleMapController> _controller;
+  late Completer<GoogleMapController> _controller;
 
   MapController() {
     _controller = Completer();

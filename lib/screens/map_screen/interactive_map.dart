@@ -2,8 +2,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kampus_sggw/models/map_settings.dart';
-import 'package:kampus_sggw/logic/map_controller.dart';
-import 'package:kampus_sggw/logic/map_markers_controller.dart';
+import 'package:kampus_sggw/logic/controllers/map_controller.dart';
+import 'package:kampus_sggw/logic/controllers/map_markers_controller.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';
 import 'package:provider/provider.dart';
@@ -64,9 +64,9 @@ class _InteractiveMapState extends State<InteractiveMap> {
       myLocationButtonEnabled: false,
       indoorViewEnabled: false,
       mapToolbarEnabled: false,
-      minMaxZoomPreference: widget.mapSettings.minMaxZoomPreference,
-      cameraTargetBounds: widget.mapSettings.cameraTargetBounds,
-      initialCameraPosition: widget.mapSettings.initialCameraPosition,
+      minMaxZoomPreference: widget.mapSettings.minMaxZoomPreference!,
+      cameraTargetBounds: widget.mapSettings.cameraTargetBounds!,
+      initialCameraPosition: widget.mapSettings.initialCameraPosition!,
       onMapCreated: (GoogleMapController controller) {
         Provider.of<MapController>(context, listen: false)
             .bindWithGoogleMap(controller);

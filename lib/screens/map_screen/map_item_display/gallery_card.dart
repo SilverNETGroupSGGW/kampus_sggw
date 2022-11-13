@@ -4,7 +4,7 @@ import 'package:kampus_sggw/screens/map_screen/photo_card.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 
 class GalleryCard extends StatelessWidget {
-  final List<Image> images;
+  final List<Image>? images;
   GalleryCard({this.images});
 
   @override
@@ -48,7 +48,7 @@ class GalleryCard extends StatelessWidget {
   }
 
   List<Widget> _photoViewers() {
-    return images.map((image) => PhotoViewer(image)).toList();
+    return images!.map((image) => PhotoViewer(image)).toList();
   }
 }
 
@@ -62,9 +62,9 @@ class PhotoViewer extends StatefulWidget {
 }
 
 class _PhotoViewer extends State<PhotoViewer> {
-  static Image _selectedImage;
+  static Image? _selectedImage;
 
-  static Route<Object> _dialogBuilder(BuildContext context, Object arguments) {
+  static Route<void> _dialogBuilder(BuildContext context, Object? arguments) {
     return DialogRoute<void>(
       context: context,
       builder: (BuildContext context) => PhotoCard(

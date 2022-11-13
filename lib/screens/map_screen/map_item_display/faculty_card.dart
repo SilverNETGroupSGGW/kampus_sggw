@@ -6,8 +6,8 @@ import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'service_button_row.dart';
 
 class FacultyCard extends StatelessWidget {
-  final Category category;
-  final ServiceButtonsRow servicesRow;
+  final Category? category;
+  final ServiceButtonsRow? servicesRow;
 
   FacultyCard({this.category, this.servicesRow});
 
@@ -17,7 +17,7 @@ class FacultyCard extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: SimpleDialog(
         title: Text(
-          category.name,
+          category!.name!,
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.headline3,
         ),
@@ -55,29 +55,30 @@ class FacultyCard extends StatelessWidget {
   }
 
   Widget _descriptionWidget() {
-    if (category.description == null) {
+    if (category!.description == null) {
       return Center();
     }
     return Padding(
       padding: EdgeInsets.all(5),
       child: Text(
-        category.description,
+        category!.description!,
         textAlign: TextAlign.center,
       ),
     );
   }
 
   Widget _websiteUrl() {
-    if (category.url == null) {
+    if (category!.url == null) {
       return Center();
     }
 
-    return ClickableUrl(url: category.url);
+    return ClickableUrl(url: category!.url);
   }
 
   Widget _subCategories() {
-    if (category.subCategories == null ||
-        category.subCategories[0].name != 'departments') {
+    if (category!.subCategories == null ||
+        category!.subCategories!.isEmpty ||
+        category!.subCategories![0].name != 'departments') {
       return Center();
     }
 
@@ -94,11 +95,11 @@ class FacultyCard extends StatelessWidget {
           padding: EdgeInsets.only(bottom: 10),
           child: Text(LocaleKeys.departments.tr()),
         ),
-        for (var i = 0; i < category.subCategories[0].subCategories.length; i++)
+        for (var i = 0; i < category!.subCategories![0].subCategories!.length; i++)
           Padding(
             padding: EdgeInsets.only(left: 10, bottom: 5, right: 10),
             child: Text(
-              category.subCategories[0].subCategories[i].name,
+              category!.subCategories![0].subCategories![i].name!,
               textAlign: TextAlign.center,
             ),
           )

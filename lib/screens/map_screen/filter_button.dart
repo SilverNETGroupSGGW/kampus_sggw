@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class FilterButton extends StatelessWidget {
-  final color;
-  final icon;
-  final onTapFunction;
+  final Color color;
+  final IconData? iconData;
+  final Function onTapFunction;
 
   const FilterButton({
-    Key key,
-    @required this.color,
-    @required this.icon,
-    @required this.onTapFunction,
+    Key? key,
+    required this.color,
+    required this.iconData,
+    required this.onTapFunction,
   }) : super(key: key);
 
   @override
@@ -23,7 +23,7 @@ class FilterButton extends StatelessWidget {
         width: 60.0,
         child: FloatingActionButton(
           child: Icon(
-            icon,
+            iconData,
             size: 35.0,
           ),
           backgroundColor: color,

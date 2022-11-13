@@ -9,9 +9,9 @@ import 'package:kampus_sggw/models/map_items.dart';
 part 'search_history.g.dart';
 
 @JsonSerializable()
-class SearchHistory extends UserHistory with StorableJSON, LoadableJSON {
-  List<MapItem> _filtered;
-  SearchHistory({int buffer, List<int> itemsIds})
+class SearchHistory extends UserHistory with StorableJson, LoadableJson {
+  late List<MapItem> _filtered;
+  SearchHistory({int? buffer, List<int>? itemsIds})
       : super(buffer: buffer, itemsIds: itemsIds);
 
   UnmodifiableListView<MapItem> get filteredHistory =>
@@ -29,7 +29,7 @@ class SearchHistory extends UserHistory with StorableJSON, LoadableJSON {
   }
 
   @override
-  void deleteItem(MapItem mapItem) {
+  void deleteItem(MapItem? mapItem) {
     super.deleteItem(mapItem);
     _resetFiltered();
     _save();
@@ -46,8 +46,8 @@ class SearchHistory extends UserHistory with StorableJSON, LoadableJSON {
     notifyListeners();
   }
 
-  static Future<SearchHistory> loadFromJSON() async {
-    String jsonString = await LoadableJSON.getJSONString('searchHistory');
+  static Future<SearchHistory> loadFromJson() async {
+    String jsonString = await LoadableJson.getJsonString('searchHistory');
     Map<String, dynamic> map = jsonDecode(jsonString);
     return SearchHistory.fromJson(map);
   }
@@ -61,7 +61,7 @@ class SearchHistory extends UserHistory with StorableJSON, LoadableJSON {
     super.saveToJson('searchHistory');
   }
 
-  List<MapItem> _filterToMuchQuery({String query}) {
+  List<MapItem> _filterToMuchQuery({String? query}) {
     if (query != null && query.isNotEmpty) {
       return _getItemsWhichNameStartsWith(query);
     } else {
@@ -70,6 +70,6 @@ class SearchHistory extends UserHistory with StorableJSON, LoadableJSON {
   }
 
   List<MapItem> _getItemsWhichNameStartsWith(String query) {
-    return storedMapItems.where((item) => item.name.startsWith(query)).toList();
+    return storedMapItems.where((item) => item.name!.startsWith(query)).toList();
   }
 }

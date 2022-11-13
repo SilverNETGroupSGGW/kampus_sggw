@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/global_widgets/clickable_url.dart';
-import 'package:kampus_sggw/models/campus_rules.dart';
+import 'package:kampus_sggw/models/campus_rules/campus_rule.dart';
+import 'package:kampus_sggw/models/campus_rules/campus_rules.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'rules_screen_widgets/build_list_title_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -15,13 +16,14 @@ class RulesScreen extends StatefulWidget {
   _RulesScreenState createState() => _RulesScreenState();
 }
 
-class _RulesScreenState extends State<RulesScreen> with TickerProviderStateMixin {
-  CampusRules rulesList;
-  AnimationController controller;
+class _RulesScreenState extends State<RulesScreen>
+    with TickerProviderStateMixin {
+  CampusRules? rulesList;
+  late AnimationController controller;
 
   @override
   initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
+    WidgetsBinding.instance!.addPostFrameCallback((_) async {
       rulesList = await this.loadFromJson(widget.currentLang);
     });
 
@@ -71,7 +73,7 @@ class _RulesScreenState extends State<RulesScreen> with TickerProviderStateMixin
       body: ListView(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 2),
         children: [
-          for (CampusRule campusRule in rulesList.campusRulesList)
+          for (CampusRule campusRule in rulesList!.campusRulesList!)
             SingleChildScrollView(
               physics: BouncingScrollPhysics(),
               child: buildListTitle(context, campusRule),

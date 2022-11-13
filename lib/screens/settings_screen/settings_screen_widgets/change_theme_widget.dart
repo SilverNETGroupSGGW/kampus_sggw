@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kampus_sggw/models/theme_model.dart';
+import 'package:kampus_sggw/translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
 class ChangeThemeWidget extends StatefulWidget {
@@ -8,8 +10,8 @@ class ChangeThemeWidget extends StatefulWidget {
 }
 
 class _ChangeThemeWidget extends State<ChangeThemeWidget> {
-  bool _isModeDarkSwitchValue;
-  ThemeModel _theme;
+  late bool _isModeDarkSwitchValue;
+  late ThemeModel _theme;
 
   @override
   initState() {
@@ -20,14 +22,15 @@ class _ChangeThemeWidget extends State<ChangeThemeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Switch(
+    return SwitchListTile(
+      title: Text(LocaleKeys.dark_mode.tr()),
       value: _isModeDarkSwitchValue,
       onChanged: (value) {
         _theme.switchTheme();
         _isModeDarkSwitchValue = value;
       },
       activeTrackColor: Colors.white,
-      activeColor: Colors.grey,
+      activeColor: Colors.green,
     );
   }
 }
