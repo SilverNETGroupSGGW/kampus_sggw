@@ -23,6 +23,7 @@ stages:
         targetType: 'inline'
         script: |
           sed -i "s/$(KEY_ALIAS)/$(DEV_MAPS_API_KEY)/" $(Build.SourcesDirectory)/ios/Runner/AppDelegate.swift
+          cat $(Build.SourcesDirectory)/ios/Runner/AppDelegate.swift
     # - task: InstallAppleCertificate@2
     #   displayName: install Apple Certificate
     #   inputs:
