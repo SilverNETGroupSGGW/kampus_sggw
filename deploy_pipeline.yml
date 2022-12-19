@@ -42,12 +42,13 @@ stages:
         mode: 'auto'
         channel: 'stable'
         version: 'latest'
-    # - task: Bash@3
-    #   displayName: run flutter doctor
-    #   inputs:
-    #     targetType: 'inline'
-    #     script: |
-    #       flutter doctor -v
+    - task: Bash@3
+      displayName: run flutter doctor
+      inputs:
+        targetType: 'inline'
+        script: |
+          $(FlutterToolPath)/flutter doctor -v
+          $(FlutterToolPath)/flutter --version
     # - task: FlutterBuild@0
     #   displayName: build application
     #   inputs:
