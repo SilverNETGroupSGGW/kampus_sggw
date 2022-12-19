@@ -26,7 +26,7 @@ stages:
           echo $DEV_MAPS_API_KEY
           echo "key_alias:"
           echo $(key_alias)
-          sed -i "s/$(key_alias)/$DEV_MAPS_API_KEY/" $(Build.SourcesDirectory)/ios/Runner/AppDelegate.swift
+          sed "s/$(key_alias)/$DEV_MAPS_API_KEY/" $(Build.SourcesDirectory)/ios/Runner/AppDelegate.swift
           cat $(Build.SourcesDirectory)/ios/Runner/AppDelegate.swift
       env:
         DEV_MAPS_API_KEY: $(DEV_MAPS_API_KEY)
