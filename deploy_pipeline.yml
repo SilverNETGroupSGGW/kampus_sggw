@@ -39,17 +39,17 @@ stages:
     #     provisioningProfileLocation: 'secureFiles'
     #     provProfileSecureFile: 'provisioning.provisioning'
     #     removeProfile: true
-    - task: FlutterInstall@0
-      inputs:
-        mode: 'auto'
-        channel: 'stable'
-        version: 'latest'
-    - task: Bash@3
-      displayName: run flutter doctor
-      inputs:
-        targetType: 'inline'
-        script: |
-          flutter doctor -v
+    # - task: FlutterInstall@0
+    #   inputs:
+    #     mode: 'auto'
+    #     channel: 'stable'
+    #     version: 'latest'
+    # - task: Bash@3
+    #   displayName: run flutter doctor
+    #   inputs:
+    #     targetType: 'inline'
+    #     script: |
+    #       flutter doctor -v
     # - task: FlutterBuild@0
     #   displayName: build application
     #   inputs:
