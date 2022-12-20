@@ -7,6 +7,8 @@ trigger:
 
 variables:
 - group: silvernet
+- name: verbose
+  value: false 
 
 stages:
 - stage: Build
@@ -48,6 +50,7 @@ stages:
         script: |
           $(FlutterToolPath)/flutter doctor -v
           $(FlutterToolPath)/flutter --version
+      condition: eq(variables.verbose, 'true')
     - task: FlutterBuild@0
       displayName: build application
       inputs:
