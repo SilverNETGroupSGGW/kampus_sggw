@@ -25,18 +25,18 @@ stages:
           sed -i "" "s/$(key_alias)/$DEV_MAPS_API_KEY/" $(Build.SourcesDirectory)/ios/Runner/AppDelegate.swift
       env:
         DEV_MAPS_API_KEY: $(DEV_MAPS_API_KEY)
-    # - task: InstallAppleCertificate@2
-    #   displayName: install Apple Certificate
-    #   inputs:
-    #     certSecureFile: 'ios_distribution.p12'
-    #     certPwd: $(P12_FILE_PASSWORD)
-    #     keychain: 'temp'
-    # - task: InstallAppleProvisioningProfile@1
-    #   displayName: install Apple Provisioning Profile
-    #   inputs:
-    #     provisioningProfileLocation: 'secureFiles'
-    #     provProfileSecureFile: 'provisioning.provisioning'
-    #     removeProfile: true
+    - task: InstallAppleCertificate@2
+      displayName: install Apple Certificate
+      inputs:
+        certSecureFile: 'distribution_Certificates.p12'
+        certPwd: $(P12password)
+        keychain: 'temp'
+    - task: InstallAppleProvisioningProfile@1
+      displayName: install Apple Provisioning Profile
+      inputs:
+        provisioningProfileLocation: 'secureFiles'
+        provProfileSecureFile: 'macOS_marta.mobileprovision'
+        removeProfile: true
     - task: FlutterInstall@0
       inputs:
         mode: 'auto'
