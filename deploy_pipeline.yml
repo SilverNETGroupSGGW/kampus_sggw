@@ -25,12 +25,12 @@ stages:
           sed -i "" "s/$(key_alias)/$DEV_MAPS_API_KEY/" $(Build.SourcesDirectory)/ios/Runner/AppDelegate.swift
       env:
         DEV_MAPS_API_KEY: $(DEV_MAPS_API_KEY)
-    - task: InstallAppleCertificate@2
-      displayName: install Apple Certificate
-      inputs:
-        certSecureFile: 'distribution_Certificates.p12'
-        certPwd: $(P12password)
-        keychain: 'temp'
+    # - task: InstallAppleCertificate@2
+    #   displayName: install Apple Certificate
+    #   inputs:
+    #     certSecureFile: 'distribution_Certificates.p12'
+    #     certPwd: $(P12password)
+    #     keychain: 'temp'
     - task: InstallAppleProvisioningProfile@1
       displayName: install Apple Provisioning Profile
       inputs:
