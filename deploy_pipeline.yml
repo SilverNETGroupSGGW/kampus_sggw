@@ -5,10 +5,14 @@ trigger:
 # - develop
 - none
 
+parameters:
+- name: verbose
+  displayName: 'verbose run'
+  type: boolean
+  default: false 
+
 variables:
 - group: silvernet
-- name: verbose
-  value: false 
 
 stages:
 - stage: Build
@@ -50,7 +54,7 @@ stages:
         script: |
           $(FlutterToolPath)/flutter doctor -v
           $(FlutterToolPath)/flutter --version
-      condition: eq(variables.verbose, 'true')
+      condition: eq(${{ parameters.verbose }}, 'true')
     # - task: FlutterBuild@0
     #   displayName: build application
     #   inputs:
