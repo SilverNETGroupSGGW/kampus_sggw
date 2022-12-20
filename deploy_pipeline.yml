@@ -34,7 +34,6 @@ stages:
     - task: InstallAppleProvisioningProfile@1
       displayName: install Apple Provisioning Profile
       inputs:
-        provisioningProfileLocation: 'secureFiles'
         provProfileSecureFile: 'azure_pipeline_kampus.mobileprovision'
         removeProfile: true
     - task: FlutterInstall@0
