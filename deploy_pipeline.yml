@@ -63,7 +63,7 @@ stages:
     - task: FlutterBuild@0
       displayName: build application
       inputs:
-        target: ipa
+        target: ios
         projectDirectory: '$(Build.SourcesDirectory)'
     - task: FlutterTest@0
       displayName: "Run unit tests"
