@@ -25,6 +25,7 @@ abstract class  LocaleKeys {
   static const floor = 'floor';
   static const website = 'website';
   static const close = 'close';
+  static const want_you_exit = 'want_you_exit';
   static const settings = 'settings';
   static const dark_mode = 'dark_mode';
   static const language = 'language';
@@ -33,5 +34,6 @@ abstract class  LocaleKeys {
   static const campus_rules = 'campus_rules';
   static const offices = 'offices';
   static const rules_link = 'rules_link';
+  static const authors = 'authors';
 
 }

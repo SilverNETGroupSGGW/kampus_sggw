@@ -52,7 +52,7 @@ Future<Status> checkUpdates() async {
     developer.log('Update: ' + updateStatus['message']);
 
     metadata[tokenKey] = updateStatus['token'];
-    String newMapItems = updateStatus['data'];
+    String? newMapItems = updateStatus['data'];
 
     if (newMapItems != null && newMapItems.length != 0) {
       storage.write(tokenKey, updateStatus['token']);

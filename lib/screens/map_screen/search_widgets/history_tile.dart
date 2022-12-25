@@ -4,11 +4,11 @@ import 'package:kampus_sggw/models/map_item.dart';
 import 'package:provider/provider.dart';
 
 class HistoryTile extends StatelessWidget {
-  final MapItem item;
-  final Function onTap;
+  final MapItem? item;
+  final Function? onTap;
 
   const HistoryTile({
-    Key key,
+    Key? key,
     this.item,
     this.onTap,
   }) : super(key: key);
@@ -17,17 +17,19 @@ class HistoryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-        item.name,
+        item!.name!,
         maxLines: 1,
-        overflow: TextOverflow.ellipsis,
+        overflow: TextOverflow.fade,
+        softWrap: false,
       ),
+      horizontalTitleGap: 0.0,
       leading: Icon(Icons.history),
       trailing: IconButton(
         icon: Icon(Icons.clear),
         onPressed: () =>
             Provider.of<SearchHistory>(context, listen: false).deleteItem(item),
       ),
-      onTap: () => onTap(item),
+      onTap: () => onTap!(item),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class DarkTheme {
   ThemeData get theme => ThemeData.dark().copyWith(
       primaryColor: Colors.grey[900],
+      backgroundColor: Colors.grey[900],
       brightness: Brightness.dark,
       focusColor: Colors.grey[800],
       textTheme: TextTheme(

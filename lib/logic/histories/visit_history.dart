@@ -7,8 +7,8 @@ import 'package:kampus_sggw/models/map_item.dart';
 part 'visit_history.g.dart';
 
 @JsonSerializable()
-class VisitHistory extends UserHistory with StorableJSON, LoadableJSON {
-  VisitHistory({int buffer, List<int> itemsIds})
+class VisitHistory extends UserHistory with StorableJson, LoadableJson {
+  VisitHistory({int? buffer, List<int>? itemsIds})
       : super(buffer: buffer, itemsIds: itemsIds);
 
   factory VisitHistory.fromJson(Map<String, dynamic> json) =>
@@ -26,13 +26,13 @@ class VisitHistory extends UserHistory with StorableJSON, LoadableJSON {
   }
 
   @override
-  void deleteItem(MapItem mapItem) {
+  void deleteItem(MapItem? mapItem) {
     super.deleteItem(mapItem);
     save();
   }
 
-  static Future<VisitHistory> loadFromJSON() async {
-    String jsonString = await LoadableJSON.getJSONString('visitHistory');
+  static Future<VisitHistory> loadFromJson() async {
+    String jsonString = await LoadableJson.getJsonString('visitHistory');
     Map<String, dynamic> map = jsonDecode(jsonString);
     return VisitHistory.fromJson(map);
   }

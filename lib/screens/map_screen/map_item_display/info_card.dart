@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kampus_sggw/global_widgets/clickable_url.dart';
-import 'package:kampus_sggw/models/map_item.dart';
+import 'package:kampus_sggw/logic/object_function_group.dart';
 import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'gallery_button.dart';
 import 'service_button_row.dart';
 
 class InfoCardDialog extends StatelessWidget {
-  final String header;
-  final ListView subcategories;
-  final ServiceButtonsRow servicesRow;
-  final String photoPath;
-  final MapItemType mapItemType;
-  final Text mapItemDescription;
-  final List<Image> mapItemGallery;
-  final List<Widget> otherCategories;
-  final Widget facultyTile;
-  final String mapItemWebsite;
+  final String? header;
+  final ListView? subcategories;
+  final ServiceButtonsRow? servicesRow;
+  final String? photoPath;
+  final ObjectFunctionGroup? type;
+  final Text? mapItemDescription;
+  final List<Image>? mapItemGallery;
+  final List<Widget>? otherCategories;
+  final Widget? facultyTile;
+  final String? mapItemWebsite;
 
   InfoCardDialog({
     this.header,
     this.subcategories,
     this.servicesRow,
     this.photoPath,
-    this.mapItemType,
+    this.type,
     this.mapItemDescription,
     this.mapItemGallery,
     this.otherCategories,
@@ -35,7 +35,7 @@ class InfoCardDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return SimpleDialog(
       title: Text(
-        header,
+        header!,
         style: Theme.of(context).textTheme.headline3,
         textAlign: TextAlign.center,
       ),
@@ -95,7 +95,7 @@ class InfoCardDialog extends StatelessWidget {
     }
 
     Widget coverImage;
-    if (mapItemGallery.isEmpty) {
+    if (mapItemGallery!.isEmpty) {
       coverImage = Center();
     } else {
       coverImage = Align(
@@ -110,7 +110,7 @@ class InfoCardDialog extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(photoPath),
+          image: AssetImage(photoPath!),
           fit: BoxFit.cover,
         ),
       ),
@@ -140,8 +140,7 @@ class InfoCardDialog extends StatelessWidget {
   }
 
   Widget _subcategoriesDisplay(BuildContext context) {
-    if (mapItemType != MapItemType.facultyBuilding &&
-        mapItemType != MapItemType.administrationBuilding) {
+    if (type != ObjectFunctionGroup.study) {
       return Center();
     }
 

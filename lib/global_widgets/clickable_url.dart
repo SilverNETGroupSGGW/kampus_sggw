@@ -4,7 +4,7 @@ import 'package:kampus_sggw/translations/locale_keys.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ClickableUrl extends StatelessWidget {
-  final String url;
+  final String? url;
   final String text;
   final bool includeHeader;
 
@@ -20,7 +20,7 @@ class ClickableUrl extends StatelessWidget {
           child: GestureDetector(
             onTap: _openUrl,
             child: Text(
-              _linkText(),
+              _linkText()!,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.blue,
@@ -36,10 +36,10 @@ class ClickableUrl extends StatelessWidget {
   }
 
   Future<void> _openUrl() async {
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await canLaunch(url!)) {
+      await launch(url!);
     } else {
-      throw 'Could not launch ' + url;
+      throw 'Could not launch ' + url!;
     }
   }
 
@@ -59,7 +59,7 @@ class ClickableUrl extends StatelessWidget {
     );
   }
 
-  String _linkText() {
+  String? _linkText() {
     return text == "" ? url : text;
   }
 }

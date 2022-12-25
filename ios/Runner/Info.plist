@@ -66,5 +66,7 @@
 	<false/>
 	<key>kTCCServiceMediaLibrary</key>
 	<string>We do not access your music</string>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 </dict>
 </plist>

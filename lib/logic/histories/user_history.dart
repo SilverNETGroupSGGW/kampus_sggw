@@ -7,11 +7,11 @@ import 'package:kampus_sggw/models/map_items.dart';
 @JsonSerializable()
 class UserHistory extends ChangeNotifier {
   @JsonKey(defaultValue: 6)
-  int buffer;
+  int? buffer;
   @JsonKey(defaultValue: <int>[])
-  List<int> itemsIds;
+  List<int?>? itemsIds;
   @JsonKey(ignore: true)
-  List<MapItem> _storedMapItems;
+  late List<MapItem> _storedMapItems;
 
   UserHistory({this.buffer, this.itemsIds});
 
@@ -19,29 +19,29 @@ class UserHistory extends ChangeNotifier {
       UnmodifiableListView(_storedMapItems);
 
   void loadMapItems(MapItems mapItems) {
-    _storedMapItems = mapItems.getItems(itemsIds).reversed.toList();
+    _storedMapItems = mapItems.getItemsMappedWithId(itemsIds!).reversed.toList();
   }
 
   @protected
   void addItem(MapItem mapItem) {
     _putAtFirstPosition(mapItem);
-    itemsIds.add(mapItem.id);
+    itemsIds!.add(mapItem.id);
     _trimListToBuffer();
   }
 
   @protected
-  void deleteItem(MapItem mapItem) {
-    itemsIds.removeWhere((id) => id == mapItem.id);
-    _storedMapItems.removeWhere((item) => item.id == mapItem.id);
+  void deleteItem(MapItem? mapItem) {
+    itemsIds!.removeWhere((id) => id == mapItem!.id);
+    _storedMapItems.removeWhere((item) => item.id == mapItem!.id);
   }
 
   void _trimListToBuffer() {
-    if (itemsIds.length > buffer) {
-      itemsIds.removeRange(0, 1);
+    if (itemsIds!.length > buffer!) {
+      itemsIds!.removeRange(0, 1);
     }
   }
 
   void _putAtFirstPosition(MapItem mapItem) {
-    itemsIds.removeWhere((id) => id == mapItem.id);
+    itemsIds!.removeWhere((id) => id == mapItem.id);
   }
 }

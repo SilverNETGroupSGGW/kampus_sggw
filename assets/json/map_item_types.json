@@ -1,0 +1,77 @@
+{
+    "typesFromJson": [
+        {
+            "name": "facultyBuilding",
+            "pinIconPath": "facultyMarker.png",
+            "materialIconName": "school outlined",
+            "functionGroup": "study"
+        },
+        {
+            "name": "administrationBuilding",
+            "pinIconPath": "administrationMarker.png",
+            "materialIconName": "corporate fare outlined",
+            "functionGroup": "study"
+        },
+        {
+            "name": "sportsFacility",
+            "pinIconPath": "sportMarker.png",
+            "materialIconName": "sports soccer outlined"
+        },
+        {
+            "name": "store",
+            "pinIconPath": "storeMarker.png",
+            "materialIconName": "storefront outlined",
+            "functionGroup": "store"
+        },
+        {
+            "name": "food",
+            "pinIconPath": "foodMarker.png",
+            "materialIconName": "restaurant outlined",
+            "functionGroup": "food"
+        },
+        {
+            "name": "library",
+            "pinIconPath": "libraryMarker.png",
+            "materialIconName": "local library outlined"
+        },
+        {
+            "name": "parking",
+            "pinIconPath": "parkingMarker.png",
+            "materialIconName": "local parking outlined",
+            "functionGroup": "parking"
+        },
+        {
+            "name": "transport",
+            "pinIconPath": "transportMarker.png",
+            "materialIconName": "directions bus outlined",
+            "functionGroup": "transport"
+        },
+        {
+            "name": "finance",
+            "pinIconPath": "financeMarker.png",
+            "materialIconName": "attach money outlined"
+        },
+        {
+            "name": "dormitories",
+            "pinIconPath": "hotelMarker.png",
+            "materialIconName": "hotel outlined"
+        },
+        {
+            "name": "kindergarten",
+            "pinIconPath": "otherMarker.png",
+            "materialIconName": "child friendly outlined"
+        },
+        {
+            "name": "monument",
+            "pinIconPath": "otherMarker.png",
+            "materialIconName": "park outlined",
+            "functionGroup": "park"
+        },
+        {
+            "name": "medicine",
+            "pinIconPath": "otherMarker.png",
+            "materialIconName": "medical services outlined",
+            "functionGroup": "store"
+        }
+    ]
+}

@@ -8,13 +8,12 @@ import 'package:kampus_sggw/themes/light_theme.dart';
 part 'theme_model.g.dart';
 
 @JsonSerializable()
-class ThemeModel extends ChangeNotifier with StorableJSON, LoadableJSON {
+class ThemeModel extends ChangeNotifier with StorableJson, LoadableJson {
   @JsonKey(defaultValue: 1)
-  int themeId;
-  @JsonKey(ignore: true)
-  ThemeData _currentTheme;
+  int? themeId;
+  ThemeData? _currentTheme;
 
-  ThemeData get currentTheme => _currentTheme;
+  ThemeData? get currentTheme => _currentTheme;
 
   ThemeModel({this.themeId});
 
@@ -45,8 +44,8 @@ class ThemeModel extends ChangeNotifier with StorableJSON, LoadableJSON {
   void _initializeTheme() =>
       _currentTheme = themeId == 0 ? LightTheme().theme : DarkTheme().theme;
 
-  static Future<ThemeModel> loadFromJSON() async {
-    String jsonString = await LoadableJSON.getJSONString('theme');
+  static Future<ThemeModel> loadFromJson() async {
+    String jsonString = await LoadableJson.getJsonString('theme');
     Map<String, dynamic> map = jsonDecode(jsonString);
     ThemeModel themeModel = ThemeModel.fromJson(map);
     themeModel._initializeTheme();

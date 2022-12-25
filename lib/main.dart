@@ -3,16 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kampus_sggw/logic/histories/search_history.dart';
 import 'package:kampus_sggw/logic/histories/visit_history.dart';
-import 'package:kampus_sggw/logic/map_controller.dart';
-import 'package:kampus_sggw/logic/map_icons_controller.dart';
+import 'package:kampus_sggw/logic/controllers/map_controller.dart';
 import 'package:kampus_sggw/logic/search_services/filter_service.dart';
 import 'package:kampus_sggw/logic/search_services/search_service.dart';
 import 'package:kampus_sggw/logic/search_services/suggestion_service.dart';
 import 'package:kampus_sggw/models/map_items.dart';
 import 'package:kampus_sggw/models/theme_model.dart';
-import 'package:kampus_sggw/logic/search_bar_controller.dart';
-import 'package:kampus_sggw/logic/map_markers_controller.dart';
-import 'package:kampus_sggw/screens/map_screen/map_screen.dart';
+import 'package:kampus_sggw/logic/controllers/map_markers_controller.dart';
+import 'package:kampus_sggw/screens/map_screen/app_screen.dart';
 import 'package:kampus_sggw/translations/codegen_loader.g.dart';
 import 'package:kampus_sggw/updateLocalData.dart';
 import 'package:get_storage/get_storage.dart';
@@ -26,13 +24,12 @@ Future<void> main() async {
   await checkUpdates();
 
   final mapItems = await MapItems.load();
-  final searchHistory = await SearchHistory.loadFromJSON();
-  final visitHistory = await VisitHistory.loadFromJSON();
-  final themeModel = await ThemeModel.loadFromJSON();
+  final searchHistory = await SearchHistory.loadFromJson();
+  final visitHistory = await VisitHistory.loadFromJson();
+  final themeModel = await ThemeModel.loadFromJson();
   final mapController = MapController();
   final markersController = MapMarkersController(
     mapController: mapController,
-    iconsController: await MapIconsController.loadIcons(),
   );
   final searchService = SearchService(
     mapMarkers: markersController,
@@ -63,9 +60,6 @@ Future<void> main() async {
           ChangeNotifierProvider.value(value: suggestionService),
           ChangeNotifierProvider.value(value: mapController),
           ChangeNotifierProvider.value(value: markersController),
-          ChangeNotifierProvider(
-            create: (_) => SearchBarController(),
-          ),
         ],
         child: CampusSGGW(),
       ),
@@ -88,7 +82,7 @@ class _CampusSGGWState extends State<CampusSGGW> {
       title: 'Kampus SGGW',
       theme: Provider.of<ThemeModel>(context).currentTheme,
       debugShowCheckedModeBanner: false,
-      home: MapScreen(),
+      home: AppScreen(),
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
       locale: context.locale,

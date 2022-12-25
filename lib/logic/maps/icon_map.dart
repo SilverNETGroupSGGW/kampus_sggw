@@ -1,0 +1,26 @@
+import 'package:flutter/material.dart';
+
+Map<String, IconData> iconMap = {
+  "print rounded": Icons.print_rounded,
+  "restaurant": Icons.restaurant,
+  "event seat": Icons.event_seat,
+  "local drink": Icons.local_drink,
+  "coffee": Icons.coffee,
+  "account balance": Icons.account_balance,
+  "local library": Icons.local_library,
+  "medical services": Icons.medical_services,
+  "school outlined": Icons.school_outlined,
+  "corporate fare outlined": Icons.corporate_fare_outlined,
+  "sports soccer outlined": Icons.sports_soccer_outlined,
+  "storefront outlined": Icons.storefront_outlined,
+  "restaurant outlined": Icons.restaurant_outlined,
+  "local library outlined": Icons.local_library_outlined,
+  "local parking outlined": Icons.local_parking_outlined,
+  "directions bus outlined": Icons.directions_bus_outlined,
+  "attach money outlined": Icons.attach_money_outlined,
+  "hotel outlined": Icons.hotel_outlined,
+  "child friendly outlined": Icons.child_friendly_outlined,
+  "park outlined": Icons.park_outlined,
+  "medical services outlined": Icons.medical_services_outlined,
+  "": Icons.bookmark,
+};

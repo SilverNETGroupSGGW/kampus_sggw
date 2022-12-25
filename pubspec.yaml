@@ -1,35 +1,36 @@
 name: kampus_sggw
 description: Kampus SGGW remastered
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.1.1+4
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
   easy_localization: ^3.0.0
-  material_floating_search_bar: ^0.2.6
-  cupertino_icons: ^1.0.2
-  url_launcher: ^6.0.3
-  json_annotation: ^3.1.1
-  path_provider: ^2.0.1
-  shared_preferences: ^2.0.5
-  google_maps_flutter: ^2.0.3
-  google_maps_flutter_web: ^0.3.0
-  permission_handler: ^7.1.0
-  fuzzy: ^0.3.0
-  http: ^0.13.3
-  get_storage: ^2.0.2
-  provider: ^5.0.0
+  fluttertoast: ^8.0.8
+  cupertino_icons: ^1.0.4
+  url_launcher: ^6.0.16
+  json_annotation: ^4.3.0
+  path_provider: ^2.0.7
+  shared_preferences: ^2.0.9
+  google_maps_flutter: ^2.1.1
+  google_maps_flutter_web: ^0.4.0+3
+  permission_handler: ^10.2.0
+  fuzzy: ^0.4.0-nullsafety.0
+  http: ^0.13.4
+  get_storage: ^2.0.3
+  provider: ^6.0.1
+  collection: ^1.15.0-nullsafety.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^1.10.9
-  json_serializable: ^3.5.1
-  flutter_launcher_icons: ^0.9.0
+  build_runner: ^2.1.5
+  json_serializable: ^6.0.1
+  flutter_launcher_icons: ^0.10.0
 
 flutter_icons:
   android: true
@@ -47,6 +48,10 @@ flutter:
     - assets/json/map_items.json
     - assets/json/campus_rules_pl.json
     - assets/json/campus_rules_en.json
+    - assets/json/campus_authors_pl.json
+    - assets/json/campus_authors_en.json
+    - assets/json/map_item_types.json
+    - assets/json/service_types.json
     - assets/images/icons/
     - assets/metadata.json
   fonts:

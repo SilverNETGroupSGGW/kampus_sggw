@@ -861,7 +861,8 @@
                 {
                   "name": "Biblioteka przy IMW",
                   "type": "library",
-                  "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/weterynaria"
+                  "description": "parter",
+                  "url": "https://bg.sggw.edu.pl/biblioteki-instytutowe/biblioteka-przy-instytucie-medycyny-weterynaryjnej/"
                 }
               ],
               "subCategories": [
@@ -888,8 +889,8 @@
     {
       "id": 25,
       "geoLocation": {
-        "lat": 52.15820,
-        "lon": 21.04514
+        "lat": 52.15878, 
+        "lon": 21.04549
       },
       "name": "Budynek 25",
       "description": "Zwierzętarnia",
@@ -1060,7 +1061,8 @@
                 {
                   "name": "Biblioteka przy INoŻC",
                   "type": "library",
-                  "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/zywienie"
+                  "description": "parter, pok. 114",
+                  "url": "https://bg.sggw.edu.pl/biblioteki-instytutowe/biblioteka-przy-instytucie-nauk-o-zywieniu-czlowieka/"
                 },
                 {
                   "name": "Poradnia Dietetyczno-Żywieniowa",
@@ -1168,9 +1170,10 @@
               "url": "http://wbis.sggw.pl/instytuty/instytut-inzynierii-ladowej/",
               "services": [
                 {
-                  "name": "Biblioteka przy IIL",
+                  "name": "Biblioteka przy IIL i IIŚ",
                   "type": "library",
-                  "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/budownictwo"
+                  "description": "1 piętro, pok. 118",
+                  "url": "https://bg.sggw.edu.pl/biblioteki-instytutowe/biblioteka-przy-instytucie-inzynierii-ladowej-i-instytucie-inzynierii-srodowiska/"
                 }
               ],
               "subCategories": [
@@ -1199,9 +1202,10 @@
               "url": "http://wbis.sggw.pl/instytuty/instytut-inzynierii-srodowiska/",
               "services": [
                 {
-                  "name": "Biblioteka przy IIŚ",
+                  "name": "Biblioteka przy IIL i IIŚ",
                   "type": "library",
-                  "url": "http://bg.sggw.pl/index.php/pl/home-pl-pl/o-bibliotece/biblioteki-wydzialowe/budownictwo"
+                  "description": "1 piętro, pok. 118",
+                  "url": "https://bg.sggw.edu.pl/biblioteki-instytutowe/biblioteka-przy-instytucie-inzynierii-ladowej-i-instytucie-inzynierii-srodowiska/"
                 }
               ],
               "subCategories": [
@@ -1409,7 +1413,7 @@
             {
               "name": "IB",
               "description": "Instytut Biologii",
-              "url": "http://ib.sggw.pl/",
+              "url": "https://ib.sggw.edu.pl/",
               "subCategories": [
                 {
                   "name": "departments",
@@ -1432,7 +1436,7 @@
         "lon": 21.04260
       },
       "name": "Budynek 35",
-      "description": "Budynek WOiB",
+      "description": "Budynek WO",
       "type": "facultyBuilding",
       "minScale": 1.0,
       "lastModified": "2021-05-29",
@@ -1448,15 +1452,15 @@
           "name": "faculties",
           "subCategories": [
             {
-              "name": "WOiB",
-              "description": "Wydział Ogrodnictwa i Bioinżynierii",
-              "url": "http://wobiak.sggw.pl/",
+              "name": "WO",
+              "description": "Wydział Ogrodniczy",
+              "url": "https://wo.sggw.edu.pl/",
               "services": [
                 {
-                  "name": "Dziekanat WOiB",
+                  "name": "Dziekanat WO",
                   "type": "deanery",
                   "description": "Pokój 2",
-                  "url": "http://wobiak.sggw.pl/wydzial/kontakt/"
+                  "url": "https://wo.sggw.edu.pl/kontakt/"
                 }
               ]
             }
@@ -1515,7 +1519,7 @@
         "lon": 21.04295
       },
       "name": "Budynek 37",
-      "description": "Budynek WOiB i WRiB",
+      "description": "Budynek WO, WRiE i WBiB",
       "type": "facultyBuilding",
       "minScale": 1.0,
       "lastModified": "2021-05-29",
@@ -1531,28 +1535,41 @@
           "name": "faculties",
           "subCategories": [
             {
-              "name": "WOiB",
-              "description": "Wydział Ogrodnictwa i Bioinżynierii",
-              "url": "http://wobiak.sggw.pl/",
+              "name": "WO",
+              "description": "Wydział Ogrodniczy",
+              "url": "https://wo.sggw.edu.pl",
               "services": [
                 {
                   "name": "Dziekanat WOiB",
                   "type": "deanery",
                   "description": "Pokój 0/63 i 0/65",
-                  "url": "http://wobiak.sggw.pl/wydzial/kontakt/"
+                  "url": "https://wo.sggw.edu.pl/kontakt/"
                 }
               ]
             },
             {
-              "name": "WRiB",
-              "description": "Wydział Rolnictwa i Biologii",
-              "url": "http://wrib.sggw.pl/",
+              "name": "WRiE",
+              "description": "Wydział Rolnictwa i Ekologii",
+              "url": "https://wrie.sggw.edu.pl",
               "services": [
                 {
-                  "name": "Dziekanat WRiB",
+                  "name": "Dziekanat WRiE",
                   "type": "deanery",
                   "description": "Pokój 0/9, 0/10, 0/109 i 0/110",
-                  "url": "http://wrib.sggw.pl/2015-01-03-16-11-33/dziekanat"
+                  "url": "https://wrie.sggw.edu.pl/wydzial-rolnictwa-i-biologii/studia-na-wydziale/"
+                }
+              ]
+            },
+            {
+              "name": "WBiB",
+              "description": "Wydział Biologii i Biotechnologii",
+              "url": "https://wbib.sggw.edu.pl",
+              "services": [
+                {
+                  "name": "Dziekanat WBiB",
+                  "type": "deanery",
+                  "description": "Pokój 0/63, 0/64, 0/66",
+                  "url": "https://wbib.sggw.edu.pl/kontakt/"
                 }
               ]
             }
@@ -1564,7 +1581,7 @@
             {
               "name": "IB",
               "description": "Instytut Biologii",
-              "url": "http://ib.sggw.pl/",
+              "url": "https://ib.sggw.edu.pl/",
               "subCategories": [
                 {
                   "name": "departments",
@@ -1767,7 +1784,7 @@
       "name": "Biblioteka Główna SGGW",
       "description": "Biblioteka Główna SGGW",
       "type": "library",
-      "url": "http://www.bg.sggw.pl/",
+      "url": "https://bg.sggw.edu.pl/",
       "minScale": 1.0,
       "lastModified": "2021-05-29"
     },

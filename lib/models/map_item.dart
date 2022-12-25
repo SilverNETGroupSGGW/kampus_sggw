@@ -1,44 +1,37 @@
+import 'package:flutter/material.dart';
 import 'package:fuzzy/fuzzy.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kampus_sggw/models/category.dart';
 import 'package:kampus_sggw/models/location.dart';
+import 'package:kampus_sggw/models/types/map_item_types/map_item_type.dart';
+import 'package:kampus_sggw/models/types/map_item_types/map_item_types.dart';
+import 'package:kampus_sggw/logic/object_function_group.dart';
 import 'package:kampus_sggw/models/service.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kampus_sggw/models/types/service_types/service_types.dart';
 part 'map_item.g.dart';
-
-enum MapItemType {
-  facultyBuilding,
-  administrationBuilding,
-  sportsFacility,
-  store,
-  food,
-  library,
-  parking,
-  transport,
-  finance,
-  dormitories,
-  kindergarten,
-  monument,
-  medicine,
-}
 
 @JsonSerializable()
 class MapItem {
-  int id;
-  Location geoLocation;
-  String name;
-  String description;
-  String url;
-  MapItemType type;
-  String photoPath;
-  double minScale;
-  DateTime lastModified;
-  List<String> gallery;
-  List<Service> services;
-  List<Category> categories;
-  @JsonKey(ignore: true)
-  Fuzzy searchingSet;
+  int? id;
+  Location? geoLocation;
+  String? name;
+  String? description;
+  String? url;
+  String? type;
+  String? photoPath;
+  double? minScale;
+  DateTime? lastModified;
+  @JsonKey(defaultValue: <String>[])
+  List<String>? gallery;
+  @JsonKey(defaultValue: <Service>[])
+  List<Service>? services;
+  @JsonKey(defaultValue: <Category>[])
+  List<Category>? categories;
+  Fuzzy? _searchingSet;
+  MapItemType? _mapItemType;
 
-  MapItem(
+  MapItem({
     this.id,
     this.geoLocation,
     this.name,
@@ -51,44 +44,62 @@ class MapItem {
     this.gallery,
     this.services,
     this.categories,
-  );
+  }) {
+    _generateFuzzySet();
+  }
+
+  BitmapDescriptor? get pinIcon => _mapItemType!.pinIcon;
+  IconData? get iconData => _mapItemType!.iconData;
+  ObjectFunctionGroup? get functionGroup => _mapItemType!.functionGroup;
+  Fuzzy? get searchingSet => _searchingSet;
+
   factory MapItem.fromJson(Map<String, dynamic> json) =>
       _$MapItemFromJson(json);
 
-  bool containsAtLeastOneServiceType(List<ServiceType> serviceTypes) {
-    return services == null
-        ? false
-        : services.any((service) => serviceTypes.contains(service.type));
+  void initializeTypes(MapItemTypes mapItemTypes, ServiceTypes serviceTypes) {
+    _setTypeForMapItem(mapItemTypes);
+    _setTypesForAllServices(serviceTypes);
   }
 
-  void generateFuzzySet() {
-    List<String> strings = [];
-    _addData(strings);
-    searchingSet = _getFuse(strings);
+  bool doesItemFulfilFunction(ObjectFunctionGroup? functionGroup) =>
+      (this.functionGroup == functionGroup ||
+          _containsServiceFulfillingFunction(functionGroup));
+
+  void _setTypeForMapItem(MapItemTypes mapItemTypes) =>
+      _mapItemType = mapItemTypes.types[type] as MapItemType?;
+
+  void _setTypesForAllServices(ServiceTypes serviceTypes) {
+    _setTypesForServices(serviceTypes);
+    _setTypesForServicesInCategories(serviceTypes);
   }
 
-  void _addInnerData(List<String> strings) {
-    strings.add(name);
-    if (description != null) {
-      strings.add(description);
-    }
+  void _setTypesForServices(ServiceTypes serviceTypes) =>
+      services!.forEach((service) => service.setType(serviceTypes));
+
+  void _setTypesForServicesInCategories(ServiceTypes serviceTypes) => categories!
+      .forEach((category) => category.setTypesForServices(serviceTypes));
+
+  bool _containsServiceFulfillingFunction(ObjectFunctionGroup? functionGroup) =>
+      services!.any((service) => service.functionGroup == functionGroup);
+
+  void _generateFuzzySet() =>
+      _searchingSet = _getFuse(_getWordsToCompareWithSearchQuery());
+
+  Set<String?> _getWordsToCompareWithSearchQuery() =>
+      _getInnerWords().union(_getWordsForComparisonInCategories());
+
+  Set<String?> _getWordsForComparisonInCategories() {
+    Set<String?> words = {};
+    categories!.forEach((category) =>
+        words.addAll(category.getWordsForComparisonWithSearchQuery()));
+    return words;
   }
 
-  bool _categoriesExist() =>
-      categories != null && categories.isNotEmpty ? true : false;
+  Set<String?> _getInnerWords() => {name, description};
 
-  void _addData(List<String> strings) {
-    _addInnerData(strings);
-    if (_categoriesExist()) {
-      for (var cat in categories) {
-        cat.addData(strings);
-      }
-    }
-  }
-
-  Fuzzy _getFuse(List<String> strings) {
+  Fuzzy _getFuse(Set<String?> wordsForComparisonWithSearchQuery) {
     return Fuzzy(
-      strings,
+      wordsForComparisonWithSearchQuery.toList(),
       options: FuzzyOptions(
         findAllMatches: true,
         tokenize: true,

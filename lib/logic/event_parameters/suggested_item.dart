@@ -5,8 +5,8 @@ class SuggestedItem {
   String matchedQuery;
   double similarity;
   SuggestedItem({
-    this.mapItem,
-    this.matchedQuery,
-    this.similarity,
+    required this.mapItem,
+    required this.matchedQuery,
+    required this.similarity,
   });
 }
