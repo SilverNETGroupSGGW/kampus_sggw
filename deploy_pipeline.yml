@@ -83,5 +83,5 @@ stages:
       displayName: "Publish IPA file"
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'ipa_kampus_$(Build.BuildId)_$(SourceBranchName)'
+        ArtifactName: 'ipa_kampus_$(Build.BuildId)'
         publishLocation: 'Container'
