@@ -13,7 +13,7 @@ parameters:
 - name: run_tests
   displayName: 'run flutter unit tests'
   type: boolean
-  default: false 
+  default: false
 
 variables:
 - group: silvernet
