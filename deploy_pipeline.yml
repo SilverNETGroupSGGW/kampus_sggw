@@ -63,8 +63,9 @@ stages:
     - task: FlutterBuild@0
       displayName: build application
       inputs:
-        target: ios
+        target: ipa
         projectDirectory: '$(Build.SourcesDirectory)'
+        exportOptionsPlist: 'ios/exportOptions.plist'
     - task: FlutterTest@0
       displayName: "Run unit tests"
       inputs:
