@@ -72,16 +72,16 @@ stages:
         generateCodeCoverageReport: true
         projectDirectory: '$(Build.SourcesDirectory)'
       condition: eq(${{ parameters.run_tests }}, 'true')
-    # - task: CopyFiles@2
-    #   displayName: "Copy app to staging directory"
-    #   inputs:
-    #     sourceFolder: '$(Agent.BuildDirectory)'
-    #     contents: '**/ipa/*.ipa'
-    #     targetFolder: '$(Build.StagingDirectory)'
-    #     flattenFolders: true
-    # - task: PublishBuildArtifacts@1
-    #   displayName: "Publish IPA file"
-    #   inputs:
-    #     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    #     ArtifactName: 'IPA'
-    #     publishLocation: 'Container'
+    - task: CopyFiles@2
+      displayName: "Copy app to staging directory"
+      inputs:
+        sourceFolder: '$(Agent.BuildDirectory)'
+        contents: '**/ipa/*.ipa'
+        targetFolder: '$(Build.StagingDirectory)'
+        flattenFolders: true
+    - task: PublishBuildArtifacts@1
+      displayName: "Publish IPA file"
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'ipa_kampus_$(Build.BuildId)_$(SourceBranchName)'
+        publishLocation: 'Container'
