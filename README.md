@@ -75,9 +75,14 @@ Tłumaczenie zasad null safety w Darcie: https://dart.dev/null-safety/understand
 Konto Azure DevOps Silver .Net: https://dev.azure.com/silversggw/KampusSGGW
 
 ## Testowanie IOS
-Przy braku dostępu do maca, aby przetestować wersję IOS aplikacji należy użyć pipeline'a ``. Pipeline utworzy plik ``, który przy pomocy iTunes można wrzucić na iPhone. Pipeline odpali się sam po merge'u do gałęzi `develop`.
+Przy braku dostępu do maca, aby przetestować wersję IOS aplikacji należy użyć pipeline'a `kampus_development`. Pipeline utworzy plik iOS, który przy pomocy iTunes można wrzucić na iPhone. Pipeline odpali się sam po merge'u do gałęzi `develop`.
 
 ### Wrzucenie pliku `` na iPhone przez iTunes
-Plik należy przeciągnąć na zakładkę `apps` użądzenia, gdy jest ono widoczne w iTunes. 
+Plik należy przeciągnąć na ikonę urządzenia, gdy jest ono widoczne w iTunes. Ikona, będzie po lewej, w zakładce `devices`.
+
+## Deploy IOS
+Aby zbudować wersję IOS aplikacji, która nadaje się na AppStoreConnect należy użyć pipeline'a `kampus_production`. Pipeline utworzy plik IPA `ipa_kampus_<build_id>/Kampus SGGW.ipa`. Pipeline odpali się sam po pull requeście do brancha `master`.
 
 ### Zarządzanie certyfikatami i zmiennymi
+Po roku należy zmienić certyfikaty p12 i mobileprovisioning. Nowe certyfikaty należy wrzucić w zakładce _Pipeline -> Library_ i nazwać tak jak poprzednie certyfikaty. Należy zmienić także hasło certyfikatu p12 - _Library -> silvernet variable group -> P12password_ (zmienna musi pozostać sekretem! Ikona kłódki przed save).
+Pipeline wykorzystuje także token do API Google maps. Token to zmienna `maps_api_key`.
