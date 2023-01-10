@@ -1,7 +1,7 @@
 name: DEV_$(Build.BuildId)_$(SourceBranchName)_$(Date:yyyyMMdd)
 
 trigger:
-- none
+- develop
 
 parameters:
 - name: verbose
@@ -37,8 +37,8 @@ stages:
     - task: InstallAppleCertificate@2
       displayName: install Apple Certificate
       inputs:
-        certSecureFile: 'DEV_distribution_ios.p12'
-        certPwd: $(P12password)
+        certSecureFile: 'develop_ios.p12'
+        certPwd: $(DEV_P12password)
         keychain: 'temp'
     - task: InstallAppleProvisioningProfile@1
       displayName: install Apple Provisioning Profile
