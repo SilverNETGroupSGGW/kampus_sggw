@@ -61,9 +61,8 @@ stages:
     - task: FlutterBuild@0
       displayName: build application
       inputs:
-        target: ipa
+        target: ios
         projectDirectory: '$(Build.SourcesDirectory)'
-        exportOptionsPlist: 'ios/exportOptions.plist'
     - task: FlutterTest@0
       displayName: "Run unit tests"
       inputs:
@@ -74,12 +73,12 @@ stages:
       displayName: "Copy app to staging directory"
       inputs:
         sourceFolder: '$(Agent.BuildDirectory)'
-        contents: '**/ipa/*.ipa'
+        contents: '**/ios/*'
         targetFolder: '$(Build.StagingDirectory)'
         flattenFolders: true
     - task: PublishBuildArtifacts@1
-      displayName: "Publish IPA file"
+      displayName: "Publish iOS files"
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'DEVipa_kampus_$(Build.BuildId)'
+        ArtifactName: 'ios_kampus_$(Build.BuildId)'
         publishLocation: 'Container'
