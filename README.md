@@ -70,3 +70,14 @@ Najnowsza wersja kodu jest oparta o mechanizm null safety. Domyślnie, wszystkie
 Zwracajcie na to uwagę w kodzie, wiele oryginalnych typów nie przyjmie już ```null``` jako wartości. Większość argumentów dostanie adnotację ```required```. 
 
 Tłumaczenie zasad null safety w Darcie: https://dart.dev/null-safety/understanding-null-safety
+
+# Pipeline'y
+Konto Azure DevOps Silver .Net: https://dev.azure.com/silversggw/KampusSGGW
+
+## Testowanie IOS
+Przy braku dostępu do maca, aby przetestować wersję IOS aplikacji należy użyć pipeline'a ``. Pipeline utworzy plik ``, który przy pomocy iTunes można wrzucić na iPhone. Pipeline odpali się sam po merge'u do gałęzi `develop`.
+
+### Wrzucenie pliku `` na iPhone przez iTunes
+Plik należy przeciągnąć na zakładkę `apps` użądzenia, gdy jest ono widoczne w iTunes. 
+
+### Zarządzanie certyfikatami i zmiennymi
