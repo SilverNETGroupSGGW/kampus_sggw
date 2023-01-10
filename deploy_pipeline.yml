@@ -1,9 +1,7 @@
 name: $(Build.BuildId)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
-# - master
-# - develop
-- none
+- master
 
 parameters:
 - name: verbose
