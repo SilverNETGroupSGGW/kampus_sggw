@@ -85,22 +85,22 @@ stages:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'ipa_kampus_$(Build.BuildId)'
         publishLocation: 'Container'
-    - task: AppStoreRelease@1
-      inputs:
-        serviceEndpoint: 'silver_appstore'
-        releaseTrack: 'TestFlight'
-        appIdentifier: 'com.silvers.kampus-sggw'
-        appType: 'iOS'
-        appSpecificId: '1586959639'
-    - task: AppStoreRelease@1
-      inputs:
-        authType: 'UserAndPass'
-        username: '$(fastLane.auth.userName)'
-        password: '$(fastLane.auth.password)'
-        isTwoFactorAuth: true
-        appSpecificPassword: '$(fastLane.auth.appPassword)'
-        releaseTrack: 'TestFlight'
-        appIdentifier: 'com.silvers.kampus-sggw'
-        appType: 'iOS'
-        shouldSkipWaitingForProcessing: true
-        appSpecificId: '1586959639'
+    # - task: AppStoreRelease@1
+    #   inputs:
+    #     serviceEndpoint: 'silver_appstore'
+    #     releaseTrack: 'TestFlight'
+    #     appIdentifier: 'com.silvers.kampus-sggw'
+    #     appType: 'iOS'
+    #     appSpecificId: '1586959639'
+    # - task: AppStoreRelease@1
+    #   inputs:
+    #     authType: 'UserAndPass'
+    #     username: '$(fastLane.auth.userName)'
+    #     password: '$(fastLane.auth.password)'
+    #     isTwoFactorAuth: true
+    #     appSpecificPassword: '$(fastLane.auth.appPassword)'
+    #     releaseTrack: 'TestFlight'
+    #     appIdentifier: 'com.silvers.kampus-sggw'
+    #     appType: 'iOS'
+    #     shouldSkipWaitingForProcessing: true
+    #     appSpecificId: '1586959639'
